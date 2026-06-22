@@ -129,7 +129,7 @@
                             <i class="fa-solid fa-diamond-turn-right text-xs text-blue-500"></i>導航
                         </a>
                         <a href="tel:+81524593155" class="bg-white border border-muji-linen hover:bg-muji-sand text-muji-charcoal px-2.5 py-1.5 rounded-xl font-bold flex items-center gap-1 transition-all">
-                            <i class="fa-solid fa-phone text-xs text-muji-earth"></i>撥號
+                            <i class="fa-solid fa-phone text-xs text-blue-500"></i>撥號
                         </a>
                     </div>
                 </div>
@@ -150,7 +150,7 @@
                         </div>
                         <div class="bg-muji-sand p-2.5 rounded-xl border border-muji-linen flex flex-col gap-1">
                             <span class="font-bold text-muji-earth flex items-center gap-1"><i class="fa-solid fa-store text-[10px] text-blue-400"></i> 1F 館內超商</span>
-                            <p class="text-muji-charcoal">・附設 1F Ministop 超商</p>
+                            <p class="text-muji-charcoal">・附設 1F 7-11 超商</p>
                             <p class="text-muji-earth">下樓即可補貨買零食，極為便利！</p>
                         </div>
                     </div>
@@ -188,105 +188,193 @@
             </div>
         </section>
 
-        <!-- ==================== TAB 2: GUIDE (深度導覽) ==================== -->
+       <!-- ==================== TAB 2: GUIDE (深度導覽 - 爸媽貼心話全客製化升級版) ==================== -->
         <section id="tab-guide" class="tab-content hidden fade-in">
             <h2 class="text-xl font-bold mb-4 flex items-center gap-2"><span class="text-lg">🧭</span> 行程景點與分隊秘笈</h2>
-            
-            <!-- 吉伊卡哇小提示 -->
-            <div class="bg-chiikawa-pink p-3 rounded-2xl border border-chiikawa-pinkdeep/30 mb-4 text-xs flex gap-3 items-center">
-                <span class="text-2xl">🐱</span>
-                <p class="text-muji-charcoal leading-relaxed">「有些地方大組、小組分開玩，大家看好標籤，隨時保持聯繫喔！」</p>
-            </div>
 
-            <!-- 導覽分頁按鈕群 (新增「飯店周邊」按鈕) -->
+            <!-- 導覽分頁按鈕群 -->
             <div class="flex gap-2 overflow-x-auto pb-2 mb-4 no-scrollbar">
-                <button onclick="switchGuide('hotel')" id="gbtn-hotel" class="g-tab-btn flex-shrink-0 px-3 py-1.5 rounded-full bg-white text-muji-charcoal border border-muji-linen text-xs font-semibold">飯店周邊</button>
-                <button onclick="switchGuide('toyota')" id="gbtn-toyota" class="g-tab-btn flex-shrink-0 px-3 py-1.5 rounded-full bg-muji-charcoal text-white text-xs font-semibold">豐田紀念館</button>
-                <button onclick="switchGuide('lego')" id="gbtn-lego" class="g-tab-btn flex-shrink-0 px-3 py-1.5 rounded-full bg-white text-muji-charcoal border border-muji-linen text-xs font-semibold">樂高樂園</button>
-                <button onclick="switchGuide('aquarium')" id="gbtn-aquarium" class="g-tab-btn flex-shrink-0 px-3 py-1.5 rounded-full bg-white text-muji-charcoal border border-muji-linen text-xs font-semibold">港區水族館</button>
-                <button onclick="switchGuide('osu')" id="gbtn-osu" class="g-tab-btn flex-shrink-0 px-3 py-1.5 rounded-full bg-white text-muji-charcoal border border-muji-linen text-xs font-semibold">大須與東山</button>   
+                <button onclick="switchGuide('tpe')" id="gbtn-tpe" class="g-tab-btn flex-shrink-0 px-3 py-1.5 rounded-full bg-muji-charcoal text-white text-xs font-semibold">✈️ 候機時刻</button>
+                <button onclick="switchGuide('hotel')" id="gbtn-hotel" class="g-tab-btn flex-shrink-0 px-3 py-1.5 rounded-full bg-white text-muji-charcoal border border-muji-linen text-xs font-semibold">🏨 飯店周邊</button>
+                <button onclick="switchGuide('toyota')" id="gbtn-toyota" class="g-tab-btn flex-shrink-0 px-3 py-1.5 rounded-full bg-white text-muji-charcoal border border-muji-linen text-xs font-semibold">🚗 豐田紀念館</button>
+                <button onclick="switchGuide('lego')" id="gbtn-lego" class="g-tab-btn flex-shrink-0 px-3 py-1.5 rounded-full bg-white text-muji-charcoal border border-muji-linen text-xs font-semibold">🧱 樂高樂園</button>
+                <button onclick="switchGuide('aquarium')" id="gbtn-aquarium" class="g-tab-btn flex-shrink-0 px-3 py-1.5 rounded-full bg-white text-muji-charcoal border border-muji-linen text-xs font-semibold">🐬 港區水族館</button>
+                <button onclick="switchGuide('osu')" id="gbtn-osu" class="g-tab-btn flex-shrink-0 px-3 py-1.5 rounded-full bg-white text-muji-charcoal border border-muji-linen text-xs font-semibold">🏮 大須與東山</button>   
             </div>
 
-            <!-- 新增：飯店周邊 導覽面板 -->
+            <!-- 1. 候機時刻（桃園機場兒童放風地圖） 導覽面板 -->
+            <div id="gcontent-tpe" class="guide-panel bg-white p-4 rounded-3xl border border-muji-linen shadow-sm space-y-3">
+                <div class="flex justify-between items-center border-b border-muji-linen pb-2">
+                    <h3 class="font-bold text-base text-muji-charcoal"><i class="fa-solid fa-plane-departure text-blue-500 mr-1.5"></i>桃機第一航廈 兒童放電地圖</h3>
+                    <span class="text-xs bg-chiikawa-pinkdeep/30 px-2 py-0.5 rounded-full font-bold text-muji-charcoal">放風攻略</span>
+                </div>
+                
+                <p class="text-xs text-muji-earth leading-relaxed">
+                    帶孩子出國最怕登機前無聊！星宇航空 **JX 838** 位於第一航廈。以下是手冊精選的放電與長輩休息站（附設從主要步行通道之步行參考時間）：
+                </p>
+
+
+                <!-- 桃機放風卡片群 -->
+                <div class="space-y-2.5 pt-1">
+                    <div class="p-3 bg-chiikawa-pink/40 border border-chiikawa-pinkdeep/20 rounded-2xl flex gap-3 items-start">
+                        <span class="text-2xl mt-0.5">🐱</span>
+                        <div class="text-xs flex-1">
+                            <div class="flex justify-between items-center mb-1">
+                                <strong class="text-muji-charcoal font-bold text-xs">C2 Hello Kitty 聯名候機室</strong>
+                                <span class="bg-chiikawa-pinkdeep text-white text-[9px] px-1.5 py-0.5 rounded-md font-bold">🚶 步程 3 分鐘</span>
+                            </div>
+                            <p class="text-muji-earth">女孩們的最愛！粉紅色夢幻空間、Kitty彩繪牆、專屬育嬰室，設有安全的溜滑梯與軟墊遊戲區。</p>
+                        </div>
+                    </div>
+
+                    <div class="p-3 bg-yellow-50/60 border border-yellow-200/60 rounded-2xl flex gap-3 items-start">
+                        <span class="text-2xl mt-0.5">🌳</span>
+                        <div class="text-xs flex-1">
+                            <div class="flex justify-between items-center mb-1">
+                                <strong class="text-muji-charcoal font-bold text-xs">C1 木育森林候機室</strong>
+                                <span class="bg-amber-500 text-white text-[9px] px-1.5 py-0.5 rounded-md font-bold">🚶 步程 1 分鐘</span>
+                            </div>
+                            <p class="text-muji-earth">距離出境中央通道庫最近！原木打造，有小火車軌道玩具、木質積木與森林小樹屋，能讓孩子靜心動手玩。</p>
+                        </div>
+                    </div>
+                   
+                    <div class="p-3 bg-muji-sand border border-muji-linen rounded-2xl flex gap-3 items-start">
+                        <span class="text-2xl mt-0.5">💆</span>
+                        <div class="text-xs flex-1">
+                            <div class="flex justify-between items-center mb-1">
+                                <strong class="text-muji-charcoal font-bold text-xs">B8 文化藝廊 & 按摩椅區</strong>
+                                <span class="bg-muji-earth text-white text-[9px] px-1.5 py-0.5 rounded-md font-bold">🚶 步程 2 分鐘</span>
+                            </div>
+                            <p class="text-muji-earth"><strong>👴👵 爺奶神隊友休息站！</strong>提供免付費全身紓壓按摩椅（可至免稅店索取代幣使用）。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-3 bg-chiikawa-blue/40 border border-blue-200/60 rounded-2xl flex gap-3 items-start">
+                    <span class="text-2xl mt-0.5">🐯</span>
+                    <div class="text-xs flex-1">
+                        <div class="flex justify-between items-center mb-1">
+                            <strong class="text-muji-charcoal font-bold text-xs">A5 巧虎巴士遊樂區</strong>
+                            <span class="bg-blue-400 text-white text-[9px] px-1.5 py-0.5 rounded-md font-bold">🚶 步程 28 分鐘</span>
+                        </div>
+                        <p class="text-muji-earth">雖然距離較遠，但巧虎彩繪巴士極具吸引力！提供大積木區和巴士造型滑梯。</p>
+                    </div>
+                </div>
+
+                <div class="p-3 bg-chiikawa-pink/40 border border-chiikawa-pinkdeep/20 rounded-2xl flex gap-3 items-start">
+                    <span class="text-2xl mt-0.5">🧱</span>
+                    <div class="text-xs flex-1">
+                        <div class="flex justify-between items-center mb-1">
+                            <strong class="text-muji-charcoal font-bold text-xs">A6 樂高體驗區</strong>
+                            <span class="bg-chiikawa-pinkdeep text-white text-[9px] px-1.5 py-0.5 rounded-md font-bold">🚶 步程 25 分鐘</span>
+                        </div>
+                        <p class="text-muji-earth">現場積木款式齊全，部分門市旁設有經典積木遊戲牆供孩童短暫創作。</p>
+                    </div>
+                </div>
+
+                <div class="p-3 bg-muji-sand border border-muji-linen rounded-2xl flex gap-3 items-start">
+                    <span class="text-2xl mt-0.5">💆</span>
+                    <div class="text-xs flex-1">
+                        <div class="flex justify-between items-center mb-1">
+                            <strong class="text-muji-charcoal font-bold text-xs">D2 竹林秘境 SPA 按摩區</strong>
+                            <span class="bg-muji-earth text-white text-[9px] px-1.5 py-0.5 rounded-md font-bold">🚶 步程 26 分鐘</span>
+                        </div>
+                        <p class="text-muji-earth"><strong>👴👵 另一個長輩休息區！</strong>環境靜謐怡人，同樣提供免付費全身紓壓按摩椅。</p>
+                    </div>
+                </div>
+                <!-- 1. 候機時刻專屬爸媽貼心話 -->
+                <div class="p-3 rounded-2xl bg-chiikawa-pink border border-chiikawa-pinkdeep/30 text-[10px] text-muji-charcoal leading-relaxed shadow-sm">
+                    <span class="font-bold flex items-center gap-1 mb-1 text-rose-500"><i class="fa-solid fa-face-smile-wink"></i> 🌸 候機時 · 爸媽貼心話：</span>
+                    星宇 JX838 於 14:55 起飛。我們預計 11:45 抵達桃機，請爸爸先推著折疊推車帶將近 2 歲的弟弟去櫃檯辦理「機邊託運」並索取行李貼紙。入關後，大姊和二姊精力充沛，可由媽媽直接帶去鄰近的 <strong>C1 或 C2 機場遊戲區</strong> 玩耍；爸爸則帶 68 歲的爺奶在 <strong>B8 文化藝廊免費按摩椅區</strong> 歇腳休息。登機前 30 分鐘，千萬記得帶小弟去育嬰室換好尿布、裝好水瓶，起飛時讓他吸吮喝水，能有效防止耳壓不適而哭鬧喔！
+                </div>
+            </div>
+
+              
+
+            <!-- 2. 飯店周邊 導面板 -->
             <div id="gcontent-hotel" class="guide-panel hidden bg-white p-4 rounded-3xl border border-muji-linen shadow-sm space-y-3">
                 <h3 class="font-bold text-base text-muji-charcoal flex items-center gap-1.5"><i class="fa-solid fa-map-location-dot text-amber-500 mr-1.5"></i> 大和ROYNET飯店周邊地圖與藥妝分布</h3>
                 <p class="text-xs text-muji-earth leading-relaxed">
-                    本飯店位於名古屋車站太閣通口（西側）。步行約 500 公尺即可抵達名古屋站。飯店周邊是藥妝店與便利商店的一級戰區，生活補給極其方便，24小時營業的 <strong>MaxValu 太閣店</strong> 就在過馬路步行 3 分鐘處！
+                    本飯店位於名古屋車站太閣通口（西側）。過馬路步行 3 分鐘處就是 24 小時營業的 <strong>MaxValu 太閣店</strong>！
                 </p>
-                <!-- OSM 嵌入地圖 (轉移至此) -->
+                <!-- OSM 嵌入地圖 -->
                 <div class="h-48 rounded-2xl overflow-hidden border border-muji-linen relative">
                     <iframe class="w-full h-full" src="https://www.openstreetmap.org/export/embed.html?bbox=136.8770%2C35.1660%2C136.8830%2C35.1710&amp;layer=mapnik&amp;marker=35.1685%2C136.8800" style="border: 0;"></iframe>
                     <span class="absolute bottom-1 right-1 bg-black/60 text-[8px] text-white px-1.5 py-0.5 rounded">© OpenStreetMap</span>
                 </div>
-                <!-- 藥妝比價冷知識與位置說明 -->
+                <!-- 藥妝比價 -->
                 <div class="bg-muji-sand p-2.5 rounded-xl text-xs space-y-2">
-                    <p class="font-bold text-muji-charcoal"><i class="fa-solid fa-cart-shopping text-chiikawa-pinkdeep mr-1"></i> 周邊藥妝採購完全攻略：</p>
+                    <p class="font-bold text-muji-charcoal"><i class="fa-solid fa-cart-shopping text-chiikawa-pinkdeep mr-1"></i> 周邊藥妝採購攻略：</p>
                     <ul class="space-y-1.5 text-[11px] text-muji-earth pl-1">
-                        <li>・<strong>千里馬藥局：</strong> 公認最便宜的店！但<strong>只收現金</strong>，且內部走道狹窄、不適合推推車，建議父母輕裝前去掃貨。</li>
-                        <li>・<strong>大國藥妝：</strong> 雖然不一定比千里馬便宜，但買到門檻（免稅＋優惠券）會有額外的滿額折抵，支持刷卡與電子支付。</li>
-                        <li>・<strong>SUGI 藥局：</strong> 屬於中高價位，但環境寬敞，商品種類極齊全（彩妝特別齊），官方 APP 常發送 18% 優惠券，適合買特定彩妝。</li>
-                        <li>・<strong>松本清：</strong> 定價通常最貴，但是有很多<strong>「松本清限定」</strong>的獨家聯名款藥妝與生活用品！</li>
+                        <li>・<strong>千里馬藥局：</strong> 最便宜，但<strong>限收現金</strong>，且內部狹窄不適合推推車。</li>
+                        <li>・<strong>大國藥妝：</strong> 買到免稅門檻加折扣券極便宜，支援多元刷卡支付。</li>
+                        <li>・<strong>SUGI 藥局：</strong> 空間寬敞適合推車，下載 APP 常有 18% 折扣券，適合買彩妝。</li>
+                        <li>・<strong>松本清：</strong> 定價偏高，但有很多獨特「松本清限定」商品！</li>
                     </ul>
+                </div>
+
+                <!-- 2. 飯店周邊專屬爸媽貼心話 -->
+                <div class="p-3 rounded-2xl bg-chiikawa-yellow border border-yellow-300 text-[10px] text-muji-charcoal leading-relaxed shadow-sm">
+                    <span class="font-bold flex items-center gap-1 mb-1 text-amber-700"><i class="fa-solid fa-hotel"></i> 🍓 飯店周邊 · 爸媽貼心話：</span>
+                    名古屋車站的地下結構非常擁擠且充斥階梯。<strong>推著折疊推車並帶著 68 歲的爺爺奶奶，千萬不要冒險走地下通道</strong>！我們下車後一律搭乘無障礙電梯上到一樓地面，穿過大廳由「西改札口」出站到大和ROYNET飯店，平坦好推不迷路。第一晚入住後，爸爸跟媽媽可趁弟弟在房間休息時，步行 300m 到 24H 營業的 <strong>MaxValu 超市</strong>，大肆採購日本新鮮草莓、優格與明治牛乳當早餐，價格比便利商店划算非常多！
                 </div>
             </div>
             
-            <!-- 豐田產業技術紀念館 導覽 -->
-            <div id="gcontent-toyota" class="guide-panel bg-white p-4 rounded-3xl border border-muji-linen shadow-sm space-y-3">
+            <!-- 3. 豐田產業技術紀念館 導覽 -->
+            <div id="gcontent-toyota" class="guide-panel hidden bg-white p-4 rounded-3xl border border-muji-linen shadow-sm space-y-3">
                 <h3 class="font-bold text-base text-muji-charcoal"><i class="fa-solid fa-car text-red-500 mr-1.5"></i> 豐田產業技術紀念館</h3>
                 <p class="text-xs text-muji-earth leading-relaxed">
-                    這裡原本是豐田集團發祥地的紅磚廠房！館內分為「纖維機械館」與「汽車館」。對親子而言，一進去最重要的是先預約 **10:30~11:00** 的「科技樂園 (Technoland)」，有許多科學原理的大型遊戲器材（如環狀跑道、變速箱任務等，部分限高120cm以上）。
+                    這裡原本是豐田集團發祥地的紅磚廠房！一進去先預約 **10:30~11:00** 的「科技樂園」，有許多大型物理科學遊戲器材（部分限高120cm以上）。
                 </p>
                 <div class="bg-muji-sand p-2.5 rounded-xl text-xs space-y-1">
-                    <p class="font-bold text-muji-charcoal">💡 必看演示時間（對照手冊）：</p>
+                    <p class="font-bold text-muji-charcoal">💡 必看演示時間：</p>
                     <p class="text-muji-earth">・11:00 蒸汽機運轉（科技樂園對面）</p>
-                    <p class="text-muji-earth">・11:25 大廳環狀織布機展示</p>
+                    <p class="text-muji-earth">・11:25 回到大廳欣賞環狀織布機展示</p>
                     <p class="text-muji-earth">・13:20 南入口夥伴機器人拉小提琴 🎻</p>
                 </div>
-                <!-- 地圖 -->
                 <div class="h-40 rounded-2xl overflow-hidden border border-muji-linen relative">
                     <iframe class="w-full h-full" src="https://www.openstreetmap.org/export/embed.html?bbox=136.8732%2C35.1788%2C136.8792%2C35.1838&amp;layer=mapnik&amp;marker=35.1813%2C136.8762" style="border: 0;"></iframe>
-                    <span class="absolute bottom-1 right-1 bg-black/60 text-[8px] text-white px-1.5 py-0.5 rounded">© OpenStreetMap</span>
+                </div>
+
+                <!-- 3. 豐田紀念館專屬爸媽貼心話 -->
+                <div class="p-3 rounded-2xl bg-chiikawa-pink border border-chiikawa-pinkdeep/30 text-[10px] text-muji-charcoal leading-relaxed shadow-sm">
+                    <span class="font-bold flex items-center gap-1 mb-1 text-rose-500"><i class="fa-solid fa-car"></i> 🚗 豐田科技 · 爸媽貼心話：</span>
+                    10:00 抵達買好票入館後，請<strong>由爸爸帶領 8 歲與 6 歲的姊妹快步衝去右側的「科技樂園 (Technoland)」搶先預約 10:30 第一場放電時間</strong>，媽媽在後方推著推車，陪著爺奶與小弟漫步在紡織機械大廳參觀。下午前往 AEON Mall 則武新町時，小弟剛好會在推車上進入午睡，這段時間是媽媽逛無印良品與 Seria 百元商店的絕佳機會！爸爸則可陪爺爺在 2 樓蔦屋書店買杯咖啡，奶奶陪姊妹倆在扭蛋區玩耍，全家人都能放鬆！
                 </div>
             </div>
 
-            <!-- 樂高樂園 導覽 -->
+            <!-- 4. 樂高樂園 導覽 -->
             <div id="gcontent-lego" class="guide-panel hidden bg-white p-4 rounded-3xl border border-muji-linen shadow-sm space-y-3">
                 <h3 class="font-bold text-base text-muji-charcoal"><i class="fa-solid fa-cubes text-yellow-500 mr-1.5"></i> 樂高樂園全攻略</h3>
                 <p class="text-xs text-muji-earth leading-relaxed">
-                    全日親子重頭戲！早上記得 **8:00** 先上網預約「水迷宮」或「Splash Pad (戲水噴水區)」。11:00 必看幻影忍者 4D 大秀。
+                    全日親子重頭戲！早上記得 **8:00** 先上網預約「水迷宮」或「Splash Pad」。11:00 必看幻影忍者 4D 大秀。
                 </p>
                 
-                <!-- 戰術牌 -->
                 <div class="border-l-4 border-chiikawa-pinkdeep bg-chiikawa-pink/50 p-2.5 rounded-r-xl text-xs space-y-2">
                     <p class="font-bold text-muji-charcoal"><i class="fa-solid fa-users text-chiikawa-pinkdeep"></i> 11:40~13:00 冒險區分隊行動：</p>
-                    <div class="space-y-1 pl-2">
-                        <p class="text-muji-charcoal"><strong class="text-blue-600">⚡ 爸爸/姊姊組：</strong> 挑戰飛行勇士 (8), 甲殼蟲反彈 (10), 烏賊衝浪 (12)</p>
-                        <p class="text-muji-charcoal"><strong class="text-green-600">🍀 爺奶/小弟組：</strong> 前往阿姆斯特拉秘密之室 (30) 吹冷氣組積木，長輩能好好坐著歇息！</p>
-                    </div>
+                    <p class="text-muji-charcoal pl-2"><strong class="text-blue-600">⚡ 爸爸/姊姊組：</strong> 挑戰飛行勇士 (8), 烏賊衝浪 (12)<br><strong class="text-green-600">🍀 爺奶/小弟組：</strong> 30號秘密之室（冷氣房玩積木）</p>
                 </div>
 
                 <div class="border-l-4 border-chiikawa-blue bg-chiikawa-blue/50 p-2.5 rounded-r-xl text-xs space-y-2">
-                    <p class="font-bold text-muji-charcoal"><i class="fa-solid fa-users text-blue-500"></i> 14:00~15:30 城市英雄職業圓夢分隊：</p>
-                    <div class="space-y-1 pl-2">
-                        <p class="text-muji-charcoal"><strong class="text-blue-600">⚡ 爸爸/姊姊組：</strong> 駕駛學校考照 (17), 消防學院 (13)</p>
-                        <p class="text-muji-charcoal"><strong class="text-green-600">🍀 爺奶/小弟組：</strong> 前往創意工作坊 (34) 吹冷氣組積木！</p>
-                    </div>
+                    <p class="font-bold text-muji-charcoal"><i class="fa-solid fa-users text-blue-500"></i> 14:00~15:30 職業圓夢分隊：</p>
+                    <p class="text-muji-charcoal pl-2"><strong class="text-blue-600">⚡ 爸爸/姊姊組：</strong> 駕駛學校考照 (17), 消防學院 (13)<br><strong class="text-green-600">🍀 爺奶/小弟組：</strong> 34號創意工作坊組積木</p>
                 </div>
 
-                <div class="bg-yellow-50 p-2.5 rounded-xl text-xs border border-yellow-200">
-                    <p class="font-bold text-muji-charcoal"><i class="fa-solid fa-circle-info text-amber-500 mr-1"></i> 重點提示：</p>
-                    <p class="text-muji-earth mt-1">下午 16:30 在水花大戰 (26) 濕身最嗨！17:00 前**必須幫三位小孩換上整套乾衣**，才可進入冷氣強勁的 17:30 殿堂影院 (14) 看壓軸 4D 電影。</p>
+                <!-- 4. 樂高樂園專屬爸媽貼心話 -->
+                <div class="p-3 rounded-2xl bg-chiikawa-yellow border border-yellow-300 text-[10px] text-muji-charcoal leading-relaxed shadow-sm">
+                    <span class="font-bold flex items-center gap-1 mb-1 text-amber-700"><i class="fa-solid fa-puzzle-piece"></i> 🧱 樂高樂園 · 爸媽貼心話：</span>
+                    樂高樂園佔地寬敞，實施「分組作戰」最省力！中午 11:40~13:00，<strong>爸爸帶 8 歲與 6 歲姊妹去排熱門的雲霄飛車；媽媽則陪著爺奶與弟弟進入 30 號阿姆斯特拉秘密之室</strong>。該處是冷氣超強、鋪滿軟地墊的室內積木區，長輩可安穩坐在沙發，弟弟能在軟墊安全放電。16:15 玩水大戰完畢後，<strong>請在 17:00 前至更衣室為三位寶貝換上全套乾爽衣物及鞋襪</strong>（濕衣絕不可進冷氣強的 17:30 4D 影廳防感冒！）。弟弟焦躁時，帶他去坐 7 號得寶小火車是百試百靈的安撫妙招！
                 </div>
             </div>
 
-            <!-- 名古屋港水族館 導覽 -->
+            <!-- 5. 名古屋港水族館 導覽 -->
             <div id="gcontent-aquarium" class="guide-panel hidden bg-white p-4 rounded-3xl border border-muji-linen shadow-sm space-y-3">
-                <h3 class="font-bold text-base text-muji-charcoal"><i class="fa-solid fa-fish text-blue-500 mr-1.5"></i> 名古屋港水族館 (只換一次館動線)</h3>
+                <h3 class="font-bold text-base text-muji-charcoal"><i class="fa-solid fa-fish text-blue-500 mr-1.5"></i> 名古屋港水族館</h3>
                 <p class="text-xs text-muji-earth leading-relaxed">
-                    採用「只換一次館」最省體力動線。進館後直衝北館 3F，觀賞海豚表演與逆戟鯨（虎鯨）公開訓練，中午直接在看台區野餐享用 ESCA 的炸蝦飯糰。午後再整團推車前往南館，依序看企鵝餵食與壯觀的沙丁魚龍捲風，全程不回頭！
+                    採用「只換一次館」省力動線。入館直衝北館 3F，觀賞海豚表演與虎鯨公開訓練，中午在看台野餐享用 ESCA 的炸蝦飯糰。午後再前往南館看企鵝餵食與沙丁魚龍捲風。
                 </p>
                 <div class="bg-muji-sand p-2.5 rounded-xl text-xs">
-                    <p class="font-bold text-muji-charcoal">🕒 必看演出與餵食時刻表：</p>
+                    <p class="font-bold text-muji-charcoal">🕒 必看時刻表：</p>
                     <ul class="list-disc pl-4 text-muji-earth mt-1 space-y-1">
                         <li>10:30 海豚表演 BLUE ECHO (北館 3F)</li>
                         <li>11:30 逆戟鯨公開訓練 (北館 3F)</li>
@@ -294,32 +382,34 @@
                         <li>14:45 沙丁魚龍捲風 (南館 2F)</li>
                     </ul>
                 </div>
-                <div class="h-40 rounded-2xl overflow-hidden border border-muji-linen relative">
-                    <iframe class="w-full h-full" src="https://www.openstreetmap.org/export/embed.html?bbox=136.8745%2C35.0885%2C136.8825%2C35.0935&amp;layer=mapnik&amp;marker=35.0910%2C136.8785" style="border: 0;"></iframe>
+
+                <!-- 5. 港區水族館專屬爸媽貼心話 -->
+                <div class="p-3 rounded-2xl bg-chiikawa-blue border border-blue-200 text-[10px] text-muji-charcoal leading-relaxed shadow-sm">
+                    <span class="font-bold flex items-center gap-1 mb-1 text-blue-800"><i class="fa-solid fa-shrimp"></i> 🐬 港區水族 · 爸媽貼心話：</span>
+                    一定要先在名古屋車站購買<strong>「地鐵一日券」（760日圓），每張門票現場可以直接現折 200 日圓</strong>！中午 11:30 北館看完精彩的虎鯨公開訓練後，不要去美食街擠，<strong>直接就地在北館 3 樓巨大露天看台野餐開飯</strong>，享用早上出發前在 ESCA 地下街買好的炸蝦飯糰與飲料，吹著海風吃午餐最省長輩和幼童的腳力。南館 2 樓觀賞沙丁魚龍捲風時現場幾乎全黑，請爸媽一定牽緊 8 歲與 6 歲的姊妹防止走散，並將弟弟的折疊推車煞車確實踩好，確保安全！
                 </div>
             </div>
 
-            <!-- 大須與東山 導覽 -->
+            <!-- 6. 大須與東山 導覽 -->
             <div id="gcontent-osu" class="guide-panel hidden bg-white p-4 rounded-3xl border border-muji-linen shadow-sm space-y-3">
-                <h3 class="font-bold text-base text-muji-charcoal"><i class="fa-solid fa-map-location-dot text-emerald-500 mr-1.5"></i> Day 6 機動方案比一比</h3>
-                
-                <div class="space-y-3">
-                    <div class="p-2.5 rounded-2xl bg-chiikawa-pink/50 border border-chiikawa-pinkdeep/20 text-xs">
-                        <p class="font-bold text-muji-charcoal"><span class="text-sm">🏮</span> 方案 A：大須祭典地標團</p>
-                        <p class="text-muji-earth mt-1">
-                            適合想拍大紅燈籠、大須觀音、感受傳統日本阿波舞表演（15:20東仁王門通）的家庭。商店街有遮雨棚不怕日曬雨淋。下午逛完轉戰榮區拍綠洲21。
-                        </p>
+                <h3 class="font-bold text-base text-muji-charcoal flex items-center gap-1.5"><i class="fa-solid fa-map-location-dot text-emerald-500 mr-1.5"></i> Day 6 機動方案比一比</h3>
+                <div class="space-y-2 text-xs">
+                    <div class="p-2.5 rounded-2xl bg-chiikawa-pink/50 border border-chiikawa-pinkdeep/20">
+                        <p class="font-bold text-muji-charcoal">🏮 方案 A：大須祭典地標團</p>
+                        <p class="text-muji-earth mt-1">適合收集名古屋代表美照、怕太陽直曬的家庭。15:20 有傳統阿波舞表演。</p>
                     </div>
-
-                    <div class="p-2.5 rounded-2xl bg-chiikawa-blue/50 border border-blue-200 text-xs">
-                        <p class="font-bold text-muji-charcoal"><span class="text-sm">🦍</span> 方案 B：東山動植物園悠哉團</p>
-                        <p class="text-muji-earth mt-1">
-                            園區寬敞，能讓孩子親眼看到帥哥大猩猩 Shabani！若天氣太熱還能隨時躲進自然科學館或天空塔吹冷氣。下午再回到名古屋站進行 Bic Camera 西店採買。
-                        </p>
+                    <div class="p-2.5 rounded-2xl bg-chiikawa-blue/50 border border-blue-200">
+                        <p class="font-bold text-muji-charcoal">🦍 方案 B：東山動植物園悠哉團</p>
+                        <p class="text-muji-earth mt-1">適合讓孩子在寬敞的大空間看帥猩猩 Shabani 放電，傍晚回名站 Bic Camera 電器特攻。</p>
                     </div>
                 </div>
+
+                <!-- 6. 大須/東山專屬爸媽貼心話 -->
+                <div class="p-3 rounded-2xl bg-emerald-50 border border-emerald-200 text-[10px] text-emerald-900 leading-relaxed shadow-sm">
+                    <span class="font-bold flex items-center gap-1 mb-1 text-emerald-800"><i class="fa-solid fa-compass"></i> 🐆 機動選路 · 爸媽貼心話：</span>
+                    到了第六天，全體成員體力均接近臨界點。<strong>如果投票通過方案 A（大須觀音祭典）</strong>，萬松寺商店街雖有頂棚防曬，但下午 15:20 阿波舞遊行時人潮將會寸步難行，請爸爸推弟弟在最前開路，媽媽在後方一對一緊牽兩位姊妹防走失。<strong>如果投票方案 B（東山動物園）</strong>，園區為起伏較大的丘陵地、有著長緩坡，推推車與長輩步行體力消耗極快。入園第一件事請爸爸去租借輪椅/嬰兒車，中午 11:30 氣溫正高時，迅速帶爺奶和小弟進入「自然科學館」或「東山天空塔」的室內冷氣房茶座享用餐點、歇腳，絕對避免在烈日下硬撐！
+                </div>
             </div>
-            
         </section>
 
         <!-- ==================== TAB 3: WALLET (記帳與匯率) ==================== -->
@@ -375,19 +465,19 @@
                 <h3 class="font-bold text-sm text-muji-charcoal flex items-center gap-1"><i class="fa-solid fa-file-invoice-dollar text-emerald-500"></i> 新增旅途消費</h3>
                 
                 <div class="grid grid-cols-2 gap-2">
-                    <input type="text" id="expense-name" placeholder="品項 (如: 鰻魚飯三吃)" class="px-3 py-2 rounded-xl border border-muji-linen text-xs">
+                    <input type="text" id="expense-name" placeholder="品項 (如: 鰻魚飯)" class="px-3 py-2 rounded-xl border border-muji-linen text-xs">
                     <input type="number" id="expense-jpy" placeholder="日幣金額" class="px-3 py-2 rounded-xl border border-muji-linen text-xs">
                 </div>
 
-                <!-- 新增：付款方式分流選擇器 -->
+                <!-- 付款方式選擇器 -->
                 <div class="flex items-center gap-4 text-xs pt-1 px-1">
                     <span class="text-muji-earth font-bold"><i class="fa-solid fa-credit-card mr-1"></i> 付款方式：</span>
                     <label class="inline-flex items-center gap-1.5 cursor-pointer">
-                        <input type="radio" name="expense-type" value="cash" checked class="w-4 h-4 text-chiikawa-pinkdeep focus:ring-chiikawa-pinkdeep accent-chiikawa-pinkdeep">
+                        <input type="radio" name="expense-type" value="cash" checked class="w-4 h-4 accent-chiikawa-pinkdeep">
                         <span class="text-muji-charcoal font-medium">💵 現金</span>
                     </label>
                     <label class="inline-flex items-center gap-1.5 cursor-pointer">
-                        <input type="radio" name="expense-type" value="card" class="w-4 h-4 text-chiikawa-pinkdeep focus:ring-chiikawa-pinkdeep accent-chiikawa-pinkdeep">
+                        <input type="radio" name="expense-type" value="card" class="w-4 h-4 accent-chiikawa-pinkdeep">
                         <span class="text-muji-charcoal font-medium">💳 信用卡</span>
                     </label>
                 </div>
@@ -409,7 +499,7 @@
                 </div>
             </div>
 
-            <!-- 記帳歷史列表（已升級分開統計功能） -->
+            <!-- 記帳歷史列表 -->
             <div class="bg-white p-4 rounded-3xl border border-muji-linen shadow-sm space-y-3">
                 <div class="flex justify-between items-start">
                     <h3 class="font-bold text-sm text-muji-charcoal">🧾 記帳清單</h3>
@@ -420,7 +510,7 @@
                     </div>
                 </div>
 
-                <!-- 新增：現金與信用卡獨立統計卡片 -->
+                <!-- 現金與信用卡獨立統計 -->
                 <div class="grid grid-cols-2 gap-2 bg-muji-sand p-2.5 rounded-xl text-[10px] border border-muji-linen">
                     <div class="flex flex-col border-r border-muji-linen/60 pr-1">
                         <span class="font-bold text-emerald-800 flex items-center gap-1"><i class="fa-solid fa-money-bill-1"></i> 現金總計</span>
@@ -432,6 +522,16 @@
                         <p class="font-semibold text-muji-charcoal mt-0.5" id="expense-card-jpy">¥ 0</p>
                         <p class="text-muji-earth" id="expense-card-twd">約 NT$ 0</p>
                     </div>
+                </div>
+
+                <!-- 管理工具（一鍵複製 Line 對帳、一鍵清空） -->
+                <div class="flex gap-2 pt-1">
+                    <button onclick="copyBillToLine()" class="flex-1 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200 text-[10px] font-bold py-2 rounded-xl flex items-center justify-center gap-1 transition-all">
+                        <i class="fa-brands fa-line text-emerald-500 text-xs"></i> 一鍵複製 Line 對帳單
+                    </button>
+                    <button onclick="clearAllExpenses()" class="bg-rose-50 hover:bg-rose-100 text-rose-800 border border-rose-200 text-[10px] font-bold px-3 py-2 rounded-xl flex items-center justify-center gap-1 transition-all">
+                        <i class="fa-solid fa-trash-can"></i> 清空帳本
+                    </button>
                 </div>
 
                 <div class="divide-y divide-muji-linen overflow-y-auto max-h-60 space-y-2 pt-2" id="expense-list">
@@ -451,6 +551,13 @@
                 <button onclick="switchListTab('memo')" id="lbtn-memo" class="list-sub-btn py-2 rounded-2xl bg-white text-muji-charcoal border border-muji-linen text-xs font-bold transition-all">個人備忘</button>
             </div>
 
+            <!-- 一鍵重設行李打包勾選狀態 -->
+            <div id="reset-checklist-bar" class="mb-3 text-right">
+                <button onclick="resetChecklist()" class="inline-flex items-center gap-1 text-[10px] bg-muji-sand hover:bg-muji-linen text-muji-earth border border-muji-linen px-2.5 py-1.5 rounded-xl transition-all active:scale-95">
+                    <i class="fa-solid fa-rotate-right"></i> 一鍵重設行李勾選狀態
+                </button>
+            </div>
+
             <!-- 1. 手提行李檢查清單 -->
             <div id="lcontent-handbag" class="list-panel bg-white p-4 rounded-3xl border border-muji-linen shadow-sm space-y-3">
                 <div class="bg-chiikawa-yellow p-3 rounded-2xl text-xs text-muji-charcoal border border-yellow-200">
@@ -459,7 +566,7 @@
                 </div>
                 
                 <div class="space-y-4" id="handbag-check-group">
-                    <!-- JavaScript 渲染與儲存勾選狀態 -->
+                    <!-- JavaScript 渲染 -->
                 </div>
             </div>
 
@@ -471,11 +578,11 @@
                 </div>
 
                 <div class="space-y-4" id="luggage-check-group">
-                    <!-- JavaScript 渲染與儲存托運勾選狀態 -->
+                    <!-- JavaScript 渲染 -->
                 </div>
             </div>
 
-            <!-- 3. 個人備忘錄 (支援網址自動偵測) -->
+            <!-- 3. 個人備忘錄 -->
             <div id="lcontent-memo" class="list-panel hidden bg-white p-4 rounded-3xl border border-muji-linen shadow-sm space-y-3">
                 <h3 class="font-bold text-sm text-muji-charcoal">📝 旅途隨手記</h3>
                 <div class="flex gap-2">
@@ -513,7 +620,7 @@
                 </a>
             </div>
 
-            <!-- 緊急聯絡電話與救護 -->
+            <!-- 緊急聯絡 -->
             <div class="bg-white p-4 rounded-3xl border border-muji-linen shadow-sm space-y-3 mb-4">
                 <h3 class="font-bold text-sm text-muji-charcoal flex items-center gap-1.5"><i class="fa-solid fa-phone-flip text-red-500"></i> 🚨 旅日緊急聯絡</h3>
                 <div class="text-xs text-muji-earth space-y-1.5">
@@ -562,91 +669,263 @@
         </button>
     </nav>
 
+    <!-- 自定義對話框 Modal 元件 (解決 iframe 環境中原生 alert/confirm 阻擋或失靈的問題，帶來極佳流暢感) -->
+    <div id="custom-confirm-modal" class="fixed inset-0 bg-black/60 hidden items-center justify-center z-[100] px-4">
+        <div class="bg-white border-2 border-muji-charcoal rounded-3xl p-5 max-w-sm w-full space-y-4 shadow-xl fade-in text-center">
+            <div class="text-4xl" id="custom-confirm-icon">❓</div>
+            <h3 class="font-bold text-base text-muji-charcoal" id="custom-confirm-title">確認動作</h3>
+            <p class="text-xs text-muji-earth leading-relaxed px-2" id="custom-confirm-message">你確定要執行這個動作嗎？</p>
+            <div class="flex gap-2.5 pt-2">
+                <button id="custom-confirm-cancel-btn" class="flex-1 bg-muji-sand hover:bg-muji-linen text-muji-charcoal py-2.5 rounded-xl text-xs font-bold transition-all border border-muji-linen active:scale-95">
+                    取消
+                </button>
+                <button id="custom-confirm-ok-btn" class="flex-1 bg-muji-charcoal hover:bg-opacity-95 text-white py-2.5 rounded-xl text-xs font-bold transition-all shadow active:scale-95 border border-muji-charcoal">
+                    確定
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="custom-alert-modal" class="fixed inset-0 bg-black/60 hidden items-center justify-center z-[100] px-4">
+        <div class="bg-white border-2 border-muji-charcoal rounded-3xl p-5 max-w-sm w-full space-y-4 shadow-xl fade-in text-center">
+            <div class="text-4xl" id="custom-alert-icon">✨</div>
+            <h3 class="font-bold text-base text-muji-charcoal" id="custom-alert-title">溫馨提示</h3>
+            <p class="text-xs text-muji-earth leading-relaxed px-2" id="custom-alert-message">提示訊息</p>
+            <button id="custom-alert-close-btn" class="w-full bg-muji-charcoal hover:bg-opacity-95 text-white py-2.5 rounded-xl text-xs font-bold transition-all shadow active:scale-95 border border-muji-charcoal">
+                好喔！
+            </button>
+        </div>
+    </div>
+
     <!-- JavaScript 邏輯控制 -->
     <script>
-        // 1. 初始化資料與LocalStorage讀取
-        let currentDay = 1;
-        let dayPlans = {
-            2: 'A', // Day 2 預設 方案A
-            5: 'A', // Day 5 預設 方案A
-            6: 'A'  // Day 6 預設 方案A
+        // 0. 自定義對話框引擎邏輯
+        function showConfirm(title, message, icon, onConfirm) {
+            document.getElementById('custom-confirm-title').innerText = title;
+            document.getElementById('custom-confirm-message').innerText = message;
+            document.getElementById('custom-confirm-icon').innerText = icon || '❓';
+            
+            const modal = document.getElementById('custom-confirm-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            
+            const cancelBtn = document.getElementById('custom-confirm-cancel-btn');
+            const okBtn = document.getElementById('custom-confirm-ok-btn');
+            
+            const closeModal = () => {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+            };
+            
+            cancelBtn.onclick = closeModal;
+            okBtn.onclick = () => {
+                closeModal();
+                if (onConfirm) onConfirm();
+            };
+        }
+
+        function showAlert(title, message, icon) {
+            document.getElementById('custom-alert-title').innerText = title;
+            document.getElementById('custom-alert-message').innerText = message;
+            document.getElementById('custom-alert-icon').innerText = icon || '✨';
+            
+            const modal = document.getElementById('custom-alert-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            
+            document.getElementById('custom-alert-close-btn').onclick = () => {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+            };
+        }
+
+        // 1. 全域行程數據定義
+        let currentDay = 1; 
+        
+        const schedules = {
+            1: [
+                { time: '11:15', title: '行李確認與出發 🧳', desc: '早餐要吃飽或提早吃午餐，準備搭機場接送（約30分鐘車程）前往桃園機場。隨身攜帶副食品、米餅與哺乳巾。' },
+                { time: '11:45', title: '桃園機場報到登機 🛫', desc: '第一航廈星宇航空櫃檯 Check-in，託運大行李，推車準備機邊托運。入關後先在「候機時刻」推薦的兒童放電區放電。' },
+                { time: '14:55', title: '星宇 JX 838 啟航 ✈️', desc: '起航飛向名古屋。起航一小時後提供精緻飛機餐。' },
+                { time: '18:45', title: '抵達名古屋中部機場 🇯🇵', desc: '抵達後迅速過關，出示準備好的 Visit Japan Web 入境 QR Code 快速查驗。' },
+                { time: '19:15', title: '申辦兒童 manaca 交通卡 💳', desc: '在名鐵售票處幫兩位小女孩申辦兒童專用交通卡（押金500日圓），出示護照，搭車半票。' },
+                { time: '19:47', title: '搭乘名鐵特急 🚇', desc: '坐名鐵特急前往名古屋市區（車票890日圓，小孩半票，車程38分鐘）。若能趕上19:37或19:47的特急班次最方便！' },
+                { time: '20:25', title: '抵達名古屋車站 🚉', desc: '特別提醒下車後找電梯，從「西改札口」出站步行500公尺（約6-10分鐘）抵達大和ROYNET飯店。' },
+                { time: '20:40', title: '飯店 Check-in 🏨', desc: '辦理大和ROYNET飯店名古屋太閣通口入住與行李置放。' },
+                { time: '21:00', title: 'MaxValu 太閣店宵夜採買 🍎', desc: '輕裝步行300公尺到24小時營業的 MaxValu 採買宵夜，以及明早的水果 and 鮮奶。', mapUrl: 'https://maps.app.goo.gl/tfVk37einACjetAx7' }
+            ],
+            2: {
+                common_before: [
+                    { time: '08:00', title: '飯店晨光與悠閒早餐 🥐', desc: '悠哉享用昨晚在 MaxValu 太閣店買好的美味早餐。' },
+                    { time: '09:00', title: '出發前往榮生站 🚇', desc: '從西改札口前進名鐵1號月台，搭乘往岐阜/犬山方向電車，坐1站（2分鐘）抵達「榮生站」，步行300公尺抵達紀念館。', mapUrl: 'https://maps.app.goo.gl/3f9FVAkhTfjRb8uW6' },
+                    { time: '10:00', title: '豐田產業技術紀念館 🛠️', desc: '10:00購票入館，從中央入口進入拍張全家福。第一時間衝至右手邊「科技樂園 (Technoland)」預約10:30~11:00的放電場次。' },
+                    { time: '11:00', title: '蒸汽機與織布機演示 ⚙️', desc: '11:00看科技樂園對面的蒸汽機運轉；11:25回到大廳欣賞環狀織布機演示。' },
+                    { time: '11:35', title: '自由展區與午餐 🍛', desc: '參觀汽車組裝。午餐可於館內 Brick Age 紅磚餐廳享用，或漫步至 AEON Mall 美食廣場享用。' },
+                    { time: '13:20', title: '夥伴機器人拉小提琴表演 🎻', desc: '走到南入口欣賞高科技機器人美妙的現場小提琴演奏。' },
+                    { time: '14:00', title: 'AEON Mall 則武新町 🛍️', desc: '南入口步行 500 公尺進 AEON。避暑購物時光！蔦屋書店打卡牆、Seria百元店、無印良品、3coins+Plus買齊！', mapUrl: 'https://maps.app.goo.gl/ybcTw2yMqHenjhqHA' }
+                ],
+                plans: {
+                    'A': [
+                        { time: '18:00', title: '【方案 A】MALL內晚餐 ➔ 晚班公車直達 🚌', desc: '直接在 Mall 1、2 樓餐廳街吃飽（營業到22:00），並在 AEON STYLE 超市買明早鮮奶與水果。18:00後在門口搭 20:13 或 20:24 的「名駅 13」公車 10 分鐘直達名古屋車站，穿大廳回飯店。', mapUrl: 'https://maps.app.goo.gl/pvdnxic8jahscYYV6' }
+                    ],
+                    'B': [
+                        { time: '18:00', title: '【方案 B】公車回名站 ➔ 地下街豬排 🥩', desc: '在 Mall 門口搭乘 18:03 或 18:17 的「名駅 13」公車回到車站。前往西側 ESCA 地下街享用炸豬排大餐，或路過高島屋 B1 買地雷也炸蝦飯糰。', mapUrl: 'https://maps.app.goo.gl/pvdnxic8jahscYYV6' },
+                        { time: '20:00', title: 'MaxValu 太閣店補貨 🛒', desc: '輕裝步行 4 分鐘到飯店對面的 MaxValu 太閣店買隔天早餐，回房封箱。', mapUrl: 'https://maps.app.goo.gl/tfVk37einACjetAx7' }
+                    ]
+                }
+            },
+            3: [
+                { time: '09:00', title: '搭乘樂高火車出發 🚇', desc: '從飯店步行 300 公尺到名古屋車站太閣通口，搭乘「青波線 (Aonami Line)」往終點站「金城埠頭」，車程約24分鐘。再步行500公尺到達樂高樂園。', mapUrl: 'https://maps.app.goo.gl/KEV6Fq8osjDHo1xb9' },
+                { time: '10:00', title: '歡樂開場：積木與地標 🏰', desc: '入口拍全家福笑容最美。搶先體驗編號1樂高工廠之旅領限定款積木。搭乘編號6旋轉木馬與編號5瞭望塔。姊姊玩咖啡杯，小弟在廣場玩水。' },
+                { time: '11:00', title: '忍者集結：必看 4D 大秀 🎬', desc: '編號 2 忍者影廳【必看 11:00 場次】！', type: 'play' },
+                { time: '11:40', title: '探險區分隊 潛水艇與冒險 🦈', desc: '編號11潛水艇探險（全家合集），坐真的潛水艇看真魚和鯊魚！編號9失落王國雷射射擊。分隊：【爸爸/姊姊組】飛行勇士(8)、烏賊衝浪(12)；【爺奶/小弟組】30號秘密之室（冷氣房玩積木）。29號法老球池會師。' },
+                { time: '13:00', title: '彩 (Irodori) 日式餐廳午餐 🍱', desc: '享用美味能量日式定食套餐（建議提前一天預約）。' },
+                { time: '14:00', title: '城市英雄：職業圓夢 🧑‍🚒', desc: '編號31造船、18海岸巡邏、15城市飛機場。分隊：【爸爸/姊姊組】17駕駛學校考照、13消防學院；【爺奶/小弟組】34創意工作坊組積木。' },
+                { time: '15:30', title: '騎士王國與得寶樂園 🎢', desc: '姊姊挑戰梅林飛行器與飛龍；小弟與長輩在得寶區玩水、坐編號7得寶快車小火車。' },
+                { time: '16:15', title: '水花大決戰 💦', desc: '全團濕身最嗨！迷你樂園(Miniland)拍全家大合照，姊姊們挑戰編號26水花大戰。17:00 前幫三位小孩換整套乾衣（防感冒進冷氣房）！' },
+                { time: '17:15', title: '離園前最後大血拼 🎁', desc: '順路衝進出口旁的 The Big Shop 買齊名古屋限定版樂高禮物。' },
+                { time: '17:30', title: '殿堂影院 4D 壓軸 🎥', desc: '進入影院（14）欣賞最後一場 4D 精彩電影，18:00 準時離園。' },
+                { time: '18:30', title: '名站西側輕鬆買晚餐 🍣', desc: '搭乘青波線回名古屋站，在 MaxValu 買壽司或 ESCA 地下街外帶便當回房享用。' }
+            ],
+            4: [
+                { time: '09:00', title: '前往巴士大本營 🚌', desc: '從飯店步行 250 公尺到「笹島町」公車站，搭乘幹栄2、栄24或名鐵巴士 40 號，坐 5 站（10分鐘）在「広小路本町」下車。' },
+                { time: '09:30', title: '名古屋市科學館 🪐', desc: '下車走長島町通，只買展示室單獨票（大人 400，國中以下免費）。5F 實物元素週期表、極寒實驗室整理券；4F 百萬伏特放電；3F 9米高龍捲風；2F 水之廣場。' },
+                { time: '13:30', title: '一蘭拉麵榮店午餐 🍜', desc: '離開科學館，步行 400 公尺至一蘭拉麵榮店享用美味拉麵。順路在對面買好吃銅鑼燒（10:30開門）。' },
+                { time: '15:00', title: 'Alpen NAGOYA 運動鞋狂買 👟', desc: '名古屋超好逛大型運動用品專專賣店（位於榮商圈），5層樓商品齊全，2樓有為兒童設計的遊戲區。' },
+                { time: '16:30', title: '松坂屋蓬萊軒卡位登記 🍱', desc: '全團移動到松坂屋南館 10F 蓬萊軒現場櫃台登記（等候約60~90分鐘）。' },
+                { time: '17:00', title: '等候空檔：女孩吉伊卡哇圓夢 🌸', desc: '先到本館 4F 買 Harbs 千層蛋糕，再到 PARCO 找吉伊卡哇（Chiikawa）和寶可夢！B1有滿滿的吉伊卡哇專賣店。' },
+                { time: '18:00', title: 'あつt蓬萊軒鰻魚飯 🌟', desc: '享用名古屋必吃、百年傳承「鰻魚飯三吃 (Hitsumabushi)」，極致美味。' },
+                { time: '19:45', title: '驚安殿堂榮三丁目店 🛒', desc: '唐吉訶德買零食與藥妝。21:00 在「松坂屋前」站搭名鐵巴士 36 號直達名鐵巴士中心，輕鬆回飯店，路過大國藥妝可最後補貨。' }
+            ],
+            5: {
+                common_before: [
+                    { time: '08:30', title: '智慧移動：ESCA 買飯糰 🍙', desc: '從飯店下到 ESCA 地下街買炸蝦飯糰（Tenmusu）和麥當勞早餐。搭櫻通線到「久屋大通站」轉名港線前往「名古屋港站」。' },
+                    { time: '09:10', title: '地鐵一日券省錢秘訣 🚇', desc: '買「地鐵一日券」（760日圓），水族館門票每張現折 200 日圓！' },
+                    { time: '10:15', title: '名古屋港水族館北館 🐬', desc: '10:30 海豚表演 BLUE ECHO；11:30 逆戟鯨（虎鯨）公開訓練。看完海豚留在原地看虎鯨，最省力！' },
+                    { time: '11:45', title: '看台海景野餐 🍱', desc: '訓練結束後在北館 3 樓看台（可飲食區）野餐享用炸蝦飯糰，賞無敵海景。' },
+                    { time: '12:20', title: '推車前往南館 🐧', desc: '沿連通道前往南館（下午不再回北館）。12:30 企鵝餵食、14:45 沙丁魚龍捲風。離園前在北館出口買虎鯨玩偶。' },
+                    { time: '15:30', title: 'LaLaport 港北購物 🛒', desc: '搭名港線 2 站到「港區役所站」直通 LaLaport。狂攻 Montbell、阿卡將、Loft。' }
+                ],
+                plans: {
+                    'A': [
+                        { time: '18:00', title: '【方案 A】LaLaport 晚餐 ➔ 綠洲 21 夜景 🌌', desc: '直接在 LaLaport 3F 美食廣場吃飽。19:30 搭地鐵到榮站，登頂綠洲 21「水之宇宙船」拍電視塔夜景大合照！隨後搭東山線回飯店。' }
+                    ],
+                    'B': [
+                        { time: '18:00', title: '【方案 B】榮商圈晚餐 ➔ 綠洲 21 頂層 🍣', desc: '離開 LaLaport 前往榮站。挑戰德兵衛迴轉壽司或地雞料理，20:15 前登頂綠洲 21 拍夜景，隨後回飯店。' }
+                    ],
+                    'C': [
+                        { time: '18:30', title: '【方案 C】體力撤退版 ➔ 回飯店超市補貨 🏡', desc: '在 LaLaport 逛更久吃更飽。20:00 搭地鐵經榮站轉東山線回名古屋站。回飯店前去 MaxValu 太閣店買宵夜。' }
+                    ]
+                }
+            },
+            6: {
+                plans: {
+                    'A': [
+                        { time: '09:00', title: '【方案 A】千里馬藥局掃貨 💊', desc: '一早先進攻這間歷史名店（只收現金，不適合推車，建議父母輕裝前去）。' },
+                        { time: '10:00', title: 'Bic Camera 西店買電器 🔌', desc: '挑選心儀電子鍋與小孩玩具。12:00 直接放回房（步行 5 分鐘），下午兩手空空去擠祭典，體力負擔減半！' },
+                        { time: '13:00', title: 'Sun Road 涼爽午餐 🥪', desc: '外帶 Konparu 炸蝦三明治與 Onimaru 飯糰。' },
+                        { time: '14:30', title: '交通移動 🚇', desc: '搭東山線 1 站到伏見，轉鶴舞線 1 站至「大須觀音站」。' },
+                        { time: '15:00', title: '大須觀音快閃合照 📷', desc: '在大紅燈籠下拍全家福！接著在東仁王門通街口觀賞阿波舞，逛萬松寺通商店街避暑。' },
+                        { time: '17:30', title: '綠洲 21 與榮區晚餐 🌆', desc: '上前津站搭地鐵至榮站，拍電視塔夜景，晚餐吃德兵衛迴轉壽司。隨後搭東山線回名古屋站準備行李箱封箱。' }
+                    ],
+                    'B': [
+                        { time: '08:00', title: '【方案 B】Sun Road 買乾糧 🍙', desc: '先在地下街買好 Konparu 三明治和飯糰，當作東山動物園的野餐糧食。' },
+                        { time: '08:30', title: '搭東山線前往東山公園 🚇', desc: '名古屋站搭乘地鐵東山線直達「東山公園站」，步行大約 5 分鐘抵達大門。' },
+                        { time: '09:00', title: '東山動植物園大放電 🦍', desc: '先去看帥哥猩猩 Shabani！中午在野餐區用餐，11 點後太熱的話躲進自然科學館或天空塔。' },
+                        { time: '14:30', title: 'Bic Camera 西店特攻 🔌', desc: '下午最熱時回到飯店隔邊 Bic Camera 百貨內慢慢挑選電器、玩具，極輕鬆。' },
+                        { time: '18:00', title: 'ESCA 地下街晚餐 🍛', desc: '晚餐享用美食。19:00 去千里馬或高島屋 B1伴手禮最後衝刺，20:00 行李大封箱！' }
+                    ]
+                }
+            },
+            7: [
+                { time: '08:00', title: '晨間序曲：客美多吐司 ☕', desc: '步行至 ESCA 地下街享用 Komeda 點咖啡送紅豆泥吐司的經典早餐，MaxValu 最後補貨。' },
+                { time: '10:30', title: '退房寄放行李 🏨', desc: '回房進行最後行李整理，最晚 11:00 前退房，將 4 個大行李箱寄放櫃檯。' },
+                { time: '11:00', title: '名站伴手禮最後備戰 🛍️', desc: '大國藥妝保健品補齊。到 Tsubame Bread 買三明治與絹香吐司，路過高島屋 B1 買小雞蛋糕、伴手禮或 Harbs。' },
+                { time: '14:00', title: '搭名鐵特急前往中部機場 🚇', desc: '回飯店拿行李，搭 14:00 的名鐵特急在 14:36 抵達中部國際機場。先將行李箱寄放在航廈 3F (一台推車 880 日圓) 開放雙手。' },
+                { time: '15:00', title: '波音博物館最後放電 ✈️', desc: '走 500m 到 FLIGHT OF DREAMS，在巨大波音 787 下的室內兒童遊戲區瘋狂放電。' },
+                { time: '16:00', title: '蝦仙貝之里「整箱裝箱」 🦐', desc: '前往 4 樓「提燈橫丁」，現場採購後請店員直接整箱打包好以便直接託運。' },
+                { time: '16:50', title: '星宇航報到托運 🛫', desc: '17:00 星宇航空櫃檯開放報到與託運行李，大行李全數託運。' },
+                { time: '17:20', title: '機場最後拉麵饗宴 🍜', desc: '在 4 樓美食街吃半蔵製麺的伊勢海老拉麵和獅子丸拉麵。' },
+                { time: '18:00', title: '優雅安檢進關 ✈️', desc: '準時通關。免稅店購買 Sugar Butter Tree 伴手禮，搭乘星宇 JX 839 於 19:55 起飛。' }
+            ]
         };
+
+        let dayPlans = JSON.parse(localStorage.getItem('nagoya_day_plans')) || {
+            2: 'A',
+            5: 'A',
+            6: 'A'
+        };
+
         let expenses = JSON.parse(localStorage.getItem('expenses')) || [];
-        let handbagList = JSON.parse(localStorage.getItem('handbagList')) || [
-            { category: '旅遊文件 (Passport)', items: [
+        let handbagList = JSON.parse(localStorage.getItem('handbagList_v2')) || [
+            { category: '手提行李隨身攜帶 (限重 7kg/人)', items: [
                 { id: 'h1', text: '護照 ✈️', checked: false },
                 { id: 'h2', text: '機票確認單', checked: false },
                 { id: 'h3', text: '日圓現金 / 信用卡 💳', checked: false },
-                { id: 'h4', text: '實體旅遊手冊', checked: false },
-                { id: 'h5', text: '原子筆 / 錢包 🖊️', checked: false },
-                { id: 'h6', text: '大人的ICOCK卡', checked: false }
-            ]},
-            { category: '3C 用品 (Electronics)', items: [
-                { id: 'h7', text: '手機 / 充電線 🔌', checked: false },
-                { id: 'h8', text: '行動電源 (不托運！)', checked: false },
-                { id: 'h9', text: '降噪耳機 🎧', checked: false },
-                { id: 'h10', text: '隨身手持風扇 🌬️', checked: false },
-                { id: 'h11', text: '日本網卡 / WiFi 機', checked: false }
-            ]},
-            { category: '嬰童隨行 (For Baby)', items: [
-                { id: 'h12', text: '寶寶背巾 / 紗布巾', checked: false },
-                { id: 'h13', text: '濕紙巾 / 哺乳巾', checked: false },
-                { id: 'h14', text: '米餅 / 寶寶粥2包 🍼', checked: false },
-                { id: 'h15', text: '尿布 3 片 / 備用衣服1套', checked: false },
-                { id: 'h16', text: '安撫玩具 / 貼紙書 🧸', checked: false }
+                { id: 'h4', text: '實體旅遊手冊 / 筆 🖊️', checked: false },
+                { id: 'h5', text: '錢包 / 大人的 ICOCK卡', checked: false },
+                { id: 'h6', text: '手機 & 充電線 🔌', checked: false },
+                { id: 'h7', text: '行動電源 (不可托運！)', checked: false },
+                { id: 'h8', text: '耳機 / 隨身手持風扇 🌬️', checked: false },
+                { id: 'h9', text: '網卡 / WiFi 機', checked: false },
+                { id: 'h10', text: '口罩 / OK 繃 / 衛生紙', checked: false },
+                { id: 'h11', text: '防曬外套 / 空水壺 (入關裝水)', checked: false },
+                { id: 'h12', text: '嬰童背巾 / 紗布巾 / 濕紙巾', checked: false },
+                { id: 'h13', text: '哺乳巾 / 米餅', checked: false },
+                { id: 'h14', text: '寶寶粥 2 包 / 尿布 3 片 🍼', checked: false },
+                { id: 'h15', text: '嬰童備用衣 / 貼紙或玩具 🧸', checked: false }
             ]}
         ];
-        let luggageList = JSON.parse(localStorage.getItem('luggageList')) || [
-            { category: '衣物穿搭 (Clothing)', items: [
-                { id: 'l1', text: '內衣褲 5 套 👕', checked: false },
-                { id: 'l2', text: '好穿睡衣 2 套', checked: false },
-                { id: 'l3', text: '吸汗襪子 5 雙 🧦', checked: false },
-                { id: 'l4', text: '便攜拖鞋 / 涼鞋 🩴', checked: false },
-                { id: 'l5', text: '短袖上衣 / 長短褲各5套', checked: false },
-                { id: 'l6', text: '泳裝 / 泳裝 (樂高樂園用) 🩱', checked: false },
-                { id: 'l7', text: '抗UV防曬外套 / 遮陽帽 👒', checked: false }
+
+        let luggageList = JSON.parse(localStorage.getItem('luggageList_v2')) || [
+            { category: '托運行李衣物穿搭 (限重 23kg/人)', items: [
+                { id: 'l1', text: '內衣褲 5 套 / 睡衣 👕', checked: false },
+                { id: 'l2', text: 'Sock 5 雙 / 拖鞋 / 涼鞋 🧦', checked: false },
+                { id: 'l3', text: '短袖上衣 5 件', checked: false },
+                { id: 'l4', text: '長褲 / 短褲 5 件', checked: false },
+                { id: 'l5', text: '泳裝 / 泳裝 (樂高玩水用) 🩱', checked: false },
+                { id: 'l6', text: '太陽眼鏡 / 遮陽帽 👒', checked: false },
+                { id: 'l7', text: '隱形眼鏡 / 毛巾 / 浴巾', checked: false }
             ]},
-             { category: '日常品類 (Daily necessities)', items: [
-                { id: 'l8', text: '毛巾 / 浴巾', checked: false },
-                { id: 'l9', text: '牙刷 / 牙膏/牙線 🦷', checked: false },
-                { id: 'l10', text: '洗面乳', checked: false },
-                { id: 'l11', text: '梳子 / 髮圈', checked: false },
-                { id: 'l12', text: '濕式衛生紙 / 衛生紙', checked: false },
-                { id: 'l13', text: '防曬乳', checked: false },
-                { id: 'l14', text: '刮鬍刀 / 指甲剪', checked: false },
-                { id: 'l15', text: '衛生棉 / 溢乳墊', checked: false }
+            { category: '日用品類 (Daily necessities)', items: [
+                { id: 'l8', text: '牙刷 / 牙膏 / 洗面乳 🦷', checked: false },
+                { id: 'l9', text: '梳子 / 髮圈 / 刮鬍刀', checked: false },
+                { id: 'l10', text: '濕式衛生紙 / 防曬乳 🧴', checked: false },
+                { id: 'l11', text: '牙線 / 衛生棉 / 溢乳墊 🩸', checked: false },
+                { id: 'l12', text: '指甲剪 / 衛生紙', checked: false }
             ]},
-            { category: '日常藥物與其他 (Medical & Others)', items: [
-                { id: 'l16', text: '常備備用藥 (感冒、退燒、OK繃) 💊', checked: false },
-                { id: 'l17', text: '萬用轉接頭 / 行理秤 ⚖️', checked: false },
-                { id: 'l18', text: '摺疊雨傘 / 輕便雨衣 ☔', checked: false },
-                { id: 'l19', text: '環保購物袋 (掃貨備備) 🛍️', checked: false },
-                { id: 'l20', text: '塑膠袋 / 洗衣網 ', checked: false },
-                { id: 'l21', text: '餐具 / 保鮮盒 / 水果刀', checked: false },
-                { id: 'l22', text: '護照影本 / 2吋照片', checked: false },
-                { id: 'l23', text: '旅平險 / 少量台幣', checked: false }
+            { category: '其他類別 (Others)', items: [
+                { id: 'l13', text: '行李秤 / 萬用轉接頭 ⚖️', checked: false },
+                { id: 'l14', text: '塑膠袋 / 雨傘 / 雨衣 ☔', checked: false },
+                { id: 'l15', text: 'OK 繃 / 洗衣網 / 購物袋 🛍️', checked: false },
+                { id: 'l16', text: '保鮮盒 / 嬰童專屬餐具', checked: false },
+                { id: 'l17', text: '護照影本 / 2吋照片', checked: false },
+                { id: 'l18', text: '海外旅行保險單 / 備用藥 💊', checked: false },
+                { id: 'l19', text: '少量台幣 / 水果刀 🔪', checked: false }
             ]},
-            { category: '嬰童托運大軍 (For Baby Large)', items: [
-                { id: 'l24', text: '尿布 25 片 👶', checked: false },
-                { id: 'l25', text: '寶寶粥 12 包 ', checked: false },
-                { id: 'l26', text: '屁屁清潔液 / 濕紙巾', checked: false },
-                { id: 'l27', text: '嬰幼兒沐浴乳 / 乳液 🧴', checked: false },
-                { id: 'l28', text: '耳溫槍 / 屁屁膏', checked: false },
-                { id: 'l29', text: '兒童餐具 / 食物剪刀 ✂️', checked: false },
-                { id: 'l30', text: '米餅', checked: false },
-                { id: 'l31', text: '圍兜 / 悶燒罐', checked: false },
-                { id: 'l32', text: '機邊托運摺疊推車 🛒', checked: false }
+            { category: '嬰童用品專區 (Kids Special)', items: [
+                { id: 'l20', text: '大尿布 25 片 👶', checked: false },
+                { id: 'l21', text: '紗布巾 / 沐浴用品 / 乳液', checked: false },
+                { id: 'l22', text: '屁屁膏 / 濕紙巾', checked: false },
+                { id: 'l23', text: '食物剪刀 / 嬰兒餐具 ✂️', checked: false },
+                { id: 'l24', text: '耳溫槍 🌡️', checked: false },
+                { id: 'l25', text: '安撫米餅 / 屁屁清潔液', checked: false },
+                { id: 'l26', text: '圍兜 / 悶燒罐', checked: false },
+                { id: 'l27', text: '寶寶粥 12 包 🍼', checked: false },
+                { id: 'l28', text: '機邊託運摺疊型推車 🛒', checked: false }
             ]}
         ];
+
         let memos = JSON.parse(localStorage.getItem('memos')) || [
-            { text: '一蘭拉麵名古屋榮店: 點這裡看菜單', url: 'https://ichiran.com/' },
             { text: 'Visit Japan Web 登入入口網址', url: 'https://vjw-lp.digital.go.jp/' },
             { text: '名古屋鐵道轉乘、時刻表查詢', url: 'https://trainbus.meitetsu.co.jp/meitetsu-transfer-zh-tw/pc/map/Top' },
             { text: '名古屋市交通局', url: 'https://www.kotsu.city.nagoya.jp/rp/' }, 
-            { text: '名古屋車站地圖(地下鐵、巴士)', url: 'https://www.nsk-eki.com/nagoya/map/' },
+            { text: '名古屋車站地圖(地下鐵、巴士)', url: 'https://www.nsk-eki.com/nagoya/map/' },         
             { text: '小雞布丁預約網站', url: 'https://market.jr-central.co.jp/shop/e/ep-bookP/' },
             { text: 'SunRoad地下街地圖', url: 'https://www.sunroad.org/' },
-            { text: 'ESCA地下街地圖', url: 'https://www.esca-sc.com/shop_guide/#shop_guide' }
+            { text: 'ESCA地下街地圖', url: 'https://www.esca-sc.com/shop_guide/#shop_guide' },
+            { text: '豐田紀念館導覽APP', url: 'https://www.tcmit.org/chinese-tw/enjoy/audio-tour' },
+            { text: '一蘭拉麵名古屋榮店: 點這裡看菜單', url: 'https://ichiran.com/' }             
         ];
 
         // 1.5 一鍵切換/收縮飯店詳細設施卡片
@@ -693,6 +972,7 @@
         // 4. 動態方案更換
         function changeDayPlan(day, plan) {
             dayPlans[day] = plan;
+            localStorage.setItem('nagoya_day_plans', JSON.stringify(dayPlans));
             renderTimeline();
         }
 
@@ -708,28 +988,13 @@
             headerNum.innerText = `Day ${currentDay}`;
 
             let items = [];
+            const dayData = schedules[currentDay];
 
             if (currentDay === 1) {
                 headerTitle.innerText = "抵達名古屋 ➔ 超市補貨";
                 headerFocus.innerHTML = "<i class='fa-solid fa-sparkles text-chiikawa-pinkdeep mr-1'></i>本日重點：星宇啟航、入關與兒童 IC 卡申辦、MaxValu 補給";
                 headerEmoji.innerText = "✈️";
-
-                items = [
-                    { time: '11:15', title: '行李確認與出發 🧳', desc: '早餐要吃飽或提早吃午餐，準備搭機場接送（約30分鐘車程）前往桃園機場。' },
-                    { time: '11:45', title: '桃園機場報到登機 🛫', desc: '桃園機場第一航廈星宇航空櫃檯 Check-in，入關後記得再幫保溫瓶裝水，推車準備機邊托運。' },
-                    { time: '14:55', title: '星宇 JX 838 啟航 ✈️', desc: '起飛後約1小時有飛機餐，記得準備副食品及米餅給寶寶。' },
-                    { time: '18:45', title: '抵達名古屋中部機場 🇯🇵', desc: '下飛機後迅速出關。準備好 Visit Japan Web 入境 QR Code。' },
-                    { time: '19:15', title: '申辦兒童 manaca 卡 💳', desc: '在名鐵售票處幫兩位小女孩申辦兒童專用交通卡（押金500日圓），出示護照即可，搭車半票。' },
-                    { time: '19:47', title: '搭乘名鐵特急 🚇', desc: '坐名鐵特急前往名古屋市區（票價980日圓/人，對號座加450日圓），車程38分鐘。' },
-                    { time: '20:25', title: '抵達名鐵名古屋站', desc: '記得從西改札口出來才有電梯可以搭' },
-                    { time: '20:40', title: '抵達飯店 Check-in 🏨', desc: '開導航走，大約步行500公尺至「大和ROYNET飯店 名古屋太閣通口」辦理入住。' },
-                    { 
-                        time: '21:00', 
-                        title: 'MaxValu 太閣店補給 🍎', 
-                        desc: '輕裝步行300公尺到24小時營業的 MaxValu 採買宵夜，以及明早的水果 and 鮮奶。',
-                        mapUrl: 'https://maps.app.goo.gl/tfVk37einACjetAx7' 
-                    }
-                ];
+                items = dayData;
             } 
             else if (currentDay === 2) {
                 headerTitle.innerText = "豐田科技與永旺購物";
@@ -742,67 +1007,19 @@
                         </div>
                     </div>`;
                 headerEmoji.innerText = "🚗";
-
-                items = [
-                    { time: '08:00', title: '飯店晨光與早餐 🥐', desc: '悠哉享用昨晚在 MaxValu 太閣店買好的美味早餐。' },
-                    { 
-                        time: '09:00', 
-                        title: '出發前往榮生站 🚇', 
-                        desc: '名古屋站名鐵 1 號月台搭乘往岐阜/犬山方向，坐 1 站（2分鐘）抵達「榮生站」，步行 300 公尺到達豐田產業技術紀念館。',
-                        mapUrl: 'https://maps.app.goo.gl/3f9FVAkhTfjRb8uW6'
-                    },
-                    { time: '10:00', title: '豐田產業技術紀念館 🛠️', desc: '10:00購票入館，先衝進去預約 10:30~11:00 的「科技樂園」放電時間。' },
-                    { time: '11:00', title: '蒸汽機運轉演示 ⚙️', desc: '科技樂園對面看壯觀的蒸汽機運轉示範，接著在 11:25 回大廳欣賞環狀織布機展示。' },
-                    { time: '11:35', title: '自由展區與紅磚餐廳午餐 🍛', desc: '參觀汽車組裝，午餐就在館內 Brick Age 紅磚餐廳享用，或走去 AEON 吃。' },
-                    { time: '13:20', title: '機器人拉小提琴 🎻', desc: '步行至南入口觀賞高科技夥伴機器人拉小提琴表演。' },
-                    { time: '14:00', title: 'AEON Mall 則武新町 🛍️', desc: '南入口步行 500 公尺進 AEON。網美蔦屋打卡牆、Seria 百元店、無印良品與 3coins 買齊！',
-                        mapUrl: 'https://maps.app.goo.gl/ybcTw2yMqHenjhqHA' }
-                ];
-
-                if (dayPlans[2] === 'A') {
-                    items.push({ time: '18:00', title: '【方案 A】MALL 內晚餐 ➔ 公車直達 🚌', desc: '直接在 Mall 餐廳街飽餐一頓，順便買明早鮮奶。在門口搭 20:13 或 20:24 的「名駅 13」公車 10 分鐘直達車站，穿大廳回飯店。',
-                        mapUrl: 'https://maps.app.goo.gl/pvdnxic8jahscYYV6' });
-                } else {
-                    items.push(
-                        { time: '18:00', title: '【方案 B】公車回名站 ➔ 地下街豬排 🥩', desc: '搭 18:03 公車回名站，在西側 ESCA 地下街享用炸豬排大餐，路過 JR 高島屋買地雷也炸蝦飯糰。' },
-                        { time: '20:00', title: 'MaxValu 太閣店補貨 🛒', desc: '回飯店前，輕裝走回對面 MaxValu 買水果、鮮奶，結束充實的購物日！' }
-                    );
-                }
+                items = [...dayData.common_before, ...(dayData.plans[dayPlans[2]] || [])];
             } 
             else if (currentDay === 3) {
                 headerTitle.innerText = "樂高樂園全日親子遊";
                 headerFocus.innerHTML = "<i class='fa-solid fa-sparkles text-chiikawa-pinkdeep mr-1'></i>本日重點：青波線、限定積木、濕身水花大決戰";
                 headerEmoji.innerText = "🏰";
-
-                items = [
-                    { time: '09:00', title: '搭乘青波線出發 🚇', desc: '步行至名古屋車站太閣通口，搭乘青波線到終點站「金城埠頭」（約24分鐘），步行500m抵達樂高樂園。' },
-                    { time: '10:00', title: '進門拍全家福與瞭望塔 🗼', desc: '進門先拍全家福笑容最美。先去樂高工廠拿限定版積木，接著搭瞭望塔看 60m 高空景。' },
-                    { time: '11:00', title: '幻影忍者 4D 大秀 🎬', desc: '【必看】編號 2 忍者影廳 11:00 場次。' },
-                    { time: '11:40', title: '冒險區分隊挑戰 ⚔️', desc: '分隊：爸爸/姊姊組挑戰烏賊衝浪等。爺奶/小弟組前往編號30阿姆斯特拉秘密之室（室內組積木吹冷氣歇息）。29號法老的復仇會師球池放電。' },
-                    { time: '13:00', title: '彩 (Irodori) 日式餐廳午餐 🍱', desc: '享用美味能量日式定食套餐。' },
-                    { time: '14:00', title: '城市英雄：職業圓夢 🧑‍🚒', desc: '分隊：爸爸帶姊姊考駕照、開消防車。爺奶與小弟去創意工作坊 (34) 組積木。' },
-                    { time: '15:30', title: '騎士王國與小弟得寶區 🎢', desc: '姊姊們挑戰梅林的飛行器與飛龍，小弟和長輩在得寶快車小火車或攀岩區暖身。' },
-                    { time: '16:15', title: '迷你樂園合照與水花大戰 💦', desc: '中央迷你樂園拍全家大合照。姊姊們去水花大戰濕透，小弟在得寶樂園玩水。17:00 換乾衣（重要）！' },
-                    { time: '17:15', title: 'The Big Shop 限定大採購 🎁', desc: '出口前的大型樂高商店，買齊名古屋限定樂高商品。' },
-                    { time: '17:30', title: '殿堂影院 4D 電影壓軸 🎥', desc: '穿好乾衣，舒舒服服進影院欣賞最後一場 4D 表演，看完剛好 18:00 離園。' },
-                    { time: '18:30', title: '名站西側輕鬆買晚餐 🍣', desc: '搭車回到名古屋站，在 MaxValu 太閣店或 ESCA 地下街外帶便當回房間裝作悠閒。' }
-                ];
+                items = dayData;
             } 
             else if (currentDay === 4) {
                 headerTitle.innerText = "科學震撼、榮商圈掃貨";
                 headerFocus.innerHTML = "<i class='fa-solid fa-sparkles text-chiikawa-pinkdeep mr-1'></i>本日重點：大銀球天文館、百萬伏特閃電秀、蓬萊軒鰻魚三吃、Harbs與吉伊卡哇";
                 headerEmoji.innerText = "⚡";
-
-                items = [
-                    { time: '09:00', title: '笹島町公車站出發 🚌', desc: '從飯店走 250m 到「笹島町」公車站，搭乘幹栄2或名鐵巴士40號，5站（10分鐘）直達「広小路本町」。' },
-                    { time: '09:30', title: '名古屋市科學館 🪐', desc: '穿越巨大銀球！理工館 5F 實物元素週期表、4F 百萬伏特閃電、3F 龍捲風與 2F 水之廣場。' },
-                    { time: '13:30', title: '一蘭拉麵（榮店）午餐 🍜', desc: '步行 400m 抵達一蘭。順路在科學館對面買美味的限定銅鑼燒。' },
-                    { time: '15:00', title: 'Alpen NAGOYA 運動鞋狂買 👟', desc: '名古屋超好逛大型運動用品專專賣店。' },
-                    { time: '16:30', title: '松坂屋蓬萊軒卡位登記 🍱', desc: '全團衝到松坂屋南館 10F 蓬萊軒櫃檯現場登記（預估等候60~90分鐘）。' },
-                    { time: '17:00', title: '等位空檔：女孩吉伊卡哇圓夢 🌸', desc: '分頭行動！到松坂屋 4F 買 Harbs 水果千層蛋糕，再到 PARCO 找吉伊卡哇（Chiikawa）和寶可夢！' },
-                    { time: '18:00', title: '蓬萊軒豪華大餐 🌟', desc: '享用名古屋必吃、百年傳承「鰻魚飯三吃 (Hitsumabushi)」，美味滿分。' },
-                    { time: '19:45', title: '驚安殿堂榮三丁目店 🛒', desc: '唐吉訶德最後衝刺掃貨零食與藥妝，21:00 在松坂屋前搭名鐵巴士36號直達名鐵巴士中心，輕鬆回房。' }
-                ];
+                items = dayData;
             } 
             else if (currentDay === 5) {
                 headerTitle.innerText = "海洋霸主與 LaLaport 強冷氣掃貨";
@@ -816,77 +1033,26 @@
                         </div>
                     </div>`;
                 headerEmoji.innerText = "🐬";
-
-                items = [
-                    { time: '08:30', title: 'ESCA 買飯糰與櫻通線 🍙', desc: '在地下街買炸蝦飯糰。搭地鐵「櫻通線」到久屋大通，轉「名港線」前往名古屋港站。買一日券水族館門票折 200 日圓！' },
-                    { time: '10:15', title: '名古屋港水族館北館 🐳', desc: '10:30 海豚表演，看完原地不動直接在 11:30 接虎鯨公開訓練！' },
-                    { time: '11:45', title: '看台海景野餐 🍱', desc: '訓練結束後在北館 3 樓看台（可飲食區）原地開飯，享用飯糰，享受無敵海景。' },
-                    { time: '12:20', title: '關鍵移動前往南館 🐧', desc: '全團推車沿連通道移動到南館。12:30 看企鵝餵食、14:45 觀賞沙丁魚龍捲風。' },
-                    { time: '15:30', title: 'LaLaport 港北購物 🛒', desc: '搭地鐵名港線 2 站到「港區役所站」，直通 LaLaport。狂攻 Montbell、阿卡將、Loft。' }
-                ];
-
-                if (dayPlans[5] === 'A') {
-                    items.push(
-                        { time: '18:00', title: '【方案 A】LaLaport 晚餐 ➔ 綠洲 21 夜景 🌌', desc: '直接在 LaLaport 3F 兒童友善美食區吃飽. 19:30 搭地鐵到榮站，登頂綠洲 21「水之宇宙船」拍電視塔夜景大合照！' },
-                        { time: '21:10', title: '東山線直達回飯店 🚇', desc: '從榮站搭東山線 2 站回到名古屋站，走地面大廳回大和飯店休息。' }
-                    );
-                } else if (dayPlans[5] === 'B') {
-                    items.push(
-                        { time: '18:00', title: '【方案 B】移動至榮 ➔ 德兵衛迴轉壽司 🍣', desc: '搭地鐵到榮站。挑戰榮商圈美食（如德兵衛迴轉壽司或地雞料理），並於 20:15 登頂綠洲 21 拍照。' }
-                    );
-                } else {
-                    items.push(
-                        { time: '18:30', title: '【方案 C】體力撤退版 ➔ 回飯店超市補貨 🏡', desc: '在 LaLaport 逛更久吃更飽，20:00 撤退直接回名站，在對面 MaxValu 超市買宵夜點心！' }
-                    );
-                }
+                items = [...dayData.common_before, ...(dayData.plans[dayPlans[5]] || [])];
             } 
             else if (currentDay === 6) {
                 headerTitle.innerText = "當天早上 08:30 決定本日方案！";
                 headerFocus.innerHTML = `
                     <div class="flex flex-col gap-2 mt-1">
-                        <p><i class='fa-solid fa-sparkles text-chiikawa-pinkdeep mr-1'></i>投票關鍵：日本傳統祭典/大紅燈籠 vs 孩子看帥猩猩 Shababni 放電</p>
+                        <p><i class='fa-solid fa-sparkles text-chiikawa-pinkdeep mr-1'></i>投票關鍵：日本傳統祭典/大紅燈籠 vs 孩子看帥猩猩 Shabani 放電</p>
                         <div class="flex gap-2">
                             <button onclick="changeDayPlan(6, 'A')" class="px-2 py-1 rounded-lg text-[10px] font-bold ${dayPlans[6]==='A'?'bg-muji-charcoal text-white':'bg-white text-muji-charcoal border border-muji-linen'}">方案 A (大須祭典團)</button>
                             <button onclick="changeDayPlan(6, 'B')" class="px-2 py-1 rounded-lg text-[10px] font-bold ${dayPlans[6]==='B'?'bg-muji-charcoal text-white':'bg-white text-muji-charcoal border border-muji-linen'}">方案 B (東山動物園團)</button>
                         </div>
                     </div>`;
                 headerEmoji.innerText = "🐆";
-
-                if (dayPlans[6] === 'A') {
-                    items = [
-                        { time: '09:00', title: '【方案 A】千里馬藥局掃貨 💊', desc: '一早先進攻這間歷史名店（只收現金，不適合推車）。' },
-                        { time: '10:00', title: 'Bic Camera 西店買電器 🔌', desc: '挑選心儀電子鍋與小孩玩具。買完後在 12:00 直接放回房（走5分鐘），中場休息，下午兩手空空去祭典！' },
-                        { time: '13:00', title: 'Sun Road 涼爽午餐 🥪', desc: '外帶 Konparu 炸蝦三明治與 Onimaru 飯糰。' },
-                        { time: '14:30', title: '交通移動 🚇', desc: '搭東山線 1 站到伏見，轉鶴舞線 1 站至「大須觀音站」。' },
-                        { time: '15:00', title: '大須觀音快閃合照 📷', desc: '在大紅燈籠下拍全家福！接著在東仁王門通街口觀賞阿波舞，逛萬松寺通商店街避暑。' },
-                        { time: '17:30', title: '綠洲 21 與榮區晚餐 🌆', desc: '上前津站搭地鐵至榮站，拍電視塔夜景，晚餐吃德兵衛迴轉壽司。' },
-                        { time: '20:00', title: '搭地鐵回飯店 🚇', desc: '從榮站搭東山線回名古屋站，準備封箱。' }
-                    ];
-                } else {
-                    items = [
-                        { time: '08:00', title: '【方案 B】Sun Road 買乾糧 🍙', desc: '先在地下街買好 Konparu 三明治 and 飯糰，當作動物園的野餐糧食。' },
-                        { time: '08:30', title: '搭東山線前往東山公園 🚇', desc: '名古屋站搭乘地鐵東山線直達「東山公園站」。' },
-                        { time: '09:00', title: '東山動植物園大放電 🦍', desc: '先去看帥哥猩猩 Shabani！太熱的話 11 點後躲進自然科學館或天空塔。' },
-                        { time: '14:30', title: 'Bic Camera 西店特攻 🔌', desc: '下午最熱時在飯店隔壁 Bic Camera 百貨內慢慢挑選電器、玩具，極輕鬆。' },
-                        { time: '18:00', title: 'ESCA 地下街晚餐 🍛', desc: '晚餐享用美食。19:00 去千里馬或高島屋 B1伴手禮最後衝刺，20:00 行李大封箱！' }
-                    ];
-                }
+                items = dayData.plans[dayPlans[6]] || [];
             } 
             else if (currentDay === 7) {
                 headerTitle.innerText = "晨光、遺珠伴手禮與看飛機計畫";
                 headerFocus.innerHTML = "<i class='fa-solid fa-sparkles text-chiikawa-pinkdeep mr-1'></i>本日重點：紅豆泥吐司、伴手禮採買、波音博物館、整箱蝦仙貝托運";
                 headerEmoji.innerText = "🛫";
-
-                items = [
-                    { time: '08:00', title: '客美多咖啡紅豆泥吐司 ☕', desc: '步行至 ESCA 地下街享用 Komeda 點咖啡送紅豆泥吐司的經典早餐文化，MaxValu 最後補貨。' },
-                    { time: '10:30', title: '退房寄放行李 🏨', desc: '回房做最後行李整理，最晚 11:00 前退房，將 4 個大行李箱寄放櫃檯。' },
-                    { time: '11:00', title: '名站伴手禮最後備戰 🎂', desc: '大國藥妝保健品補齊。到 Tsubame Bread 買三明治與絹香吐司，路過高島屋 B1 買小雞蛋糕或 Harbs。' },
-                    { time: '14:00', title: '搭名鐵特急前往中部機場 🚇', desc: '回飯店拿行李，搭名鐵特急在 14:36 抵達中部國際機場。先將行李箱寄放在航廈 3F (一台推車 880 日圓) 開放雙手。' },
-                    { time: '15:00', title: '波音博物館最後放電 ✈️', desc: '走 500m 到 FLIGHT OF DREAMS，在巨大波音 787 下的室內兒童遊戲區瘋狂放電。' },
-                    { time: '16:00', title: '蝦仙貝之里「整箱裝箱」 🦐', desc: '前往 4 樓「提燈橫丁」，請店員直接整箱打包好以便直接託運。' },
-                    { time: '16:50', title: '17:00 櫃台報到托運 🛫', desc: '解放雙手！星宇航空櫃檯開台辦理報到，托運所有大行李。' },
-                    { time: '17:20', title: '機場最後拉麵饗宴 🍜', desc: '在 4 樓美食街吃半蔵製麺的伊勢海老拉麵和獅子丸拉麵。18:00 準時安檢進關，免稅店買 Sugar Butter Tree 等待 19:55 星宇 JX 839 起飛！' }
-                ];
+                items = dayData;
             }
 
             // 渲染列表 HTML
@@ -894,13 +1060,8 @@
                 const card = document.createElement('div');
                 card.className = "relative pl-6 pb-2 fade-in";
                 
-                // 標記時間點圓圈
-                let dotColor = "bg-muji-linen";
-                if (item.time === '11:00' || item.time === '17:00' || item.time === '18:00' || item.time === '10:30') {
-                    dotColor = "bg-chiikawa-pinkdeep";
-                }
+                let dotColor = "bg-chiikawa-pinkdeep";
 
-                // 判斷是否需要附帶導航按鈕
                 let mapBtnHtml = item.mapUrl ? `
                     <div class="mt-1.5">
                         <a href="${item.mapUrl}" target="_blank" class="inline-flex items-center gap-1.5 bg-chiikawa-blue hover:bg-blue-200 text-muji-charcoal text-[10px] px-2.5 py-1.5 rounded-xl font-bold transition-all active:scale-95 shadow-sm border border-blue-200">
@@ -936,7 +1097,7 @@
             document.getElementById(`gbtn-${guideId}`).classList.remove('bg-white', 'text-muji-charcoal', 'border-muji-linen');
         }
 
-        // 7. 計算機邏輯
+        // 7. 計算機邏輯 (安全防護優化與自動忽略結尾運算子防呆機制)
         let calcVal = "0";
         function pressCalc(char) {
             const screen = document.getElementById('calc-screen');
@@ -948,7 +1109,15 @@
             } else if (char === '=') {
                 try {
                     formula.innerText = calcVal + " =";
-                    calcVal = String(eval(calcVal));
+                    let sanitized = calcVal.replace(/[^0-9+\-*/.]/g, '');
+                    if (['+', '-', '*', '/'].includes(sanitized.slice(-1))) {
+                        sanitized = sanitized.slice(0, -1);
+                    }
+                    if (sanitized) {
+                        calcVal = String(Function(`"use strict"; return (${sanitized})`)());
+                    } else {
+                        calcVal = "0";
+                    }
                 } catch {
                     calcVal = "Error";
                 }
@@ -1012,7 +1181,7 @@
             const typeInput = document.querySelector('input[name="expense-type"]:checked');
             
             if (!nameInput.value || !jpyInput.value) {
-                alert("請填寫品項名稱與日幣金額！");
+                showAlert("資料不全", "請填寫品項名稱與日幣金額！", "⚠️");
                 return;
             }
 
@@ -1042,6 +1211,66 @@
             expenses = expenses.filter(x => x.id !== id);
             localStorage.setItem('expenses', JSON.stringify(expenses));
             renderExpenses();
+        }
+
+        // 清空所有記帳項目（自定義安全對話框）
+        function clearAllExpenses() {
+            if (expenses.length === 0) {
+                showAlert("提示", "目前沒有任何記帳資料唷！", "💡");
+                return;
+            }
+            showConfirm(
+                "清空帳本", 
+                "確定要清空所有記帳本數據嗎？此動作無法復原喔！", 
+                "🗑️", 
+                () => {
+                    expenses = [];
+                    localStorage.removeItem('expenses');
+                    renderExpenses();
+                    showAlert("清除完畢", "已成功清空所有記帳項目！✨", "🧹");
+                }
+            );
+        }
+
+        // 複製 LINE 親友團對帳單
+        function copyBillToLine() {
+            if (expenses.length === 0) {
+                showAlert("提示", "目前沒有任何支出，快去記幾筆帳吧！🌸", "💡");
+                return;
+            }
+            const rate = parseFloat(document.getElementById('exchange-rate').value) || 0.2105;
+            let text = `🌸 2026 名古屋親子遊 旅途帳單 🌸\n--------------------------\n`;
+            let totalJpy = 0;
+            let cashJpy = 0;
+            let cardJpy = 0;
+
+            expenses.forEach((x, i) => {
+                const payType = x.type === 'cash' ? '💵 現金' : '💳 刷卡';
+                const twd = (x.jpy * rate).toFixed(0);
+                text += `${i+1}. ${x.name} | ¥${x.jpy.toLocaleString()} (約 NT$ ${twd}) [${payType}]\n`;
+                totalJpy += x.jpy;
+                if (x.type === 'cash') cashJpy += x.jpy;
+                else cardJpy += x.jpy;
+            });
+
+            text += `--------------------------\n`;
+            text += `💰 總共支出：¥${totalJpy.toLocaleString()} (約 NT$ ${(totalJpy * rate).toFixed(0)})\n`;
+            text += `💵 現金總額：¥${cashJpy.toLocaleString()} (約 NT$ ${(cashJpy * rate).toFixed(0)})\n`;
+            text += `💳 刷卡總額：¥${cardJpy.toLocaleString()} (約 NT$ ${(cardJpy * rate).toFixed(0)})\n`;
+            text += `✨ 匯率基準：1 JPY = ${rate} TWD\n`;
+            text += `對帳完畢，大家辛苦啦！💖`;
+
+            const tempTextArea = document.createElement("textarea");
+            tempTextArea.value = text;
+            document.body.appendChild(tempTextArea);
+            tempTextArea.select();
+            try {
+                document.execCommand('copy');
+                showAlert("複製成功", "📋 帳單已成功複製到剪貼簿！快貼到 Line 群組跟大家對帳吧！✨", "💚");
+            } catch (err) {
+                showAlert("提示", "複製失敗，請手動選取複製喔！", "⚠️");
+            }
+            document.body.removeChild(tempTextArea);
         }
 
         function renderExpenses() {
@@ -1112,6 +1341,33 @@
             });
             document.getElementById(`lbtn-${tabId}`).classList.add('bg-muji-charcoal', 'text-white');
             document.getElementById(`lbtn-${tabId}`).classList.remove('bg-white', 'text-muji-charcoal', 'border-muji-linen');
+
+            // 備忘錄分頁隱藏一鍵重設按鈕
+            const resetBtn = document.getElementById('reset-checklist-bar');
+            if (tabId === 'memo') {
+                resetBtn.classList.add('hidden');
+            } else {
+                resetBtn.classList.remove('hidden');
+            }
+        }
+
+        // 重設所有打包清單勾選狀態（自定義安全對話框）
+        function resetChecklist() {
+            showConfirm(
+                "重新打包", 
+                "要重設所有行李清單的勾選狀態，全部重新打包嗎？🎒", 
+                "🎒", 
+                () => {
+                    handbagList.forEach(cat => cat.items.forEach(item => item.checked = false));
+                    luggageList.forEach(cat => cat.items.forEach(item => item.checked = false));
+                    
+                    localStorage.setItem('handbagList', JSON.stringify(handbagList));
+                    localStorage.setItem('luggageList', JSON.stringify(luggageList));
+                    
+                    renderChecklists();
+                    showAlert("重設成功", "隨身及託運打包清單勾選狀態已重設，可以重新打包囉！✨", "🌸");
+                }
+            );
         }
 
         function toggleItem(type, catIdx, itemIdx) {
