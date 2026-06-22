@@ -188,9 +188,9 @@
             </div>
         </section>
 
-       <!-- ==================== TAB 2: GUIDE (深度導覽 - 爸媽貼心話全客製化升級版) ==================== -->
+       <!-- ==================== TAB 2: GUIDE (深度導覽 - 爸媽貼心話置頂升級版) ==================== -->
         <section id="tab-guide" class="tab-content hidden fade-in">
-            <h2 class="text-xl font-bold mb-4 flex items-center gap-2"><span class="text-lg">🧭</span> 行程景點與分隊秘笈</h2>
+            <h2 class="text-xl font-bold mb-4 flex items-center gap-2 text-muji-charcoal"><span class="text-lg">🧭</span> 行程景點與分隊秘笈</h2>
 
             <!-- 導覽分頁按鈕群 -->
             <div class="flex gap-2 overflow-x-auto pb-2 mb-4 no-scrollbar">
@@ -208,11 +208,16 @@
                     <h3 class="font-bold text-base text-muji-charcoal"><i class="fa-solid fa-plane-departure text-blue-500 mr-1.5"></i>桃機第一航廈 兒童放電地圖</h3>
                     <span class="text-xs bg-chiikawa-pinkdeep/30 px-2 py-0.5 rounded-full font-bold text-muji-charcoal">放風攻略</span>
                 </div>
+
+                <!-- 1. 候機時刻專屬爸媽貼心話（置頂） -->
+                <div class="p-3 rounded-2xl bg-chiikawa-pink border border-chiikawa-pinkdeep/30 text-[10px] text-muji-charcoal leading-relaxed shadow-sm">
+                    <span class="font-bold flex items-center gap-1 mb-1 text-rose-500"><i class="fa-solid fa-face-smile-wink"></i> 🌸 候機時 · 爸媽貼心話：</span>
+                    星宇 JX838 於 14:55 起飛。我們預計 11:45 抵達桃機，請爸爸先推著折疊推車帶將近 2 歲的弟弟去櫃檯辦理「機邊託運」並索取行李貼紙。入關後，大姊和二姊精力充沛，可由媽媽直接帶去鄰近的 <strong>C1 或 C2 機場遊戲區</strong> 玩耍；爸爸則帶 68 歲的爺奶在 <strong>B8 文化藝廊免費按摩椅區</strong> 歇腳休息。登機前 30 分鐘，千萬記得帶小弟去育嬰室換好尿布、裝好水瓶，起飛時讓他吸吮喝水，能有效防止耳壓不適而哭鬧喔！
+                </div>
                 
                 <p class="text-xs text-muji-earth leading-relaxed">
                     帶孩子出國最怕登機前無聊！星宇航空 **JX 838** 位於第一航廈。以下是手冊精選的放電與長輩休息站（附設從主要步行通道之步行參考時間）：
                 </p>
-
 
                 <!-- 桃機放風卡片群 -->
                 <div class="space-y-2.5 pt-1">
@@ -234,7 +239,7 @@
                                 <strong class="text-muji-charcoal font-bold text-xs">C1 木育森林候機室</strong>
                                 <span class="bg-amber-500 text-white text-[9px] px-1.5 py-0.5 rounded-md font-bold">🚶 步程 1 分鐘</span>
                             </div>
-                            <p class="text-muji-earth">距離出境中央通道庫最近！原木打造，有小火車軌道玩具、木質積木與森林小樹屋，能讓孩子靜心動手玩。</p>
+                            <p class="text-muji-earth">距離出境中央通道庫庫最近！原木打造，有小火車軌道玩具、木質積木與森林小樹屋，能讓孩子靜心動手玩。</p>
                         </div>
                     </div>
                    
@@ -282,18 +287,23 @@
                         <p class="text-muji-earth"><strong>👴👵 另一個長輩休息區！</strong>環境靜謐怡人，同樣提供免付費全身紓壓按摩椅。</p>
                     </div>
                 </div>
-                <!-- 1. 候機時刻專屬爸媽貼心話 -->
-                <div class="p-3 rounded-2xl bg-chiikawa-pink border border-chiikawa-pinkdeep/30 text-[10px] text-muji-charcoal leading-relaxed shadow-sm">
-                    <span class="font-bold flex items-center gap-1 mb-1 text-rose-500"><i class="fa-solid fa-face-smile-wink"></i> 🌸 候機時 · 爸媽貼心話：</span>
-                    星宇 JX838 於 14:55 起飛。我們預計 11:45 抵達桃機，請爸爸先推著折疊推車帶將近 2 歲的弟弟去櫃檯辦理「機邊託運」並索取行李貼紙。入關後，大姊和二姊精力充沛，可由媽媽直接帶去鄰近的 <strong>C1 或 C2 機場遊戲區</strong> 玩耍；爸爸則帶 68 歲的爺奶在 <strong>B8 文化藝廊免費按摩椅區</strong> 歇腳休息。登機前 30 分鐘，千萬記得帶小弟去育嬰室換好尿布、裝好水瓶，起飛時讓他吸吮喝水，能有效防止耳壓不適而哭鬧喔！
-                </div>
             </div>
 
               
 
             <!-- 2. 飯店周邊 導面板 -->
             <div id="gcontent-hotel" class="guide-panel hidden bg-white p-4 rounded-3xl border border-muji-linen shadow-sm space-y-3">
-                <h3 class="font-bold text-base text-muji-charcoal flex items-center gap-1.5"><i class="fa-solid fa-map-location-dot text-amber-500 mr-1.5"></i> 大和ROYNET飯店周邊地圖與藥妝分布</h3>
+                <div class="flex justify-between items-center border-b border-muji-linen pb-2">
+                    <h3 class="font-bold text-base text-muji-charcoal flex items-center gap-1.5"><i class="fa-solid fa-map-location-dot text-amber-500 mr-1.5"></i> 大和ROYNET飯店周邊地圖與藥妝分布</h3>
+                    <span class="text-xs bg-chiikawa-blue text-blue-800 px-2.5 py-0.5 rounded-full font-bold">周邊指南</span>
+                </div>
+
+                <!-- 2. 飯店周邊專屬爸媽貼心話（置頂） -->
+                <div class="p-3 rounded-2xl bg-chiikawa-yellow border border-yellow-300 text-[10px] text-muji-charcoal leading-relaxed shadow-sm">
+                    <span class="font-bold flex items-center gap-1 mb-1 text-amber-700"><i class="fa-solid fa-hotel"></i> 🍓 飯店周邊 · 爸媽貼心話：</span>
+                    名古屋車站的地下結構非常擁擠且充斥階梯。<strong>推著折疊推車並帶著 68 歲的爺爺奶奶，千萬不要冒險走地下通道</strong>！我們下車後一律搭乘無障礙電梯上到一樓地面，穿過大廳由「西改札口」出站到大和ROYNET飯店，平坦好推不迷路。第一晚入住後，爸爸跟媽媽可趁弟弟在房間休息時，步行 300m 到 24H 營業的 <strong>MaxValu 超市</strong>，大肆採購日本新鮮草莓、優格與明治牛乳當早餐，價格比便利商店劃算非常多！
+                </div>
+
                 <p class="text-xs text-muji-earth leading-relaxed">
                     本飯店位於名古屋車站太閣通口（西側）。過馬路步行 3 分鐘處就是 24 小時營業的 <strong>MaxValu 太閣店</strong>！
                 </p>
@@ -312,17 +322,21 @@
                         <li>・<strong>松本清：</strong> 定價偏高，但有很多獨特「松本清限定」商品！</li>
                     </ul>
                 </div>
-
-                <!-- 2. 飯店周邊專屬爸媽貼心話 -->
-                <div class="p-3 rounded-2xl bg-chiikawa-yellow border border-yellow-300 text-[10px] text-muji-charcoal leading-relaxed shadow-sm">
-                    <span class="font-bold flex items-center gap-1 mb-1 text-amber-700"><i class="fa-solid fa-hotel"></i> 🍓 飯店周邊 · 爸媽貼心話：</span>
-                    名古屋車站的地下結構非常擁擠且充斥階梯。<strong>推著折疊推車並帶著 68 歲的爺爺奶奶，千萬不要冒險走地下通道</strong>！我們下車後一律搭乘無障礙電梯上到一樓地面，穿過大廳由「西改札口」出站到大和ROYNET飯店，平坦好推不迷路。第一晚入住後，爸爸跟媽媽可趁弟弟在房間休息時，步行 300m 到 24H 營業的 <strong>MaxValu 超市</strong>，大肆採購日本新鮮草莓、優格與明治牛乳當早餐，價格比便利商店划算非常多！
-                </div>
             </div>
             
             <!-- 3. 豐田產業技術紀念館 導覽 -->
             <div id="gcontent-toyota" class="guide-panel hidden bg-white p-4 rounded-3xl border border-muji-linen shadow-sm space-y-3">
-                <h3 class="font-bold text-base text-muji-charcoal"><i class="fa-solid fa-car text-red-500 mr-1.5"></i> 豐田產業技術紀念館</h3>
+                <div class="flex justify-between items-center border-b border-muji-linen pb-2">
+                    <h3 class="font-bold text-base text-muji-charcoal"><i class="fa-solid fa-car text-red-500 mr-1.5"></i> 豐田產業技術紀念館</h3>
+                    <span class="text-xs bg-chiikawa-pinkdeep/30 px-2 py-0.5 rounded-full font-bold text-muji-charcoal">科技展示</span>
+                </div>
+
+                <!-- 3. 豐田紀念館專屬爸媽貼心話（置頂） -->
+                <div class="p-3 rounded-2xl bg-chiikawa-pink border border-chiikawa-pinkdeep/30 text-[10px] text-muji-charcoal leading-relaxed shadow-sm">
+                    <span class="font-bold flex items-center gap-1 mb-1 text-rose-500"><i class="fa-solid fa-car"></i> 🚗 豐田科技 · 爸媽貼心話：</span>
+                    10:00 抵達買好票入館後，請<strong>由爸爸帶領 8 歲與 6 歲的姊妹快步衝去右側的「科技樂園 (Technoland)」搶先預約 10:30 第一場放電時間</strong>，媽媽在後方推著推車，陪著爺奶與小弟漫步在紡織機械大廳參觀。下午前往 AEON Mall 則武新町時，小弟剛好會在推車上進入午睡，這段時間是媽媽逛無印良品與 Seria 百元商店的絕佳機會！爸爸則可陪爺爺在 2 樓蔦屋書店買杯咖啡，奶奶陪姊妹倆在扭蛋區玩耍，全家人都能放鬆！
+                </div>
+
                 <p class="text-xs text-muji-earth leading-relaxed">
                     這裡原本是豐田集團發祥地的紅磚廠房！一進去先預約 **10:30~11:00** 的「科技樂園」，有許多大型物理科學遊戲器材（部分限高120cm以上）。
                 </p>
@@ -335,17 +349,21 @@
                 <div class="h-40 rounded-2xl overflow-hidden border border-muji-linen relative">
                     <iframe class="w-full h-full" src="https://www.openstreetmap.org/export/embed.html?bbox=136.8732%2C35.1788%2C136.8792%2C35.1838&amp;layer=mapnik&amp;marker=35.1813%2C136.8762" style="border: 0;"></iframe>
                 </div>
-
-                <!-- 3. 豐田紀念館專屬爸媽貼心話 -->
-                <div class="p-3 rounded-2xl bg-chiikawa-pink border border-chiikawa-pinkdeep/30 text-[10px] text-muji-charcoal leading-relaxed shadow-sm">
-                    <span class="font-bold flex items-center gap-1 mb-1 text-rose-500"><i class="fa-solid fa-car"></i> 🚗 豐田科技 · 爸媽貼心話：</span>
-                    10:00 抵達買好票入館後，請<strong>由爸爸帶領 8 歲與 6 歲的姊妹快步衝去右側的「科技樂園 (Technoland)」搶先預約 10:30 第一場放電時間</strong>，媽媽在後方推著推車，陪著爺奶與小弟漫步在紡織機械大廳參觀。下午前往 AEON Mall 則武新町時，小弟剛好會在推車上進入午睡，這段時間是媽媽逛無印良品與 Seria 百元商店的絕佳機會！爸爸則可陪爺爺在 2 樓蔦屋書店買杯咖啡，奶奶陪姊妹倆在扭蛋區玩耍，全家人都能放鬆！
-                </div>
             </div>
 
             <!-- 4. 樂高樂園 導覽 -->
             <div id="gcontent-lego" class="guide-panel hidden bg-white p-4 rounded-3xl border border-muji-linen shadow-sm space-y-3">
-                <h3 class="font-bold text-base text-muji-charcoal"><i class="fa-solid fa-cubes text-yellow-500 mr-1.5"></i> 樂高樂園全攻略</h3>
+                <div class="flex justify-between items-center border-b border-muji-linen pb-2">
+                    <h3 class="font-bold text-base text-muji-charcoal"><i class="fa-solid fa-cubes text-yellow-500 mr-1.5"></i> 樂高樂園全攻略</h3>
+                    <span class="text-xs bg-chiikawa-pinkdeep/30 px-2 py-0.5 rounded-full font-bold text-muji-charcoal">樂園秘笈</span>
+                </div>
+
+                <!-- 4. 樂高樂園專屬爸媽貼心話（置頂） -->
+                <div class="p-3 rounded-2xl bg-chiikawa-yellow border border-yellow-300 text-[10px] text-muji-charcoal leading-relaxed shadow-sm">
+                    <span class="font-bold flex items-center gap-1 mb-1 text-amber-700"><i class="fa-solid fa-puzzle-piece"></i> 🧱 樂高樂園 · 爸媽貼心話：</span>
+                    樂高樂園佔地寬敞，實施「分組作戰」最省力！中午 11:40~13:00，<strong>爸爸帶 8 歲與 6 歲姊妹去排熱門的雲霄飛車；媽媽則陪著爺奶與弟弟進入 30 號阿姆斯特拉秘密之室</strong>。該處是冷氣超強、鋪滿軟地墊的室內積木區，長輩可安穩坐在沙發，弟弟能在軟墊安全放電。16:15 玩水大戰完畢後，<strong>請在 17:00 前至更衣室為三位寶貝換上全套乾爽衣物及鞋襪</strong>（濕衣絕不可進冷氣強的 17:30 4D 影廳防感冒！）。弟弟焦躁時，帶他去坐 7 號得寶小火車是百試百靈的安撫妙招！
+                </div>
+
                 <p class="text-xs text-muji-earth leading-relaxed">
                     全日親子重頭戲！早上記得 **8:00** 先上網預約「水迷宮」或「Splash Pad」。11:00 必看幻影忍者 4D 大秀。
                 </p>
@@ -359,17 +377,21 @@
                     <p class="font-bold text-muji-charcoal"><i class="fa-solid fa-users text-blue-500"></i> 14:00~15:30 職業圓夢分隊：</p>
                     <p class="text-muji-charcoal pl-2"><strong class="text-blue-600">⚡ 爸爸/姊姊組：</strong> 駕駛學校考照 (17), 消防學院 (13)<br><strong class="text-green-600">🍀 爺奶/小弟組：</strong> 34號創意工作坊組積木</p>
                 </div>
-
-                <!-- 4. 樂高樂園專屬爸媽貼心話 -->
-                <div class="p-3 rounded-2xl bg-chiikawa-yellow border border-yellow-300 text-[10px] text-muji-charcoal leading-relaxed shadow-sm">
-                    <span class="font-bold flex items-center gap-1 mb-1 text-amber-700"><i class="fa-solid fa-puzzle-piece"></i> 🧱 樂高樂園 · 爸媽貼心話：</span>
-                    樂高樂園佔地寬敞，實施「分組作戰」最省力！中午 11:40~13:00，<strong>爸爸帶 8 歲與 6 歲姊妹去排熱門的雲霄飛車；媽媽則陪著爺奶與弟弟進入 30 號阿姆斯特拉秘密之室</strong>。該處是冷氣超強、鋪滿軟地墊的室內積木區，長輩可安穩坐在沙發，弟弟能在軟墊安全放電。16:15 玩水大戰完畢後，<strong>請在 17:00 前至更衣室為三位寶貝換上全套乾爽衣物及鞋襪</strong>（濕衣絕不可進冷氣強的 17:30 4D 影廳防感冒！）。弟弟焦躁時，帶他去坐 7 號得寶小火車是百試百靈的安撫妙招！
-                </div>
             </div>
 
             <!-- 5. 名古屋港水族館 導覽 -->
             <div id="gcontent-aquarium" class="guide-panel hidden bg-white p-4 rounded-3xl border border-muji-linen shadow-sm space-y-3">
-                <h3 class="font-bold text-base text-muji-charcoal"><i class="fa-solid fa-fish text-blue-500 mr-1.5"></i> 名古屋港水族館</h3>
+                <div class="flex justify-between items-center border-b border-muji-linen pb-2">
+                    <h3 class="font-bold text-base text-muji-charcoal"><i class="fa-solid fa-fish text-blue-500 mr-1.5"></i> 名古屋港水族館</h3>
+                    <span class="text-xs bg-chiikawa-pinkdeep/30 px-2 py-0.5 rounded-full font-bold text-muji-charcoal">海洋世界</span>
+                </div>
+
+                <!-- 5. 港區水族館專屬爸媽貼心話（置頂） -->
+                <div class="p-3 rounded-2xl bg-chiikawa-blue border border-blue-200 text-[10px] text-muji-charcoal leading-relaxed shadow-sm">
+                    <span class="font-bold flex items-center gap-1 mb-1 text-blue-800"><i class="fa-solid fa-shrimp"></i> 🐬 港區水族 · 爸媽貼心話：</span>
+                    一定要先在名古屋車站購買<strong>「地鐵一日券」（760日圓），每張門票現場可以直接現折 200 日圓</strong>！中午 11:30 北館看完精彩的虎鯨公開訓練後，不要去美食街擠，<strong>直接就地在北館 3 樓巨大露天看台野餐開飯</strong>，享用早上出發前在 ESCA 地下街買好的炸蝦飯糰與飲料，吹著海風吃午餐最省長輩和幼童的腳力。南館 2 樓觀賞沙丁魚龍捲風時現場幾乎全黑，請爸媽一定牽緊 8 歲與 6 歲的姊妹防止走散，並將弟弟的折疊推車煞車確實踩好，確保安全！
+                </div>
+
                 <p class="text-xs text-muji-earth leading-relaxed">
                     採用「只換一次館」省力動線。入館直衝北館 3F，觀賞海豚表演與虎鯨公開訓練，中午在看台野餐享用 ESCA 的炸蝦飯糰。午後再前往南館看企鵝餵食與沙丁魚龍捲風。
                 </p>
@@ -382,17 +404,24 @@
                         <li>14:45 沙丁魚龍捲風 (南館 2F)</li>
                     </ul>
                 </div>
-
-                <!-- 5. 港區水族館專屬爸媽貼心話 -->
-                <div class="p-3 rounded-2xl bg-chiikawa-blue border border-blue-200 text-[10px] text-muji-charcoal leading-relaxed shadow-sm">
-                    <span class="font-bold flex items-center gap-1 mb-1 text-blue-800"><i class="fa-solid fa-shrimp"></i> 🐬 港區水族 · 爸媽貼心話：</span>
-                    一定要先在名古屋車站購買<strong>「地鐵一日券」（760日圓），每張門票現場可以直接現折 200 日圓</strong>！中午 11:30 北館看完精彩的虎鯨公開訓練後，不要去美食街擠，<strong>直接就地在北館 3 樓巨大露天看台野餐開飯</strong>，享用早上出發前在 ESCA 地下街買好的炸蝦飯糰與飲料，吹著海風吃午餐最省長輩和幼童的腳力。南館 2 樓觀賞沙丁魚龍捲風時現場幾乎全黑，請爸媽一定牽緊 8 歲與 6 歲的姊妹防止走散，並將弟弟的折疊推車煞車確實踩好，確保安全！
-                </div>
             </div>
 
             <!-- 6. 大須與東山 導覽 -->
             <div id="gcontent-osu" class="guide-panel hidden bg-white p-4 rounded-3xl border border-muji-linen shadow-sm space-y-3">
-                <h3 class="font-bold text-base text-muji-charcoal flex items-center gap-1.5"><i class="fa-solid fa-map-location-dot text-emerald-500 mr-1.5"></i> Day 6 機動方案比一比</h3>
+                <div class="flex justify-between items-center border-b border-muji-linen pb-2">
+                    <h3 class="font-bold text-base text-muji-charcoal"><i class="fa-solid fa-compass text-emerald-500 mr-1.5"></i> Day 6 機動方案比一比</h3>
+                    <span class="text-xs bg-chiikawa-pinkdeep/30 px-2 py-0.5 rounded-full font-bold text-muji-charcoal">機動決策</span>
+                </div>
+
+                <!-- 6. 大須/東山專屬爸媽貼心話（置頂） -->
+                <div class="p-3 rounded-2xl bg-emerald-50 border border-emerald-200 text-[10px] text-emerald-900 leading-relaxed shadow-sm">
+                    <span class="font-bold flex items-center gap-1 mb-1 text-emerald-800"><i class="fa-solid fa-compass"></i> 🐆 機動選路 · 爸媽貼心話：</span>
+                    到了第六天，全體成員體力均接近臨界點。<strong>如果投票通過方案 A（大須觀音祭典）</strong>，萬松寺商店街雖有頂棚防曬，但下午 15:20 阿波舞遊行時人潮將會寸步難行，請爸爸推弟弟在最前開路，媽媽在後方一對一緊牽兩位姊妹防走失。<strong>如果投票方案 B（東山動物園）</strong>，園區為起伏較大的丘陵地、有著長緩坡，推推車與長輩步行體力消耗極快。入園第一件事請爸爸去租借輪椅/嬰兒車，中午 11:30 氣溫正高時，迅速帶爺奶和小弟進入「自然科學館」或「東山天空塔」的室內冷氣房茶座享用餐點、歇腳，絕對避免在烈日下硬撐！
+                </div>
+
+                <p class="text-xs text-muji-earth leading-relaxed">
+                    方案 A（大須祭典文化團）看日本傳統阿波舞與萬松寺通商店街。方案 B（東山動植物園團）看猩猩。
+                </p>
                 <div class="space-y-2 text-xs">
                     <div class="p-2.5 rounded-2xl bg-chiikawa-pink/50 border border-chiikawa-pinkdeep/20">
                         <p class="font-bold text-muji-charcoal">🏮 方案 A：大須祭典地標團</p>
@@ -402,12 +431,6 @@
                         <p class="font-bold text-muji-charcoal">🦍 方案 B：東山動植物園悠哉團</p>
                         <p class="text-muji-earth mt-1">適合讓孩子在寬敞的大空間看帥猩猩 Shabani 放電，傍晚回名站 Bic Camera 電器特攻。</p>
                     </div>
-                </div>
-
-                <!-- 6. 大須/東山專屬爸媽貼心話 -->
-                <div class="p-3 rounded-2xl bg-emerald-50 border border-emerald-200 text-[10px] text-emerald-900 leading-relaxed shadow-sm">
-                    <span class="font-bold flex items-center gap-1 mb-1 text-emerald-800"><i class="fa-solid fa-compass"></i> 🐆 機動選路 · 爸媽貼心話：</span>
-                    到了第六天，全體成員體力均接近臨界點。<strong>如果投票通過方案 A（大須觀音祭典）</strong>，萬松寺商店街雖有頂棚防曬，但下午 15:20 阿波舞遊行時人潮將會寸步難行，請爸爸推弟弟在最前開路，媽媽在後方一對一緊牽兩位姊妹防走失。<strong>如果投票方案 B（東山動物園）</strong>，園區為起伏較大的丘陵地、有著長緩坡，推推車與長輩步行體力消耗極快。入園第一件事請爸爸去租借輪椅/嬰兒車，中午 11:30 氣溫正高時，迅速帶爺奶和小弟進入「自然科學館」或「東山天空塔」的室內冷氣房茶座享用餐點、歇腳，絕對避免在烈日下硬撐！
                 </div>
             </div>
         </section>
@@ -780,7 +803,7 @@
                 { time: '11:00', title: '忍者集結：必看 4D 大秀 🎬', desc: '編號 2 忍者影廳【必看 11:00 場次】！', type: 'play' },
                 { time: '11:40', title: '探險區分隊 潛水艇與冒險 🦈', desc: '編號11潛水艇探險（全家合集），坐真的潛水艇看真魚和鯊魚！編號9失落王國雷射射擊。分隊：【爸爸/姊姊組】飛行勇士(8)、烏賊衝浪(12)；【爺奶/小弟組】30號秘密之室（冷氣房玩積木）。29號法老球池會師。' },
                 { time: '13:00', title: '彩 (Irodori) 日式餐廳午餐 🍱', desc: '享用美味能量日式定食套餐（建議提前一天預約）。' },
-                { time: '14:00', title: '城市英雄：職業圓夢 🧑‍🚒', desc: '編號31造船、18海岸巡邏、15城市飛機場。分隊：【爸爸/姊姊組】17駕駛學校考照、13消防學院；【爺奶/小弟組】34創意工作坊組積木。' },
+                { time: '14:00', title: '城市英雄：職業圓夢 🧑‍慢', desc: '編號31造船、18海岸巡邏、15城市飛機場. 分隊：【爸爸/姊姊組】17駕駛學校考照、13消防學院；【爺奶/小弟組】34創意工作坊組積木。' },
                 { time: '15:30', title: '騎士王國與得寶樂園 🎢', desc: '姊姊挑戰梅林飛行器與飛龍；小弟與長輩在得寶區玩水、坐編號7得寶快車小火車。' },
                 { time: '16:15', title: '水花大決戰 💦', desc: '全團濕身最嗨！迷你樂園(Miniland)拍全家大合照，姊姊們挑戰編號26水花大戰。17:00 前幫三位小孩換整套乾衣（防感冒進冷氣房）！' },
                 { time: '17:15', title: '離園前最後大血拼 🎁', desc: '順路衝進出口旁的 The Big Shop 買齊名古屋限定版樂高禮物。' },
@@ -829,7 +852,7 @@
                         { time: '17:30', title: '綠洲 21 與榮區晚餐 🌆', desc: '上前津站搭地鐵至榮站，拍電視塔夜景，晚餐吃德兵衛迴轉壽司。隨後搭東山線回名古屋站準備行李箱封箱。' }
                     ],
                     'B': [
-                        { time: '08:00', title: '【方案 B】Sun Road 買乾糧 🍙', desc: '先在地下街買好 Konparu 三明治和飯糰，當作東山動物園的野餐糧食。' },
+                        { time: '08:00', title: '【方案 B】Sun Road 買乾糧 🍙', desc: '先在地下街買好 Konparu 三明治 and 飯糰，當作東山動物園的野餐糧食。' },
                         { time: '08:30', title: '搭東山線前往東山公園 🚇', desc: '名古屋站搭乘地鐵東山線直達「東山公園站」，步行大約 5 分鐘抵達大門。' },
                         { time: '09:00', title: '東山動植物園大放電 🦍', desc: '先去看帥哥猩猩 Shabani！中午在野餐區用餐，11 點後太熱的話躲進自然科學館或天空塔。' },
                         { time: '14:30', title: 'Bic Camera 西店特攻 🔌', desc: '下午最熱時回到飯店隔邊 Bic Camera 百貨內慢慢挑選電器、玩具，極輕鬆。' },
@@ -1351,7 +1374,7 @@
             }
         }
 
-        // 重設所有打包清單勾選狀態（自定義安全對話框）
+        // 重設所有打包清單勾選狀態（自定義對話框）
         function resetChecklist() {
             showConfirm(
                 "重新打包", 
