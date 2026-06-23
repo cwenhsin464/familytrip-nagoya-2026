@@ -67,6 +67,14 @@
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
+        /* 煙火櫻花灑落微動效 */
+        @keyframes pulse-soft {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+        }
+        .animate-pulse-soft {
+            animation: pulse-soft 3s infinite ease-in-out;
+        }
     </style>
 </head>
 <body class="min-h-screen pb-24 selection:bg-chiikawa-pinkdeep selection:text-muji-charcoal">
@@ -102,6 +110,23 @@
         
         <!-- ==================== TAB 1: PLAN (行程表) ==================== -->
         <section id="tab-plan" class="tab-content fade-in">
+            
+            <!-- 旅行出發倒數計時器卡片 (優化加入) -->
+            <div id="countdown-card" class="bg-gradient-to-r from-chiikawa-pink to-yellow-50/60 p-3.5 rounded-2xl border border-muji-linen mb-4 shadow-sm relative overflow-hidden transition-all duration-300">
+                <div class="flex justify-between items-center">
+                    <div class="flex items-center gap-2">
+                        <span class="text-xl animate-pulse-soft">⏰</span>
+                        <div>
+                            <h3 class="font-bold text-xs text-muji-charcoal">距離啟程還有</h3>
+                            <p id="countdown-timer" class="text-xs text-rose-500 font-bold mt-0.5">計算中...</p>
+                        </div>
+                    </div>
+                    <button onclick="document.getElementById('countdown-card').classList.add('hidden')" class="text-muji-earth hover:text-muji-charcoal text-xs p-1">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+            </div>
+
             <!-- 天數切換滑動列 -->
             <div class="flex gap-2 overflow-x-auto pb-3 mb-4 no-scrollbar -mx-4 px-4">
                 <button onclick="switchDay(1)" id="btn-day1" class="day-tab-btn flex-shrink-0 px-4 py-2 rounded-2xl bg-muji-charcoal text-white text-xs font-semibold shadow-sm transition-all">Day 1<br><span class="text-[10px] opacity-80">7/27(一)</span></button>
@@ -486,7 +511,7 @@
                                     <span class="text-lg">🍘</span>
                                     <div>
                                         <strong class="text-muji-charcoal font-bold">1. 新雀本店 — 醬油烤糰子 (Mitarashi Dango)</strong>
-                                        <p class="text-muji-earth text-[10px] mt-0.5 leading-relaxed">傳承數十年的碳烤小店。甜鹹交織的特製日式醬汁，口感軟糯、香氣撲鼻。每串只要 100 日圓，非常適合給爺奶與孩子當作隨手下午茶！</p>
+                                        <p class="text-muji-earth text-[10px] mt-0.5 leading-relaxed">傳承數十年的碳烤小店。甜鹹交織的特製日式醬汁，口感軟糯、香氣鋪鼻。每串只要 100 日圓，非常適合給爺奶與孩子當作隨手下午茶！</p>
                                     </div>
                                 </div>
                                 <div class="pt-2 flex items-start gap-2 text-[11px]">
@@ -564,7 +589,7 @@
                     <span class="text-xs font-bold text-muji-earth"><i class="fa-solid fa-money-bill-transfer text-chiikawa-pinkdeep mr-1"></i> 即時匯率換算</span>
                     <div class="flex items-center gap-1.5 text-xs text-muji-charcoal">
                         <span>自訂匯率 1 JPY =</span>
-                        <input type="number" id="exchange-rate" step="0.0001" value="0.2105" oninput="calculateExchange()" class="w-16 px-1.5 py-0.5 rounded border border-muji-linen text-center font-bold">
+                        <input type="number" id="exchange-rate" step="0.0001" value="0.2105" oninput="updateRatePersist()" class="w-16 px-1.5 py-0.5 rounded border border-muji-linen text-center font-bold">
                         <span>TWD</span>
                     </div>
                 </div>
@@ -586,7 +611,7 @@
                     <button onclick="pressCalc('7')" class="bg-white border border-muji-linen font-semibold py-3 rounded-xl active:scale-95 transition-all text-sm">7</button>
                     <button onclick="pressCalc('8')" class="bg-white border border-muji-linen font-semibold py-3 rounded-xl active:scale-95 transition-all text-sm">8</button>
                     <button onclick="pressCalc('9')" class="bg-white border border-muji-linen font-semibold py-3 rounded-xl active:scale-95 transition-all text-sm">9</button>
-                    <button onclick="pressCalc('+')" class="bg-muji-linen font-bold py-3 rounded-xl text-muji-charcoal active:scale-95 transition-all text-sm" rowspan="2">+</button>
+                    <button onclick="pressCalc('+')" class="bg-muji-linen font-bold py-3.5 rounded-xl text-muji-charcoal active:scale-95 transition-all text-sm" rowspan="2">+</button>
 
                     <button onclick="pressCalc('4')" class="bg-white border border-muji-linen font-semibold py-3 rounded-xl active:scale-95 transition-all text-sm">4</button>
                     <button onclick="pressCalc('5')" class="bg-white border border-muji-linen font-semibold py-3 rounded-xl active:scale-95 transition-all text-sm">5</button>
@@ -652,6 +677,13 @@
                     </div>
                 </div>
 
+                <!-- 記帳篩選按鈕列 (優化加入) -->
+                <div class="flex gap-1.5 mb-2">
+                    <button onclick="filterExpenses('all')" id="exp-filter-all" class="text-[10px] font-bold px-3 py-1 rounded-full bg-muji-charcoal text-white transition-all">全部明細</button>
+                    <button onclick="filterExpenses('cash')" id="exp-filter-cash" class="text-[10px] font-bold px-3 py-1 rounded-full bg-white text-muji-earth border border-muji-linen transition-all">💵 只看現金</button>
+                    <button onclick="filterExpenses('card')" id="exp-filter-card" class="text-[10px] font-bold px-3 py-1 rounded-full bg-white text-muji-earth border border-muji-linen transition-all">💳 只看刷卡</button>
+                </div>
+
                 <!-- 現金與信用卡獨立統計 -->
                 <div class="grid grid-cols-2 gap-2 bg-muji-sand p-2.5 rounded-xl text-[10px] border border-muji-linen">
                     <div class="flex flex-col border-r border-muji-linen/60 pr-1">
@@ -677,7 +709,7 @@
                 </div>
 
                 <div class="divide-y divide-muji-linen overflow-y-auto max-h-60 space-y-2 pt-2" id="expense-list">
-                    <!-- 記帳細項 -->
+                    <!-- 記帳細項 (空狀態優化在 JavaScript 中動態渲染) -->
                 </div>
             </div>
         </section>
@@ -789,23 +821,23 @@
 
     <!-- 底部圓潤導航列 -->
     <nav class="fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-muji-linen px-4 py-2 flex justify-around items-center shadow-lg z-50 max-w-md mx-auto rounded-t-3xl">
-        <button onclick="switchTab('plan')" id="nav-plan" class="nav-btn flex flex-col items-center gap-0.5 text-chiikawa-pinkdeep transition-all">
+        <button onclick="switchTab('plan')" id="nav-plan" class="nav-btn flex flex-col items-center gap-0.5 text-chiikawa-pinkdeep transition-all py-1 px-3 rounded-xl bg-chiikawa-pink/50">
             <i class="fa-solid fa-map-location-dot text-lg"></i>
             <span class="text-[10px] font-bold">PLAN</span>
         </button>
-        <button onclick="switchTab('guide')" id="nav-guide" class="nav-btn flex flex-col items-center gap-0.5 text-muji-earth hover:text-muji-charcoal transition-all">
+        <button onclick="switchTab('guide')" id="nav-guide" class="nav-btn flex flex-col items-center gap-0.5 text-muji-earth hover:text-muji-charcoal transition-all py-1 px-3 rounded-xl">
             <i class="fa-solid fa-compass text-lg"></i>
             <span class="text-[10px] font-bold">GUIDE</span>
         </button>
-        <button onclick="switchTab('wallet')" id="nav-wallet" class="nav-btn flex flex-col items-center gap-0.5 text-muji-earth hover:text-muji-charcoal transition-all">
+        <button onclick="switchTab('wallet')" id="nav-wallet" class="nav-btn flex flex-col items-center gap-0.5 text-muji-earth hover:text-muji-charcoal transition-all py-1 px-3 rounded-xl">
             <i class="fa-solid fa-wallet text-lg"></i>
             <span class="text-[10px] font-bold">WALLET</span>
         </button>
-        <button onclick="switchTab('lists')" id="nav-lists" class="nav-btn flex flex-col items-center gap-0.5 text-muji-earth hover:text-muji-charcoal transition-all">
+        <button onclick="switchTab('lists')" id="nav-lists" class="nav-btn flex flex-col items-center gap-0.5 text-muji-earth hover:text-muji-charcoal transition-all py-1 px-3 rounded-xl">
             <i class="fa-solid fa-clipboard-check text-lg"></i>
             <span class="text-[10px] font-bold">LISTS</span>
         </button>
-        <button onclick="switchTab('info')" id="nav-info" class="nav-btn flex flex-col items-center gap-0.5 text-muji-earth hover:text-muji-charcoal transition-all">
+        <button onclick="switchTab('info')" id="nav-info" class="nav-btn flex flex-col items-center gap-0.5 text-muji-earth hover:text-muji-charcoal transition-all py-1 px-3 rounded-xl">
             <i class="fa-solid fa-circle-info text-lg"></i>
             <span class="text-[10px] font-bold">INFO</span>
         </button>
@@ -879,6 +911,35 @@
                 modal.classList.add('hidden');
                 modal.classList.remove('flex');
             };
+        }
+
+        // 0.5 櫻花倒數計時器邏輯 (優化加入)
+        function startCountdown() {
+            const targetDate = new Date('2026/07/27 14:55:00').getTime();
+            
+            function updateTimer() {
+                const now = new Date().getTime();
+                const diff = targetDate - now;
+                
+                if (diff <= 0) {
+                    document.getElementById('countdown-timer').innerHTML = "🌸 已經順利啟航囉！祝旅行快樂！ 🎉";
+                    return;
+                }
+                
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+                
+                document.getElementById('countdown-timer').innerHTML = 
+                    `<span class="text-sm font-bold text-muji-charcoal">${days}</span> 天 ` +
+                    `<span class="text-sm font-bold text-muji-charcoal">${hours}</span> 小時 ` +
+                    `<span class="text-sm font-bold text-muji-charcoal">${minutes}</span> 分 ` +
+                    `<span class="text-xs text-muji-earth font-normal">${seconds} 秒</span>`;
+            }
+            
+            updateTimer();
+            setInterval(updateTimer, 1000);
         }
 
         // 1. 全域行程數據定義
@@ -999,7 +1060,10 @@
         };
 
         let expenses = JSON.parse(localStorage.getItem('expenses')) || [];
-        let handbagList = JSON.parse(localStorage.getItem('handbagList_v2')) || [
+        let expenseFilter = 'all'; // 優化記帳分類篩選器狀態
+
+        // 修正 LocalStorage 存取金鑰不一致 Bug
+        let handbagList = JSON.parse(localStorage.getItem('nagoya_handbag_list')) || [
             { category: '手提行李隨身攜帶 (限重 7kg/人)', items: [
                 { id: 'h1', text: '護照 ✈️', checked: false },
                 { id: 'h2', text: '機票確認單', checked: false },
@@ -1019,7 +1083,8 @@
             ]}
         ];
 
-        let luggageList = JSON.parse(localStorage.getItem('luggageList_v2')) || [
+        // 修正 LocalStorage 存取金鑰不一致 Bug
+        let luggageList = JSON.parse(localStorage.getItem('nagoya_luggage_list')) || [
             { category: '托運行李衣物穿搭 (限重 23kg/人)', items: [
                 { id: 'l1', text: '內衣褲 5 套 / 睡衣 👕', checked: false },
                 { id: 'l2', text: 'Sock 5 雙 / 拖鞋 / 涼鞋 🧦', checked: false },
@@ -1075,7 +1140,7 @@
             { text: '中部國際機場樓層導覽', url: 'https://platinumaps.jp/d/centrair/?culture=zh-tw' },
         ];
 
-        // 1.5 一鍵切換/收縮飯店詳細設施卡片
+        // 一鍵切換/收縮飯店詳細設施卡片
         function toggleHotelDetails() {
             const block = document.getElementById('hotel-details-block');
             const arrow = document.getElementById('hotel-details-arrow');
@@ -1088,18 +1153,22 @@
             }
         }
 
-        // 2. 主分頁切換
+        // 2. 主分頁切換 (優化視覺回饋)
         function switchTab(tabId) {
             document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
             document.getElementById(`tab-${tabId}`).classList.remove('hidden');
             
-            // 更新按鈕顏色
+            // 更新按鈕樣式：清除所有按鈕的 active 背景與顏色
             document.querySelectorAll('.nav-btn').forEach(btn => {
-                btn.classList.remove('text-chiikawa-pinkdeep');
-                btn.classList.add('text-muji-earth');
+                btn.className = "nav-btn flex flex-col items-center gap-0.5 text-muji-earth hover:text-muji-charcoal transition-all py-1 px-3 rounded-xl";
             });
-            document.getElementById(`nav-${tabId}`).classList.add('text-chiikawa-pinkdeep');
-            document.getElementById(`nav-${tabId}`).classList.remove('text-muji-earth');
+            
+            // 為選中的按鈕套用 App 感的 active 膠囊背景
+            const activeBtn = document.getElementById(`nav-${tabId}`);
+            activeBtn.className = "nav-btn flex flex-col items-center gap-0.5 text-chiikawa-pinkdeep transition-all py-1 px-3 rounded-xl bg-chiikawa-pink/80 border border-chiikawa-pinkdeep/15";
+            
+            // 自動平滑滾動到網頁最頂端，優化體驗
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         // 3. 行程天數切換
@@ -1287,8 +1356,16 @@
             document.getElementById('calc-twd-estimate').innerText = `約 NT$ ${res}`;
         }
 
-        // 8. 記帳邏輯
+        // 8. 記帳邏輯與優化
         let uploadedImageBase64 = "";
+
+        // 匯率自訂化 LocalStorage 持久記憶儲存 (優化加入)
+        function updateRatePersist() {
+            const rateVal = parseFloat(document.getElementById('exchange-rate').value) || 0.2105;
+            localStorage.setItem('nagoya_custom_rate', rateVal);
+            calculateExchange();
+            renderExpenses();
+        }
 
         function handleImageUpload() {
             const fileInput = document.getElementById('expense-img');
@@ -1301,10 +1378,10 @@
                 reader.onload = function(e) {
                     const img = new Image();
                     img.onload = function() {
-                        // 使用 HTML5 Canvas 壓縮照片避免爆 LocalStorage
+                        // 使用 HTML5 Canvas 壓縮照片避免爆 LocalStorage (限制在 5MB)
                         const canvas = document.createElement('canvas');
                         const ctx = canvas.getContext('2d');
-                        const maxW = 120; // 壓縮為超小 Base64 縮圖
+                        const maxW = 120; 
                         const scale = maxW / img.width;
                         canvas.width = maxW;
                         canvas.height = img.height * scale;
@@ -1378,6 +1455,19 @@
             );
         }
 
+        // 新增記帳付款篩選功能 (優化加入)
+        function filterExpenses(filterType) {
+            expenseFilter = filterType;
+            
+            // 變更按鈕樣式
+            document.querySelectorAll('[id^="exp-filter-"]').forEach(btn => {
+                btn.className = "text-[10px] font-bold px-3 py-1 rounded-full bg-white text-muji-earth border border-muji-linen transition-all";
+            });
+            document.getElementById(`exp-filter-${filterType}`).className = "text-[10px] font-bold px-3 py-1 rounded-full bg-muji-charcoal text-white transition-all";
+            
+            renderExpenses();
+        }
+
         function copyBillToLine() {
             if (expenses.length === 0) {
                 showAlert("提示", "目前沒有任何支出，快去記幾筆帳吧！🌸", "💡");
@@ -1427,41 +1517,59 @@
             let cashJpy = 0;
             let cardJpy = 0;
 
+            // 計算全域總和
             expenses.forEach(x => {
                 const payType = x.type || 'cash';
                 totalJpy += x.jpy;
-                if (payType === 'cash') {
-                    cashJpy += x.jpy;
-                } else {
-                    cardJpy += x.jpy;
-                }
+                if (payType === 'cash') cashJpy += x.jpy;
+                else cardJpy += x.jpy;
+            });
 
-                const twdPrice = (x.jpy * rate).toFixed(0);
-                const itemDiv = document.createElement('div');
-                itemDiv.className = "flex items-center justify-between py-2 text-xs fade-in";
+            // 過濾並進行顯示
+            const filteredExpenses = expenses.filter(x => {
+                if (expenseFilter === 'all') return true;
+                return x.type === expenseFilter;
+            });
 
-                const badgeHtml = payType === 'cash' 
-                    ? `<span class="bg-emerald-100 text-emerald-800 text-[9px] px-1.5 py-0.5 rounded-md font-bold">現</span>`
-                    : `<span class="bg-blue-100 text-blue-800 text-[9px] px-1.5 py-0.5 rounded-md font-bold">卡</span>`;
-
-                itemDiv.innerHTML = `
-                    <div class="flex items-center gap-2">
-                        ${x.img ? `<img src="${x.img}" class="w-10 h-10 object-cover rounded border border-muji-linen">` : `<div class="w-10 h-10 bg-muji-linen rounded flex items-center justify-center text-lg">🛍️</div>`}
-                        <div>
-                            <p class="font-bold text-muji-charcoal flex items-center gap-1.5">
-                                ${badgeHtml}
-                                <span>${x.name}</span>
-                            </p>
-                            <p class="text-[10px] text-muji-earth">NT$ ${twdPrice}</p>
-                        </div>
-                    </div>
-                    <div class="flex items-center gap-3">
-                        <span class="font-mono font-bold text-muji-charcoal">¥ ${x.jpy.toLocaleString()}</span>
-                        <button onclick="deleteExpense('${x.id}')" class="text-red-400 hover:text-red-600 p-1"><i class="fa-regular fa-trash-can"></i></button>
+            // 溫馨「空狀態 Empty State」插畫視覺 (優化加入)
+            if (filteredExpenses.length === 0) {
+                list.innerHTML = `
+                    <div class="text-center py-8 text-muji-earth">
+                        <p class="text-3xl mb-2">🍡</p>
+                        <p class="text-[11px] font-bold">還沒有新增任何記帳項目唷！</p>
+                        <p class="text-[9px] opacity-75 mt-0.5">點擊上方按鈕，開始記下您在名古屋的戰利品吧！</p>
                     </div>
                 `;
-                list.appendChild(itemDiv);
-            });
+            } else {
+                filteredExpenses.forEach(x => {
+                    const payType = x.type || 'cash';
+                    const twdPrice = (x.jpy * rate).toFixed(0);
+                    const itemDiv = document.createElement('div');
+                    itemDiv.className = "flex items-center justify-between py-2 text-xs fade-in";
+
+                    const badgeHtml = payType === 'cash' 
+                        ? `<span class="bg-emerald-100 text-emerald-800 text-[9px] px-1.5 py-0.5 rounded-md font-bold">現</span>`
+                        : `<span class="bg-blue-100 text-blue-800 text-[9px] px-1.5 py-0.5 rounded-md font-bold">卡</span>`;
+
+                    itemDiv.innerHTML = `
+                        <div class="flex items-center gap-2">
+                            ${x.img ? `<img src="${x.img}" class="w-10 h-10 object-cover rounded border border-muji-linen">` : `<div class="w-10 h-10 bg-muji-linen rounded flex items-center justify-center text-lg">🛍️</div>`}
+                            <div>
+                                <p class="font-bold text-muji-charcoal flex items-center gap-1.5">
+                                    ${badgeHtml}
+                                    <span>${x.name}</span>
+                                </p>
+                                <p class="text-[10px] text-muji-earth">NT$ ${twdPrice}</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <span class="font-mono font-bold text-muji-charcoal">¥ ${x.jpy.toLocaleString()}</span>
+                            <button onclick="deleteExpense('${x.id}')" class="text-red-400 hover:text-red-600 p-1"><i class="fa-regular fa-trash-can"></i></button>
+                        </div>
+                    `;
+                    list.appendChild(itemDiv);
+                });
+            }
 
             // 更新 UI 總統計與分流統計
             document.getElementById('expense-total-jpy').innerText = `¥ ${totalJpy.toLocaleString()}`;
@@ -1504,8 +1612,8 @@
                     handbagList.forEach(cat => cat.items.forEach(item => item.checked = false));
                     luggageList.forEach(cat => cat.items.forEach(item => item.checked = false));
                     
-                    localStorage.setItem('handbagList', JSON.stringify(handbagList));
-                    localStorage.setItem('luggageList', JSON.stringify(luggageList));
+                    localStorage.setItem('nagoya_handbag_list', JSON.stringify(handbagList));
+                    localStorage.setItem('nagoya_luggage_list', JSON.stringify(luggageList));
                     
                     renderChecklists();
                     showAlert("重設成功", "隨身及託運打包清單勾選狀態已重設，可以重新打包囉！✨", "🌸");
@@ -1516,10 +1624,10 @@
         function toggleItem(type, catIdx, itemIdx) {
             if (type === 'handbag') {
                 handbagList[catIdx].items[itemIdx].checked = !handbagList[catIdx].items[itemIdx].checked;
-                localStorage.setItem('handbagList', JSON.stringify(handbagList));
+                localStorage.setItem('nagoya_handbag_list', JSON.stringify(handbagList));
             } else {
                 luggageList[catIdx].items[itemIdx].checked = !luggageList[catIdx].items[itemIdx].checked;
-                localStorage.setItem('luggageList', JSON.stringify(luggageList));
+                localStorage.setItem('nagoya_luggage_list', JSON.stringify(luggageList));
             }
             renderChecklists();
         }
@@ -1603,6 +1711,17 @@
             const container = document.getElementById('memo-list-container');
             container.innerHTML = '';
 
+            if (memos.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-8 text-muji-earth">
+                        <p class="text-3xl mb-2">📝</p>
+                        <p class="text-[11px] font-bold">備忘錄空空如也喔！</p>
+                        <p class="text-[9px] opacity-75 mt-0.5">可以在這裡自由輸入藥妝代購清單與想查的地圖網址！</p>
+                    </div>
+                `;
+                return;
+            }
+
             memos.forEach((x, idx) => {
                 const card = document.createElement('div');
                 card.className = "p-3 rounded-2xl bg-muji-sand border border-muji-linen flex items-center justify-between gap-2 text-xs fade-in";
@@ -1627,6 +1746,13 @@
 
         // 11. 首次載入
         window.onload = function() {
+            // 讀取持久化的自訂匯率
+            const savedRate = localStorage.getItem('nagoya_custom_rate');
+            if (savedRate) {
+                document.getElementById('exchange-rate').value = savedRate;
+            }
+            
+            startCountdown();
             renderTimeline();
             renderExpenses();
             renderChecklists();
