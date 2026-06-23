@@ -13,6 +13,10 @@
     <!-- FontAwesome for cute icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
+    <!-- Leaflet.js CSS and JS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
     <script>
         tailwind.config = {
             theme: {
@@ -75,6 +79,13 @@
         .animate-pulse-soft {
             animation: pulse-soft 3s infinite ease-in-out;
         }
+        /* 確保 Leaflet popup 在日系風格下呈現優雅外觀 */
+        .leaflet-popup-content-wrapper {
+            border-radius: 12px;
+            font-family: 'Zen Maru Gothic', sans-serif;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border: 1px solid #EFEAE2;
+        }
     </style>
 </head>
 <body class="min-h-screen pb-24 selection:bg-chiikawa-pinkdeep selection:text-muji-charcoal">
@@ -106,7 +117,7 @@
                     </div>
                 </div>
                 <div class="flex gap-1">
-                    <span class="bg-rose-100 text-rose-600 px-2. py-1 rounded-full text-[10px] font-bold">倒數中</span>
+                    <span class="bg-rose-100 text-rose-600 px-2 py-1 rounded-full text-[10px] font-bold">倒數中</span>
                 </div>
             </div>
 
@@ -303,7 +314,7 @@
                                 <strong class="text-muji-charcoal font-bold text-xs">C1 木育森林候機室</strong>
                                 <span class="bg-amber-500 text-white text-[9px] px-1.5 py-0.5 rounded-md font-bold">🚶 步程 1 分鐘</span>
                             </div>
-                            <p class="text-muji-earth">距離出境中央通道最近！原木打造，有小火車軌道玩具、木質積木與森林小樹屋，能讓孩子靜心動手玩。</p>
+                            <p class="text-muji-earth">距離出境中央通道最低！原木打造，有小火車軌道玩具、木質積木與森林小樹屋，能讓孩子靜心動手玩。</p>
                         </div>
                     </div>
                    
@@ -337,7 +348,7 @@
                             <strong class="text-muji-charcoal font-bold text-xs">A6 樂高體驗區</strong>
                             <span class="bg-chiikawa-pinkdeep text-white text-[9px] px-1.5 py-0.5 rounded-md font-bold">🚶 步程 25 分鐘</span>
                         </div>
-                        <p class="text-muji-earth">現場積木款式齊全，部分門市旁設有經典積木遊戲牆供孩童推廣創作。</p>
+                        <p class="text-muji-earth">現場裝機款式齊全，部分門市旁設有經典積木遊戲牆供孩童推廣創作。</p>
                     </div>
                 </div>
 
@@ -353,7 +364,7 @@
                 </div>
             </div>
 
-            <!-- 2. 飯店周邊 導覽面板 -->
+            <!-- 2. 飯店周邊 導覽面板 (已更換為 Leaflet 互動地圖) -->
             <div id="gcontent-hotel" class="guide-panel hidden bg-white p-4 rounded-3xl border border-muji-linen shadow-sm space-y-3">
                 <div class="flex justify-between items-center border-b border-muji-linen pb-2">
                     <h3 class="font-bold text-base text-muji-charcoal flex items-center gap-1.5"><i class="fa-solid fa-map-location-dot text-amber-500 mr-1.5"></i> 大和ROYNET飯店周邊地圖</h3>
@@ -369,10 +380,9 @@
                 <p class="text-xs text-muji-earth leading-relaxed">
                     本飯店位於名古屋車站太閣通口（西側）。過馬路步行 3 分鐘處就是 24 小時營業的 <strong>MaxValu 太閣店</strong>！
                 </p>
-                <!-- OSM 嵌入地圖 -->
-                <div class="h-48 rounded-2xl overflow-hidden border border-muji-linen relative">
-                    <iframe class="w-full h-full" src="https://www.openstreetmap.org/export/embed.html?bbox=136.8770%2C35.1660%2C136.8830%2C35.1710&amp;layer=mapnik&amp;marker=35.1685%2C136.8800" style="border: 0;"></iframe>
-                    <span class="absolute bottom-1 right-1 bg-black/60 text-[8px] text-white px-1.5 py-0.5 rounded">© OpenStreetMap</span>
+                <!-- OSM 嵌入地圖 (使用 Leaflet 容器取代 iframe) -->
+                <div class="h-52 rounded-2xl overflow-hidden border border-muji-linen relative">
+                    <div id="hotel-map-leaflet" class="w-full h-full z-0"></div>
                 </div>
                 <!-- 藥妝比價 -->
                 <div class="bg-muji-sand p-2.5 rounded-xl text-xs space-y-2">
@@ -420,7 +430,7 @@
                 <!-- 4. 樂高樂園專屬爸媽貼心話（置頂） -->
                 <div class="p-3 rounded-2xl bg-chiikawa-yellow border border-yellow-300 text-[10px] text-muji-charcoal leading-relaxed shadow-sm">
                     <span class="font-bold flex items-center gap-1 mb-1 text-amber-700"><i class="fa-solid fa-puzzle-piece"></i> 🧱 樂高樂園 · 爸媽貼心話：</span>
-                    樂高樂園佔地寬敞，實施「分組作戰」最省力！中午 11:40~13:00，<strong>爸媽帶姊妹去排探險園區的設施；爺奶陪弟弟進入編號 30 號阿姆斯特拉秘密之室</strong>玩積木。<strong>最晚 17:00 前至更衣室為三位寶貝換上全套乾爽衣物及鞋襪</strong>（濕衣裝袋絕不可進冷氣強的 17:30 4D 影廳防感冒！）。
+                    樂高樂園佔地寬敞，實施「分組作戰」最省力！中午 11:40~13:00，<strong>爸媽帶姊妹去排探險園區的設施；爺奶陪弟弟進入編號 30 號阿姆斯特拉秘密之室</strong>玩積木。<strong>最晚 17:00 前至更衣室為三位寶貝換上全套乾爽衣物及鞋襪</strong>（濕衣裝袋裝箱絕不可進冷氣強的 17:30 4D 影廳防感冒！）。
                 </div>
 
                 <p class="text-xs text-muji-earth leading-relaxed">
@@ -584,7 +594,7 @@
                                     <span class="text-lg">🛒</span>
                                     <div>
                                         <strong class="text-muji-charcoal font-bold">6. Seria (百元商店) 大須店</strong>
-                                        <p class="text-muji-earth text-[10px] mt-0.5 leading-relaxed">位於萬松寺通街中。極具美感的生活百元商店，店內通道平坦寬敞，極為好推車。迪士尼、三麗鷗與吉伊卡哇聯名的小餐具、手作包裝、零錢包，全場只要 110 日圓！</p>
+                                        <p class="text-muji-earth text-[10px] mt-0.5 leading-relaxed">位於萬松寺通街中。極具美感的生活百元商店，店內通道平坦寬敞，極為好推車。迪士尼、三麗鷗與吉伊卡哇聯名的小餐具、手作包裝、零錢包，全場飾要 110 日圓！</p>
                                     </div>
                                 </div>
                                 <div class="pt-2 flex items-start gap-2 text-[11px]">
@@ -912,6 +922,9 @@
 
     <!-- JavaScript 邏輯控制 -->
     <script>
+        // 宣告全域 Leaflet 地圖變數
+        let hotelMap = null;
+
         // 0. 自定義對話框引擎邏輯
         function showConfirm(title, message, icon, onConfirm) {
             document.getElementById('custom-confirm-title').innerText = title;
@@ -992,6 +1005,66 @@
                 block.classList.add('hidden');
                 arrow.classList.remove('rotate-180');
             }
+        }
+
+        // 0.7 初始化 Leaflet 地圖並設定多組自訂標記 (安全防錯載入)
+        function initHotelMap() {
+            if (typeof L === 'undefined') return;
+            
+            // 延遲 150 毫秒等待 DOM 渲染與 hidden 類別移除，防止地圖因 0 寬高導致灰色區塊
+            setTimeout(() => {
+                const mapId = 'hotel-map-leaflet';
+                const mapContainer = document.getElementById(mapId); // 修正：將變數名稱包裹為引號字串，以避免產生 'hotel is not defined' 語法錯誤
+                
+                if (!mapContainer) return;
+
+                if (!hotelMap) {
+                    // 以大和ROYNET飯店為地圖中心
+                    hotelMap = L.map(mapId, {
+                        zoomControl: true,
+                        scrollWheelZoom: false
+                    }).setView([35.16764850967813, 136.8805665745858], 17);
+
+                    // 載入開源 OpenStreetMap 圖資
+                    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                        attribution: '© OpenStreetMap contributors'
+                    }).addTo(hotelMap);
+
+                    // 定義自訂地標標記資料
+                    const locations = [
+                        {
+                            coords: [35.16764850967813, 136.8805665745858],
+                            title: "🏨 大和ROYNET飯店 名古屋太閣通口",
+                            desc: "三代同堂家庭 7 人 6 晚連住超便利基地！"
+                        },
+                        {
+                            coords: [35.168929, 136.880985],
+                            title: "💊 千里馬藥局",
+                            desc: "名站西口超划算免稅老字號藥妝店（限用現金）。"
+                        },
+                        {
+                            coords: [35.16592399099131, 136.88122103357122],
+                            title: "🛒 MaxValu 太閤店",
+                            desc: "24 小時營業大型生鮮超市！採購宵夜、水蜜桃與鮮奶首選。"
+                        }
+                    ];
+
+                    // 繪製標記並設定 Popup 氣泡框內容
+                    locations.forEach(loc => {
+                        L.marker(loc.coords)
+                         .addTo(hotelMap)
+                         .bindPopup(`
+                            <div class="font-sans text-xs">
+                                <b class="text-muji-charcoal text-xs block mb-1">${loc.title}</b>
+                                <span class="text-muji-earth text-[10px] block leading-relaxed">${loc.desc}</span>
+                            </div>
+                         `);
+                    });
+                } else {
+                    // 若地圖已存在，強置觸發重繪以修復灰格問題
+                    hotelMap.invalidateSize();
+                }
+            }, 100);
         }
 
         // 1. 全域行程數據定義
@@ -1155,7 +1228,7 @@
             ]},
             { category: '其他類別 (Others)', items: [
                 { id: 'l13', text: '行李秤 / 萬用轉接頭 ⚖️', checked: false },
-                { id: 'l14', text: '塑膠袋 / 雨傘 / 雨衣 ☔', checked: false },
+                { id: 'l14', text: '塑袋 / 雨傘 / 雨衣 ☔', checked: false },
                 { id: 'l15', text: 'OK 繃 / 洗衣網 / 購物袋 🛍️', checked: false },
                 { id: 'l16', text: '保鮮盒 / 嬰童專屬餐具', checked: false },
                 { id: 'l17', text: '護照影本 / 2吋照片', checked: false },
@@ -1221,6 +1294,14 @@
             
             // 自動平滑滾動到網頁最頂端，優化體驗
             window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            // 若切換至導覽分頁且飯店周邊正好是展開狀態，觸發重新繪製尺寸以防地圖空白
+            if (tabId === 'guide') {
+                const hotelPanel = document.getElementById('gcontent-hotel');
+                if (hotelPanel && !hotelPanel.classList.contains('hidden')) {
+                    initHotelMap();
+                }
+            }
         }
 
         // 3. 行程天數切換
@@ -1352,7 +1433,7 @@
             });
         }
 
-        // 6. 導覽細項切換
+        // 6. 導覽細項切換 (整合 Leaflet 載入與重繪邏輯)
         function switchGuide(guideId) {
             document.querySelectorAll('.guide-panel').forEach(el => el.classList.add('hidden'));
             document.getElementById(`gcontent-${guideId}`).classList.remove('hidden');
@@ -1363,6 +1444,105 @@
             });
             document.getElementById(`gbtn-${guideId}`).classList.add('bg-muji-charcoal', 'text-white');
             document.getElementById(`gbtn-${guideId}`).classList.remove('bg-white', 'text-muji-charcoal', 'border-muji-linen');
+
+            // 當切換到「飯店周邊」頁籤時，執行地圖載入或更新大小
+            if (guideId === 'hotel') {
+                initHotelMap();
+            }
+        }
+
+        // 初始化與渲染 Leaflet 飯店周邊地圖
+        function initHotelMap() {
+            if (typeof L === 'undefined') return;
+            
+            setTimeout(() => {
+                const mapId = 'hotel-map-leaflet';
+                const mapContainer = document.getElementById(mapId);
+                
+                if (!mapContainer) return;
+
+                if (!hotelMap) {
+                    // 以大和ROYNET飯店為地圖中心
+                    hotelMap = L.map(mapId, {
+                        zoomControl: true,
+                        scrollWheelZoom: false
+                    }).setView([35.16764850967813, 136.8805665745858], 17);
+
+                    // 載入開源 OpenStreetMap 圖資
+                    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                        attribution: '© OpenStreetMap contributors'
+                    }).addTo(hotelMap);
+
+                    // 定義自訂地標標記資料
+                    const locations = [
+                        {
+                            coords: [35.16764850967813, 136.8805665745858],
+                            title: "🏨 大和ROYNET飯店 名古屋太閣通口",
+                            desc: "三代同堂家庭 7 人 6 晚連住超便利基地！"
+                        },
+                        {
+                            coords: [35.16833370240405, 136.88122908020821],
+                            title: "🏪 Ministop 名古屋站西店",
+                            desc: "主打現點現做的熱食、炸物與季節限定聖代冰品的便利商店"
+                        },
+                        {
+                            coords: [35.16848279958023, 136.88022056964354],
+                            title: "🏪 Lawson 椿町店",
+                            desc: "以高品質的 Uchi Café 甜點與國民美食炸雞君聞名的便利商店"
+                        },
+                        {
+                            coords: [35.168379747150084, 136.8785200491615],
+                            title: "🏪 FamilyMart 中村竹橋町店",
+                            desc: "兼具爆款聯名甜點、銷魂炸雞熟食與「Convenience Wear」極簡潮流服飾等跨界驚喜的的便利商店"
+                        },
+                        {
+                            coords: [35.168929, 136.880985],
+                            title: "💊 千里馬藥局",
+                            desc: "超划算免稅老字號藥妝店（限用現金）。"
+                        },
+                         {
+                            coords: [35.167386461493216, 136.88448393793936],
+                            title: "💊 大國藥妝",
+                            desc: "不一定比千里馬便宜但買到門檻有額外優惠。"
+                        },
+                        {
+                            coords: [35.168738320508055, 136.88190789977807],
+                            title: "💊 松本清 名古屋站太閤通店",
+                            desc: "定價通常最貴，但有「松本清限定」商品。"
+                        },
+                        {
+                            coords: [35.16961749585411, 136.88397856224313],
+                            title: "💊 SUGI 藥局 名鉄名古屋店",
+                            desc: "中高價，但便利、適合買彩妝。"
+                        },
+                        {
+                            coords: [35.170263206017324, 136.87958644507808],
+                            title: "🛒 Bic Camera 名古屋站西店",
+                            desc: "電器、玩具大本營。"
+                        },
+                        {
+                            coords: [35.16592399099131, 136.88122103357122],
+                            title: "🛒 MaxValu 太閤店",
+                            desc: "24 小時營業大型生鮮超市！採購宵夜、水蜜桃與鮮奶首選。"
+                        }
+                    ];
+
+                    // 繪製標記並設定 Popup 氣泡框內容
+                    locations.forEach(loc => {
+                        L.marker(loc.coords)
+                         .addTo(hotelMap)
+                         .bindPopup(`
+                            <div class="font-sans text-xs">
+                                <b class="text-muji-charcoal text-xs block mb-1">${loc.title}</b>
+                                <span class="text-muji-earth text-[10px] block leading-relaxed">${loc.desc}</span>
+                            </div>
+                         `);
+                    });
+                } else {
+                    // 若地圖已存在，強置觸發重繪以修復灰格問題
+                    hotelMap.invalidateSize();
+                }
+            }, 100);
         }
 
         // 7. 計算機邏輯
@@ -1673,6 +1853,7 @@
             );
         }
 
+        // 行李列表事件綁定
         function toggleItem(type, catIdx, itemIdx) {
             if (type === 'handbag') {
                 handbagList[catIdx].items[itemIdx].checked = !handbagList[catIdx].items[itemIdx].checked;
