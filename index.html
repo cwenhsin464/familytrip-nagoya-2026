@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>🌸2026名古屋親子之旅🌸</title>
-    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
-    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <link class="apple-touch-icon" href="apple-touch-icon.png" />
+    <link class="icon" href="/favicon.ico" type="image/x-icon" />
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts: Zen Maru Gothic for Japanese rounded cute look, Quicksand for clean numbers -->
@@ -90,19 +90,73 @@
         <h1 class="text-2xl font-bold mt-1 text-muji-charcoal tracking-wide flex items-center justify-center gap-2">
             <span>🌸 名古屋親子遊 🌸</span>
         </h1>
-        <div class="mt-2 inline-flex items-center gap-2 bg-white/80 px-3 py-1 rounded-full text-xs text-muji-earth shadow-sm border border-muji-linen">
+        <div class="mt-2 inline-flex items-center gap-2 bg-white/80 px-3 py-1 rounded-full text-xs text-muji-earth shadow-sm border border-muji-linen mb-4">
             <i class="fa-solid fa-calendar-days text-chiikawa-pinkdeep"></i>
             <span>2026.07.27 ~ 08.02 (7天6夜)</span>
         </div>
 
-        <!-- 成員頭像卡片快速瀏覽區 -->
-        <div class="flex justify-center gap-2 mt-4 overflow-x-auto py-1 no-scrollbar">
-            <span class="flex-shrink-0 bg-white px-2 py-1 rounded-full text-[10px] border border-muji-linen flex items-center gap-1">👴👵 爺奶</span>
-            <span class="flex-shrink-0 bg-white px-2 py-1 rounded-full text-[10px] border border-muji-linen flex items-center gap-1">👨👩 爸媽</span>
-            <span class="flex-shrink-0 bg-white px-2 py-1 rounded-full text-[10px] border border-muji-linen flex items-center gap-1">👧 姊姊</span>
-            <span class="flex-shrink-0 bg-white px-2 py-1 rounded-full text-[10px] border border-muji-linen flex items-center gap-1">👧 妹妹</span>
-            <span class="flex-shrink-0 bg-white px-2 py-1 rounded-full text-[10px] border border-muji-linen flex items-center gap-1">👶 小弟</span>
+        <!-- ✈️ 航班、倒數與團員資訊精簡速查摺疊卡片 (優化調整寬度：新增 max-w-md mx-auto) -->
+        <div class="bg-white p-3 rounded-2xl border border-muji-linen shadow-sm flex flex-col gap-3 text-xs max-w-md mx-auto text-left">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                    <span class="text-xl animate-pulse-soft">🗺️</span>
+                    <div>
+                        <p class="font-bold text-muji-charcoal text-xs">旅途骨幹資訊速查</p>
+                        <p class="text-[10px] text-muji-earth">航班去回・三代同堂 7 人・啟程秒退</p>
+                    </div>
+                </div>
+                <div class="flex gap-1">
+                    <span class="bg-rose-100 text-rose-600 px-2. py-1 rounded-full text-[10px] font-bold">倒數中</span>
+                </div>
+            </div>
+
+            <!-- 摺疊按鈕 -->
+            <button onclick="toggleFlightDetails()" class="w-full bg-muji-sand hover:bg-muji-linen/50 py-2 px-3 rounded-xl border border-muji-linen text-left flex justify-between items-center transition-all">
+                <span class="font-bold text-muji-charcoal flex items-center gap-1.5 text-[11px]"><i class="fa-solid fa-clock text-chiikawa-pinkdeep"></i> 一鍵展開：航班/倒數/團員名單</span>
+                <i id="flight-details-arrow" class="fa-solid fa-chevron-down text-muji-earth text-[10px] transition-transform duration-300"></i>
+            </button>
+
+            <!-- 收縮式詳細內容 -->
+            <div id="flight-details-block" class="hidden flex flex-col gap-2.5 pt-1 text-[10px] fade-in">
+                
+                <!-- 1. 倒數計時顯示 -->
+                <div class="bg-gradient-to-r from-chiikawa-pink to-yellow-50/60 p-2.5 rounded-xl border border-muji-linen/60 text-center">
+                    <p class="text-[10px] text-muji-earth font-bold"><i class="fa-regular fa-bell mr-1 text-pink-500"></i>距離出發還有：</p>
+                    <p id="countdown-timer" class="text-xs text-rose-500 font-bold mt-1">計算中...</p>
+                </div>
+
+                <!-- 2. 三代同堂探險隊員名單 (稱呼完美對齊橫幅) -->
+                <div class="bg-chiikawa-yellow/50 p-2.5 rounded-xl border border-yellow-200/60 text-[10px] space-y-1.5">
+                    <p class="font-bold text-amber-800 flex items-center gap-1">
+                        <i class="fa-solid fa-users"></i> 2026 名古屋親子探險隊 (共 7 人)
+                    </p>
+                       <div class="flex justify-center gap-2 mt-4 overflow-x-auto py-1 no-scrollbar">
+                                <span class="flex-shrink-0 bg-white px-2 py-1 rounded-full text-[10px] border border-muji-linen flex items-center gap-1">👴👵 爺奶</span>
+                                <span class="flex-shrink-0 bg-white px-2 py-1 rounded-full text-[10px] border border-muji-linen flex items-center gap-1">👨👩 爸媽</span>
+                                <span class="flex-shrink-0 bg-white px-2 py-1 rounded-full text-[10px] border border-muji-linen flex items-center gap-1">👧 姊姊</span>
+                                <span class="flex-shrink-0 bg-white px-2 py-1 rounded-full text-[10px] border border-muji-linen flex items-center gap-1">👧 妹妹</span>
+                                <span class="flex-shrink-0 bg-white px-2 py-1 rounded-full text-[10px] border border-muji-linen flex items-center gap-1">👶 小弟</span>         
+                        </div>
+                </div>
+
+                <!-- 3. 雙向航班細節 -->
+                <div class="grid grid-cols-2 gap-2">
+                    <div class="bg-muji-sand p-2.5 rounded-xl border border-muji-linen flex flex-col gap-1">
+                        <span class="font-bold text-muji-earth flex items-center gap-1"><i class="fa-solid fa-plane-departure text-[10px] text-blue-400"></i> 去程 JX838</span>
+                        <p class="text-muji-charcoal font-semibold">・07/27 (一) 14:55</p>
+                        <p class="text-muji-earth">桃園 TPE ➔ 中部 NGO</p>
+                        <p class="text-muji-earth">預計 18:45 抵達</p>
+                    </div>
+                    <div class="bg-muji-sand p-2.5 rounded-xl border border-muji-linen flex flex-col gap-1">
+                        <span class="font-bold text-muji-earth flex items-center gap-1"><i class="fa-solid fa-plane-arrival text-[10px] text-pink-400"></i> 回程 JX839</span>
+                        <p class="text-muji-charcoal font-semibold">・08/02 (日) 19:55</p>
+                        <p class="text-muji-earth">中部 NGO ➔ 桃園 TPE</p>
+                        <p class="text-muji-earth">預計 22:00 抵達</p>
+                    </div>
+                </div>
+            </div>
         </div>
+
     </header>
 
     <!-- 主要內容區 -->
@@ -111,21 +165,6 @@
         <!-- ==================== TAB 1: PLAN (行程表) ==================== -->
         <section id="tab-plan" class="tab-content fade-in">
             
-            <!-- 旅行出發倒數計時器卡片 (優化加入) -->
-            <div id="countdown-card" class="bg-gradient-to-r from-chiikawa-pink to-yellow-50/60 p-3.5 rounded-2xl border border-muji-linen mb-4 shadow-sm relative overflow-hidden transition-all duration-300">
-                <div class="flex justify-between items-center">
-                    <div class="flex items-center gap-2">
-                        <span class="text-xl animate-pulse-soft">⏰</span>
-                        <div>
-                            <h3 class="font-bold text-xs text-muji-charcoal">距離啟程還有</h3>
-                            <p id="countdown-timer" class="text-xs text-rose-500 font-bold mt-0.5">計算中...</p>
-                        </div>
-                    </div>
-                    <button onclick="document.getElementById('countdown-card').classList.add('hidden')" class="text-muji-earth hover:text-muji-charcoal text-xs p-1">
-                        <i class="fa-solid fa-xmark"></i>
-                    </button>
-                </div>
-            </div>
 
             <!-- 天數切換滑動列 -->
             <div class="flex gap-2 overflow-x-auto pb-3 mb-4 no-scrollbar -mx-4 px-4">
@@ -158,7 +197,7 @@
                     </div>
                 </div>
 
-                <!-- 摺疊按鈕 -->
+                <!-- 住宿摺疊按鈕 -->
                 <button onclick="toggleHotelDetails()" class="w-full bg-muji-sand hover:bg-muji-linen/50 py-2 px-3 rounded-xl border border-muji-linen text-left flex justify-between items-center transition-all">
                     <span class="font-bold text-muji-charcoal flex items-center gap-1.5 text-[11px]"><i class="fa-solid fa-circle-info text-chiikawa-pinkdeep"></i> 查看入住退房與公共設施</span>
                     <i id="hotel-details-arrow" class="fa-solid fa-chevron-down text-muji-earth text-[10px] transition-transform duration-300"></i>
@@ -287,7 +326,7 @@
                             <strong class="text-muji-charcoal font-bold text-xs">A5 巧虎巴士遊樂區</strong>
                             <span class="bg-blue-400 text-white text-[9px] px-1.5 py-0.5 rounded-md font-bold">🚶 步程 28 分鐘</span>
                         </div>
-                        <p class="text-muji-earth">雖然距離較遠，但巧虎彩繪巴士極具吸引力！提供大積木區和巴士造型滑梯。</p>
+                        <p class="text-muji-earth">雖然距離較遠，但巧虎彩繪巴士極具吸引力！提供大積木區 and 巴士造型滑梯。</p>
                     </div>
                 </div>
 
@@ -298,7 +337,7 @@
                             <strong class="text-muji-charcoal font-bold text-xs">A6 樂高體驗區</strong>
                             <span class="bg-chiikawa-pinkdeep text-white text-[9px] px-1.5 py-0.5 rounded-md font-bold">🚶 步程 25 分鐘</span>
                         </div>
-                        <p class="text-muji-earth">現場積木款式齊全，部分門市旁設有經典積木遊戲牆供孩童短暫創作。</p>
+                        <p class="text-muji-earth">現場積木款式齊全，部分門市旁設有經典積木遊戲牆供孩童推廣創作。</p>
                     </div>
                 </div>
 
@@ -324,7 +363,7 @@
                 <!-- 2. 飯店周邊專屬爸媽貼心話（置頂） -->
                 <div class="p-3 rounded-2xl bg-chiikawa-yellow border border-yellow-300 text-[10px] text-muji-charcoal leading-relaxed shadow-sm">
                     <span class="font-bold flex items-center gap-1 mb-1 text-amber-700"><i class="fa-solid fa-hotel"></i> 🍓 飯店周邊 · 爸媽貼心話：</span>
-                    名古屋車站的地下結構非常擁擠且充斥階梯，<strong>千萬不要冒險走地下通道</strong>！名鐵下車後由<strong>「西改札口」</strong>搭乘無障礙電梯上到一樓地面出站到大和ROYNET飯店，平坦好推不迷路。第一晚入住後，爸爸跟媽媽可趁弟弟在房間休息時，步行 300m 到 24H 營業的 <strong>MaxValu 超市</strong>，採購當季的水蜜桃、哈密瓜、與鮮奶、麵包當早餐，價格比便利商店划算非常多！
+                    名古屋車站的地下結構非常擁擠且充斥階梯，<strong>千萬不要冒險走地下通道</strong>！名鐵下車後由<strong>「西改札口」</strong>搭乘無障礙電梯上到一樓地面出站到大和ROYNET飯店，平坦好推不迷路。第一晚入住後，爸爸跟媽媽可趁弟弟在房間休息時，步行 300m 到 24H 營業的 <strong>MaxValu 超市</strong>，採購當季的水蜜桃、哈密瓜、與鮮奶、麵包當早餐，價格比便利商店劃算非常多！
                 </div>
 
                 <p class="text-xs text-muji-earth leading-relaxed">
@@ -341,7 +380,7 @@
                     <ul class="space-y-1.5 text-[11px] text-muji-earth pl-1">
                         <li>・<strong>千里馬藥局：</strong> 最便宜，但<strong>限收現金</strong>，且內部狹窄不適合推推車。</li>
                         <li>・<strong>大國藥妝：</strong> 買到免稅門檻加折扣券極便宜，支援多元刷卡支付。</li>
-                        <li>・<strong>SUGI 藥局：</strong> 中高價位，下載 APP 常有 18% 折扣券，適合買彩妝。</li>
+                        <li>・<strong>SUGI 藥局：</strong> 中高價位，下載 APP 常有 18% 折扣券，適合買彩妝.</li>
                         <li>・<strong>松本清：</strong> 定價偏高，但有很多獨特「松本清限定」商品！</li>
                     </ul>
                 </div>
@@ -357,7 +396,7 @@
                 <!-- 3. 豐田紀念館專屬爸媽貼心話（置頂） -->
                 <div class="p-3 rounded-2xl bg-chiikawa-pink border border-chiikawa-pinkdeep/30 text-[10px] text-muji-charcoal leading-relaxed shadow-sm">
                     <span class="font-bold flex items-center gap-1 mb-1 text-rose-500"><i class="fa-solid fa-car"></i> 🚗 豐田科技 · 爸媽貼心話：</span>
-                    10:00 抵達買好票入館後，請<strong>由爸爸帶領 8 歲與 6 歲的姊妹快步衝去右側的「科技樂園 (Technoland)」搶先預約 10:30 第一場或 11:15 第二場的遊玩時間</strong>，其他人員隨後跟上。午餐可以在館內的紅磚餐廳享用，也可以去 AEON Mall 則武新町吃有名的蛋包飯。
+                    10:00 抵達買好票入館後，請<strong>由爸爸帶領 8 歲與 6 歲的姊妹快步衝去右側的「科技樂園 (Technoland)」搶先預約 10:30 第一場或 11:15 第二場的裝機時間</strong>，其他人員隨後跟上。午餐可以在館內的紅磚餐廳享用，也可以去 AEON Mall 則武新町吃有名的蛋包飯。
                 </div>
 
                 <p class="text-xs text-muji-earth leading-relaxed">
@@ -366,8 +405,8 @@
                 <div class="bg-muji-sand p-2.5 rounded-xl text-xs space-y-1">
                     <p class="font-bold text-muji-charcoal">💡 必看演示時間：</p>
                     <p class="text-muji-earth">・11:00 蒸汽機運轉（科技樂園對面）</p>
-                    <p class="text-muji-earth">・11:25 回到大廳欣賞環狀織布機展示</p>
-                    <p class="text-muji-earth">・13:20 南入口夥伴機器人拉小提琴 🎻</p>
+                    <p class="text-muji-earth">・11:25 回到大廳欣賞環狀織布機演示</p>
+                    <p class="text-muji-earth">・13:20 南入口夥伴機器人拉小提琴表演 🎻</p>
                 </div>             
             </div>
 
@@ -381,7 +420,7 @@
                 <!-- 4. 樂高樂園專屬爸媽貼心話（置頂） -->
                 <div class="p-3 rounded-2xl bg-chiikawa-yellow border border-yellow-300 text-[10px] text-muji-charcoal leading-relaxed shadow-sm">
                     <span class="font-bold flex items-center gap-1 mb-1 text-amber-700"><i class="fa-solid fa-puzzle-piece"></i> 🧱 樂高樂園 · 爸媽貼心話：</span>
-                    樂高樂園佔地寬敞，實施「分組作戰」最省力！中午 11:40~13:00，<strong>爸媽帶姊妹去排探險園區的設施；爺奶陪弟弟進入編號 30 號阿姆斯特拉秘密之室</strong>玩積木。<strong>最晚 17:00 前至更衣室為三位寶貝換上全套乾爽衣物及鞋襪</strong>（濕衣絕不可進冷氣強的 17:30 4D 影廳防感冒！）。
+                    樂高樂園佔地寬敞，實施「分組作戰」最省力！中午 11:40~13:00，<strong>爸媽帶姊妹去排探險園區的設施；爺奶陪弟弟進入編號 30 號阿姆斯特拉秘密之室</strong>玩積木。<strong>最晚 17:00 前至更衣室為三位寶貝換上全套乾爽衣物及鞋襪</strong>（濕衣裝袋絕不可進冷氣強的 17:30 4D 影廳防感冒！）。
                 </div>
 
                 <p class="text-xs text-muji-earth leading-relaxed">
@@ -409,7 +448,7 @@
                 </div>
                <div class="border-l-4 border-chiikawa-blue bg-chiikawa-blue/50 p-2.5 rounded-r-xl text-xs space-y-2">
                     <p class="font-bold text-muji-charcoal"><i class="fa-solid fa-users text-blue-500"></i> 15:30~18:00 全員團體行動：</p>
-                    <p class="text-muji-charcoal pl-2"> 騎士王國和幻影忍者的設施可以看時間決定要不要玩<br>水花大戰 (26), 得寶谷 (不用預約的玩水), 殿堂影院(4D電影) (14)<br><strong class="text-red-600">最晚17點換好乾衣服，看電影或逛紀念品店</strong></p>
+                    <p class="text-muji-charcoal pl-2"> 騎士王國和幻影忍者的設施可以看時間決定要不要玩<br>水花大戰 (26), 得寶谷 (不用預約的玩水), 點心時間, 4D電影 (14)<br><strong class="text-red-600">最晚17點換好乾衣服，看電影或逛紀念品店</strong></p>
                 </div>
 
             </div>
@@ -486,15 +525,6 @@
                     </ul>
                 </div>
 
-                <!-- OpenStreetMap 嵌入地圖 -->
-                <div class="space-y-1">
-                    <p class="text-xs font-bold text-muji-charcoal flex items-center gap-1"><i class="fa-solid fa-location-crosshairs text-blue-500"></i> 大須核心街區定位地圖 (大須觀音 ➔ 萬松寺 ➔ 上前津)</p>
-                    <div class="h-44 rounded-2xl overflow-hidden border border-muji-linen relative">
-                        <iframe class="w-full h-full" src="https://www.openstreetmap.org/export/embed.html?bbox=136.8950%2C35.1570%2C136.9035%2C35.1615&amp;layer=mapnik&amp;marker=35.1593%2C136.8992" style="border: 0;"></iframe>
-                        <span class="absolute bottom-1 right-1 bg-black/60 text-[8px] text-white px-1.5 py-0.5 rounded">© OpenStreetMap contributors</span>
-                    </div>
-                </div>
-
                 <!-- 繽紛雜誌感店鋪誌 -->
                 <div class="space-y-3">
                     <h4 class="text-xs font-bold text-muji-charcoal flex items-center gap-1 border-b border-muji-linen pb-1"><i class="fa-solid fa-store text-amber-600"></i> 💖 大須必吃與必逛推薦店鋪誌 (親子精選 8 店)</h4>
@@ -511,7 +541,7 @@
                                     <span class="text-lg">🍘</span>
                                     <div>
                                         <strong class="text-muji-charcoal font-bold">1. 新雀本店 — 醬油烤糰子 (Mitarashi Dango)</strong>
-                                        <p class="text-muji-earth text-[10px] mt-0.5 leading-relaxed">傳承數十年的碳烤小店。甜鹹交織的特製日式醬汁，口感軟糯、香氣鋪鼻。每串只要 100 日圓，非常適合給爺奶與孩子當作隨手下午茶！</p>
+                                        <p class="text-muji-earth text-[10px] mt-0.5 leading-relaxed">傳承數十年的碳烤小店。甜鹹交織的特製日式醬汁，口感軟糯、香氣鋪鼻。每串阻要 100 日圓，非常適合給爺奶與孩子當作隨手下午茶！</p>
                                     </div>
                                 </div>
                                 <div class="pt-2 flex items-start gap-2 text-[11px]">
@@ -574,6 +604,15 @@
                             </div>
                         </div>
 
+                <!-- OpenStreetMap 嵌入地圖 -->
+                <div class="space-y-1">
+                    <p class="text-xs font-bold text-muji-charcoal flex items-center gap-1"><i class="fa-solid fa-location-crosshairs text-blue-500"></i> 大須核心街區定位地圖 (大須觀音 ➔ 萬松寺 ➔ 上前津)</p>
+                    <div class="h-44 rounded-2xl overflow-hidden border border-muji-linen relative">
+                        <iframe class="w-full h-full" src="https://www.openstreetmap.org/export/embed.html?bbox=136.8950%2C35.1570%2C136.9035%2C35.1615&amp;layer=mapnik&amp;marker=35.1593%2C136.8992" style="border: 0;"></iframe>
+                        <span class="absolute bottom-1 right-1 bg-black/60 text-[8px] text-white px-1.5 py-0.5 rounded">© OpenStreetMap contributors</span>
+                    </div>
+                </div>
+
                     </div>
                 </div>
             </div>
@@ -605,7 +644,7 @@
                 <div class="grid grid-cols-4 gap-2">
                     <button onclick="pressCalc('C')" class="bg-chiikawa-pink font-bold py-3.5 rounded-xl text-muji-charcoal active:scale-95 transition-all text-sm">C</button>
                     <button onclick="pressCalc('/')" class="bg-muji-linen font-bold py-3.5 rounded-xl text-muji-charcoal active:scale-95 transition-all text-sm">/</button>
-                    <button onclick="pressCalc('*')" class="bg-muji-linen font-bold py-3.5 rounded-xl text-muji-charcoal active:scale-95 transition-all text-sm">*</button>
+                    <button onclick="pressCalc('*')" class="bg-muji-linen font-bold py-3.5 rounded-xl text-muji-charcoal active:scale-95 transition-all text-sm" >*</button>
                     <button onclick="pressCalc('-')" class="bg-muji-linen font-bold py-3.5 rounded-xl text-muji-charcoal active:scale-95 transition-all text-sm">-</button>
                     
                     <button onclick="pressCalc('7')" class="bg-white border border-muji-linen font-semibold py-3 rounded-xl active:scale-95 transition-all text-sm">7</button>
@@ -677,7 +716,7 @@
                     </div>
                 </div>
 
-                <!-- 記帳篩選按鈕列 (優化加入) -->
+                <!-- 記帳篩選按鈕列 -->
                 <div class="flex gap-1.5 mb-2">
                     <button onclick="filterExpenses('all')" id="exp-filter-all" class="text-[10px] font-bold px-3 py-1 rounded-full bg-muji-charcoal text-white transition-all">全部明細</button>
                     <button onclick="filterExpenses('cash')" id="exp-filter-cash" class="text-[10px] font-bold px-3 py-1 rounded-full bg-white text-muji-earth border border-muji-linen transition-all">💵 只看現金</button>
@@ -709,7 +748,7 @@
                 </div>
 
                 <div class="divide-y divide-muji-linen overflow-y-auto max-h-60 space-y-2 pt-2" id="expense-list">
-                    <!-- 記帳細項 (空狀態優化在 JavaScript 中動態渲染) -->
+                    <!-- 記帳細項 -->
                 </div>
             </div>
         </section>
@@ -913,7 +952,7 @@
             };
         }
 
-        // 0.5 櫻花倒數計時器邏輯 (優化加入)
+        // 0.5 櫻花倒數計時器邏輯
         function startCountdown() {
             const targetDate = new Date('2026/07/27 14:55:00').getTime();
             
@@ -940,6 +979,19 @@
             
             updateTimer();
             setInterval(updateTimer, 1000);
+        }
+
+        // 0.6 航班與團員摺疊邏輯
+        function toggleFlightDetails() {
+            const block = document.getElementById('flight-details-block');
+            const arrow = document.getElementById('flight-details-arrow');
+            if (block.classList.contains('hidden')) {
+                block.classList.remove('hidden');
+                arrow.classList.add('rotate-180');
+            } else {
+                block.classList.add('hidden');
+                arrow.classList.remove('rotate-180');
+            }
         }
 
         // 1. 全域行程數據定義
@@ -1032,7 +1084,7 @@
                         { time: '17:30', title: '綠洲 21 與榮區晚餐 🌆', desc: '上前津站搭地鐵至榮站，拍電視塔夜景，晚餐吃德兵衛迴轉壽司。隨後搭東山線回名古屋站準備行李箱封箱。', mapUrl: 'https://maps.app.goo.gl/dRoKeSaPftvEVkGF7' }
                     ],
                     'B': [
-                        { time: '08:00', title: '【方案 B】Sun Road 買乾糧 🍙', desc: '先在地下街買好 Konparu 三明治 and 飯糰，當作東山動物園的野餐糧食。',mapUrl: 'https://maps.app.goo.gl/We59R5tJsBAdfDCy7' },
+                        { time: '08:00', title: '【方案 B】Sun Road 買乾糧 🍙', desc: '先在地下街買好 Konparu 三明治 and 飯糰，當作東山動物園的野餐糧食. ',mapUrl: 'https://maps.app.goo.gl/We59R5tJsBAdfDCy7' },
                         { time: '08:30', title: '搭東山線前往東山公園 🚇', desc: '名古屋站搭乘地鐵東山線直達「東山公園站」，步行大約 5 分鐘抵達大門。建議購買一日環保票。',mapUrl: 'https://maps.app.goo.gl/YXNHbd8VUywg5iAP9' },
                         { time: '09:00', title: '東山動植物園大放電 🦍', desc: '先去看帥哥猩猩 Shabani！中午在野餐區用餐，11 點後太熱的話躲進自然科學館或天空塔。' },
                         { time: '14:30', title: 'Bic Camera 西店特攻 🔌', desc: '下午最熱時回到飯店隔邊 Bic Camera 百貨內慢慢挑選電器、玩具，極輕鬆。',mapUrl: 'https://maps.app.goo.gl/zoywuGNDrsp1HV2N8' },
@@ -1348,6 +1400,14 @@
             calculateExchange();
         }
 
+        // 匯率自訂化 LocalStorage 持久記憶儲存 (優化加入)
+        function updateRatePersist() {
+            const rateVal = parseFloat(document.getElementById('exchange-rate').value) || 0.2105;
+            localStorage.setItem('nagoya_custom_rate', rateVal);
+            calculateExchange();
+            renderExpenses();
+        }
+
         function calculateExchange() {
             const screenText = document.getElementById('calc-screen').innerText;
             const rate = parseFloat(document.getElementById('exchange-rate').value) || 0.2105;
@@ -1358,14 +1418,6 @@
 
         // 8. 記帳邏輯與優化
         let uploadedImageBase64 = "";
-
-        // 匯率自訂化 LocalStorage 持久記憶儲存 (優化加入)
-        function updateRatePersist() {
-            const rateVal = parseFloat(document.getElementById('exchange-rate').value) || 0.2105;
-            localStorage.setItem('nagoya_custom_rate', rateVal);
-            calculateExchange();
-            renderExpenses();
-        }
 
         function handleImageUpload() {
             const fileInput = document.getElementById('expense-img');
