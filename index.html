@@ -113,7 +113,7 @@
                 <button onclick="switchDay(7)" id="btn-day7" class="day-tab-btn flex-shrink-0 px-4 py-2 rounded-2xl bg-white text-muji-charcoal border border-muji-linen text-xs font-semibold shadow-sm transition-all">Day 7<br><span class="text-[10px] opacity-80">8/02(日)</span></button>
             </div>
 
-            <!-- 住宿精簡速查（含 Google Map 一鍵導航、折疊地圖與入住/公共設施資訊） -->
+            <!-- 住宿精簡速查 -->
             <div class="bg-white p-3 rounded-2xl border border-muji-linen mb-4 shadow-sm flex flex-col gap-3 text-xs">
                 <div class="flex items-center justify-between">
                     <div class="flex items-center gap-2">
@@ -124,7 +124,6 @@
                         </div>
                     </div>
                     <div class="flex gap-1">
-                        <!-- 導航功能：保留直達 Google Maps 一鍵導航 -->
                         <a href="https://www.google.com/maps/dir/?api=1&destination=Daiwa+Roynet+Hotel+Nagoya+Taiko-Dori-Side" target="_blank" class="bg-chiikawa-blue hover:bg-blue-200 text-muji-charcoal px-2.5 py-1.5 rounded-xl font-bold flex items-center gap-1 transition-all">
                             <i class="fa-solid fa-diamond-turn-right text-xs text-blue-500"></i>導航
                         </a>
@@ -134,7 +133,7 @@
                     </div>
                 </div>
 
-                <!-- 摺疊按鈕：將入住時間、退房時間與公共設施改為手風琴收縮式 -->
+                <!-- 摺疊按鈕 -->
                 <button onclick="toggleHotelDetails()" class="w-full bg-muji-sand hover:bg-muji-linen/50 py-2 px-3 rounded-xl border border-muji-linen text-left flex justify-between items-center transition-all">
                     <span class="font-bold text-muji-charcoal flex items-center gap-1.5 text-[11px]"><i class="fa-solid fa-circle-info text-chiikawa-pinkdeep"></i> 查看入住退房與公共設施</span>
                     <i id="hotel-details-arrow" class="fa-solid fa-chevron-down text-muji-earth text-[10px] transition-transform duration-300"></i>
@@ -188,7 +187,7 @@
             </div>
         </section>
 
-       <!-- ==================== TAB 2: GUIDE (深度導覽 - 爸媽貼心話置頂升級版) ==================== -->
+       <!-- ==================== TAB 2: GUIDE (深度導覽) ==================== -->
         <section id="tab-guide" class="tab-content hidden fade-in">
             <h2 class="text-xl font-bold mb-4 flex items-center gap-2 text-muji-charcoal"><span class="text-lg">🧭</span> 行程景點與分隊秘笈</h2>
 
@@ -199,10 +198,11 @@
                 <button onclick="switchGuide('toyota')" id="gbtn-toyota" class="g-tab-btn flex-shrink-0 px-3 py-1.5 rounded-full bg-white text-muji-charcoal border border-muji-linen text-xs font-semibold">🚗 豐田紀念館</button>
                 <button onclick="switchGuide('lego')" id="gbtn-lego" class="g-tab-btn flex-shrink-0 px-3 py-1.5 rounded-full bg-white text-muji-charcoal border border-muji-linen text-xs font-semibold">🧱 樂高樂園</button>
                 <button onclick="switchGuide('aquarium')" id="gbtn-aquarium" class="g-tab-btn flex-shrink-0 px-3 py-1.5 rounded-full bg-white text-muji-charcoal border border-muji-linen text-xs font-semibold">🐬 港區水族館</button>
-                <button onclick="switchGuide('osu')" id="gbtn-osu" class="g-tab-btn flex-shrink-0 px-3 py-1.5 rounded-full bg-white text-muji-charcoal border border-muji-linen text-xs font-semibold">🏮 大須與東山</button>   
+                <button onclick="switchGuide('osu')" id="gbtn-osu" class="g-tab-btn flex-shrink-0 px-3 py-1.5 rounded-full bg-white text-muji-charcoal border border-muji-linen text-xs font-semibold">🐾 東山與決策</button>   
+                <button onclick="switchGuide('osustreet')" id="gbtn-osustreet" class="g-tab-btn flex-shrink-0 px-3 py-1.5 rounded-full bg-white text-muji-charcoal border border-muji-linen text-xs font-semibold">🛍️ 大須商店街</button>   
             </div>
 
-            <!-- 1. 候機時刻（桃園機場兒童放風地圖） 導覽面板 -->
+            <!-- 1. 候機時刻 導覽面板 -->
             <div id="gcontent-tpe" class="guide-panel bg-white p-4 rounded-3xl border border-muji-linen shadow-sm space-y-3">
                 <div class="flex justify-between items-center border-b border-muji-linen pb-2">
                     <h3 class="font-bold text-base text-muji-charcoal"><i class="fa-solid fa-plane-departure text-blue-500 mr-1.5"></i>桃機第一航廈 兒童放電地圖</h3>
@@ -239,7 +239,7 @@
                                 <strong class="text-muji-charcoal font-bold text-xs">C1 木育森林候機室</strong>
                                 <span class="bg-amber-500 text-white text-[9px] px-1.5 py-0.5 rounded-md font-bold">🚶 步程 1 分鐘</span>
                             </div>
-                            <p class="text-muji-earth">距離出境中央通道庫庫最近！原木打造，有小火車軌道玩具、木質積木與森林小樹屋，能讓孩子靜心動手玩。</p>
+                            <p class="text-muji-earth">距離出境中央通道最近！原木打造，有小火車軌道玩具、木質積木與森林小樹屋，能讓孩子靜心動手玩。</p>
                         </div>
                     </div>
                    
@@ -289,9 +289,7 @@
                 </div>
             </div>
 
-              
-
-            <!-- 2. 飯店周邊 導面板 -->
+            <!-- 2. 飯店周邊 導覽面板 -->
             <div id="gcontent-hotel" class="guide-panel hidden bg-white p-4 rounded-3xl border border-muji-linen shadow-sm space-y-3">
                 <div class="flex justify-between items-center border-b border-muji-linen pb-2">
                     <h3 class="font-bold text-base text-muji-charcoal flex items-center gap-1.5"><i class="fa-solid fa-map-location-dot text-amber-500 mr-1.5"></i> 大和ROYNET飯店周邊地圖</h3>
@@ -301,7 +299,7 @@
                 <!-- 2. 飯店周邊專屬爸媽貼心話（置頂） -->
                 <div class="p-3 rounded-2xl bg-chiikawa-yellow border border-yellow-300 text-[10px] text-muji-charcoal leading-relaxed shadow-sm">
                     <span class="font-bold flex items-center gap-1 mb-1 text-amber-700"><i class="fa-solid fa-hotel"></i> 🍓 飯店周邊 · 爸媽貼心話：</span>
-                    名古屋車站的地下結構非常擁擠且充斥階梯。<strong>，千萬不要冒險走地下通道</strong>！名鐵下車後由<strong>「西改札口」</strong>搭乘無障礙電梯上到一樓地面出站到大和ROYNET飯店，平坦好推不迷路。第一晚入住後，爸爸跟媽媽可趁弟弟在房間休息時，步行 300m 到 24H 營業的 <strong>MaxValu 超市</strong>，採購當季的水蜜桃、哈密瓜、與鮮奶、麵包當早餐，價格比便利商店划算非常多！
+                    名古屋車站的地下結構非常擁擠且充斥階梯，<strong>千萬不要冒險走地下通道</strong>！名鐵下車後由<strong>「西改札口」</strong>搭乘無障礙電梯上到一樓地面出站到大和ROYNET飯店，平坦好推不迷路。第一晚入住後，爸爸跟媽媽可趁弟弟在房間休息時，步行 300m 到 24H 營業的 <strong>MaxValu 超市</strong>，採購當季的水蜜桃、哈密瓜、與鮮奶、麵包當早餐，價格比便利商店划算非常多！
                 </div>
 
                 <p class="text-xs text-muji-earth leading-relaxed">
@@ -345,10 +343,7 @@
                     <p class="text-muji-earth">・11:00 蒸汽機運轉（科技樂園對面）</p>
                     <p class="text-muji-earth">・11:25 回到大廳欣賞環狀織布機展示</p>
                     <p class="text-muji-earth">・13:20 南入口夥伴機器人拉小提琴 🎻</p>
-                </div>
-                <div class="h-40 rounded-2xl overflow-hidden border border-muji-linen relative">
-                    <iframe class="w-full h-full" src="https://www.openstreetmap.org/export/embed.html?bbox=136.8732%2C35.1788%2C136.8792%2C35.1838&amp;layer=mapnik&amp;marker=35.1813%2C136.8762" style="border: 0;"></iframe>
-                </div>
+                </div>             
             </div>
 
             <!-- 4. 樂高樂園 導覽 -->
@@ -404,7 +399,7 @@
                 <!-- 5. 港區水族館專屬爸媽貼心話（置頂） -->
                 <div class="p-3 rounded-2xl bg-chiikawa-blue border border-blue-200 text-[10px] text-muji-charcoal leading-relaxed shadow-sm">
                     <span class="font-bold flex items-center gap-1 mb-1 text-blue-800"><i class="fa-solid fa-shrimp"></i> 🐬 港區水族 · 爸媽貼心話：</span>
-                    一定要先在名古屋車站購買<strong>「地鐵一日券」（760日圓），每張門票現場可以直接現折 200 日圓</strong>！中午 11:30 北館看完精彩的虎鯨公開訓練後，不要去美食街擠，<strong>直接就地在北館 3 樓巨大露天看台野餐開飯</strong>，享用早上出發前在 ESCA 地下街買好的炸蝦飯糰與麥當勞，吹著海風吃午餐最省長輩和幼童的腳力。南館 2 樓觀賞沙丁魚龍捲風時現場幾乎全黑，請確保大家的安全避免走散！
+                    一定要先在名古屋車站購買<strong>「地鐵一日券」（760日圓），每張門票現場可以直接現折 200 日圓</strong>！中午 11:30 北館看完精彩的虎鯨公開訓練後，不要去美食街擠，<strong>直接就地在北館 3 樓巨大露天看台野餐開飯</strong>，享用早上出發前在 ESCA 地下街買好的炸蝦飯糰與麥當勞，吹著海風吃午餐最省長輩 and 幼童的腳力。南館 2 樓觀賞沙丁魚龍捲風時現場幾乎全黑，請確保大家的安全避免走散！
                 </div>
 
                 <p class="text-xs text-muji-earth leading-relaxed">
@@ -421,17 +416,17 @@
                 </div>
             </div>
 
-            <!-- 6. 大須與東山 導覽 -->
+            <!-- 6. 東山與決策 導覽 -->
             <div id="gcontent-osu" class="guide-panel hidden bg-white p-4 rounded-3xl border border-muji-linen shadow-sm space-y-3">
                 <div class="flex justify-between items-center border-b border-muji-linen pb-2">
-                    <h3 class="font-bold text-base text-muji-charcoal"><i class="fa-solid fa-compass text-emerald-500 mr-1.5"></i> Day 6 機動方案比一比</h3>
+                    <h3 class="font-bold text-base text-muji-charcoal"><i class="fa-solid fa-compass text-emerald-500 mr-1.5"></i> Day 6 機動方案決策</h3>
                     <span class="text-xs bg-chiikawa-pinkdeep/30 px-2 py-0.5 rounded-full font-bold text-muji-charcoal">機動決策</span>
                 </div>
 
-                <!-- 6. 大須/東山專屬爸媽貼心話（置頂） -->
+                <!-- 6. 東山專屬爸媽貼心話（置頂） -->
                 <div class="p-3 rounded-2xl bg-emerald-50 border border-emerald-200 text-[10px] text-emerald-900 leading-relaxed shadow-sm">
-                    <span class="font-bold flex items-center gap-1 mb-1 text-emerald-800"><i class="fa-solid fa-compass"></i> 🐆 機動選路 · 爸媽貼心話：</span>
-                    到了第六天，全體成員體力均接近臨界點。<strong>如果投票通過方案 A（大須觀音祭典）</strong>，萬松寺商店街雖有頂棚防曬，但下午 15:20 阿波舞遊行時人潮將會寸步難行，請爸爸推弟弟在最前開路，媽媽在後方一對一緊牽兩位姊妹防走失。<strong>如果投票方案 B（東山動物園）</strong>，園區為起伏較大的丘陵地、有著長緩坡，推推車與長輩步行體力消耗極快。入園第一件事請爸爸去租借輪椅/嬰兒車，中午 11:30 氣溫正高時，迅速帶爺奶和小弟進入「自然科學館」或「東山天空塔」的室內冷氣房茶座享用餐點、歇腳，絕對避免在烈日下硬撐！
+                    <span class="font-bold flex items-center gap-1 mb-1 text-emerald-800"><i class="fa-solid fa-compass"></i> 🐾 機動選路 · 爸媽貼心話：</span>
+                    到了第六天，全體成員體力均接近臨界點。<strong>如果投票通過方案 A（大須商店街）</strong>，請點選最後一格專屬的「大須商店街」導覽看詳細全彩店鋪誌！萬松寺商店街雖有頂棚防曬，但下午 15:20 阿波舞遊行時人潮將會寸步難行，請務必做好分工。<strong>如果投票方案 B（東山動物園）</strong>，園區為起伏較大的丘陵地、有著長緩坡，推推車與長輩步行體力消耗極快。入園第一件事請爸爸去租借輪椅/嬰兒車，中午 11:30 氣溫正高時，迅速帶爺奶和小弟進入「自然科學館」或「東山天空塔」的室內冷氣房茶座享用餐點、歇腳，絕對避免在烈日下硬撐！
                 </div>
 
                 <p class="text-xs text-muji-earth leading-relaxed">
@@ -440,11 +435,120 @@
                 <div class="space-y-2 text-xs">
                     <div class="p-2.5 rounded-2xl bg-chiikawa-pink/50 border border-chiikawa-pinkdeep/20">
                         <p class="font-bold text-muji-charcoal">🏮 方案 A：大須祭典地標團</p>
-                        <p class="text-muji-earth mt-1">適合收集名古屋代表美照、怕太陽直曬的家庭。15:20 有傳統阿波舞表演。</p>
+                        <p class="text-muji-earth mt-1">適合收集名古屋代表美照、怕太陽直曬的家庭。15:20 有傳統阿波舞表演（詳細推薦店鋪請點選右側「大須商店街」）。</p>
                     </div>
                     <div class="p-2.5 rounded-2xl bg-chiikawa-blue/50 border border-blue-200">
                         <p class="font-bold text-muji-charcoal">🦍 方案 B：東山動植物園悠哉團</p>
                         <p class="text-muji-earth mt-1">適合讓孩子在寬敞的大空間看帥猩猩 Shabani 放電，傍晚回名站 Bic Camera 電器特攻。</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 7. 🛍️ 大須商店街 導覽 (置頂爸媽貼心話、OSM 地圖與全彩繽紛雜誌感店鋪誌) -->
+            <div id="gcontent-osustreet" class="guide-panel hidden bg-white p-4 rounded-3xl border border-muji-linen shadow-sm space-y-4">
+                <div class="flex justify-between items-center border-b border-muji-linen pb-2">
+                    <h3 class="font-bold text-base text-muji-charcoal flex items-center gap-1.5"><i class="fa-solid fa-bag-shopping text-pink-500"></i> 大須商店街親子全攻略</h3>
+                    <span class="text-xs bg-chiikawa-pinkdeep/30 px-2.5 py-0.5 rounded-full font-bold text-muji-charcoal">專屬特輯</span>
+                </div>
+
+                <!-- 7. 置頂大須商店街專屬爸媽貼心話 -->
+                <div class="p-3.5 rounded-2xl bg-gradient-to-br from-chiikawa-pink to-white border-2 border-chiikawa-pinkdeep/40 text-[10.5px] text-muji-charcoal leading-relaxed shadow-sm">
+                    <span class="font-bold flex items-center gap-1.5 mb-1.5 text-rose-500 text-xs"><i class="fa-solid fa-lightbulb"></i> 🛍️ 大須商店街 · 爸媽貼心話：</span>
+                    <ul class="space-y-1.5 pl-1 text-muji-charcoal/90">
+                        <li><strong>🌦️ 全天候避雨/防曬策略：</strong>大須的「萬松寺通」與「東仁王門通」設有採光極佳的巨型挑高玻璃拱頂遮雨棚。不論是正午 36 度的烈日還是突如其來的夏日雷雨，這裏都是完美的避難所！</li>
+                        <li><strong>🛒 弟弟折疊推車開路法：</strong>商店街主幹道十分寬敞平坦，2歲小弟坐推車非常舒適。但在 15:20 阿波舞遊行開始時，部分路段會擠滿觀看人潮。請<strong>由爸爸雙手推著推車緩步在前開路，媽媽則在後方手牽手拉緊 8 歲與 6 歲的姊妹</strong>，千萬不可放手防走失。</li>
+                        <li><strong>🛋️ 長輩冷氣房安頓歇腳點：</strong>長輩走累時，切勿在路邊乾等。可直接將爺奶安頓在<strong>「Komeda Coffee (客美多珈琲) 大須店」</strong>或<strong>「大須ういろ」茶座室內冷氣房</strong>內。點杯冰咖啡或抹茶聖代，讓長輩舒適休息，爸媽與姊妹則可以到隔壁便利店或藥妝店速戰速決！</li>
+                    </ul>
+                </div>
+
+                <!-- OpenStreetMap 嵌入地圖 -->
+                <div class="space-y-1">
+                    <p class="text-xs font-bold text-muji-charcoal flex items-center gap-1"><i class="fa-solid fa-location-crosshairs text-blue-500"></i> 大須核心街區定位地圖 (大須觀音 ➔ 萬松寺 ➔ 上前津)</p>
+                    <div class="h-44 rounded-2xl overflow-hidden border border-muji-linen relative">
+                        <iframe class="w-full h-full" src="https://www.openstreetmap.org/export/embed.html?bbox=136.8950%2C35.1570%2C136.9035%2C35.1615&amp;layer=mapnik&amp;marker=35.1593%2C136.8992" style="border: 0;"></iframe>
+                        <span class="absolute bottom-1 right-1 bg-black/60 text-[8px] text-white px-1.5 py-0.5 rounded">© OpenStreetMap contributors</span>
+                    </div>
+                </div>
+
+                <!-- 繽紛雜誌感店鋪誌 -->
+                <div class="space-y-3">
+                    <h4 class="text-xs font-bold text-muji-charcoal flex items-center gap-1 border-b border-muji-linen pb-1"><i class="fa-solid fa-store text-amber-600"></i> 💖 大須必吃與必逛推薦店鋪誌 (親子精選 8 店)</h4>
+                    
+                    <!-- 店鋪誌 Grid 網格 -->
+                    <div class="grid grid-cols-1 gap-2.5">
+                        
+                        <!-- 類別一：必嚐美食誌 -->
+                        <div class="bg-amber-50/50 p-3 rounded-2xl border border-amber-100 space-y-2">
+                            <span class="text-[9px] bg-amber-600 text-white px-1.5 py-0.5 rounded font-bold uppercase tracking-wider">🍡 舌尖美食推薦</span>
+                            
+                            <div class="space-y-2.5 divide-y divide-amber-100">
+                                <div class="pt-0 flex items-start gap-2 text-[11px]">
+                                    <span class="text-lg">🍘</span>
+                                    <div>
+                                        <strong class="text-muji-charcoal font-bold">1. 新雀本店 — 醬油烤糰子 (Mitarashi Dango)</strong>
+                                        <p class="text-muji-earth text-[10px] mt-0.5 leading-relaxed">傳承數十年的碳烤小店。甜鹹交織的特製日式醬汁，口感軟糯、香氣撲鼻。每串只要 100 日圓，非常適合給爺奶與孩子當作隨手下午茶！</p>
+                                    </div>
+                                </div>
+                                <div class="pt-2 flex items-start gap-2 text-[11px]">
+                                    <span class="text-lg">🐟</span>
+                                    <div>
+                                        <strong class="text-muji-charcoal font-bold">2. 鯛福茶庵 — 萬松寺十勝紅豆鯛魚燒</strong>
+                                        <p class="text-muji-earth text-[10px] mt-0.5 leading-relaxed">萬松寺門口的人氣名店。現烤薄脆的外皮包裹著滿滿的北海道十勝紅豆或香濃卡士達，再搭上一杯現場的免費溫熱焙茶，長輩最愛！</p>
+                                    </div>
+                                </div>
+                                <div class="pt-2 flex items-start gap-2 text-[11px]">
+                                    <span class="text-lg">🍗</span>
+                                    <div>
+                                        <strong class="text-muji-charcoal font-bold">3. 李さんの台湾名物屋 — 台式大香酥炸雞</strong>
+                                        <p class="text-muji-earth text-[10px] mt-0.5 leading-relaxed">名古屋大須地標！超高人氣排隊名店，多汁酥脆。如果兩位姊妹逛街逛到肚子餓，買一份少辛辣的台式鹹酥雞與微甜珍珠奶茶，瞬間補滿戰鬥力！</p>
+                                    </div>
+                                </div>
+                                <div class="pt-2 flex items-start gap-2 text-[11px]">
+                                    <span class="text-lg">🍡</span>
+                                    <div>
+                                        <strong class="text-muji-charcoal font-bold">4. 大須ういろ (大須外郎糕) — 繽紛和菓子冰棒</strong>
+                                        <p class="text-muji-earth text-[10px] mt-0.5 leading-relaxed">百年名產店的摩登大變身！將傳統有嚼勁的外郎糕設計成像冰棒一樣的繽紛造型。口味有紅豆、抹茶、櫻花等，不冰卻能咬出Q彈口感，拍照打卡超可愛！</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 類別二：好逛百貨與雜貨玩具誌 -->
+                        <div class="bg-blue-50/50 p-3 rounded-2xl border border-blue-100 space-y-2">
+                            <span class="text-[9px] bg-blue-600 text-white px-1.5 py-0.5 rounded font-bold uppercase tracking-wider">🛍️ 質感購物與動漫天堂</span>
+                            
+                            <div class="space-y-2.5 divide-y divide-blue-100">
+                                <div class="pt-0 flex items-start gap-2 text-[11px]">
+                                    <span class="text-lg">🔑</span>
+                                    <div>
+                                        <strong class="text-muji-charcoal font-bold">5. 水曜日のアリス (星期三的愛麗絲)</strong>
+                                        <p class="text-muji-earth text-[10px] mt-0.5 leading-relaxed">愛麗絲夢遊仙境迷絕對尖叫！需要低下身子穿過一扇極窄小的紅色矮門才能入內。內部裝潢奇幻神祕，販售各式平價愛麗絲飾品與精美主題糖果，極富探險趣味。</p>
+                                    </div>
+                                </div>
+                                <div class="pt-2 flex items-start gap-2 text-[11px]">
+                                    <span class="text-lg">🛒</span>
+                                    <div>
+                                        <strong class="text-muji-charcoal font-bold">6. Seria (百元商店) 大須店</strong>
+                                        <p class="text-muji-earth text-[10px] mt-0.5 leading-relaxed">位於萬松寺通街中。極具美感的生活百元商店，店內通道平坦寬敞，極為好推車。迪士尼、三麗鷗與吉伊卡哇聯名的小餐具、手作包裝、零錢包，全場只要 110 日圓！</p>
+                                    </div>
+                                </div>
+                                <div class="pt-2 flex items-start gap-2 text-[11px]">
+                                    <span class="text-lg">👜</span>
+                                    <div>
+                                        <strong class="text-muji-charcoal font-bold">7. KOMEHYO (米兵) 名古屋本店</strong>
+                                        <p class="text-muji-earth text-[10px] mt-0.5 leading-relaxed">日本中古奢侈品百貨巨頭！整棟大樓分門別類。一樓有相機、二樓是精品名牌包與精品手錶。爺奶跟爸媽如果想挑選狀態極新的二手名牌，這邊是全日本規模最大且最有保障的店鋪！</p>
+                                    </div>
+                                </div>
+                                <div class="pt-2 flex items-start gap-2 text-[11px]">
+                                    <span class="text-lg">👾</span>
+                                    <div>
+                                        <strong class="text-muji-charcoal font-bold">8. 大須扭蛋研究所 (Capsule Toy Lab)</strong>
+                                        <p class="text-muji-earth text-[10px] mt-0.5 leading-relaxed">擺滿數百台扭蛋機的巨型室內扭蛋天堂。這裡冷氣超強！兩位姊妹最夢寐以求的<strong>「吉伊卡哇最新限定版扭蛋、小八貓睡覺吊飾」</strong>，以及各式日本創意小物應有盡有，是全家歡樂的終點站！</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -562,7 +666,7 @@
                     </div>
                 </div>
 
-                <!-- 管理工具（一鍵複製 Line 對帳、一鍵清空） -->
+                <!-- 管理工具 -->
                 <div class="flex gap-2 pt-1">
                     <button onclick="copyBillToLine()" class="flex-1 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200 text-[10px] font-bold py-2 rounded-xl flex items-center justify-center gap-1 transition-all">
                         <i class="fa-brands fa-line text-emerald-500 text-xs"></i> 一鍵複製 Line 對帳單
@@ -707,7 +811,7 @@
         </button>
     </nav>
 
-    <!-- 自定義對話框 Modal 元件 (解決 iframe 環境中原生 alert/confirm 阻擋或失靈的問題，帶來極佳流暢感) -->
+    <!-- 自定義對話框 Modal 元件 -->
     <div id="custom-confirm-modal" class="fixed inset-0 bg-black/60 hidden items-center justify-center z-[100] px-4">
         <div class="bg-white border-2 border-muji-charcoal rounded-3xl p-5 max-w-sm w-full space-y-4 shadow-xl fade-in text-center">
             <div class="text-4xl" id="custom-confirm-icon">❓</div>
@@ -832,7 +936,7 @@
                 { time: '15:00', title: 'Alpen NAGOYA 運動鞋狂買 👟', desc: '名古屋超好逛大型運動用品專專賣店，5層樓商品齊全，2樓有為兒童設計的遊戲區，對面公園也有遊具可以玩。', mapUrl: 'https://maps.app.goo.gl/ggFja385DEckGwik7' },
                 { time: '16:30', title: '松坂屋蓬萊軒卡位登記 🍱', desc: '全團移動到松坂屋南館 10F 蓬萊軒現場櫃台登記（等候約60~90分鐘），可到本館 4F 買 Harbs 千層蛋糕。', mapUrl: 'https://maps.app.goo.gl/BDwdv3SWEK6coB2d9' },
                 { time: '17:00', title: '等候空檔：女孩吉伊卡哇圓夢 🌸', desc: 'B1有magical chiikawa, mofusand和蠟筆小新、2F是可免稅的寶可夢中心、3F是很多卡通的KIDDY LAND、4F有扭蛋店。', mapUrl: 'https://maps.app.goo.gl/jrZNXGZgKyq36xAS6' },
-                { time: '18:00', title: 'あつt蓬萊軒鰻魚飯 🌟', desc: '享用名古屋必吃、百年傳承「鰻魚飯三吃 (Hitsumabushi)」，極致美味。' },
+                { time: '18:00', title: 'あつた蓬萊軒鰻魚飯 🌟', desc: '享用名古屋必吃、百年傳承「鰻魚飯三吃 (Hitsumabushi)」，極致美味。' },
                 { time: '19:45', title: '驚安殿堂榮三丁目店 🛒', desc: '唐吉訶德買零食與藥妝。21:00 在「松坂屋前」站搭名鐵巴士 36 號直達名鐵巴士中心，輕鬆回飯店，路過大國藥妝可最後補貨。', mapUrl: 'https://maps.app.goo.gl/9KLpKBCMsty4iDYS6' }
             ],
             5: {
@@ -860,7 +964,7 @@
                 plans: {
                     'A': [
                         { time: '09:00', title: '【方案 A】千里馬藥局掃貨 💊', desc: '9點開始營業，一邊逛一邊等Bic Camera 10點營業。',mapUrl: 'https://maps.app.goo.gl/rLCBqL4GLz9cNtsTA' },
-                        { time: '10:00', title: 'Bic Camera 西店買電器 🔌', desc: '挑選心儀電子鍋與小孩玩具。12:00 直接放回房（步行 5 分鐘），下午兩手空空去擠祭典，體力負擔減半！',mapUrl: 'https://maps.app.goo.gl/zoywuGNDrsp1HV2N8' },
+                        { time: '10:00', title: 'Bic Camera 西店買電器 🔌', desc: '挑選心儀電子鍋與小孩玩具。12:00 直接放回房（步行 5 分鐘），下午兩手空空去擠大須商店街，體力負擔減半！',mapUrl: 'https://maps.app.goo.gl/zoywuGNDrsp1HV2N8' },
                         { time: '13:00', title: 'Sun Road 涼爽午餐 🥪', desc: '外帶 Konparu 炸蝦三明治與 Onimaru 飯糰。',mapUrl: 'https://maps.app.goo.gl/We59R5tJsBAdfDCy7' },
                         { time: '14:30', title: '交通移動 🚇', desc: '搭東山線 1 站到伏見，轉鶴舞線 1 站至「大須觀音站」。',mapUrl: 'https://maps.app.goo.gl/CBgCdzMDzk1Vhoqu9' },
                         { time: '15:00', title: '大須觀音快閃合照 📷', desc: '在大紅燈籠下拍全家福！接著在東仁王門通街口觀賞阿波舞，逛萬松寺通商店街避暑。' },
@@ -868,7 +972,7 @@
                     ],
                     'B': [
                         { time: '08:00', title: '【方案 B】Sun Road 買乾糧 🍙', desc: '先在地下街買好 Konparu 三明治 and 飯糰，當作東山動物園的野餐糧食。',mapUrl: 'https://maps.app.goo.gl/We59R5tJsBAdfDCy7' },
-                        { time: '08:30', title: '搭東山線前往東山公園 🚇', desc: '名古屋站搭乘地鐵東山線直達「東山公園站」，步行大約 5 分鐘抵達大門。(大人640日圓、兒童免費(環保票折100日圓，所以大人記得購買一日環保票))',mapUrl: 'https://maps.app.goo.gl/YXNHbd8VUywg5iAP9' },
+                        { time: '08:30', title: '搭東山線前往東山公園 🚇', desc: '名古屋站搭乘地鐵東山線直達「東山公園站」，步行大約 5 分鐘抵達大門。建議購買一日環保票。',mapUrl: 'https://maps.app.goo.gl/YXNHbd8VUywg5iAP9' },
                         { time: '09:00', title: '東山動植物園大放電 🦍', desc: '先去看帥哥猩猩 Shabani！中午在野餐區用餐，11 點後太熱的話躲進自然科學館或天空塔。' },
                         { time: '14:30', title: 'Bic Camera 西店特攻 🔌', desc: '下午最熱時回到飯店隔邊 Bic Camera 百貨內慢慢挑選電器、玩具，極輕鬆。',mapUrl: 'https://maps.app.goo.gl/zoywuGNDrsp1HV2N8' },
                         { time: '18:00', title: 'ESCA 地下街晚餐 🍛', desc: '晚餐享用美食。19:00 去千里馬或高島屋 B1伴手禮最後衝刺，20:00 行李大封箱！' }
@@ -965,7 +1069,7 @@
             { text: '豐田紀念館導覽APP', url: 'https://www.tcmit.org/chinese-tw/enjoy/audio-tour' },
             { text: '一蘭拉麵名古屋榮店: 點這裡看菜單', url: 'https://ichiran.com/' },
             { text: '名古屋港水族館地圖', url: 'https://nagoyaaqua.jp/traditional-chinese/info_map_zh.pdf' },
-            { text: 'Lalaport 樓層指南', url: 'https://mitsui-shopping-park.com/tw/lalaport/minatoaquls/floor/' },
+            { text: 'LaLaport 樓層指南', url: 'https://mitsui-shopping-park.com/tw/lalaport/minatoaquls/floor/' },
             { text: '綠洲21 商店指南', url: 'https://www.sakaepark.co.jp/shops/' },
             { text: '波音博物館官網', url: 'https://www.centrair.jp/flight-of-dreams/' },
             { text: '中部國際機場樓層導覽', url: 'https://platinumaps.jp/d/centrair/?culture=zh-tw' },
@@ -1019,7 +1123,7 @@
             renderTimeline();
         }
 
-        // 5. 渲染行程表時間軸 (整合PDF與導航細節)
+        // 5. 渲染行程表時間軸
         function renderTimeline() {
             const container = document.getElementById('timeline-container');
             const headerTitle = document.getElementById('day-title-text');
@@ -1127,7 +1231,7 @@
             });
         }
 
-        // 6. 導覽細項切換 (更新包含新 panel 的邏輯)
+        // 6. 導覽細項切換
         function switchGuide(guideId) {
             document.querySelectorAll('.guide-panel').forEach(el => el.classList.add('hidden'));
             document.getElementById(`gcontent-${guideId}`).classList.remove('hidden');
@@ -1140,7 +1244,7 @@
             document.getElementById(`gbtn-${guideId}`).classList.remove('bg-white', 'text-muji-charcoal', 'border-muji-linen');
         }
 
-        // 7. 計算機邏輯 (安全防護優化與自動忽略結尾運算子防呆機制)
+        // 7. 計算機邏輯
         let calcVal = "0";
         function pressCalc(char) {
             const screen = document.getElementById('calc-screen');
@@ -1183,7 +1287,7 @@
             document.getElementById('calc-twd-estimate').innerText = `約 NT$ ${res}`;
         }
 
-        // 8. 記帳邏輯 (相片壓縮 & LocalStorage, 已更新信用卡與現金分流功能)
+        // 8. 記帳邏輯
         let uploadedImageBase64 = "";
 
         function handleImageUpload() {
@@ -1256,7 +1360,6 @@
             renderExpenses();
         }
 
-        // 清空所有記帳項目（自定義安全對話框）
         function clearAllExpenses() {
             if (expenses.length === 0) {
                 showAlert("提示", "目前沒有任何記帳資料唷！", "💡");
@@ -1275,7 +1378,6 @@
             );
         }
 
-        // 複製 LINE 親友團對帳單
         function copyBillToLine() {
             if (expenses.length === 0) {
                 showAlert("提示", "目前沒有任何支出，快去記幾筆帳吧！🌸", "💡");
@@ -1326,7 +1428,7 @@
             let cardJpy = 0;
 
             expenses.forEach(x => {
-                const payType = x.type || 'cash'; // 舊數據相容性：若無付款類型，預設為現金
+                const payType = x.type || 'cash';
                 totalJpy += x.jpy;
                 if (payType === 'cash') {
                     cashJpy += x.jpy;
@@ -1338,7 +1440,6 @@
                 const itemDiv = document.createElement('div');
                 itemDiv.className = "flex items-center justify-between py-2 text-xs fade-in";
 
-                // 設定現金(現)/刷卡(卡) 的精美極簡標籤
                 const badgeHtml = payType === 'cash' 
                     ? `<span class="bg-emerald-100 text-emerald-800 text-[9px] px-1.5 py-0.5 rounded-md font-bold">現</span>`
                     : `<span class="bg-blue-100 text-blue-800 text-[9px] px-1.5 py-0.5 rounded-md font-bold">卡</span>`;
@@ -1394,7 +1495,6 @@
             }
         }
 
-        // 重設所有打包清單勾選狀態（自定義對話框）
         function resetChecklist() {
             showConfirm(
                 "重新打包", 
@@ -1473,7 +1573,7 @@
             });
         }
 
-        // 10. 備忘錄 (支援自動判斷網址並轉按鈕)
+        // 10. 備忘錄
         function addMemo() {
             const input = document.getElementById('memo-input');
             if (!input.value) return;
@@ -1481,7 +1581,6 @@
             let url = "";
             let text = input.value;
 
-            // 簡單偵測 URL
             const urlRegex = /(https?:\/\/[^\s]+)/g;
             const found = text.match(urlRegex);
             if (found) {
@@ -1494,7 +1593,6 @@
             renderMemos();
         }
 
-        // 刪除備忘錄
         function deleteMemo(idx) {
             memos.splice(idx, 1);
             localStorage.setItem('memos', JSON.stringify(memos));
