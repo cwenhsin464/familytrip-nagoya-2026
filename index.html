@@ -92,16 +92,20 @@
 
     <!-- 頂部可愛橫幅 -->
     <header class="bg-gradient-to-b from-chiikawa-pink to-muji-sand px-4 pt-6 pb-4 border-b border-muji-linen text-center relative overflow-hidden">
-        <!-- 背景吉伊卡哇裝飾小物件 -->
+        <!-- 背景裝飾小物件 -->
         <div class="absolute top-2 left-4 text-xs opacity-40 text-chiikawa-pinkdeep"><i class="fa-solid fa-heart"></i></div>
         <div class="absolute top-8 right-6 text-sm opacity-40 text-chiikawa-blue"><i class="fa-solid fa-star"></i></div>
         <div class="absolute bottom-2 left-8 text-xs opacity-30 text-chiikawa-yellow"><i class="fa-solid fa-face-smile"></i></div>
         
         <p class="text-xs uppercase tracking-widest text-muji-earth font-bold">Family Trip JAPAN 2026</p>
-        <h1 class="text-2xl font-bold mt-1 text-muji-charcoal tracking-wide flex items-center justify-center gap-2">
-            <span>🌸 名古屋親子遊 🌸</span>
-        </h1>
-        <div class="mt-2 inline-flex items-center gap-2 bg-white/80 px-3 py-1 rounded-full text-xs text-muji-earth shadow-sm border border-muji-linen mb-4">
+        
+        <div class="flex items-center justify-center gap-3 mt-1">
+            <h1 class="text-2xl font-bold text-muji-charcoal tracking-wide">
+                <span>🌸 名古屋親子遊 🌸</span>
+            </h1>
+        </div>
+        
+        <div class="mt-3 inline-flex items-center gap-2 bg-white/80 px-3 py-1 rounded-full text-xs text-muji-earth shadow-sm border border-muji-linen mb-4">
             <i class="fa-solid fa-calendar-days text-chiikawa-pinkdeep"></i>
             <span>2026.07.27 ~ 08.02 (7天6夜)</span>
         </div>
@@ -113,7 +117,7 @@
                     <span class="text-xl animate-pulse-soft">🗺️</span>
                     <div>
                         <p class="font-bold text-muji-charcoal text-xs">旅途骨幹資訊速查</p>
-                        <p class="text-[10px] text-muji-earth">啟航倒數・團員組成・航班去回</p>
+                        <p class="text-[10px] text-muji-earth">航班去回・三代同堂 7 人・啟程秒退</p>
                     </div>
                 </div>
                 <div class="flex gap-1">
@@ -142,12 +146,12 @@
                         <i class="fa-solid fa-users"></i> 2026 名古屋親子探險隊 (共 7 人)
                     </p>
                        <div class="flex justify-center gap-2 mt-4 overflow-x-auto py-1 no-scrollbar">
-                                <span class="flex-shrink-0 bg-white px-2 py-1 rounded-full text-[10px] border border-muji-linen flex items-center gap-1">👴👵 爺奶</span>
-                                <span class="flex-shrink-0 bg-white px-2 py-1 rounded-full text-[10px] border border-muji-linen flex items-center gap-1">👨👩 爸媽</span>
-                                <span class="flex-shrink-0 bg-white px-2 py-1 rounded-full text-[10px] border border-muji-linen flex items-center gap-1">👧 姊姊</span>
-                                <span class="flex-shrink-0 bg-white px-2 py-1 rounded-full text-[10px] border border-muji-linen flex items-center gap-1">👧 妹妹</span>
-                                <span class="flex-shrink-0 bg-white px-2 py-1 rounded-full text-[10px] border border-muji-linen flex items-center gap-1">👶 小弟</span>         
-                        </div>
+                                <span class="flex-shrink-0 bg-white px-2 py-1 rounded-full text-[10px] border border-muji-linen flex items-center gap-1">👴👵 爺奶 (68歲)</span>
+                                <span class="flex-shrink-0 bg-white px-2 py-1 rounded-full text-[10px] border border-muji-linen flex items-center gap-1">👨👩 爸媽 (40歲)</span>
+                                <span class="flex-shrink-0 bg-white px-2 py-1 rounded-full text-[10px] border border-muji-linen flex items-center gap-1">👧 姊姊 (8歲)</span>
+                                <span class="flex-shrink-0 bg-white px-2 py-1 rounded-full text-[10px] border border-muji-linen flex items-center gap-1">👧 妹妹 (6歲)</span>
+                                <span class="flex-shrink-0 bg-white px-2 py-1 rounded-full text-[10px] border border-muji-linen flex items-center gap-1">👶 小弟 (將近2歲)</span>         
+                       </div>
                 </div>
 
                 <!-- 3. 雙向航班細節 -->
@@ -364,7 +368,7 @@
                 </div>
             </div>
 
-            <!-- 2. 飯店周邊 導覽面板 (已更換為 Leaflet 互動地圖) -->
+            <!-- 2. 飯店周邊 導覽面板 -->
             <div id="gcontent-hotel" class="guide-panel hidden bg-white p-4 rounded-3xl border border-muji-linen shadow-sm space-y-3">
                 <div class="flex justify-between items-center border-b border-muji-linen pb-2">
                     <h3 class="font-bold text-base text-muji-charcoal flex items-center gap-1.5"><i class="fa-solid fa-map-location-dot text-amber-500 mr-1.5"></i> 大和ROYNET飯店周邊地圖</h3>
@@ -406,7 +410,7 @@
                 <!-- 3. 豐田紀念館專屬爸媽貼心話（置頂） -->
                 <div class="p-3 rounded-2xl bg-chiikawa-pink border border-chiikawa-pinkdeep/30 text-[10px] text-muji-charcoal leading-relaxed shadow-sm">
                     <span class="font-bold flex items-center gap-1 mb-1 text-rose-500"><i class="fa-solid fa-car"></i> 🚗 豐田科技 · 爸媽貼心話：</span>
-                    10:00 抵達買好票入館後，請<strong>由爸爸帶領 8 歲與 6 歲的姊妹快步衝去右側的「科技樂園 (Technoland)」搶先預約 10:30 第一場或 11:15 第二場的裝機時間</strong>，其他人員隨後跟上。午餐可以在館內的紅磚餐廳享用，也可以去 AEON Mall 則武新町吃有名的蛋包飯。
+                    10:00 抵達買好票入館後，請<strong>由爸爸帶領 8 歲與 6 歲的姊慢步衝去右側的「科技樂園 (Technoland)」搶先預約 10:30 第一場或 11:15 第二場的裝機時間</strong>，其他人員隨後跟上。午餐可以在館內的紅磚餐廳享用，也可以去 AEON Mall 則武新町吃有名的蛋包飯。
                 </div>
 
                 <p class="text-xs text-muji-earth leading-relaxed">
@@ -430,29 +434,29 @@
                 <!-- 4. 樂高樂園專屬爸媽貼心話（置頂） -->
                 <div class="p-3 rounded-2xl bg-chiikawa-yellow border border-yellow-300 text-[10px] text-muji-charcoal leading-relaxed shadow-sm">
                     <span class="font-bold flex items-center gap-1 mb-1 text-amber-700"><i class="fa-solid fa-puzzle-piece"></i> 🧱 樂高樂園 · 爸媽貼心話：</span>
-                    樂高樂園佔地寬敞，實施「分組作戰」最省力！中午 11:40~13:00，<strong>爸媽帶姊妹去排探險園區的設施；爺奶陪弟弟進入編號 30 號阿姆斯特拉秘密之室</strong>玩積木。<strong>最晚 17:00 前至更衣室為三位寶貝換上全套乾爽衣物及鞋襪</strong>（濕衣裝袋裝箱裝盒絕不可進冷氣強的 17:30 4D 影廳防感冒！）。
+                    樂高樂園佔地寬敞，實施「分組作戰」最省力！中午 11:40~13:00，<strong>爸媽帶姊妹去排探險園區的設施；爺奶陪弟弟進入編號 30 號阿姆斯特拉秘密之室</strong>玩積木。<strong>最晚 17:00 前至更室為三位寶貝換上全套乾爽衣物及鞋襪</strong>（濕衣裝袋裝箱裝盒絕不可進冷氣強的 17:30 4D 影廳防感冒！）。
                 </div>
 
                 <p class="text-xs text-muji-earth leading-relaxed">
                     全日親子重頭戲！早上記得<strong>8:00</strong>先上網預約「水迷宮」或「Splash Pad」，這兩個設施都要穿著泳裝。11:00 必看幻影忍者 4D 大秀。
                 </p>
                 
-                 <div class="border-l-4 border-chiikawa-blue bg-chiikawa-blue/50 p-2.5 rounded-r-xl text-xs space-y-2">
+                 <div class="border-l-4 border-chiikawa-blue bg-chiikawa-blue/50 p-2.5 rounded-r-xl text-xs space-y-2 mb-2">
                     <p class="font-bold text-muji-charcoal"><i class="fa-solid fa-users text-blue-500"></i> 10:00~11:00 全員團體行動：</p>
                     <p class="text-muji-charcoal pl-2"> 樂高工廠之旅 (1), 積木派對(旋轉木馬) (6), 瞭望台 (5)<br><strong class="text-red-600">11點 忍者影廳 (2)</strong>, 潛水艇探險 (11), 失落王國探險 (9)</p>
                 </div>
 
-                <div class="border-l-4 border-chiikawa-pinkdeep bg-chiikawa-pink/50 p-2.5 rounded-r-xl text-xs space-y-2">
+                <div class="border-l-4 border-chiikawa-pinkdeep bg-chiikawa-pink/50 p-2.5 rounded-r-xl text-xs space-y-2 mb-2">
                     <p class="font-bold text-muji-charcoal"><i class="fa-solid fa-users text-chiikawa-pinkdeep"></i> 11:30~12:30 冒險區分隊行動：</p>
                     <p class="text-muji-charcoal pl-2"><strong class="text-blue-600">⚡ 爸媽/姊姊組：</strong> 挑戰飛行勇士 (8), 烏賊衝浪 (12)<br><strong class="text-green-600">🍀 爺奶/小弟組：</strong> 30號秘密之室（室內玩積木）</p>
                 </div>
 
-                <div class="border-l-4 border-chiikawa-blue bg-chiikawa-blue/50 p-2.5 rounded-r-xl text-xs space-y-2">
+                <div class="border-l-4 border-chiikawa-blue bg-chiikawa-blue/50 p-2.5 rounded-r-xl text-xs space-y-2 mb-2">
                     <p class="font-bold text-muji-charcoal"><i class="fa-solid fa-users text-blue-500"></i> 12:30~14:00 全員團體行動：</p>
                     <p class="text-muji-charcoal pl-2"> 法老的復仇(室內球池) (29), <strong class="text-red-600">13點 彩日本餐廳(前一天預約)</strong>,<br>造船 (31), 海岸巡邏總部 (18), 城市飛機場 (15)</p>
                 </div>
 
-                <div class="border-l-4 border-chiikawa-pinkdeep bg-chiikawa-pink/50 p-2.5 rounded-r-xl text-xs space-y-2">
+                <div class="border-l-4 border-chiikawa-pinkdeep bg-chiikawa-pink/50 p-2.5 rounded-r-xl text-xs space-y-2 mb-2">
                     <p class="font-bold text-muji-charcoal"><i class="fa-solid fa-users text-chiikawa-pinkdeep"></i> 14:00~15:30 職業圓夢分隊：</p>
                     <p class="text-muji-charcoal pl-2"><strong class="text-blue-600">⚡ 爸媽/姊姊組：</strong> 駕駛學校考照 (17), 消防學院 (13)<br><strong class="text-green-600">🍀 爺奶/小弟組：</strong> 34號創意工作坊組積木</p>
                 </div>
@@ -530,8 +534,8 @@
                     <span class="font-bold flex items-center gap-1.5 mb-1.5 text-rose-500 text-xs"><i class="fa-solid fa-lightbulb"></i> 🛍️ 大須商店街 · 爸媽貼心話：</span>
                     <ul class="space-y-1.5 pl-1 text-muji-charcoal/90">
                         <li><strong>🌦️ 全天候避雨/防曬策略：</strong>大須的「萬松寺通」與「東仁王門通」設有採光極佳的巨型挑高玻璃拱頂遮雨棚。不論是正午 36 度的烈日還是突如其來的夏日雷雨，這裏都是完美的避難所！</li>
-                        <li><strong>🛒 弟弟折疊推車開路法：</strong>商店街主幹道十分寬敞平坦，2歲小弟坐推車非常舒適。但在 15:20 阿波舞遊行開始時，部分路段會擠滿觀看人潮。請<strong>由爸爸雙手推著推車緩步在前開路，媽媽則在後方手牽手拉緊 8 歲與 6 歲的姊妹</strong>，千萬不可放手防走失。</li>
-                        <li><strong>🛋️ 長輩冷氣房安頓歇腳點：</strong>長輩走累時，切勿在路邊乾等。可直接將爺奶安頓在<strong>「Komeda Coffee (客美多珈琲) 大須店」</strong>或<strong>「大須ういろ」茶座室內冷氣房</strong>內。點杯冰咖啡或抹茶聖代，讓長輩舒適休息，爸媽與姊妹則可以到隔壁便利店或藥妝店速戰速決！</li>
+                        <li><strong>🛒 弟弟折疊推車開路法：</strong>商店街主幹道十分寬敞平坦，2歲小弟坐推車非常舒適。但在 15:20 阿波舞遊行開始時，部分路段會擠滿觀看人潮。請<strong>由爸爸雙手推著推車緩步在前開路，媽媽則在後方手牽手拉緊 8 歲與 6 歲的姊慢步</strong>，千萬不可放手防走失。</li>
+                        <li><strong>🛋️ 長輩冷氣房安頓歇腳點：</strong>長輩走累時，切勿在路邊乾等。可直接將爺奶安頓在<strong>「Komeda Coffee (客美多珈琲) 大須店」</strong>或<strong>「大須ういろ」茶座室內冷氣房</strong>內。點杯冰咖啡或抹茶聖代，讓長輩舒適休息，爸媽與姊慢步則可以到隔壁便利店或藥妝店速戰速決！</li>
                     </ul>
                 </div>
 
@@ -579,7 +583,7 @@
                                     <span class="text-lg">🍓</span>
                                     <div>
                                         <strong class="text-muji-charcoal font-bold">5. 覚王山フルーツ大福 弁才天</strong>
-                                        <p class="text-muji-earth text-[10px] mt-0.5 leading-relaxed">水果大福的頂級天花板！選用當季最新鮮的新鮮水果與極薄麻糬皮。附贈專屬棉線讓您親自體驗「切開水果」呈現 perfection 頗面，好看、好玩又好吃！</p>
+                                        <p class="text-muji-earth text-[10px] mt-0.5 leading-relaxed">水果大福的頂級天花板！選用當季最新鮮的新鮮水果與極薄麻糬皮。附贈專屬棉線讓您親自體驗「切開水果」呈現 beautiful 剖面，好看、好玩又好吃！</p>
                                     </div>
                                 </div>
                                 <div class="pt-2 flex items-start gap-2">
@@ -608,7 +612,7 @@
                                     <span class="text-lg">🍗</span>
                                     <div>
                                         <strong class="text-muji-charcoal font-bold">8. 李さんの台湾名物屋台</strong>
-                                        <p class="text-muji-earth text-[10px] mt-0.5 leading-relaxed">大須地標級排隊名店！香酥多汁 the 台式鹹酥雞，能選擇辣度（推薦親子點無辣或微辣）。如果兩位姊妹逛街逛到肚子餓，買一份瞬間補滿戰鬥力！</p>
+                                        <p class="text-muji-earth text-[10px] mt-0.5 leading-relaxed">大須地標級排隊名店！香酥多汁 the 台式鹹酥雞，能選擇辣度（推薦親子點無辣或微辣）。如果兩位姊慢步逛街逛到肚子餓，買一份瞬間補滿戰鬥力！</p>
                                     </div>
                                 </div>
                                 <div class="pt-2 flex items-start gap-2">
@@ -686,7 +690,7 @@
                                     <span class="text-lg">🍎</span>
                                     <div>
                                         <strong class="text-muji-charcoal font-bold">18. 生鮮食品館サノヤ (Sanoya 超市)</strong>
-                                        <p class="text-muji-earth text-[10px] mt-0.5 leading-relaxed">在地人瘋搶的神級平價超市！零食、水果（如巨峰葡萄、水蜜桃）定價都比超商便宜很多，更有著名的「250日圓平價特色便當」，是極度划算的補貨點！</p>
+                                        <p class="text-muji-earth text-[10px] mt-0.5 leading-relaxed">在地人瘋搶的神級平價超市！零食、水果（如巨峰葡萄、水蜜桃）定價都比超商便宜很多，更有著名的「250日圓平價特色便當」，是極度劃算的補貨點！</p>
                                     </div>
                                 </div>
                                 <div class="pt-2 flex items-start gap-2">
@@ -716,7 +720,7 @@
                    
                 <!-- OpenStreetMap 嵌入地圖 (Leaflet 互動式地圖優化) -->
                 <div class="space-y-1">
-                    <p class="text-xs font-bold text-muji-charcoal flex items-center gap-1"><i class="fa-solid fa-location-crosshairs text-blue-500"></i> 大須核心街區定位地圖 (大須觀音 ➔ 萬松寺 ➔ 上前津)</p>
+                    <p class="text-xs font-bold text-muji-charcoal flex items-center gap-1"><i class="fa-solid fa-location-crosshairs text-blue-500"></i> 大須推薦散步軌跡導覽 (點擊粉紅虛線查看指南)</p>
                     <div class="h-44 rounded-2xl overflow-hidden border border-muji-linen relative">
                         <div id="osu-map-leaflet" class="w-full h-full z-0"></div>
                     </div>
@@ -969,26 +973,16 @@
 
     <!-- 底部圓潤導航列 -->
     <nav class="fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-muji-linen px-4 py-2 flex justify-around items-center shadow-lg z-50 max-w-md mx-auto rounded-t-3xl">
-        <button onclick="switchTab('plan')" id="nav-plan" class="nav-btn flex flex-col items-center gap-0.5 text-chiikawa-pinkdeep transition-all py-1 px-3 rounded-xl bg-chiikawa-pink/50">
-            <i class="fa-solid fa-map-location-dot text-lg"></i>
-            <span class="text-[10px] font-bold">PLAN</span>
-        </button>
-        <button onclick="switchTab('guide')" id="nav-guide" class="nav-btn flex flex-col items-center gap-0.5 text-muji-earth hover:text-muji-charcoal transition-all py-1 px-3 rounded-xl">
-            <i class="fa-solid fa-compass text-lg"></i>
-            <span class="text-[10px] font-bold">GUIDE</span>
-        </button>
-        <button onclick="switchTab('wallet')" id="nav-wallet" class="nav-btn flex flex-col items-center gap-0.5 text-muji-earth hover:text-muji-charcoal transition-all py-1 px-3 rounded-xl">
-            <i class="fa-solid fa-wallet text-lg"></i>
-            <span class="text-[10px] font-bold">WALLET</span>
-        </button>
-        <button onclick="switchTab('lists')" id="nav-lists" class="nav-btn flex flex-col items-center gap-0.5 text-muji-earth hover:text-muji-charcoal transition-all py-1 px-3 rounded-xl">
-            <i class="fa-solid fa-clipboard-check text-lg"></i>
-            <span class="text-[10px] font-bold">LISTS</span>
-        </button>
-        <button onclick="switchTab('info')" id="nav-info" class="nav-btn flex flex-col items-center gap-0.5 text-muji-earth hover:text-muji-charcoal transition-all py-1 px-3 rounded-xl">
-            <i class="fa-solid fa-circle-info text-lg"></i>
-            <span class="text-[10px] font-bold">INFO</span>
-        </button>
+        <div class="max-w-md mx-auto px-6 flex justify-between items-center">
+            <div class="flex items-center gap-1.5">
+                <span class="text-xs font-bold text-gray-500">倒數狀態:</span>
+                <span class="text-xs text-brand-primary font-bold animate-pulse" id="footer-status">準備出發！</span>
+            </div>
+            <div class="text-right">
+                <span class="text-[9px] text-gray-400 block">🌸 祝全家旅途愉快 🌸</span>
+                <span class="text-[10px] text-gray-500 font-bold">安心元氣應援中</span>
+            </div>
+        </div>
     </nav>
 
     <!-- 自定義對話框 Modal 元件 -->
@@ -1019,11 +1013,36 @@
         </div>
     </div>
 
+    <!-- 底部圓潤導航列 -->
+    <nav class="fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-muji-linen px-4 py-2 flex justify-around items-center shadow-lg z-50 max-w-md mx-auto rounded-t-3xl">
+        <button onclick="switchTab('plan')" id="nav-plan" class="nav-btn flex flex-col items-center gap-0.5 text-chiikawa-pinkdeep transition-all py-1.5 px-3 rounded-xl bg-chiikawa-pink/50">
+            <i class="fa-solid fa-map-location-dot text-lg"></i>
+            <span class="text-[10px] font-bold">PLAN</span>
+        </button>
+        <button onclick="switchTab('guide')" id="nav-guide" class="nav-btn flex flex-col items-center gap-0.5 text-muji-earth hover:text-muji-charcoal transition-all py-1.5 px-3 rounded-xl">
+            <i class="fa-solid fa-compass text-lg"></i>
+            <span class="text-[10px] font-bold">GUIDE</span>
+        </button>
+        <button onclick="switchTab('wallet')" id="nav-wallet" class="nav-btn flex flex-col items-center gap-0.5 text-muji-earth hover:text-muji-charcoal transition-all py-1.5 px-3 rounded-xl">
+            <i class="fa-solid fa-wallet text-lg"></i>
+            <span class="text-[10px] font-bold">WALLET</span>
+        </button>
+        <button onclick="switchTab('lists')" id="nav-lists" class="nav-btn flex flex-col items-center gap-0.5 text-muji-earth hover:text-muji-charcoal transition-all py-1.5 px-3 rounded-xl">
+            <i class="fa-solid fa-clipboard-check text-lg"></i>
+            <span class="text-[10px] font-bold">LISTS</span>
+        </button>
+        <button onclick="switchTab('info')" id="nav-info" class="nav-btn flex flex-col items-center gap-0.5 text-muji-earth hover:text-muji-charcoal transition-all py-1.5 px-3 rounded-xl">
+            <i class="fa-solid fa-circle-info text-lg"></i>
+            <span class="text-[10px] font-bold">INFO</span>
+        </button>
+    </nav>
+
     <!-- JavaScript 邏輯控制 -->
     <script>
         // 宣告全域 Leaflet 地圖變數
         let hotelMap = null;
         let osuMap = null;
+        let currentDay = 1; // 宣告全域變數 currentDay，解決 window.onload 時產生的 ReferenceError 崩潰問題
 
         // 0. 自定義對話框引擎邏輯
         function showConfirm(title, message, icon, onConfirm) {
@@ -1065,9 +1084,10 @@
             };
         }
 
-        // 0.5 櫻花倒數計時器邏輯
+        // 0.5 櫻花倒數計時器邏輯 (優化相容性)
         function startCountdown() {
-            const targetDate = new Date('2026/07/27 14:55:00').getTime();
+            // 使用更具跨瀏覽器（如 Safari iOS）相容性的 Date 參數初始化
+            const targetDate = new Date(2026, 6, 27, 14, 55, 0).getTime(); 
             
             function updateTimer() {
                 const now = new Date().getTime();
@@ -1107,158 +1127,20 @@
             }
         }
 
-        // 0.7 初始化 Leaflet 地圖並設定多組自訂標記 (安全防錯載入)
-        function initHotelMap() {
-            if (typeof L === 'undefined') return;
-            
-            // 延遲 150 毫秒等待 DOM 渲染與 hidden 類別移除，防止地圖因 0 寬高導致灰色區塊
-            setTimeout(() => {
-                const mapId = 'hotel-map-leaflet';
-                const mapContainer = document.getElementById(mapId);
-                
-                if (!mapContainer) return;
-
-                if (!hotelMap) {
-                    // 以大和ROYNET飯店為地圖中心
-                    hotelMap = L.map(mapId, {
-                        zoomControl: true,
-                        scrollWheelZoom: false
-                    }).setView([35.16764850967813, 136.8805665745858], 17);
-
-                    // 載入開源 OpenStreetMap 圖資
-                    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                        attribution: '© OpenStreetMap contributors'
-                    }).addTo(hotelMap);
-
-                    // 定義自訂地標標記資料
-                    const locations = [
-                        {
-                            coords: [35.16764850967813, 136.8805665745858],
-                            title: "🏨 大和ROYNET飯店 名古屋太閣通口",
-                            desc: "三代同堂家庭 7 人 6 晚連住超便利基地！"
-                        },
-                        {
-                            coords: [35.16833370240405, 136.88122908020821],
-                            title: "🏪 Ministop 名古屋站西店",
-                            desc: "主打現點現做的熱食、炸物與季節限定聖代冰品的便利商店"
-                        },
-                        {
-                            coords: [35.16848279958023, 136.88022056964354],
-                            title: "🏪 Lawson 椿町店",
-                            desc: "以高品質的 Uchi Café 甜點與國民美食炸雞君聞名的便利商店"
-                        },
-                        {
-                            coords: [35.168379747150084, 136.8785200491615],
-                            title: "🏪 FamilyMart 中村竹橋町店",
-                            desc: "兼具爆款聯名甜點、銷魂炸雞熟食與「Convenience Wear」極簡潮流服飾等跨界驚喜的的便利商店"
-                        },
-                        {
-                            coords: [35.168929, 136.880985],
-                            title: "💊 千里馬藥局",
-                            desc: "超划算免稅老字號藥妝店（限用現金）。"
-                        },
-                         {
-                            coords: [35.167386461493216, 136.88448393793936],
-                            title: "💊 大國藥妝",
-                            desc: "不一定比千里馬便宜但買到門檻有額外優惠。"
-                        },
-                        {
-                            coords: [35.168738320508055, 136.88190789977807],
-                            title: "💊 松本清 名古屋站太閤通店",
-                            desc: "定價通常最貴，但有「松本清限定」商品。"
-                        },
-                        {
-                            coords: [35.16961749585411, 136.88397856224313],
-                            title: "💊 SUGI 藥局 名鉄名古屋店",
-                            desc: "中高價，但便利、適合買彩妝。"
-                        },
-                        {
-                            coords: [35.170263206017324, 136.87958644507808],
-                            title: "🛒 Bic Camera 名古屋站西店",
-                            desc: "電器、玩具大本營。"
-                        },
-                        {
-                            coords: [35.16592399099131, 136.88122103357122],
-                            title: "🛒 MaxValu 太閤店",
-                            desc: "24 小時營業大型生鮮超市！採購宵夜、水蜜桃與鮮奶首選。"
-                        }
-                    ];
-
-                    // 繪製標記並設定 Popup 氣泡框內容
-                    locations.forEach(loc => {
-                        L.marker(loc.coords)
-                         .addTo(hotelMap)
-                         .bindPopup(`
-                            <div class="font-sans text-xs">
-                                <b class="text-muji-charcoal text-xs block mb-1">${loc.title}</b>
-                                <span class="text-muji-earth text-[10px] block leading-relaxed">${loc.desc}</span>
-                            </div>
-                         `);
-                    });
-                } else {
-                    // 若地圖已存在，強置觸發重繪以修復灰格問題
-                    hotelMap.invalidateSize();
-                }
-            }, 100);
-        }
-
-        // 0.8 初始化 Leaflet 大須商店街地圖並設定多組自訂標記 (安全防錯載入)
-        function initOsuMap() {
-            if (typeof L === 'undefined') return;
-
-            setTimeout(() => {
-                const mapId = 'osu-map-leaflet';
-                const mapContainer = document.getElementById(mapId);
-
-                if (!mapContainer) return;
-
-                if (!osuMap) {
-                    // 中心點設在鯛福茶庵附近 [35.15944138140627, 136.8999671086299]
-                    osuMap = L.map(mapId, {
-                        zoomControl: true,
-                        scrollWheelZoom: false
-                    }).setView([35.15944138140627, 136.8999671086299], 18);
-
-                    // 載入開源 OpenStreetMap 圖資
-                    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                        attribution: '© OpenStreetMap contributors'
-                    }).addTo(osuMap);
-
-                    // 定義自訂地標標記資料 (更新大須商店街定位)
-                    const locations = [
-                        {
-                            coords: [35.15944138140627, 136.8999671086299],
-                            title: "🍘 鯛福茶庵 八代目澤屋",
-                            desc: "萬松寺門口必吃現烤鯛魚燒與Q彈日式糰子！"
-                        },
-                        {
-                            coords: [35.15950661618421, 136.90029682924472],
-                            title: "🔑 水曜日的愛麗絲 (Alice on Wednesday)",
-                            desc: "超夢幻矮門與奇幻裝潢！專賣精緻飾品與愛麗絲主題糖果。"
-                        }
-                    ];
-
-                    // 繪製標記與氣泡提示框
-                    locations.forEach(loc => {
-                        L.marker(loc.coords)
-                         .addTo(osuMap)
-                         .bindPopup(`
-                            <div class="font-sans text-xs">
-                                <b class="text-muji-charcoal text-xs block mb-1">${loc.title}</b>
-                                <span class="text-muji-earth text-[10px] block leading-relaxed">${loc.desc}</span>
-                            </div>
-                         `);
-                    });
-                } else {
-                    // 重新計算尺寸，修復分頁切換所產生的灰格
-                    osuMap.invalidateSize();
-                }
-            }, 100);
+        // 0.65 補上漏寫的飯店詳情摺疊控制（修正 ReferenceError）
+        function toggleHotelDetails() {
+            const block = document.getElementById('hotel-details-block');
+            const arrow = document.getElementById('hotel-details-arrow');
+            if (block.classList.contains('hidden')) {
+                block.classList.remove('hidden');
+                arrow.classList.add('rotate-180');
+            } else {
+                block.classList.add('hidden');
+                arrow.classList.remove('rotate-180');
+            }
         }
 
         // 1. 全域行程數據定義
-        let currentDay = 1; 
-        
         const schedules = {
             1: [
                 { time: '11:15', title: '行李確認與出發 🧳', desc: '早餐要吃飽或提早吃午餐，準備搭機場接送（約30分鐘車程）前往桃園機場。隨身攜帶副食品、米餅與哺乳巾。' },
@@ -1295,7 +1177,7 @@
                 { time: '09:00', title: '搭乘樂高火車出發 🚇', desc: '從飯店步行 300 公尺到名古屋車站太閣通口，搭乘「青波線 (Aonami Line)」往終點站「金城埠頭」，車程約24分鐘。再步行500公尺到達樂高樂園。', mapUrl: 'https://maps.app.goo.gl/KEV6Fq8osjDHo1xb9' },
                 { time: '10:00', title: '歡樂開場：積木與地標 🏰', desc: '入口拍全家福笑容最美。搶先體驗編號1樂高工廠之旅領限定款積木。搭乘編號6旋轉木馬與編號5瞭望塔。姊姊玩咖啡杯，小弟在廣場玩水。' },
                 { time: '11:00', title: '忍者集結：必看 4D 大秀 🎬', desc: '編號 2 忍者影廳【必看 11:00 場次】！', type: 'play' },
-                { time: '11:40', title: '探險區分隊 潛水艇與冒險 🦈', desc: '編號11潛水艇探險（全家合集），坐真的潛水艇看真魚和鯊魚！編號9失落王國雷射射擊。分隊：【爸爸/姊姊組】飛行勇士(8)、烏賊衝浪(12)；【爺奶/小弟組】30號秘密之室（冷氣房玩積木）。29號法老球池會師。' },
+                { time: '11:40', title: '探險區分隊 潛水艇與冒險 🦈', desc: '編號11潛水艇探險（全家合集），坐真的潛水艇看真魚和鯊魚！編號9失落王國雷射射射擊。分隊：【爸爸/姊姊組】飛行勇士(8)、烏賊衝浪(12)；【爺奶/小弟組】30號秘密之室（冷氣房玩積木）。29號法老球池會師。' },
                 { time: '13:00', title: '彩 (Irodori) 日式餐廳午餐 🍱', desc: '享用美味能量日式定食套餐（建議提前一天預約）。' },
                 { time: '14:00', title: '城市英雄：職業圓夢 🧑‍慢', desc: '編號31造船、18海岸巡邏、15城市飛機場. 分隊：【爸爸/姊姊組】17駕駛學校考照、13消防學院；【爺奶/小弟組】34創意工作坊組積木。' },
                 { time: '15:30', title: '騎士王國與得寶樂園 🎢', desc: '姊姊挑戰梅林飛行器與飛龍；小弟與長輩在得寶區玩水、坐編號7得寶快車小火車。' },
@@ -1374,16 +1256,16 @@
         };
 
         let expenses = JSON.parse(localStorage.getItem('expenses')) || [];
-        let expenseFilter = 'all'; // 優化記帳分類篩選器狀態
+        let expenseFilter = 'all'; 
 
-        // 修正 LocalStorage 存取金鑰不一致 Bug
+        // 隨身行李
         let handbagList = JSON.parse(localStorage.getItem('nagoya_handbag_list')) || [
             { category: '手提行李隨身攜帶 (限重 7kg/人)', items: [
                 { id: 'h1', text: '護照 ✈️', checked: false },
                 { id: 'h2', text: '機票確認單', checked: false },
                 { id: 'h3', text: '日圓現金 / 信用卡 💳', checked: false },
                 { id: 'h4', text: '實體旅遊手冊 / 筆 🖊️', checked: false },
-                { id: 'h5', text: '錢包 / 大人的 ICOCK卡', checked: false },
+                { id: 'h5', text: '錢包 / 大人的 ICOCA卡', checked: false },
                 { id: 'h6', text: '手機 & 充電線 🔌', checked: false },
                 { id: 'h7', text: '行動電源 (不可托運！)', checked: false },
                 { id: 'h8', text: '耳機 / 隨身手持風扇 🌬️', checked: false },
@@ -1397,11 +1279,11 @@
             ]}
         ];
 
-        // 修正 LocalStorage 存取金鑰不一致 Bug
+        // 托運行李
         let luggageList = JSON.parse(localStorage.getItem('nagoya_luggage_list')) || [
             { category: '托運行李衣物穿搭 (限重 23kg/人)', items: [
                 { id: 'l1', text: '內衣褲 5 套 / 睡衣 👕', checked: false },
-                { id: 'l2', text: 'Sock 5 雙 / 拖鞋 / 涼鞋 🧦', checked: false },
+                { id: 'l2', text: '襪子 5 雙 / 拖鞋 / 涼鞋 🧦', checked: false },
                 { id: 'l3', text: '短袖上衣 5 件', checked: false },
                 { id: 'l4', text: '長褲 / 短褲 5 件', checked: false },
                 { id: 'l5', text: '泳裝 / 泳裝 (樂高玩水用) 🩱', checked: false },
@@ -1417,7 +1299,7 @@
             ]},
             { category: '其他類別 (Others)', items: [
                 { id: 'l13', text: '行李秤 / 萬用轉接頭 ⚖️', checked: false },
-                { id: 'l14', text: '塑袋 / 雨傘 / 雨衣 ☔', checked: false },
+                { id: 'l14', text: '塑膠袋 / 雨傘 / 雨衣 ☔', checked: false },
                 { id: 'l15', text: 'OK 繃 / 洗衣網 / 購物袋 🛍️', checked: false },
                 { id: 'l16', text: '保鮮盒 / 嬰童專屬餐具', checked: false },
                 { id: 'l17', text: '護照影本 / 2吋照片', checked: false },
@@ -1454,24 +1336,20 @@
             { text: '中部國際機場樓層導覽', url: 'https://platinumaps.jp/d/centrair/?culture=zh-tw' },
         ];
 
-        // 2. 主分頁切換 (優化視覺回饋)
+        // 2. 主分頁切換 (優化視覺回饋與地圖更新)
         function switchTab(tabId) {
             document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
             document.getElementById(`tab-${tabId}`).classList.remove('hidden');
             
-            // 更新按鈕樣式：清除所有按鈕的 active 背景與顏色
             document.querySelectorAll('.nav-btn').forEach(btn => {
-                btn.className = "nav-btn flex flex-col items-center gap-0.5 text-muji-earth hover:text-muji-charcoal transition-all py-1 px-3 rounded-xl";
+                btn.className = "nav-btn flex flex-col items-center gap-0.5 text-muji-earth hover:text-muji-charcoal transition-all py-1.5 px-3 rounded-xl";
             });
             
-            // 為選中的按鈕套用 App 感的 active 膠囊背景
             const activeBtn = document.getElementById(`nav-${tabId}`);
-            activeBtn.className = "nav-btn flex flex-col items-center gap-0.5 text-chiikawa-pinkdeep transition-all py-1 px-3 rounded-xl bg-chiikawa-pink/80 border border-chiikawa-pinkdeep/15";
+            activeBtn.className = "nav-btn flex flex-col items-center gap-0.5 text-chiikawa-pinkdeep transition-all py-1.5 px-3 rounded-xl bg-chiikawa-pink/80 border border-chiikawa-pinkdeep/15";
             
-            // 自動平滑滾動到網頁最頂端，優化體驗
             window.scrollTo({ top: 0, behavior: 'smooth' });
 
-            // 若切換至導覽分頁且飯店周邊或大須商店街正好是展開狀態，觸發重新繪製尺寸以防地圖空白
             if (tabId === 'guide') {
                 const hotelPanel = document.getElementById('gcontent-hotel');
                 if (hotelPanel && !hotelPanel.classList.contains('hidden')) {
@@ -1593,7 +1471,7 @@
 
                 let mapBtnHtml = item.mapUrl ? `
                     <div class="mt-1.5">
-                        <a href="${item.mapUrl}" target="_blank" class="inline-flex items-center gap-1.5 bg-chiikawa-blue hover:bg-blue-200 text-muji-charcoal text-[10px] px-2.5 py-1.5 rounded-xl font-bold transition-all active:scale-95 shadow-sm border border-blue-200">
+                        <a href="${item.mapUrl}" target="_blank" class="inline-flex items-center gap-1.5 bg-chiikawa-blue hover:bg-blue-200 text-muji-charcoal text-[10px] px-2.5 py-1.5 rounded-xl font-bold transition-all active:scale-[0.98] shadow-sm border border-blue-200">
                             <i class="fa-solid fa-map-location-dot text-blue-500"></i>
                             <span>Google Maps 導航</span>
                         </a>
@@ -1613,7 +1491,7 @@
             });
         }
 
-        // 6. 導覽細項切換 (整合 Leaflet 載入與重繪邏輯)
+        // 6. 導覽細項切換
         function switchGuide(guideId) {
             document.querySelectorAll('.guide-panel').forEach(el => el.classList.add('hidden'));
             document.getElementById(`gcontent-${guideId}`).classList.remove('hidden');
@@ -1625,11 +1503,9 @@
             document.getElementById(`gbtn-${guideId}`).classList.add('bg-muji-charcoal', 'text-white');
             document.getElementById(`gbtn-${guideId}`).classList.remove('bg-white', 'text-muji-charcoal', 'border-muji-linen');
 
-            // 當切換到「飯店周邊」頁籤時，執行地圖載入或更新大小
             if (guideId === 'hotel') {
                 initHotelMap();
             }
-            // 當切換到「大須商店街」頁籤時，執行地圖載入或更新大小
             if (guideId === 'osustreet') {
                 initOsuMap();
             }
@@ -1646,72 +1522,28 @@
                 if (!mapContainer) return;
 
                 if (!hotelMap) {
-                    // 以大和ROYNET飯店為地圖中心
                     hotelMap = L.map(mapId, {
                         zoomControl: true,
                         scrollWheelZoom: false
                     }).setView([35.16764850967813, 136.8805665745858], 17);
 
-                    // 載入開源 OpenStreetMap 圖資
                     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                         attribution: '© OpenStreetMap contributors'
                     }).addTo(hotelMap);
 
-                    // 定義自訂地標標記資料
                     const locations = [
-                        {
-                            coords: [35.16764850967813, 136.8805665745858],
-                            title: "🏨 大和ROYNET飯店 名古屋太閣通口",
-                            desc: "三代同堂家庭 7 人 6 晚連住超便利基地！"
-                        },
-                        {
-                            coords: [35.16833370240405, 136.88122908020821],
-                            title: "🏪 Ministop 名古屋站西店",
-                            desc: "主打現點現做的熱食、炸物與季節限定聖代冰品的便利商店"
-                        },
-                        {
-                            coords: [35.16848279958023, 136.88022056964354],
-                            title: "🏪 Lawson 椿町店",
-                            desc: "以高品質的 Uchi Café 甜點與國民美食炸雞君聞名的便利商店"
-                        },
-                        {
-                            coords: [35.168379747150084, 136.8785200491615],
-                            title: "🏪 FamilyMart 中村竹橋町店",
-                            desc: "兼具爆款聯名甜點、銷魂炸雞熟食與「Convenience Wear」極簡潮流服飾等跨界驚喜的的便利商店"
-                        },
-                        {
-                            coords: [35.168929, 136.880985],
-                            title: "💊 千里馬藥局",
-                            desc: "超划算免稅老字號藥妝店（限用現金）。"
-                        },
-                         {
-                            coords: [35.167386461493216, 136.88448393793936],
-                            title: "💊 大國藥妝",
-                            desc: "不一定比千里馬便宜但買到門檻有額外優惠。"
-                        },
-                        {
-                            coords: [35.168738320508055, 136.88190789977807],
-                            title: "💊 松本清 名古屋站太閤通店",
-                            desc: "定價通常最貴，但有「松本清限定」商品。"
-                        },
-                        {
-                            coords: [35.16961749585411, 136.88397856224313],
-                            title: "💊 SUGI 藥局 名鉄名古屋店",
-                            desc: "中高價，但便利、適合買彩妝。"
-                        },
-                        {
-                            coords: [35.170263206017324, 136.87958644507808],
-                            title: "🛒 Bic Camera 名古屋站西店",
-                            desc: "電器、玩具大本營。"
-                        },
-                        {
-                            coords: [35.16592399099131, 136.88122103357122],
-                            title: "🛒 MaxValu 太閤店",
-                            desc: "24 小時營業大型生鮮超市！採購宵夜、水蜜桃與鮮奶首選。"
-                        }
+                        { coords: [35.16764850967813, 136.8805665745858], title: "🏨 大和ROYNET飯店 名古屋太閣通口", desc: "三代同堂家庭 7 人 6 晚連住超便利基地！" },
+                        { coords: [35.16833370240405, 136.88122908020821], title: "🏪 Ministop 名古屋站西店", desc: "主打現點現做的熱食與聖代冰品" },
+                        { coords: [35.16848279958023, 136.88022056964354], title: "🏪 Lawson 椿町店", desc: "以高品質 Uchi Café 甜點與炸雞君聞名" },
+                        { coords: [35.168379747150084, 136.8785200491615], title: "🏪 FamilyMart 中村竹橋町店", desc: "兼具爆款聯名甜點與超商服飾" },
+                        { coords: [35.168929, 136.880985], title: "💊 千里馬藥局", desc: "超划算免稅老字號藥妝店（限用現金）。" },
+                        { coords: [35.167386461493216, 136.88448393793936], title: "💊 大國藥妝", desc: "門檻折扣力度大，採購藥物好地方。" },
+                        { coords: [35.168738320508055, 136.88190789977807], title: "💊 松本清 名古屋站太閤通店", desc: "有許多獨家限定美妝保養商品。" },
+                        { coords: [35.16961749585411, 136.88397856224313], title: "💊 SUGI 藥局 名鉄名古屋店", desc: "位置好找，買日本彩妝方便。" },
+                        { coords: [35.170263206017324, 136.87958644507808], title: "🛒 Bic Camera 名古屋站西店", desc: "電器、美容儀與玩具大本營。" },
+                        { coords: [35.16592399099131, 136.88122103357122], title: "🛒 MaxValu 太閤店", desc: "24 小時營業生鮮超市！採購水果（水蜜桃）與鮮奶首選。" }
                     ];
 
-                    // 繪製標記並設定 Popup 氣泡框內容
                     locations.forEach(loc => {
                         L.marker(loc.coords)
                          .addTo(hotelMap)
@@ -1723,13 +1555,12 @@
                          `);
                     });
                 } else {
-                    // 若地圖已存在，強置觸發重繪以修復灰格問題
                     hotelMap.invalidateSize();
                 }
             }, 100);
         }
 
-        // 0.8 初始化 Leaflet 大須商店街地圖並設定多組自訂標記 (安全防錯載入)
+        // 初始化大須商店街地圖
         function initOsuMap() {
             if (typeof L === 'undefined') return;
 
@@ -1740,131 +1571,39 @@
                 if (!mapContainer) return;
 
                 if (!osuMap) {
-                    // 中心點設在鯛福茶庵附近 [35.15944138140627, 136.8999671086299]
                     osuMap = L.map(mapId, {
                         zoomControl: true,
                         scrollWheelZoom: false
-                    }).setView([35.15944138140627, 136.8999671086299], 18);
+                    }).setView([35.15944138140627, 136.8999671086299], 17);
 
-                    // 載入開源 OpenStreetMap 圖資
                     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                         attribution: '© OpenStreetMap contributors'
                     }).addTo(osuMap);
 
-                    // 定義自訂地標標記資料 (更新大須商店街定位)
                     const locations = [
-                        {
-                            coords: [35.15944138140627, 136.8999671086299],
-                            title: "🐟 鯛福茶庵 八代目澤屋",
-                            desc: "萬松寺門口必吃現烤鯛魚燒與Q彈日式糰子！"
-                        },
-                        {
-                            coords: [35.15940984948601, 136.90047317467636],
-                            title: "🛍️ 百元商店 seria",
-                            desc: "日本知名百元生活雜貨店。"
-                        },
-                        {
-                            coords: [35.15902445551203, 136.90030955993075],
-                            title: "🍡 大須外郎",
-                            desc: "名古屋名物米製和菓子，Q彈香甜。"
-                        },
-                        {
-                            coords: [35.15906666802768, 136.90013186358792],
-                            title: "🍘 朝日軒觀音店",
-                            desc: "大須人氣仙貝店，現烤香脆美味。"
-                        },
-                        {
-                            coords: [35.159107784093294, 136.89993606233327],
-                            title: "🐸 青柳總本家 大須本店",
-                            desc: "青蛙造型饅頭，名古屋人氣伴手禮。"
-                        },
-                        {
-                            coords: [35.1587770034996, 136.9014262690888],
-                            title: "🐟 銀之餡",
-                            desc: "大須必吃鯛魚燒，外酥內香。"
-                        },
-                        {
-                            coords: [35.158667908379314, 136.9013860359634],
-                            title: "🍡 御手洗糰子 新雀本店",
-                            desc: "大須人氣糰子老店，鹹甜醬香迷人。"
-                        },
-                        {
-                            coords: [35.15856758459851, 136.90255212632064],
-                            title: "🍕 Solo Pizza",
-                            desc: "世界冠軍披薩店，窯烤香氣十足。"
-                        },
-                        {
-                            coords: [35.15904246957323, 136.90341045664485],
-                            title: "🎰 #C-pla ",
-                            desc: "超人氣扭蛋專門店，款式眾多。"
-                        },
-                        {
-                            coords: [35.158896096165584, 136.90448803411041],
-                            title: "🏷️ B-SIDE LABEL ",
-                            desc: "原創防水貼紙專賣，設計感十足。"
-                        },
-                        {
-                            coords: [35.158851675155894, 136.90465649464284],
-                            title: "🍗 李さんの台湾名物屋台 ",
-                            desc: "人氣台灣炸雞店，香酥多汁必吃。"
-                        },
-                        {
-                            coords: [35.15877931063873, 136.90460083880717],
-                            title: "🛒 生鮮食品館 ",
-                            desc: "平價生鮮超市，水果熟食超人氣。"
-                        },
-                        {
-                            coords: [35.1594196247495, 136.90492739775308],
-                            title: "🥟 包包亭 ",
-                            desc: "台灣生煎包名店，爆汁肉包必吃。"
-                        },
-                        {
-                            coords: [35.15937796062927, 136.90471818545507],
-                            title: "🍤 Konparu ",
-                            desc: "名古屋老字號喫茶店，炸蝦三明治必吃。"
-                        },
-                        {
-                            coords: [35.159006416164296, 136.90498368958188],
-                            title: "🛒 唐吉訶德 大須店 ",
-                            desc: "商品種類齊全，伴手禮採購首選。"
-                        },
-                        {
-                            coords: [35.15861373652554, 136.90560471515283],
-                            title: "🛍️ Belle Mall 大須店 ",
-                            desc: "Outlet服飾雜貨店，挖寶超划算。"
-                        },
-                        {
-                            coords: [35.158634734585384, 136.90544927229382],
-                            title: "🎰 #C-pla ",
-                            desc: "超人氣扭蛋專門店，款式眾多。"
-                        },
-                        {
-                            coords: [35.15823398677746, 136.90442936232026],
-                            title: "🐟 鳴門鯛焼本舗 ",
-                            desc: "地瓜餡鯛魚燒，人氣必吃點心。"
-                        },
-                        {
-                            coords: [35.15819904880394, 136.9046478119856],
-                            title: "🐱 招財貓地標 ",
-                            desc: "大須人氣地標，巨大招財貓必拍。"
-                        },
-                        {
-                            coords: [35.15926990892567, 136.90126587219078],
-                            title: "🍓 弁才天 大福 ",
-                            desc: "名古屋人氣水果大福專賣店。"
-                        },
-                        {
-                            coords: [35.16005384971265, 136.90518525009912],
-                            title: "🧀 大王チーズ10円パン  ",
-                            desc: "爆餡起司10元麵包，牽絲超療癒。"
-                        },
-                        {
-                            coords: [35.15950661618421, 136.90029682924472],
-                            title: "🔑 水曜日的愛麗絲 (Alice on Wednesday)",
-                            desc: "超夢幻矮門與奇幻裝潢！專賣精緻飾品與愛麗絲主題糖果。"
-                        }
+                        { coords: [35.15944138140627, 136.8999671086299], title: "🐟 鯛福茶庵 八代目澤屋", desc: "萬松寺門口必吃現烤鯛魚燒與Q彈日式糰子！" },
+                        { coords: [35.15940984948601, 136.90047317467636], title: "🛍️ 百元商店 Seria", desc: "超好買日系生活雜貨與卡通聯名周邊。" },
+                        { coords: [35.15902445551203, 136.90030955993075], title: "🍡 大須外郎", desc: "名古屋名物米製和菓子，Q彈香甜。" },
+                        { coords: [35.15906666802768, 136.90013186358792], title: "🍘 朝日軒觀音店", desc: "大須人氣古法仙貝店，現烤美味。" },
+                        { coords: [35.159107784093294, 136.89993606233327], title: "🐸 青柳總本家 大須本店", desc: "必買青蛙造型饅頭，超療癒。" },
+                        { coords: [35.1587770034996, 136.9014262690888], title: "🐟 銀之餡", desc: "香酥可頌鯛魚燒，口感層次豐富。" },
+                        { coords: [35.158667908379314, 136.9013860359634], title: "🍡 御手洗糰子 新雀本店", desc: "老鋪醬香糰子，鹹甜傳統好滋意。" },
+                        { coords: [35.15856758459851, 136.90255212632064], title: "🍕 Solo Pizza", desc: "世界冠軍柴燒窯烤披薩，美味又划算。" },
+                        { coords: [35.15904246957323, 136.90341045664485], title: "🎰 #C-pla 扭蛋店", desc: "大型扭蛋店，冷氣強，孩子超愛。" },
+                        { coords: [35.158896096165584, 136.90448803411041], title: "🏷️ B-SIDE LABEL", desc: "原創設計防水貼紙專賣。" },
+                        { coords: [35.158851675155894, 136.90465649464284], title: "🍗 李さんの台湾名物屋台", desc: "招牌台式香酥炸雞，逛街補給站。" },
+                        { coords: [35.15877931063873, 136.90460083880717], title: "🛒 Sanoya 超市", desc: "超划算當地平價超市，水果多汁便宜。" },
+                        { coords: [35.1594196247495, 136.90492739775308], title: "🥟 包包亭生煎包", desc: "金黃酥脆爆汁生煎包，小心燙口。" },
+                        { coords: [35.15937796062927, 136.90471818545507], title: "🍤 Konparu 大須本店", desc: "名古屋老店炸蝦三明治首選。" },
+                        { coords: [35.159006416164296, 136.90498368958188], title: "🛒 唐吉訶德 大須店", desc: "一站式免稅百貨採購零食藥妝。" },
+                        { coords: [35.15861373652554, 136.90560471515283], title: "🛍️ Belle Mall 大須店", desc: "日系平價童裝服飾挖寶去處。" },
+                        { coords: [35.158634734585384, 136.90544927229382], title: "🎰 #C-pla 扭蛋店2號店", desc: "大型扭蛋店，冷氣強，孩子超愛。" },
+                        { coords: [35.15823398677746, 136.90442936232026], title: "🐟 鳴門鯛燒本舗", desc: "超好吃的黃金地瓜餡鯛魚燒。" },
+                        { coords: [35.15819904880394, 136.9046478119856], title: "🐱 巨大招財貓地標", desc: "大須必拍巨大招財貓，全家合影首選。" },
+                        { coords: [35.15926990892567, 136.90126587219078], title: "🍓 弁才天 水果大福", desc: "頂級大福！附帶棉線切開即享頗面美感。" },
+                        { coords: [35.16005384971265, 136.90518525009912], title: "🧀 大王起司 10元麵包", desc: "牽絲超長超療癒的爆餡雞蛋糕。" },
+                        { coords: [35.15950661618421, 136.90029682924472], title: "🔑 水曜日的愛麗絲", desc: "超夢幻矮門與奇幻裝潢！專賣飾品與精美糖果。" }
                     ];
-
                     // 繪製標記與氣泡提示框
                     locations.forEach(loc => {
                         L.marker(loc.coords)
@@ -1876,6 +1615,53 @@
                             </div>
                          `);
                     });
+
+                    // 💡 建立推薦散步路線軌跡 (粉紅吉伊卡哇色虛線)
+                    const routeCoords = [
+                        [35.16016580527812, 136.898498075464], // 大須觀音站 (2號口)
+                        [35.15956935394174, 136.8986295037025], // 7-11
+                        [35.15948995951364, 136.89938733959892], // 大須觀音寺門口
+                        [35.159850, 136.899630], // 大須觀音寺
+                        [35.15948995951364, 136.89938733959892], // 大須觀音寺門口
+                        [35.15939566708206, 136.9005111851484], // 百圓商店
+                        [35.15902288197992, 136.9003422059846], // 大須外郎
+                        [35.15910401770645, 136.89994658016468], // 青蛙饅頭
+                        [35.15853935522009, 136.90252284190808], // Solo Pizza
+                        [35.159070028416615, 136.902579168296], // 萬松寺通
+                        [35.15878697418689, 136.90484682385866], // 新天地通
+                        [35.159413034715726, 136.90492863124462], // 包包亭
+                        [35.159316549344354, 136.9049460656028], // 轉彎到炸蝦三明治
+                        [35.159377949139376, 136.90471941894663], // 炸蝦三明治
+                        [35.159316549344354, 136.9049460656028], // 轉彎到炸蝦三明治
+                        [35.15878697418689, 136.90484682385866], // 新天地通
+                        [35.15861318944739, 136.9056306994452], // Belle Mall osu store
+                        [35.15878697418689, 136.90484682385866], // 新天地通
+                        [35.158199, 136.904647], // 巨大招財貓地標
+                        [35.15756937680072, 136.90452562934195], // 前往8號口
+                        [35.15757156969845, 136.9046181655507]  // 上前津站 (8號口)
+                    ];
+
+                    const routeLine = L.polyline(routeCoords, {
+                        color: '#1A73E8',       // google藍
+                        weight: 6,              // 線條粗細
+                        dashArray: '5, 10',     // 虛線間距
+                        opacity: 0.9,
+                        lineJoin: 'round'
+                    }).addTo(osuMap);
+
+                    routeLine.bindPopup(`
+                        <div class="font-sans text-xs p-1">
+                            <b class="text-pink-500 block mb-1">🌸 親子推薦散策路線 🌸</b>
+                            <span class="text-muji-earth text-[10px] leading-relaxed">
+                                全段平坦且設有高挑遮雨棚拱頂，推推車與長輩步行極度舒適防曬！<br>
+                                <b>路徑：</b>大須觀音站 (2號口) ➔ 大須觀音寺 ➔ 穿越百圓商店 ➔ 仁王門通 ➔ 東仁王門通 ➔ 萬松寺通 ➔ 新天地通 ➔ 招財貓地標 ➔ 上前津站 (8號口)
+                            </span>
+                        </div>
+                    `);
+
+                    // 自動縮放地圖以完整呈現整條散步虛線
+                    osuMap.fitBounds(routeLine.getBounds(), { padding: [30, 30] });
+
                 } else {
                     // 重新計算尺寸，修復分頁切換所產生的灰格
                     osuMap.invalidateSize();
@@ -1918,7 +1704,7 @@
             calculateExchange();
         }
 
-        // 匯率自訂化 LocalStorage 持久記憶儲存 (優化加入)
+        // 匯率自訂化 LocalStorage 持久記憶儲存
         function updateRatePersist() {
             const rateVal = parseFloat(document.getElementById('exchange-rate').value) || 0.2105;
             localStorage.setItem('nagoya_custom_rate', rateVal);
@@ -1948,7 +1734,7 @@
                 reader.onload = function(e) {
                     const img = new Image();
                     img.onload = function() {
-                        // 使用 HTML5 Canvas 壓縮照片避免爆 LocalStorage (限制在 5MB)
+                        // 使用 HTML5 Canvas 壓縮照片避免爆 LocalStorage
                         const canvas = document.createElement('canvas');
                         const ctx = canvas.getContext('2d');
                         const maxW = 120; 
@@ -2001,12 +1787,14 @@
             renderExpenses();
         }
 
+        // 刪除記帳
         function deleteExpense(id) {
             expenses = expenses.filter(x => x.id !== id);
             localStorage.setItem('expenses', JSON.stringify(expenses));
             renderExpenses();
         }
 
+        // 清除全部記帳
         function clearAllExpenses() {
             if (expenses.length === 0) {
                 showAlert("提示", "目前沒有任何記帳資料唷！", "💡");
@@ -2025,7 +1813,7 @@
             );
         }
 
-        // 新增記帳付款篩選功能 (優化加入)
+        // 新增記帳付款篩選功能
         function filterExpenses(filterType) {
             expenseFilter = filterType;
             
@@ -2101,7 +1889,7 @@
                 return x.type === expenseFilter;
             });
 
-            // 溫馨「空狀態 Empty State」插畫視覺 (優化加入)
+            // 溫馨「空狀態 Empty State」插畫視覺
             if (filteredExpenses.length === 0) {
                 list.innerHTML = `
                     <div class="text-center py-8 text-muji-earth">
