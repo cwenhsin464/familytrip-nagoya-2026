@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
@@ -90,7 +90,7 @@
 </head>
 <body class="min-h-screen pb-24 selection:bg-chiikawa-pinkdeep selection:text-muji-charcoal">
 
-    <!-- 頂部可愛橫幅 -->
+    <!-- 頂部防爆遮雨棚橫幅 -->
     <header class="bg-gradient-to-b from-chiikawa-pink to-muji-sand px-4 pt-6 pb-4 border-b border-muji-linen text-center relative overflow-hidden">
         <!-- 背景裝飾小物件 -->
         <div class="absolute top-2 left-4 text-xs opacity-40 text-chiikawa-pinkdeep"><i class="fa-solid fa-heart"></i></div>
@@ -410,7 +410,7 @@
                 <!-- 3. 豐田紀念館專屬爸媽貼心話（置頂） -->
                 <div class="p-3 rounded-2xl bg-chiikawa-pink border border-chiikawa-pinkdeep/30 text-[10px] text-muji-charcoal leading-relaxed shadow-sm">
                     <span class="font-bold flex items-center gap-1 mb-1 text-rose-500"><i class="fa-solid fa-car"></i> 🚗 豐田科技 · 爸媽貼心話：</span>
-                    10:00 抵達買好票入館後，請<strong>由爸爸帶領 8 歲與 6 歲的姊慢步衝去右側的「科技樂園 (Technoland)」搶先預約 10:30 第一場或 11:15 第二場的裝機時間</strong>，其他人員隨後跟上。午餐可以在館內的紅磚餐廳享用，也可以去 AEON Mall 則武新町吃有名的蛋包飯。
+                    10:00 批達買好票入館後，請<strong>由爸爸帶領 8 歲與 6 歲的姊慢步衝去右側的「科技樂園 (Technoland)」搶先預約 10:30 第一場或 11:15 第二場的裝機時間</strong>，其他人員隨後跟上。午餐可以在館內的紅磚餐廳享用，也可以去 AEON Mall 則武新町吃有名的蛋包飯。
                 </div>
 
                 <p class="text-xs text-muji-earth leading-relaxed">
@@ -448,7 +448,7 @@
 
                 <div class="border-l-4 border-chiikawa-pinkdeep bg-chiikawa-pink/50 p-2.5 rounded-r-xl text-xs space-y-2 mb-2">
                     <p class="font-bold text-muji-charcoal"><i class="fa-solid fa-users text-chiikawa-pinkdeep"></i> 11:30~12:30 冒險區分隊行動：</p>
-                    <p class="text-muji-charcoal pl-2"><strong class="text-blue-600">⚡ 爸媽/姊姊組：</strong> 挑戰飛行勇士 (8), 烏賊衝浪 (12)<br><strong class="text-green-600">🍀 爺奶/小弟組：</strong> 30號秘密之室（室內玩積木）</p>
+                    <p class="text-muji-charcoal pl-2"><strong class="text-blue-600">⚡ 爸媽/姊姊組：</strong> 挑戰飛行勇士 (8), 烏賊衝浪 (12)<br><strong class="text-green-600">🍀 爺奶/小弟組 :</strong> 30號秘密之室（室內玩積木）</p>
                 </div>
 
                 <div class="border-l-4 border-chiikawa-blue bg-chiikawa-blue/50 p-2.5 rounded-r-xl text-xs space-y-2 mb-2">
@@ -697,7 +697,7 @@
                                     <span class="text-lg">👚</span>
                                     <div>
                                         <strong class="text-muji-charcoal font-bold">20. Belle Mall (ベルモール) osu store</strong>
-                                        <p class="text-muji-earth text-[10px] mt-0.5 leading-relaxed">平價服飾與精緻生活雜貨 Outlet，各種日系童裝、舒適襪子或居家小物常有驚喜大特價，爸媽和奶奶能在此輕鬆挖寶。</p>
+                                        <p class="text-muji-earth text-[10px] mt-0.5 leading-relaxed">平價服飾與精緻生活雜貨 Outlet，各種日系童裝、舒適襪子或居家小物常有驚喜大特價，爸媽 and 奶奶能在此輕鬆挖寶。</p>
                                     </div>
                                 </div>
                                 <div class="pt-2 flex items-start gap-2 text-[11px]">
@@ -901,16 +901,30 @@
                 </div>
             </div>
 
-            <!-- 3. 🛍️ 購物清單 (由原備忘錄改建，支援動態自訂增刪物品) -->
+            <!-- 3. 🛍️ 購物清單 (支援動態自訂增刪物品 + 商品拍照功能) -->
             <div id="lcontent-shopping" class="list-panel hidden bg-white p-4 rounded-3xl border border-muji-linen shadow-sm space-y-3">
                 <div class="bg-chiikawa-blue p-3 rounded-2xl text-xs text-muji-charcoal border border-blue-200">
                     <p class="font-bold">🛒 戰利品 & 採買清單：</p>
-                    <p class="text-muji-earth mt-1">在這裡記錄想在名古屋各大商圈（大須、榮、AEON）購買的藥妝、電器、公仔與伴手禮！</p>
+                    <p class="text-muji-earth mt-1">在這裡記錄想在名古屋各大商圈購買的藥妝、伴手禮！拍照備份能讓日本店員一秒看懂協助找貨！</p>
                 </div>
                 
                 <div class="flex gap-2">
+                    <!-- 💡 拍照/傳圖按鈕：與記帳本功能看齊 -->
+                    <label class="flex items-center justify-center w-10 h-10 rounded-xl bg-chiikawa-blue border border-blue-200 text-blue-600 cursor-pointer hover:bg-blue-100 transition-colors flex-shrink-0">
+                        <i id="shopping-photo-icon" class="fa-solid fa-camera text-blue-500 text-sm"></i>
+                        <input type="file" id="shopping-img-input" accept="image/*" class="hidden" onchange="handleShoppingImageUpload()">
+                    </label>
                     <input type="text" id="shopping-item-input" placeholder="例如：合利他命、蝦仙貝、吉伊卡哇..." class="flex-1 px-3 py-2 rounded-xl border border-muji-linen text-xs focus:outline-none focus:ring-1 focus:ring-chiikawa-pinkdeep">
                     <button onclick="addShoppingItem()" class="bg-muji-charcoal text-white px-4 py-2 rounded-xl text-xs font-bold hover:bg-opacity-95 transition-all">新增</button>
+                </div>
+
+                <!-- 💡 拍照上傳預覽區域 -->
+                <div id="shopping-preview-container" class="hidden text-center bg-muji-sand p-2 rounded-xl border border-muji-linen flex items-center justify-between gap-2">
+                    <div class="flex items-center gap-2">
+                        <img id="shopping-preview-img" src="" class="h-10 w-10 object-cover rounded-lg border border-muji-linen shadow-sm">
+                        <span class="text-[10px] text-muji-earth">📷 已備妥商品圖，按「新增」即可存入清單！</span>
+                    </div>
+                    <button onclick="clearShoppingImagePreview()" class="text-red-400 hover:text-red-500 text-xs px-2 py-1"><i class="fa-solid fa-circle-xmark"></i> 清除</button>
                 </div>
 
                 <div class="space-y-2 mt-4" id="shopping-list-container">
@@ -1198,11 +1212,11 @@
                 { time: '11:45', title: '桃園機場報到登機 🛫', desc: '第一航廈星宇航空櫃檯 Check-in，託運大行李，推車準備機邊托運。入關後先在「候機時刻」推薦的兒童放電區放電。' },
                 { time: '14:55', title: '星宇 JX 838 啟航 ✈️', desc: '起航飛向名古屋。起航一小時後提供精緻飛機餐。' },
                 { time: '18:45', title: '抵達名古屋中部機場 🇯🇵', desc: '抵達後迅速過關，出示準備好的 Visit Japan Web 入境 QR Code 快速查驗。' },
-                { time: '19:15', title: '申辦兒童 manaca 交通卡 💳', desc: '在名鐵售票處幫兩位小女孩申辦兒童專用交通卡（押金500日圓），出示護照，搭車半票。' },
+                { time: '19:15', title: '申辦兒童 manaca 交通卡 💳', desc: '在名鐵售票處幫裝備辦理兒童交通卡（押金500日圓），出示護照，搭車半價。' },
                 { time: '19:47', title: '搭乘名鐵特急 🚇', desc: '坐名鐵特急前往名古屋市區（車票890日圓，小孩半票，車程38分鐘）。若能趕上19:37或19:47的特急班次最方便！' },
                 { time: '20:25', title: '抵達名古屋車站 🚉', desc: '特別提醒下車後找電梯，從「西改札口」出站步行500公尺（約6-10分鐘）抵達大和ROYNET飯店。' },
                 { time: '20:40', title: '飯店 Check-in 🏨', desc: '辦理大和ROYNET飯店名古屋太閣通口入住與行李置放。' },
-                { time: '21:00', title: 'MaxValu 太閣店宵夜採買 🍎', desc: '輕裝步行300公尺到24小時營業的 MaxValu 採買宵夜，以及明早的水果 and 鮮奶。', mapUrl: 'https://maps.app.goo.gl/tfVk37einACjetAx7' }
+                { time: '21:00', title: 'MaxValu 太閣店宵夜採買 🍎', desc: '輕裝步行300公尺到24小時營業 of MaxValu 採買宵夜，以及明早的水果 and 鮮奶。', mapUrl: 'https://maps.app.goo.gl/tfVk37einACjetAx7' }
             ],
             2: {
                 common_before: [
@@ -1279,11 +1293,11 @@
                         { time: '17:30', title: '綠洲 21 與榮區晚餐 🌆', desc: '上前津站搭地鐵至榮站，拍電視塔夜景，晚餐吃德兵衛迴轉壽司。隨後搭東山線回名古屋站準備行李箱封箱。', mapUrl: 'https://maps.app.goo.gl/dRoKeSaPftvEVkGF7' }
                     ],
                     'B': [
-                        { time: '08:00', title: '【方案 B】Sun Road 買乾糧 🍙', desc: '先在地下街買好 Konparu 三明治 and 飯糰，當作東山動物園的野餐糧食. ',mapUrl: 'https://maps.app.goo.gl/We59R5tJsBAdfDCy7' },
-                        { time: '08:30', title: '搭東山線前往東山公園 🚇', desc: '名古屋站搭乘地鐵東山線直達「東山公園站」，步行大約 5 分鐘抵達大門。建議購買一日環保票。',mapUrl: 'https://maps.app.goo.gl/YXNHbd8VUywg5iAP9' },
-                        { time: '09:00', title: '東山動植物園大放電 🦍', desc: '先去看帥哥猩猩 Shabani！中午在野餐區用餐，11 點後太熱的話躲進自然科學館或天空塔。' },
-                        { time: '14:30', title: 'Bic Camera 西店特攻 🔌', desc: '下午最熱時回到飯店隔邊 Bic Camera 百貨內慢慢挑選電器、玩具，極輕鬆。',mapUrl: 'https://maps.app.goo.gl/zoywuGNDrsp1HV2N8' },
-                        { time: '18:00', title: 'ESCA 地下街晚餐 🍛', desc: '晚餐享用美食。19:00 去千里馬或高島屋 B1伴手禮最後衝刺，20:00 行李大封箱！' }
+                        { time: '08:00', title: '【方案 B】Sun Road 買野餐 🍙', desc: '在名站地下街先買好美味的可頌、炸蝦三明治與飯糰，作爲東山動植物園的草坪野餐乾糧。', mapUrl: 'https://maps.app.goo.gl/We59R5tJsBAdfDCy7' },
+                        { time: '08:30', title: '東山線直達東山公園 🚇', desc: '搭地鐵東山線往藤之丘方向，坐 8 站（大約 15 分鐘）在「東山公園站」下車，步行 3 分鐘即抵。' },
+                        { time: '09:00', title: '東山動植物園慢行 🦍', desc: '進入園區，先去看全日本最帥的黑猩猩「夏班尼 (Shabani)」、可愛無尾熊，園內非常寬敞。中午帶長輩與孩子在陰涼草地享用美味野餐。2 歲小寶貝累了可在推車上小憩，下午坐園區單軌列車。' },
+                        { time: '14:30', title: '回到市區特攻 Bic 🔌', desc: '坐東山線回到名古屋站，直攻飯店隔壁的 Bic Camera 電器行，挑選美容儀與電器。買好後先提回房間，不累贅。', mapUrl: 'https://maps.app.goo.gl/zoywuGNDrsp1HV2N8' },
+                        { time: '18:00', title: '名站地下街與封箱 🍛', desc: '晚餐在 ESCA 地下街吃名古屋名物矢場豬排。吃飽回房間，全體行李進行最後的大封箱！' }
                     ]
                 }
             },
@@ -1372,13 +1386,13 @@
 
         // 🛍️ 自訂購物採買清單數據
         let shoppingList = JSON.parse(localStorage.getItem('nagoya_shopping_list')) || [
-            { text: '合利他命 EX Plus 💊', checked: false },
-            { text: '吉伊卡哇玩偶/周邊商品 🌸', checked: false },
-            { text: '蝦仙貝之里 綜合大包裝仙貝 🦐', checked: false },
-            { text: 'Sugar Butter Tree 夾心餅乾 🧈', checked: false },
-            { text: '若元錠 Wakamoto', checked: false },
-            { text: '日本限定彩妝/口紅 💄', checked: false },
-            { text: 'Dyson 吹風機/日本電器 🔌', checked: false }
+            { text: '合利他命 EX Plus 💊', checked: false, img: "" },
+            { text: '吉伊卡哇玩偶/周邊商品 🌸', checked: false, img: "" },
+            { text: '蝦仙貝之里 綜合大包裝仙貝 🦐', checked: false, img: "" },
+            { text: 'Sugar Butter Tree 夾心餅乾 🧈', checked: false, img: "" },
+            { text: '若元錠 Wakamoto', checked: false, img: "" },
+            { text: '日本限定彩妝/口紅 💄', checked: false, img: "" },
+            { text: 'Dyson 吹風機/日本電器 🔌', checked: false, img: "" }
         ];
 
         let memos = JSON.parse(localStorage.getItem('memos')) || [
@@ -2011,11 +2025,9 @@
             document.getElementById(`lcontent-${tabId}`).classList.remove('hidden');
 
             document.querySelectorAll('.list-sub-btn').forEach(btn => {
-                btn.classList.remove('bg-muji-charcoal', 'text-white');
-                btn.classList.add('bg-white', 'text-muji-charcoal', 'border-muji-linen');
+                btn.className = "list-sub-btn py-2 rounded-2xl bg-white text-muji-charcoal border border-muji-linen text-xs font-bold transition-all";
             });
-            document.getElementById(`lbtn-${tabId}`).classList.add('bg-muji-charcoal', 'text-white');
-            document.getElementById(`lbtn-${tabId}`).classList.remove('bg-white', 'text-muji-charcoal', 'border-muji-linen');
+            document.getElementById(`lbtn-${tabId}`).className = "list-sub-btn py-2 rounded-2xl bg-muji-charcoal text-white text-xs font-bold transition-all";
 
             // 購物清單與備忘錄分頁不需要顯示行李箱專用一鍵重設按鈕
             const resetBtn = document.getElementById('reset-checklist-bar');
@@ -2118,6 +2130,49 @@
             });
         }
 
+        // 🛍️ 購物清單變數
+        let shoppingUploadedImageBase64 = "";
+
+        // 💡 購物清單照片上傳與無障礙 Canvas 縮小壓縮
+        function handleShoppingImageUpload() {
+            const fileInput = document.getElementById('shopping-img-input');
+            const previewContainer = document.getElementById('shopping-preview-container');
+            const previewImg = document.getElementById('shopping-preview-img');
+            const photoIcon = document.getElementById('shopping-photo-icon');
+
+            if (fileInput.files && fileInput.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const img = new Image();
+                    img.onload = function() {
+                        const canvas = document.createElement('canvas');
+                        const ctx = canvas.getContext('2d');
+                        const maxW = 120; // 保護 localStorage, 寬度限制在 120px 
+                        const scale = maxW / img.width;
+                        canvas.width = maxW;
+                        canvas.height = img.height * scale;
+
+                        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+                        shoppingUploadedImageBase64 = canvas.toDataURL('image/jpeg', 0.6); // 60% JPEG 壓縮
+
+                        previewImg.src = shoppingUploadedImageBase64;
+                        previewContainer.classList.remove('hidden');
+                        photoIcon.className = "fa-solid fa-camera text-rose-500 text-sm animate-pulse-soft";
+                    };
+                    img.src = e.target.result;
+                };
+                reader.readAsDataURL(fileInput.files[0]);
+            }
+        }
+
+        function clearShoppingImagePreview() {
+            shoppingUploadedImageBase64 = "";
+            document.getElementById('shopping-img-input').value = "";
+            document.getElementById('shopping-preview-container').classList.add('hidden');
+            document.getElementById('shopping-preview-img').src = "";
+            document.getElementById('shopping-photo-icon').className = "fa-solid fa-camera text-blue-500 text-sm";
+        }
+
         // 🛍️ 購物清單相關函數 (新增 / 勾選 / 刪除 / 渲染)
         function addShoppingItem() {
             const input = document.getElementById('shopping-item-input');
@@ -2126,9 +2181,14 @@
                 showAlert("提示", "請填入想買的品項名稱喔！🛍️", "💡");
                 return;
             }
-            shoppingList.push({ text: text, checked: false });
+            shoppingList.push({ 
+                text: text, 
+                checked: false, 
+                img: shoppingUploadedImageBase64 || "" 
+            });
             localStorage.setItem('nagoya_shopping_list', JSON.stringify(shoppingList));
             input.value = "";
+            clearShoppingImagePreview();
             renderShoppingList();
         }
 
@@ -2153,7 +2213,7 @@
                     <div class="text-center py-8 text-muji-earth">
                         <p class="text-3xl mb-2">🛍️</p>
                         <p class="text-[11px] font-bold">目前採買清單空空的喔！</p>
-                        <p class="text-[9px] opacity-75 mt-0.5">趕快在上方輸入像是「合利他命」、「蠟筆小新周邊」來建立購物清單吧！</p>
+                        <p class="text-[9px] opacity-75 mt-0.5">趕快在上方拍照或輸入「蝦仙貝」來建立圖鑑購物單吧！</p>
                     </div>
                 `;
                 return;
@@ -2161,14 +2221,29 @@
 
             shoppingList.forEach((item, idx) => {
                 const card = document.createElement('div');
-                card.className = `p-3 rounded-2xl border flex items-center justify-between gap-2 text-xs fade-in transition-all ${item.checked ? 'bg-chiikawa-pink/70 border-chiikawa-pinkdeep text-muji-charcoal font-semibold' : 'bg-muji-sand border-muji-linen text-muji-earth'}`;
+                card.className = `p-3 rounded-2xl border flex items-center justify-between gap-2 text-xs fade-in transition-all ${item.checked ? 'bg-chiikawa-pink/70 border-chiikawa-pinkdeep text-muji-charcoal' : 'bg-muji-sand border-muji-linen text-muji-earth shadow-sm'}`;
                 
+                // 💡 圖片渲染邏輯與燈箱開啟 (Lightbox Zooming)
+                let imgHtml = "";
+                if (item.img) {
+                    imgHtml = `
+                        <img src="${item.img}" onclick="openLightbox('${item.img}')" class="w-10 h-10 object-cover rounded-lg border border-muji-linen cursor-zoom-in hover:scale-[1.03] active:scale-[0.98] transition-transform flex-shrink-0">
+                    `;
+                } else {
+                    imgHtml = `
+                        <div class="w-10 h-10 bg-muji-linen rounded-lg flex items-center justify-center text-sm flex-shrink-0 text-muji-earth">🛍️</div>
+                    `;
+                }
+
                 card.innerHTML = `
-                    <button onclick="toggleShoppingItem(${idx})" class="flex items-center gap-2 text-left text-[11px] font-semibold flex-1 active:scale-[0.98] transition-transform">
-                        <i class="fa-regular ${item.checked ? 'fa-square-check text-chiikawa-pinkdeep text-sm' : 'fa-square text-muji-earth'}"></i>
-                        <span class="${item.checked ? 'line-through text-muji-earth' : ''}">${item.text}</span>
-                    </button>
-                    <button onclick="deleteShoppingItem(${idx})" class="text-red-400 hover:text-red-600 p-1 flex-shrink-0 text-xs">
+                    <div class="flex items-center gap-2.5 flex-1 min-w-0">
+                        ${imgHtml}
+                        <button onclick="toggleShoppingItem(${idx})" class="flex items-center gap-2 text-left text-[11px] font-semibold flex-1 active:scale-[0.98] transition-transform min-w-0">
+                            <i class="fa-regular ${item.checked ? 'fa-square-check text-chiikawa-pinkdeep text-sm flex-shrink-0' : 'fa-square text-muji-earth flex-shrink-0'}"></i>
+                            <span class="${item.checked ? 'line-through text-muji-earth' : 'text-muji-charcoal'} break-words">${item.text}</span>
+                        </button>
+                    </div>
+                    <button onclick="deleteShoppingItem(${idx})" class="text-red-400 hover:text-red-600 p-1 flex-shrink-0 text-xs ml-1">
                         <i class="fa-regular fa-trash-can"></i>
                     </button>
                 `;
@@ -2239,7 +2314,7 @@
             });
         }
 
-        // 💡 點擊收據相片放大燈箱功能
+        // 💡 點擊相片放大燈箱功能
         function openLightbox(imgSrc) {
             if (!imgSrc) return;
             document.getElementById('lightbox-img').src = imgSrc;
@@ -2248,6 +2323,7 @@
             modal.classList.add('flex');
         }
 
+        // 關閉燈箱
         function closeLightbox() {
             const modal = document.getElementById('lightbox-modal');
             modal.classList.add('hidden');
@@ -2267,8 +2343,8 @@
             renderTimeline();
             renderExpenses();
             renderChecklists();
-            renderShoppingList(); // 💡 載入購物採買清單
-            renderMemos();        // 💡 載入實用常用連結 (移至 INFO 分頁中)
+            renderShoppingList(); // 💡 確保載入時立刻渲染購物清單
+            renderMemos();        // 💡 確保載入時立刻渲染備忘錄重要連結
         };
     </script>
 </body>
