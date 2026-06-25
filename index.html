@@ -117,11 +117,11 @@
                     <span class="text-xl animate-pulse-soft">🗺️</span>
                     <div>
                         <p class="font-bold text-muji-charcoal text-xs">旅途骨幹資訊速查</p>
-                        <p class="text-[10px] text-muji-earth">航班去回・三代同堂 7 人・啟程秒退</p>
+                        <p class="text-[10px] text-muji-earth">出遊倒數・三代同堂 7 人・航班去回</p>
                     </div>
                 </div>
                 <div class="flex gap-1">
-                    <span class="bg-rose-100 text-rose-600 px-2 py-1 rounded-full text-[10px] font-bold">倒數中</span>
+                    <span class="bg-rose-100 text-rose-600 px-2.5 py-0.5 rounded-full text-[10px] font-bold" id="header-countdown-status">倒數中</span>
                 </div>
             </div>
 
@@ -633,7 +633,7 @@
                                     <span class="text-lg">🥟</span>
                                     <div>
                                         <strong class="text-muji-charcoal font-bold">11. 包包亭 (Pao Pao Tei)</strong>
-                                        <p class="text-muji-earth text-[10px] mt-0.5 leading-relaxed">台灣傳過去的爆汁生煎包！店內現包現煎，底部金黃香脆。咬開時湯汁噴湧（吃的時候請務必提醒 8 歲與 6 歲的姊妹小心燙口與噴到衣服！）。</p>
+                                        <p class="text-muji-earth text-[10px] mt-0.5 leading-relaxed">台灣傳過去的爆汁生煎包！店內現包現煎，底部金黃香脆。咬開時湯汁噴湧（吃的時候請務必提醒 8 歲與 6 歲的姊妹小心湯口與噴到衣服！）。</p>
                                     </div>
                                 </div>
                                 <div class="pt-2 flex items-start gap-2">
@@ -683,7 +683,7 @@
                                     <span class="text-lg">🏷️</span>
                                     <div>
                                         <strong class="text-muji-charcoal font-bold">17. B-SIDE LABEL 名古屋大須店</strong>
-                                        <p class="text-muji-earth text-[10px] mt-0.5 leading-relaxed">超人氣潮流原創防水貼紙專賣。種類破千、設計充滿搞怪幽默或精緻日系動漫感。貼在行李箱、手機殼或水壺上，絕對能讓姊妹們挖到寶！</p>
+                                        <p class="text-muji-earth text-[10px] mt-0.5 leading-relaxed">超人氣潮流原創防水貼紙專專賣。種類破千、設計充滿搞怪幽默或精緻日系動漫感。貼在行李箱、手機殼或水壺上，絕對能讓姊妹們挖到寶！</p>
                                     </div>
                                 </div>
                                 <div class="pt-2 flex items-start gap-2">
@@ -973,16 +973,26 @@
 
     <!-- 底部圓潤導航列 -->
     <nav class="fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-muji-linen px-4 py-2 flex justify-around items-center shadow-lg z-50 max-w-md mx-auto rounded-t-3xl">
-        <div class="max-w-md mx-auto px-6 flex justify-between items-center">
-            <div class="flex items-center gap-1.5">
-                <span class="text-xs font-bold text-gray-500">倒數狀態:</span>
-                <span class="text-xs text-brand-primary font-bold animate-pulse" id="footer-status">準備出發！</span>
-            </div>
-            <div class="text-right">
-                <span class="text-[9px] text-gray-400 block">🌸 祝全家旅途愉快 🌸</span>
-                <span class="text-[10px] text-gray-500 font-bold">安心元氣應援中</span>
-            </div>
-        </div>
+        <button onclick="switchTab('plan')" id="nav-plan" class="nav-btn flex flex-col items-center gap-0.5 text-chiikawa-pinkdeep transition-all py-1.5 px-3 rounded-xl bg-chiikawa-pink/50">
+            <i class="fa-solid fa-map-location-dot text-lg"></i>
+            <span class="text-[10px] font-bold">PLAN</span>
+        </button>
+        <button onclick="switchTab('guide')" id="nav-guide" class="nav-btn flex flex-col items-center gap-0.5 text-muji-earth hover:text-muji-charcoal transition-all py-1.5 px-3 rounded-xl">
+            <i class="fa-solid fa-compass text-lg"></i>
+            <span class="text-[10px] font-bold">GUIDE</span>
+        </button>
+        <button onclick="switchTab('wallet')" id="nav-wallet" class="nav-btn flex flex-col items-center gap-0.5 text-muji-earth hover:text-muji-charcoal transition-all py-1.5 px-3 rounded-xl">
+            <i class="fa-solid fa-wallet text-lg"></i>
+            <span class="text-[10px] font-bold">WALLET</span>
+        </button>
+        <button onclick="switchTab('lists')" id="nav-lists" class="nav-btn flex flex-col items-center gap-0.5 text-muji-earth hover:text-muji-charcoal transition-all py-1.5 px-3 rounded-xl">
+            <i class="fa-solid fa-clipboard-check text-lg"></i>
+            <span class="text-[10px] font-bold">LISTS</span>
+        </button>
+        <button onclick="switchTab('info')" id="nav-info" class="nav-btn flex flex-col items-center gap-0.5 text-muji-earth hover:text-muji-charcoal transition-all py-1.5 px-3 rounded-xl">
+            <i class="fa-solid fa-circle-info text-lg"></i>
+            <span class="text-[10px] font-bold">INFO</span>
+        </button>
     </nav>
 
     <!-- 自定義對話框 Modal 元件 -->
@@ -1012,30 +1022,6 @@
             </button>
         </div>
     </div>
-
-    <!-- 底部圓潤導航列 -->
-    <nav class="fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-muji-linen px-4 py-2 flex justify-around items-center shadow-lg z-50 max-w-md mx-auto rounded-t-3xl">
-        <button onclick="switchTab('plan')" id="nav-plan" class="nav-btn flex flex-col items-center gap-0.5 text-chiikawa-pinkdeep transition-all py-1.5 px-3 rounded-xl bg-chiikawa-pink/50">
-            <i class="fa-solid fa-map-location-dot text-lg"></i>
-            <span class="text-[10px] font-bold">PLAN</span>
-        </button>
-        <button onclick="switchTab('guide')" id="nav-guide" class="nav-btn flex flex-col items-center gap-0.5 text-muji-earth hover:text-muji-charcoal transition-all py-1.5 px-3 rounded-xl">
-            <i class="fa-solid fa-compass text-lg"></i>
-            <span class="text-[10px] font-bold">GUIDE</span>
-        </button>
-        <button onclick="switchTab('wallet')" id="nav-wallet" class="nav-btn flex flex-col items-center gap-0.5 text-muji-earth hover:text-muji-charcoal transition-all py-1.5 px-3 rounded-xl">
-            <i class="fa-solid fa-wallet text-lg"></i>
-            <span class="text-[10px] font-bold">WALLET</span>
-        </button>
-        <button onclick="switchTab('lists')" id="nav-lists" class="nav-btn flex flex-col items-center gap-0.5 text-muji-earth hover:text-muji-charcoal transition-all py-1.5 px-3 rounded-xl">
-            <i class="fa-solid fa-clipboard-check text-lg"></i>
-            <span class="text-[10px] font-bold">LISTS</span>
-        </button>
-        <button onclick="switchTab('info')" id="nav-info" class="nav-btn flex flex-col items-center gap-0.5 text-muji-earth hover:text-muji-charcoal transition-all py-1.5 px-3 rounded-xl">
-            <i class="fa-solid fa-circle-info text-lg"></i>
-            <span class="text-[10px] font-bold">INFO</span>
-        </button>
-    </nav>
 
     <!-- JavaScript 邏輯控制 -->
     <script>
@@ -1084,7 +1070,7 @@
             };
         }
 
-        // 0.5 櫻花倒數計時器邏輯 (優化相容性)
+        // 0.5 櫻花倒數計時器邏輯 (優化相容性與狀態呈現)
         function startCountdown() {
             // 使用更具跨瀏覽器（如 Safari iOS）相容性的 Date 參數初始化
             const targetDate = new Date(2026, 6, 27, 14, 55, 0).getTime(); 
@@ -1093,8 +1079,14 @@
                 const now = new Date().getTime();
                 const diff = targetDate - now;
                 
+                const countdownStatusSpan = document.getElementById('header-countdown-status');
+                
                 if (diff <= 0) {
                     document.getElementById('countdown-timer').innerHTML = "🌸 已經順利啟航囉！祝旅行快樂！ 🎉";
+                    if (countdownStatusSpan) {
+                        countdownStatusSpan.innerText = "旅行中";
+                        countdownStatusSpan.className = "bg-green-100 text-green-600 px-2.5 py-0.5 rounded-full text-[10px] font-bold";
+                    }
                     return;
                 }
                 
@@ -1108,6 +1100,10 @@
                     `<span class="text-sm font-bold text-muji-charcoal">${hours}</span> 小時 ` +
                     `<span class="text-sm font-bold text-muji-charcoal">${minutes}</span> 分 ` +
                     `<span class="text-xs text-muji-earth font-normal">${seconds} 秒</span>`;
+                
+                if (countdownStatusSpan) {
+                    countdownStatusSpan.innerText = `剩 ${days} 天`;
+                }
             }
             
             updateTimer();
@@ -1127,7 +1123,7 @@
             }
         }
 
-        // 0.65 補上漏寫的飯店詳情摺疊控制（修正 ReferenceError）
+        // 0.65 飯店詳情摺疊控制
         function toggleHotelDetails() {
             const block = document.getElementById('hotel-details-block');
             const arrow = document.getElementById('hotel-details-arrow');
@@ -1596,7 +1592,7 @@
                         { coords: [35.1594196247495, 136.90492739775308], title: "🥟 包包亭生煎包", desc: "金黃酥脆爆汁生煎包，小心燙口。" },
                         { coords: [35.15937796062927, 136.90471818545507], title: "🍤 Konparu 大須本店", desc: "名古屋老店炸蝦三明治首選。" },
                         { coords: [35.159006416164296, 136.90498368958188], title: "🛒 唐吉訶德 大須店", desc: "一站式免稅百貨採購零食藥妝。" },
-                        { coords: [35.15861373652554, 136.90560471515283], title: "🛍️ Belle Mall 大須店", desc: "日系平價童裝服飾挖寶去處。" },
+                        { coords: [35.15861373652554, 136.90560471515283], title: "🛍️ Belle Mall 大須店", desc: "日系平價童裝服飾挖寶處。" },
                         { coords: [35.158634734585384, 136.90544927229382], title: "🎰 #C-pla 扭蛋店2號店", desc: "大型扭蛋店，冷氣強，孩子超愛。" },
                         { coords: [35.15823398677746, 136.90442936232026], title: "🐟 鳴門鯛燒本舗", desc: "超好吃的黃金地瓜餡鯛魚燒。" },
                         { coords: [35.15819904880394, 136.9046478119856], title: "🐱 巨大招財貓地標", desc: "大須必拍巨大招財貓，全家合影首選。" },
@@ -1616,13 +1612,13 @@
                          `);
                     });
 
-                    // 💡 建立推薦散步路線軌跡 (粉紅吉伊卡哇色虛線)
+                    // 💡 建立推薦散步路線軌跡 (藍色虛線)
                     const routeCoords = [
                         [35.16016580527812, 136.898498075464], // 大須觀音站 (2號口)
                         [35.15956935394174, 136.8986295037025], // 7-11
                         [35.15948995951364, 136.89938733959892], // 大須觀音寺門口
                         [35.159850, 136.899630], // 大須觀音寺
-                        [35.15948995951364, 136.89938733959892], // 大須觀音寺門口
+                        [35.15948995951364, 136.89994658016468], // 大須觀音寺門口
                         [35.15939566708206, 136.9005111851484], // 百圓商店
                         [35.15902288197992, 136.9003422059846], // 大須外郎
                         [35.15910401770645, 136.89994658016468], // 青蛙饅頭
@@ -1642,7 +1638,7 @@
                     ];
 
                     const routeLine = L.polyline(routeCoords, {
-                        color: '#1A73E8',       // google藍
+                        color: '#1A73E8',       // 我要藍色的
                         weight: 6,              // 線條粗細
                         dashArray: '5, 10',     // 虛線間距
                         opacity: 0.9,
@@ -1716,7 +1712,9 @@
             const screenText = document.getElementById('calc-screen').innerText;
             const rate = parseFloat(document.getElementById('exchange-rate').value) || 0.2105;
             const val = parseFloat(screenText) || 0;
-            const res = (val * rate).toFixed(0);
+            
+            // 💡 修正：增加 isFinite 驗證，防止用戶運算到除零 (Infinity) 時呼叫 toFixed 造成網頁卡死崩潰
+            const res = isFinite(val) ? (val * rate).toFixed(0) : "0";
             document.getElementById('calc-twd-estimate').innerText = `約 NT$ ${res}`;
         }
 
