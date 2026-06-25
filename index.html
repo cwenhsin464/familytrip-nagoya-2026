@@ -434,7 +434,7 @@
                 <!-- 4. 樂高樂園專屬爸媽貼心話（置頂） -->
                 <div class="p-3 rounded-2xl bg-chiikawa-yellow border border-yellow-300 text-[10px] text-muji-charcoal leading-relaxed shadow-sm">
                     <span class="font-bold flex items-center gap-1 mb-1 text-amber-700"><i class="fa-solid fa-puzzle-piece"></i> 🧱 樂高樂園 · 爸媽貼心話：</span>
-                    樂高樂園佔地寬敞，實施「分組作戰」最省力！中午 11:40~13:00，<strong>爸媽帶姊妹去排探險園區的設施；爺奶陪弟弟進入編號 30 號阿姆斯特拉秘密之室</strong>玩積木。<strong>最晚 17:00 前至更室為三位寶貝換上全套乾爽衣物及鞋襪</strong>（濕衣裝袋裝箱裝盒絕不可進冷氣強的 17:30 4D 影廳防感冒！）。
+                    樂高樂園佔地寬敞，實施「分組作戰」最省力！中午 11:40~13:00，<strong>爸媽帶姊妹去排探險園區的設施；爺奶陪弟弟進入編號 30 號阿姆斯特拉秘密之室</strong>玩積木。<strong>最晚 17:00 前至更室為三位寶貝換上全套乾爽衣物及鞋襪</strong>（濕衣裝袋裝箱裝盒裝球絕不可進冷氣強的 17:30 4D 影廳防感冒！）。
                 </div>
 
                 <p class="text-xs text-muji-earth leading-relaxed">
@@ -1002,18 +1002,28 @@
 
     </main>
 
-    <!-- 底部圓潤導航列 -->
-    <nav class="fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-muji-linen py-2.5 z-40 shadow-[0_-2px_10px_rgba(0,0,0,0.03)]">
-        <div class="max-w-md mx-auto px-6 flex justify-between items-center">
-            <div class="flex items-center gap-1.5">
-                <span class="text-xs font-bold text-gray-500">倒數狀態:</span>
-                <span class="text-xs text-brand-primary font-bold animate-pulse" id="footer-status">準備出發！</span>
-            </div>
-            <div class="text-right">
-                <span class="text-[9px] text-gray-400 block">🌸 祝全家旅途愉快 🌸</span>
-                <span class="text-[10px] text-gray-500 font-bold">安心元氣應援中</span>
-            </div>
-        </div>
+    <!-- 底部圓潤導航列 (修正：移除了底下重疊、含有 z-40 冗餘狀態條，只保留 100% 乾淨的主功能分頁列) -->
+    <nav class="fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-muji-linen px-4 py-2 flex justify-around items-center shadow-lg z-50 max-w-md mx-auto rounded-t-3xl">
+        <button onclick="switchTab('plan')" id="nav-plan" class="nav-btn flex flex-col items-center gap-0.5 text-chiikawa-pinkdeep transition-all py-1.5 px-3 rounded-xl bg-chiikawa-pink/50">
+            <i class="fa-solid fa-map-location-dot text-lg"></i>
+            <span class="text-[10px] font-bold">PLAN</span>
+        </button>
+        <button onclick="switchTab('guide')" id="nav-guide" class="nav-btn flex flex-col items-center gap-0.5 text-muji-earth hover:text-muji-charcoal transition-all py-1.5 px-3 rounded-xl">
+            <i class="fa-solid fa-compass text-lg"></i>
+            <span class="text-[10px] font-bold">GUIDE</span>
+        </button>
+        <button onclick="switchTab('wallet')" id="nav-wallet" class="nav-btn flex flex-col items-center gap-0.5 text-muji-earth hover:text-muji-charcoal transition-all py-1.5 px-3 rounded-xl">
+            <i class="fa-solid fa-wallet text-lg"></i>
+            <span class="text-[10px] font-bold">WALLET</span>
+        </button>
+        <button onclick="switchTab('lists')" id="nav-lists" class="nav-btn flex flex-col items-center gap-0.5 text-muji-earth hover:text-muji-charcoal transition-all py-1.5 px-3 rounded-xl">
+            <i class="fa-solid fa-clipboard-check text-lg"></i>
+            <span class="text-[10px] font-bold">LISTS</span>
+        </button>
+        <button onclick="switchTab('info')" id="nav-info" class="nav-btn flex flex-col items-center gap-0.5 text-muji-earth hover:text-muji-charcoal transition-all py-1.5 px-3 rounded-xl">
+            <i class="fa-solid fa-circle-info text-lg"></i>
+            <span class="text-[10px] font-bold">INFO</span>
+        </button>
     </nav>
 
     <!-- 自定義對話框 Modal 元件 -->
@@ -1043,30 +1053,6 @@
             </button>
         </div>
     </div>
-
-    <!-- 底部圓潤導航列 -->
-    <nav class="fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-muji-linen px-4 py-2 flex justify-around items-center shadow-lg z-50 max-w-md mx-auto rounded-t-3xl">
-        <button onclick="switchTab('plan')" id="nav-plan" class="nav-btn flex flex-col items-center gap-0.5 text-chiikawa-pinkdeep transition-all py-1.5 px-3 rounded-xl bg-chiikawa-pink/50">
-            <i class="fa-solid fa-map-location-dot text-lg"></i>
-            <span class="text-[10px] font-bold">PLAN</span>
-        </button>
-        <button onclick="switchTab('guide')" id="nav-guide" class="nav-btn flex flex-col items-center gap-0.5 text-muji-earth hover:text-muji-charcoal transition-all py-1.5 px-3 rounded-xl">
-            <i class="fa-solid fa-compass text-lg"></i>
-            <span class="text-[10px] font-bold">GUIDE</span>
-        </button>
-        <button onclick="switchTab('wallet')" id="nav-wallet" class="nav-btn flex flex-col items-center gap-0.5 text-muji-earth hover:text-muji-charcoal transition-all py-1.5 px-3 rounded-xl">
-            <i class="fa-solid fa-wallet text-lg"></i>
-            <span class="text-[10px] font-bold">WALLET</span>
-        </button>
-        <button onclick="switchTab('lists')" id="nav-lists" class="nav-btn flex flex-col items-center gap-0.5 text-muji-earth hover:text-muji-charcoal transition-all py-1.5 px-3 rounded-xl">
-            <i class="fa-solid fa-clipboard-check text-lg"></i>
-            <span class="text-[10px] font-bold">LISTS</span>
-        </button>
-        <button onclick="switchTab('info')" id="nav-info" class="nav-btn flex flex-col items-center gap-0.5 text-muji-earth hover:text-muji-charcoal transition-all py-1.5 px-3 rounded-xl">
-            <i class="fa-solid fa-circle-info text-lg"></i>
-            <span class="text-[10px] font-bold">INFO</span>
-        </button>
-    </nav>
 
     <!-- JavaScript 邏輯控制 -->
     <script>
@@ -1360,7 +1346,7 @@
             ]}
         ];
 
-        // 🛍️ 自訂購物採買清單數據 (由備忘錄分頁改建)
+        // 🛍️ 自訂購物採買清單數據 (原本個人備忘空間轉型)
         let shoppingList = JSON.parse(localStorage.getItem('nagoya_shopping_list')) || [
             { text: '合利他命 EX Plus 💊', checked: false },
             { text: '吉伊卡哇玩偶/周邊商品 🌸', checked: false },
@@ -1778,6 +1764,7 @@
         // 8. 記帳邏輯與優化
         let uploadedImageBase64 = "";
 
+        // 壓縮照片以儲存至 LocalStorage
         function handleImageUpload() {
             const fileInput = document.getElementById('expense-img');
             const statusText = document.getElementById('photo-status');
@@ -2151,7 +2138,7 @@
 
             shoppingList.forEach((item, idx) => {
                 const card = document.createElement('div');
-                card.className = `p-3 rounded-2xl border flex items-center justify-between gap-2 text-xs fade-in transition-all ${item.checked ? 'bg-chiikawa-pink/70 border-chiikawa-pinkdeep text-muji-charcoal' : 'bg-muji-sand border-muji-linen text-muji-earth'}`;
+                card.className = `p-3 rounded-2xl border flex items-center justify-between gap-2 text-xs fade-in transition-all ${item.checked ? 'bg-chiikawa-pink/70 border-chiikawa-pinkdeep text-muji-charcoal font-semibold' : 'bg-muji-sand border-muji-linen text-muji-earth'}`;
                 
                 card.innerHTML = `
                     <button onclick="toggleShoppingItem(${idx})" class="flex items-center gap-2 text-left text-[11px] font-semibold flex-1 active:scale-[0.98] transition-transform">
