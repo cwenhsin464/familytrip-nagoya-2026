@@ -522,7 +522,7 @@
                 </div>
             </div>
 
-            <!-- 7. 🛍️ 大須商店街 導覽 (置頂爸媽貼心話、OSM 地圖與全彩繽紛雜誌感店鋪誌) -->
+            <!-- 7. 🛍️ 大須商店街 導覽 (置頂爸媽貼心話、OSM 地圖與全彩繽誌感店鋪誌) -->
             <div id="gcontent-osustreet" class="guide-panel hidden bg-white p-4 rounded-3xl border border-muji-linen shadow-sm space-y-4">
                 <div class="flex justify-between items-center border-b border-muji-linen pb-2">
                     <h3 class="font-bold text-base text-muji-charcoal flex items-center gap-1.5"><i class="fa-solid fa-bag-shopping text-pink-500"></i> 大須商店街親子全攻略</h3>
@@ -618,13 +618,6 @@
                                 <div class="pt-2 flex items-start gap-2">
                                     <span class="text-lg">🥐</span>
                                     <div>
-                                        <strong class="text-muji-charcoal font-bold">9. 銀のあん (銀之餡)</strong>
-                                        <p class="text-muji-earth text-[10px] mt-0.5 leading-relaxed">鯛魚燒的時尚革命！將24層千層酥皮的可頌麵包與香甜黑糖、紅豆餡結合，表面撒上顆粒感白糖，烤出來焦糖香氣撲鼻，口感極富層次感。</p>
-                                    </div>
-                                </div>
-                                <div class="pt-2 flex items-start gap-2">
-                                    <span class="text-lg">🍕</span>
-                                    <div>
                                         <strong class="text-muji-charcoal font-bold">10. Solo Pizza Napoletana 大須本店</strong>
                                         <p class="text-muji-earth text-[10px] mt-0.5 leading-relaxed">世界柴燒窯烤披薩冠軍！在大須也能享受義大利正統拿坡里風味，價格親民（最便宜不到 500 日圓）。世界冠軍瑪格麗特披薩是全家午餐首選！</p>
                                     </div>
@@ -633,7 +626,7 @@
                                     <span class="text-lg">🥟</span>
                                     <div>
                                         <strong class="text-muji-charcoal font-bold">11. 包包亭 (Pao Pao Tei)</strong>
-                                        <p class="text-muji-earth text-[10px] mt-0.5 leading-relaxed">台灣傳過去的爆汁生煎包！店內現包現煎，底部金黃香脆。咬開時湯汁噴湧（吃的時候請務必提醒 8 歲與 6 歲的姊妹小心湯口與噴到衣服！）。</p>
+                                        <p class="text-muji-earth text-[10px] mt-0.5 leading-relaxed">台灣傳過去的爆汁生煎包！店內現包現煎，底部金黃香脆。咬開時湯汁噴湧（吃的時候請務必提醒 8 歲與 6 歲 of 姊妹小心湯口與噴到衣服！）。</p>
                                     </div>
                                 </div>
                                 <div class="pt-2 flex items-start gap-2">
@@ -868,13 +861,13 @@
 
         <!-- ==================== TAB 4: LISTS (清單) ==================== -->
         <section id="tab-lists" class="tab-content hidden fade-in">
-            <h2 class="text-xl font-bold mb-4 flex items-center gap-2"><span class="text-lg">🎒</span> 行前與行李大檢查</h2>
+            <h2 class="text-xl font-bold mb-4 flex items-center gap-2"><span class="text-lg">🎒</span> 行前行李大檢查與購物清單</h2>
 
-            <!-- 清單子分頁切換 -->
+            <!-- 清單子分頁切換 (個人備忘修改為購物清單) -->
             <div class="grid grid-cols-3 gap-2 mb-4">
                 <button onclick="switchListTab('handbag')" id="lbtn-handbag" class="list-sub-btn py-2 rounded-2xl bg-muji-charcoal text-white text-xs font-bold transition-all">手提隨身</button>
                 <button onclick="switchListTab('luggage')" id="lbtn-luggage" class="list-sub-btn py-2 rounded-2xl bg-white text-muji-charcoal border border-muji-linen text-xs font-bold transition-all">托運行李</button>
-                <button onclick="switchListTab('memo')" id="lbtn-memo" class="list-sub-btn py-2 rounded-2xl bg-white text-muji-charcoal border border-muji-linen text-xs font-bold transition-all">個人備忘</button>
+                <button onclick="switchListTab('shopping')" id="lbtn-shopping" class="list-sub-btn py-2 rounded-2xl bg-white text-muji-charcoal border border-muji-linen text-xs font-bold transition-all">購物清單</button>
             </div>
 
             <!-- 一鍵重設行李打包勾選狀態 -->
@@ -908,16 +901,20 @@
                 </div>
             </div>
 
-            <!-- 3. 個人備忘錄 -->
-            <div id="lcontent-memo" class="list-panel hidden bg-white p-4 rounded-3xl border border-muji-linen shadow-sm space-y-3">
-                <h3 class="font-bold text-sm text-muji-charcoal">📝 旅途隨手記</h3>
+            <!-- 3. 🛍️ 購物清單 (由原備忘錄改建，支援動態自訂增刪物品) -->
+            <div id="lcontent-shopping" class="list-panel hidden bg-white p-4 rounded-3xl border border-muji-linen shadow-sm space-y-3">
+                <div class="bg-chiikawa-blue p-3 rounded-2xl text-xs text-muji-charcoal border border-blue-200">
+                    <p class="font-bold">🛒 戰利品 & 採買清單：</p>
+                    <p class="text-muji-earth mt-1">在這裡記錄想在名古屋各大商圈（大須、榮、AEON）購買的藥妝、電器、公仔與伴手禮！</p>
+                </div>
+                
                 <div class="flex gap-2">
-                    <input type="text" id="memo-input" placeholder="輸入備忘內容或網頁連結..." class="flex-1 px-3 py-2 rounded-xl border border-muji-linen text-xs">
-                    <button onclick="addMemo()" class="bg-muji-charcoal text-white px-3 py-2 rounded-xl text-xs font-bold hover:bg-opacity-95 transition-all">新增</button>
+                    <input type="text" id="shopping-item-input" placeholder="例如：合利他命、蝦仙貝、吉伊卡哇..." class="flex-1 px-3 py-2 rounded-xl border border-muji-linen text-xs focus:outline-none focus:ring-1 focus:ring-chiikawa-pinkdeep">
+                    <button onclick="addShoppingItem()" class="bg-muji-charcoal text-white px-4 py-2 rounded-xl text-xs font-bold hover:bg-opacity-95 transition-all">新增</button>
                 </div>
 
-                <div class="space-y-2 mt-4" id="memo-list-container">
-                    <!-- 動態備忘項目 -->
+                <div class="space-y-2 mt-4" id="shopping-list-container">
+                    <!-- 動態採買項目 -->
                 </div>
             </div>
         </section>
@@ -926,73 +923,97 @@
         <section id="tab-info" class="tab-content hidden fade-in">
             <h2 class="text-xl font-bold mb-4 flex items-center gap-2"><span class="text-lg">📢</span> 出國必備實用資訊</h2>
 
-            <!-- 入境 Visit Japan Web 說明 -->
-            <div class="bg-white p-4 rounded-3xl border border-muji-linen shadow-sm space-y-3 mb-4">
-                <h3 class="font-bold text-sm text-muji-charcoal flex items-center gap-1.5"><i class="fa-solid fa-passport text-blue-500"></i> 日本入境手續指南</h3>
-                <p class="text-xs text-muji-earth leading-relaxed">
-                    入境前請在網路上填寫資料並申請 **Visit Japan Web**，入境時向海關出示二維碼即可快速通關。免稅退稅只要在同一間店、同一天內，未稅總金額達 <strong>5,000日圓</strong> 以上，即可憑護照辦理免稅！
-                </p>
-            </div>
-
-            <!-- 實用連結 -->
+            <!-- ☀️ 氣象與航班實用連結 (移至分頁最上方隨時查閱，符合不被蓋台的設計) -->
             <div class="grid grid-cols-2 gap-2 mb-4">
-                <a href="https://www.jma.go.jp/jma/index.html" target="_blank" class="bg-chiikawa-blue p-3 rounded-2xl border border-blue-200 text-center hover:scale-[1.02] transition-all">
+                <a href="https://www.jma.go.jp/jma/index.html" target="_blank" class="bg-chiikawa-blue p-3 rounded-2xl border border-blue-200 text-center hover:scale-[1.02] transition-all flex flex-col items-center justify-center">
                     <p class="text-2xl">☀️</p>
                     <p class="text-xs font-bold text-muji-charcoal mt-1">日本氣象廳預報</p>
                 </a>
-                <a href="https://www.starlux-airlines.com/zh-TW/flight-status" target="_blank" class="bg-chiikawa-pink p-3 rounded-2xl border border-chiikawa-pinkdeep/30 text-center hover:scale-[1.02] transition-all">
+                <a href="https://www.starlux-airlines.com/zh-TW/flight-status" target="_blank" class="bg-chiikawa-pink p-3 rounded-2xl border border-chiikawa-pinkdeep/30 text-center hover:scale-[1.02] transition-all flex flex-col items-center justify-center">
                     <p class="text-2xl">✈️</p>
                     <p class="text-xs font-bold text-muji-charcoal mt-1">星宇航空航班看板</p>
                 </a>
             </div>
 
-            <!-- 緊急聯絡 -->
-            <div class="bg-white p-4 rounded-3xl border border-muji-linen shadow-sm space-y-3 mb-4">
-                <h3 class="font-bold text-sm text-muji-charcoal flex items-center gap-1.5"><i class="fa-solid fa-phone-flip text-red-500"></i> 🚨 旅日緊急聯絡</h3>
-                <div class="text-xs text-muji-earth space-y-1.5">
-                    <p><strong class="text-muji-charcoal">警察局撥打：</strong> 110</p>
-                    <p><strong class="text-muji-charcoal">救護車/火警撥打：</strong> 119</p>
-                    <p><strong class="text-muji-charcoal">駐大阪辦事處 (24小時急難協助)：</strong> <a href="tel:+819087944568" class="text-blue-500 underline font-bold">+81-90-8794-4568</a></p>
-                    <p><strong class="text-muji-charcoal">國內親友急難熱線 (外交部)：</strong> <a href="tel:0800085095" class="text-blue-500 underline font-bold">0800-085-095</a></p>
+            <!-- 💡 子分頁切換按鈕：備忘連結、入境手續、緊急防護 -->
+            <div class="grid grid-cols-3 gap-2 mb-4">
+                <button onclick="switchInfoTab('links')" id="ibtn-links" class="info-sub-btn py-2 rounded-2xl bg-muji-charcoal text-white text-xs font-bold transition-all">備忘連結</button>
+                <button onclick="switchInfoTab('entry')" id="ibtn-entry" class="info-sub-btn py-2 rounded-2xl bg-white text-muji-charcoal border border-muji-linen text-xs font-bold transition-all">入境手續</button>
+                <button onclick="switchInfoTab('emergency')" id="ibtn-emergency" class="info-sub-btn py-2 rounded-2xl bg-white text-muji-charcoal border border-muji-linen text-xs font-bold transition-all">緊急防護</button>
+            </div>
+
+            <!-- 子分頁 1：備忘連結 -->
+            <div id="icontent-links" class="info-panel space-y-4">
+                <!-- 📌 實用資訊與常用連結 (原個人備忘錄) -->
+                <div class="bg-white p-4 rounded-3xl border border-muji-linen shadow-sm space-y-3">
+                    <h3 class="font-bold text-sm text-muji-charcoal flex items-center gap-1.5 border-b border-muji-linen pb-2">
+                        <i class="fa-solid fa-link text-blue-500"></i> 📌 實用連結與官方登入入口
+                    </h3>
+                    <div class="flex gap-2">
+                        <input type="text" id="memo-input" placeholder="輸入常用乘車指南、登機網址等..." class="flex-1 px-3 py-2 rounded-xl border border-muji-linen text-xs focus:outline-none focus:ring-1 focus:ring-chiikawa-pinkdeep bg-gray-50">
+                        <button onclick="addMemo()" class="bg-muji-charcoal text-white px-3 py-2 rounded-xl text-xs font-bold hover:bg-opacity-95 transition-all">新增</button>
+                    </div>
+                    <div class="space-y-2 mt-4" id="memo-list-container">
+                        <!-- 動態備忘常用連結 -->
+                    </div>
                 </div>
             </div>
 
-            <!-- 溫馨叮嚀與免稅限制 -->
-            <div class="bg-chiikawa-pink p-4 rounded-3xl border border-chiikawa-pinkdeep/30 shadow-sm space-y-2">
-                <h3 class="font-bold text-xs text-muji-charcoal flex items-center gap-1"><i class="fa-solid fa-triangle-exclamation text-amber-500"></i> 行理打包禁忌提醒：</h3>
-                <ul class="list-disc pl-4 text-[11px] text-muji-earth space-y-1 leading-relaxed">
-                    <li><strong>行動電源/鋰電池：</strong> 嚴禁托運！必須放置在隨身登機手提行李中。</li>
-                    <li><strong>水/噴霧/凝膠液體：</strong> 超過 100ml 的容器必須托運，隨身攜帶必須裝在 1 公升透明密封袋內，且不超過 100ml。</li>
-                    <li><strong>黃金、違禁品、生肉、水果：</strong> 嚴禁帶入日本！入境時必須誠實申報。</li>
-                    <li><strong>退稅密封袋：</strong> 在日本境內絕對不可拆封，否則會被要求補稅！</li>
-                </ul>
+            <!-- 子分頁 2：入境手續 -->
+            <div id="icontent-entry" class="info-panel hidden space-y-4 fade-in">
+                <div class="bg-white p-4 rounded-3xl border border-muji-linen shadow-sm space-y-3">
+                    <h3 class="font-bold text-sm text-muji-charcoal flex items-center gap-1.5"><i class="fa-solid fa-passport text-blue-500"></i> 日本入境手續指南</h3>
+                    <p class="text-xs text-muji-earth leading-relaxed">
+                        入境前請在網路上填寫資料並申請 **Visit Japan Web**，入境時向海關出示二維碼即可快速通關。免稅退稅只要在同一間店、同一天內，未稅總金額達 <strong>5,000日圓</strong> 以上，即可憑護照辦理免稅！
+                    </p>
+                    <div class="pt-2">
+                        <a href="https://vjw-lp.digital.go.jp/" target="_blank" class="block w-full text-center bg-chiikawa-blue text-blue-700 border border-blue-300 font-bold py-2.5 rounded-xl text-xs transition-all hover:bg-blue-100">
+                            <i class="fa-solid fa-arrow-up-right-from-square mr-1"></i> 前往 Visit Japan Web 官方填寫入口
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 子分頁 3：緊急防護與注意事項 -->
+            <div id="icontent-emergency" class="info-panel hidden space-y-4 fade-in">
+                <!-- 緊急聯絡 -->
+                <div class="bg-white p-4 rounded-3xl border border-muji-linen shadow-sm space-y-3">
+                    <h3 class="font-bold text-sm text-muji-charcoal flex items-center gap-1.5"><i class="fa-solid fa-phone-flip text-red-500"></i> 🚨 旅日緊急聯絡</h3>
+                    <div class="text-xs text-muji-earth space-y-1.5">
+                        <p><strong class="text-muji-charcoal">警察局撥打：</strong> 110</p>
+                        <p><strong class="text-muji-charcoal">救護車/火警撥打：</strong> 119</p>
+                        <p><strong class="text-muji-charcoal">駐大阪辦事處 (24小時急難協助)：</strong> <a href="tel:+819087944568" class="text-blue-500 underline font-bold">+81-90-8794-4568</a></p>
+                        <p><strong class="text-muji-charcoal">國內親友急難熱線 (外交部)：</strong> <a href="tel:0800085095" class="text-blue-500 underline font-bold">0800-085-095</a></p>
+                    </div>
+                </div>
+
+                <!-- 溫馨叮嚀與免稅限制 -->
+                <div class="bg-chiikawa-pink p-4 rounded-3xl border border-chiikawa-pinkdeep/30 shadow-sm space-y-2">
+                    <h3 class="font-bold text-xs text-muji-charcoal flex items-center gap-1"><i class="fa-solid fa-triangle-exclamation text-amber-500"></i> 行李打包禁忌提醒：</h3>
+                    <ul class="list-disc pl-4 text-[11px] text-muji-earth space-y-1 leading-relaxed">
+                        <li><strong>行動電源/鋰電池：</strong> 嚴禁托運！必須放置在隨身登機手提行李中。</li>
+                        <li><strong>水/噴霧/凝膠液體：</strong> 超過 100ml 的容器必須托運，隨身攜帶必須裝在 1 公升透明密封袋內，且不超過 100ml。</li>
+                        <li><strong>黃金、違禁品、生肉、水果：</strong> 嚴禁帶入日本！入境時必須誠實申報。</li>
+                        <li><strong>退稅密封袋：</strong> 在日本境內絕對不可拆封，否則會被要求補稅！</li>
+                    </ul>
+                </div>
             </div>
         </section>
 
     </main>
 
     <!-- 底部圓潤導航列 -->
-    <nav class="fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-muji-linen px-4 py-2 flex justify-around items-center shadow-lg z-50 max-w-md mx-auto rounded-t-3xl">
-        <button onclick="switchTab('plan')" id="nav-plan" class="nav-btn flex flex-col items-center gap-0.5 text-chiikawa-pinkdeep transition-all py-1.5 px-3 rounded-xl bg-chiikawa-pink/50">
-            <i class="fa-solid fa-map-location-dot text-lg"></i>
-            <span class="text-[10px] font-bold">PLAN</span>
-        </button>
-        <button onclick="switchTab('guide')" id="nav-guide" class="nav-btn flex flex-col items-center gap-0.5 text-muji-earth hover:text-muji-charcoal transition-all py-1.5 px-3 rounded-xl">
-            <i class="fa-solid fa-compass text-lg"></i>
-            <span class="text-[10px] font-bold">GUIDE</span>
-        </button>
-        <button onclick="switchTab('wallet')" id="nav-wallet" class="nav-btn flex flex-col items-center gap-0.5 text-muji-earth hover:text-muji-charcoal transition-all py-1.5 px-3 rounded-xl">
-            <i class="fa-solid fa-wallet text-lg"></i>
-            <span class="text-[10px] font-bold">WALLET</span>
-        </button>
-        <button onclick="switchTab('lists')" id="nav-lists" class="nav-btn flex flex-col items-center gap-0.5 text-muji-earth hover:text-muji-charcoal transition-all py-1.5 px-3 rounded-xl">
-            <i class="fa-solid fa-clipboard-check text-lg"></i>
-            <span class="text-[10px] font-bold">LISTS</span>
-        </button>
-        <button onclick="switchTab('info')" id="nav-info" class="nav-btn flex flex-col items-center gap-0.5 text-muji-earth hover:text-muji-charcoal transition-all py-1.5 px-3 rounded-xl">
-            <i class="fa-solid fa-circle-info text-lg"></i>
-            <span class="text-[10px] font-bold">INFO</span>
-        </button>
+    <nav class="fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-muji-linen py-2.5 z-40 shadow-[0_-2px_10px_rgba(0,0,0,0.03)]">
+        <div class="max-w-md mx-auto px-6 flex justify-between items-center">
+            <div class="flex items-center gap-1.5">
+                <span class="text-xs font-bold text-gray-500">倒數狀態:</span>
+                <span class="text-xs text-brand-primary font-bold animate-pulse" id="footer-status">準備出發！</span>
+            </div>
+            <div class="text-right">
+                <span class="text-[9px] text-gray-400 block">🌸 祝全家旅途愉快 🌸</span>
+                <span class="text-[10px] text-gray-500 font-bold">安心元氣應援中</span>
+            </div>
+        </div>
     </nav>
 
     <!-- 自定義對話框 Modal 元件 -->
@@ -1022,6 +1043,30 @@
             </button>
         </div>
     </div>
+
+    <!-- 底部圓潤導航列 -->
+    <nav class="fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-muji-linen px-4 py-2 flex justify-around items-center shadow-lg z-50 max-w-md mx-auto rounded-t-3xl">
+        <button onclick="switchTab('plan')" id="nav-plan" class="nav-btn flex flex-col items-center gap-0.5 text-chiikawa-pinkdeep transition-all py-1.5 px-3 rounded-xl bg-chiikawa-pink/50">
+            <i class="fa-solid fa-map-location-dot text-lg"></i>
+            <span class="text-[10px] font-bold">PLAN</span>
+        </button>
+        <button onclick="switchTab('guide')" id="nav-guide" class="nav-btn flex flex-col items-center gap-0.5 text-muji-earth hover:text-muji-charcoal transition-all py-1.5 px-3 rounded-xl">
+            <i class="fa-solid fa-compass text-lg"></i>
+            <span class="text-[10px] font-bold">GUIDE</span>
+        </button>
+        <button onclick="switchTab('wallet')" id="nav-wallet" class="nav-btn flex flex-col items-center gap-0.5 text-muji-earth hover:text-muji-charcoal transition-all py-1.5 px-3 rounded-xl">
+            <i class="fa-solid fa-wallet text-lg"></i>
+            <span class="text-[10px] font-bold">WALLET</span>
+        </button>
+        <button onclick="switchTab('lists')" id="nav-lists" class="nav-btn flex flex-col items-center gap-0.5 text-muji-earth hover:text-muji-charcoal transition-all py-1.5 px-3 rounded-xl">
+            <i class="fa-solid fa-clipboard-check text-lg"></i>
+            <span class="text-[10px] font-bold">LISTS</span>
+        </button>
+        <button onclick="switchTab('info')" id="nav-info" class="nav-btn flex flex-col items-center gap-0.5 text-muji-earth hover:text-muji-charcoal transition-all py-1.5 px-3 rounded-xl">
+            <i class="fa-solid fa-circle-info text-lg"></i>
+            <span class="text-[10px] font-bold">INFO</span>
+        </button>
+    </nav>
 
     <!-- JavaScript 邏輯控制 -->
     <script>
@@ -1209,7 +1254,7 @@
                         { time: '18:00', title: '【方案 B】榮商圈晚餐 ➔ 綠洲 21 頂層 🍣', desc: '離開 LaLaport 前往榮站。挑戰德兵衛迴轉壽司，20:15 前登頂綠洲 21 拍夜景，隨後回飯店。',mapUrl: 'https://maps.app.goo.gl/3ovZzdo4EuyTdBEF6' }
                     ],
                     'C': [
-                        { time: '18:30', title: '【方案 C】體力撤退版 ➔ 回飯店超市補貨 🏡', desc: '在 LaLaport 逛更久吃更飽。20:00 搭地鐵經榮站轉東山線回名古屋站。回飯店前去 MaxValu 太閣店買宵夜。',mapUrl: 'https://maps.app.goo.gl/DG7F8LU1FuKqM4oD7' }
+                        { time: '18:30', title: '【方案 C】體力撤退版 ➔ 回飯店超市補貨 🏡', desc: '在 LaLaport 逛更久吃更飽. 20:00 搭地鐵經榮站轉東山線回名古屋站。回飯店前去 MaxValu 太閣店買宵夜。',mapUrl: 'https://maps.app.goo.gl/DG7F8LU1FuKqM4oD7' }
                     ]
                 }
             },
@@ -1283,7 +1328,7 @@
                 { id: 'l3', text: '短袖上衣 5 件', checked: false },
                 { id: 'l4', text: '長褲 / 短褲 5 件', checked: false },
                 { id: 'l5', text: '泳裝 / 泳裝 (樂高玩水用) 🩱', checked: false },
-                { id: 'l6', text: '太陽眼鏡 / 遮陽帽 👒', checked: false },
+                { id: 'l6', text: '太陽眼鏡 / 遮陽帽 👑', checked: false },
                 { id: 'l7', text: '隱形眼鏡 / 毛巾 / 浴巾', checked: false }
             ]},
             { category: '日用品類 (Daily necessities)', items: [
@@ -1315,6 +1360,18 @@
             ]}
         ];
 
+        // 🛍️ 自訂購物採買清單數據 (由備忘錄分頁改建)
+        let shoppingList = JSON.parse(localStorage.getItem('nagoya_shopping_list')) || [
+            { text: '合利他命 EX Plus 💊', checked: false },
+            { text: '吉伊卡哇玩偶/周邊商品 🌸', checked: false },
+            { text: '蝦仙貝之里 綜合大包裝仙貝 🦐', checked: false },
+            { text: 'Sugar Butter Tree 夾心餅乾 🧈', checked: false },
+            { text: '若元錠 Wakamoto', checked: false },
+            { text: '日本限定彩妝/口紅 💄', checked: false },
+            { text: 'Dyson 吹風機/日本電器 🔌', checked: false }
+        ];
+
+        // 📌 實用重要資訊連結數據 (原個人備忘空間，平移至 INFO 分頁)
         let memos = JSON.parse(localStorage.getItem('memos')) || [
             { text: 'Visit Japan Web 登入入口網址', url: 'https://vjw-lp.digital.go.jp/' },
             { text: '名古屋鐵道轉乘、時刻表查詢', url: 'https://trainbus.meitetsu.co.jp/meitetsu-transfer-zh-tw/pc/map/Top' },
@@ -1556,7 +1613,7 @@
             }, 100);
         }
 
-        // 初始化大須商店街地圖
+        // 初始化與渲染 Leaflet 大須地圖（包含推薦的藍色散步路線）
         function initOsuMap() {
             if (typeof L === 'undefined') return;
 
@@ -1583,13 +1640,13 @@
                         { coords: [35.15906666802768, 136.90013186358792], title: "🍘 朝日軒觀音店", desc: "大須人氣古法仙貝店，現烤美味。" },
                         { coords: [35.159107784093294, 136.89993606233327], title: "🐸 青柳總本家 大須本店", desc: "必買青蛙造型饅頭，超療癒。" },
                         { coords: [35.1587770034996, 136.9014262690888], title: "🐟 銀之餡", desc: "香酥可頌鯛魚燒，口感層次豐富。" },
-                        { coords: [35.158667908379314, 136.9013860359634], title: "🍡 御手洗糰子 新雀本店", desc: "老鋪醬香糰子，鹹甜傳統好滋意。" },
+                        { coords: [35.158667908379314, 136.9013860359634], title: "🍡 御手洗糰子 新雀本店", desc: "老鋪醬香糰子，鹹甜傳統好資意。" },
                         { coords: [35.15856758459851, 136.90255212632064], title: "🍕 Solo Pizza", desc: "世界冠軍柴燒窯烤披薩，美味又划算。" },
                         { coords: [35.15904246957323, 136.90341045664485], title: "🎰 #C-pla 扭蛋店", desc: "大型扭蛋店，冷氣強，孩子超愛。" },
                         { coords: [35.158896096165584, 136.90448803411041], title: "🏷️ B-SIDE LABEL", desc: "原創設計防水貼紙專賣。" },
                         { coords: [35.158851675155894, 136.90465649464284], title: "🍗 李さんの台湾名物屋台", desc: "招牌台式香酥炸雞，逛街補給站。" },
                         { coords: [35.15877931063873, 136.90460083880717], title: "🛒 Sanoya 超市", desc: "超划算當地平價超市，水果多汁便宜。" },
-                        { coords: [35.1594196247495, 136.90492739775308], title: "🥟 包包亭生煎包", desc: "金黃酥脆爆汁生煎包，小心燙口。" },
+                        { coords: [35.1594196247495, 136.90492739775308], title: "🥟 包包亭生煎包", desc: "金黃酥脆爆汁生煎包，小心湯口。" },
                         { coords: [35.15937796062927, 136.90471818545507], title: "🍤 Konparu 大須本店", desc: "名古屋老店炸蝦三明治首選。" },
                         { coords: [35.159006416164296, 136.90498368958188], title: "🛒 唐吉訶德 大須店", desc: "一站式免稅百貨採購零食藥妝。" },
                         { coords: [35.15861373652554, 136.90560471515283], title: "🛍️ Belle Mall 大須店", desc: "日系平價童裝服飾挖寶處。" },
@@ -1612,7 +1669,7 @@
                          `);
                     });
 
-                    // 💡 建立推薦散步路線軌跡 (藍色虛線)
+                    // 💡 建立推薦散步路線軌跡 (清晰深藍色，高辨識度！)
                     const routeCoords = [
                         [35.16016580527812, 136.898498075464], // 大須觀音站 (2號口)
                         [35.15956935394174, 136.8986295037025], // 7-11
@@ -1638,7 +1695,7 @@
                     ];
 
                     const routeLine = L.polyline(routeCoords, {
-                        color: '#1A73E8',       // 我要藍色的
+                        color: '#1A73E8',       // 藍色虛線散步推薦虛線
                         weight: 6,              // 線條粗細
                         dashArray: '5, 10',     // 虛線間距
                         opacity: 0.9,
@@ -1713,7 +1770,7 @@
             const rate = parseFloat(document.getElementById('exchange-rate').value) || 0.2105;
             const val = parseFloat(screenText) || 0;
             
-            // 💡 修正：增加 isFinite 驗證，防止用戶運算到除零 (Infinity) 時呼叫 toFixed 造成網頁卡死崩潰
+            // 修正：增加 isFinite 驗證，防止用戶運算到除零 (Infinity) 時呼叫 toFixed 造成網頁卡死崩潰
             const res = isFinite(val) ? (val * rate).toFixed(0) : "0";
             document.getElementById('calc-twd-estimate').innerText = `約 NT$ ${res}`;
         }
@@ -1950,13 +2007,26 @@
             document.getElementById(`lbtn-${tabId}`).classList.add('bg-muji-charcoal', 'text-white');
             document.getElementById(`lbtn-${tabId}`).classList.remove('bg-white', 'text-muji-charcoal', 'border-muji-linen');
 
-            // 備忘錄分頁隱藏一鍵重設按鈕
+            // 購物清單與備忘錄分頁不需要顯示行李箱專用一鍵重設按鈕
             const resetBtn = document.getElementById('reset-checklist-bar');
-            if (tabId === 'memo') {
+            if (tabId === 'shopping') {
                 resetBtn.classList.add('hidden');
             } else {
                 resetBtn.classList.remove('hidden');
             }
+        }
+
+        // 💡 實用資訊子分頁切換（備忘連結、入境手續、緊急防護）
+        function switchInfoTab(tabId) {
+            document.querySelectorAll('.info-panel').forEach(el => el.classList.add('hidden'));
+            document.getElementById(`icontent-${tabId}`).classList.remove('hidden');
+
+            document.querySelectorAll('.info-sub-btn').forEach(btn => {
+                btn.classList.remove('bg-muji-charcoal', 'text-white');
+                btn.classList.add('bg-white', 'text-muji-charcoal', 'border-muji-linen');
+            });
+            document.getElementById(`ibtn-${tabId}`).classList.add('bg-muji-charcoal', 'text-white');
+            document.getElementById(`ibtn-${tabId}`).classList.remove('bg-white', 'text-muji-charcoal', 'border-muji-linen');
         }
 
         function resetChecklist() {
@@ -2038,7 +2108,65 @@
             });
         }
 
-        // 10. 備忘錄
+        // 🛍️ 購物清單相關函數 (新增 / 勾選 / 刪除 / 渲染)
+        function addShoppingItem() {
+            const input = document.getElementById('shopping-item-input');
+            const text = input.value.trim();
+            if (!text) {
+                showAlert("提示", "請填入想買的品項名稱喔！🛍️", "💡");
+                return;
+            }
+            shoppingList.push({ text: text, checked: false });
+            localStorage.setItem('nagoya_shopping_list', JSON.stringify(shoppingList));
+            input.value = "";
+            renderShoppingList();
+        }
+
+        function toggleShoppingItem(idx) {
+            shoppingList[idx].checked = !shoppingList[idx].checked;
+            localStorage.setItem('nagoya_shopping_list', JSON.stringify(shoppingList));
+            renderShoppingList();
+        }
+
+        function deleteShoppingItem(idx) {
+            shoppingList.splice(idx, 1);
+            localStorage.setItem('nagoya_shopping_list', JSON.stringify(shoppingList));
+            renderShoppingList();
+        }
+
+        function renderShoppingList() {
+            const container = document.getElementById('shopping-list-container');
+            container.innerHTML = '';
+
+            if (shoppingList.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-8 text-muji-earth">
+                        <p class="text-3xl mb-2">🛍️</p>
+                        <p class="text-[11px] font-bold">目前採買清單空空的喔！</p>
+                        <p class="text-[9px] opacity-75 mt-0.5">趕快在上方輸入像是「合利他命」、「蠟筆小新周邊」來建立購物清單吧！</p>
+                    </div>
+                `;
+                return;
+            }
+
+            shoppingList.forEach((item, idx) => {
+                const card = document.createElement('div');
+                card.className = `p-3 rounded-2xl border flex items-center justify-between gap-2 text-xs fade-in transition-all ${item.checked ? 'bg-chiikawa-pink/70 border-chiikawa-pinkdeep text-muji-charcoal' : 'bg-muji-sand border-muji-linen text-muji-earth'}`;
+                
+                card.innerHTML = `
+                    <button onclick="toggleShoppingItem(${idx})" class="flex items-center gap-2 text-left text-[11px] font-semibold flex-1 active:scale-[0.98] transition-transform">
+                        <i class="fa-regular ${item.checked ? 'fa-square-check text-chiikawa-pinkdeep text-sm' : 'fa-square text-muji-earth'}"></i>
+                        <span class="${item.checked ? 'line-through text-muji-earth' : ''}">${item.text}</span>
+                    </button>
+                    <button onclick="deleteShoppingItem(${idx})" class="text-red-400 hover:text-red-600 p-1 flex-shrink-0 text-xs">
+                        <i class="fa-regular fa-trash-can"></i>
+                    </button>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        // 10. 備忘錄 (改移到 INFO 常用資訊頁面中)
         function addMemo() {
             const input = document.getElementById('memo-input');
             if (!input.value) return;
@@ -2071,9 +2199,9 @@
             if (memos.length === 0) {
                 container.innerHTML = `
                     <div class="text-center py-8 text-muji-earth">
-                        <p class="text-3xl mb-2">📝</p>
-                        <p class="text-[11px] font-bold">備忘錄空空如也喔！</p>
-                        <p class="text-[9px] opacity-75 mt-0.5">可以在這裡自由輸入藥妝代購清單與想查的地圖網址！</p>
+                        <p class="text-3xl mb-2">📌</p>
+                        <p class="text-[11px] font-bold">常用重要連結與備忘空空如也喔！</p>
+                        <p class="text-[9px] opacity-75 mt-0.5">可以在這裡新增飯店交通指引或 VJW 入境官網連結！</p>
                     </div>
                 `;
                 return;
@@ -2085,7 +2213,7 @@
                 
                 let actionBtnHtml = "";
                 if (x.url) {
-                    actionBtnHtml = `<a href="${x.url}" target="_blank" class="bg-chiikawa-blue px-2 py-1 rounded-lg text-[10px] font-bold text-blue-600 flex items-center gap-0.5"><i class="fa-solid fa-arrow-up-right-from-square"></i>開啟連結</a>`;
+                    actionBtnHtml = `<a href="${x.url}" target="_blank" class="bg-chiikawa-blue px-2.5 py-1 rounded-lg text-[10px] font-bold text-blue-600 flex items-center gap-0.5 flex-shrink-0"><i class="fa-solid fa-arrow-up-right-from-square"></i>開啟連結</a>`;
                 }
 
                 card.innerHTML = `
@@ -2094,7 +2222,7 @@
                     </div>
                     <div class="flex items-center gap-2">
                         ${actionBtnHtml}
-                        <button onclick="deleteMemo(${idx})" class="text-red-400 hover:text-red-600 p-1"><i class="fa-regular fa-trash-can"></i></button>
+                        <button onclick="deleteMemo(${idx})" class="text-red-400 hover:text-red-600 p-1 flex-shrink-0"><i class="fa-regular fa-trash-can"></i></button>
                     </div>
                 `;
                 container.appendChild(card);
@@ -2113,7 +2241,8 @@
             renderTimeline();
             renderExpenses();
             renderChecklists();
-            renderMemos();
+            renderShoppingList(); // 💡 載入購物採買清單
+            renderMemos();        // 💡 載入實用常用連結 (移至 INFO 分頁中)
         };
     </script>
 </body>
