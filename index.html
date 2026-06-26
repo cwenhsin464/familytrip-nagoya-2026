@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
@@ -355,7 +355,7 @@
                     <ul class="space-y-1.5 text-[11px] text-muji-earth pl-1">
                         <li>・<strong>千里馬藥局：</strong> 最便宜，但<strong>限收現金</strong>，且內部狹窄不適合推推車。</li>
                         <li>・<strong>大國藥妝：</strong> 買到免稅門檻加折扣券極便宜，支援多元刷卡支付。</li>
-                        <li>・<strong>SUGI 藥局：</strong> 中高價位，下載 APP 常有 18% 折扣券，適合買彩妝.</li>
+                        <li>・<strong>SUGI 藥局：</strong> 買日本彩妝方便。</li>
                         <li>・<strong>松本清：</strong> 定價偏高，但有很多獨特「松本清限定」商品！</li>
                     </ul>
                 </div>
@@ -364,7 +364,7 @@
             <!-- 3. 豐田產業技術紀念館 導覽 -->
             <div id="gcontent-toyota" class="guide-panel hidden bg-white p-4 rounded-3xl border border-muji-linen shadow-sm space-y-3">
                 <div class="flex justify-between items-center border-b border-muji-linen pb-2">
-                    <h3 class="font-bold text-base text-muji-charcoal"><i class="fa-solid fa-car text-red-500 mr-1.5"></i> 豐田紀念館</h3>
+                    <h3 class="font-bold text-base text-muji-charcoal flex items-center gap-1.5"><i class="fa-solid fa-car text-red-500 mr-1.5"></i> 豐田紀念館</h3>
                     <span class="text-xs bg-chiikawa-pinkdeep/30 px-2 py-0.5 rounded-full font-bold text-muji-charcoal">科技展示</span>
                 </div>
 
@@ -375,7 +375,7 @@
                 </div>
 
                 <p class="text-xs text-muji-earth leading-relaxed">
-                    這裡原本是豐田集團發祥地的紅磚廠房！一進去先預約 **10:30~11:00** 的「科技樂園」，有許多大型物理科學遊戲器材（部分限高120cm以上）。
+                    這裡原本出豐田集團發祥地的紅磚廠房！一進去先預約 **10:30~11:00** 的「科技樂園」，有許多大型物理科學遊戲器材（部分限高120cm以上）。
                 </p>
                 <div class="bg-muji-sand p-2.5 rounded-xl text-xs space-y-1">
                     <p class="font-bold text-muji-charcoal">💡 必看演示時間：</p>
@@ -388,7 +388,7 @@
             <!-- 4. 樂高樂園 導覽 -->
             <div id="gcontent-lego" class="guide-panel hidden bg-white p-4 rounded-3xl border border-muji-linen shadow-sm space-y-3">
                 <div class="flex justify-between items-center border-b border-muji-linen pb-2">
-                    <h3 class="font-bold text-base text-muji-charcoal"><i class="fa-solid fa-cubes text-yellow-500 mr-1.5"></i> 樂高樂園全攻略</h3>
+                    <h3 class="font-bold text-base text-muji-charcoal flex items-center gap-1.5"><i class="fa-solid fa-cubes text-yellow-500 mr-1.5"></i> 樂高樂園全攻略</h3>
                     <span class="text-xs bg-chiikawa-pinkdeep/30 px-2 py-0.5 rounded-full font-bold text-muji-charcoal">樂園秘笈</span>
                 </div>
 
@@ -768,7 +768,7 @@
                     </button>
                 </div>
                 <div id="image-preview-container" class="hidden text-center mt-2">
-                    <img id="image-preview" src="" class="h-20 mx-auto rounded-lg border border-muji-linen shadow-sm cursor-zoom-in hover:opacity-90 transition-opacity">
+                    <img id="image-preview" src="" onclick="openLightbox(this.src)" class="h-20 mx-auto rounded-lg border border-muji-linen shadow-sm cursor-zoom-in hover:opacity-90 transition-opacity">
                 </div>
             </div>
 
@@ -858,7 +858,7 @@
 
             <!-- 清單子分頁切換 (購物清單調整至第一順位) -->
             <div class="grid grid-cols-3 gap-2 mb-4">
-                <button onclick="switchListTab('shopping')" id="lbtn-shopping" class="list-sub-btn py-2 rounded-2xl bg-muji-charcoal text-white text-xs font-bold transition-all">購物清單</button>
+                <button onclick="switchListTab('shopping')" id="lbtn-shopping" class="list-sub-btn py-2 rounded-2xl bg-white text-muji-charcoal border border-muji-linen text-xs font-bold transition-all">購物清單</button>
                 <button onclick="switchListTab('handbag')" id="lbtn-handbag" class="list-sub-btn py-2 rounded-2xl bg-white text-muji-charcoal border border-muji-linen text-xs font-bold transition-all">手提隨身</button>
                 <button onclick="switchListTab('luggage')" id="lbtn-luggage" class="list-sub-btn py-2 rounded-2xl bg-white text-muji-charcoal border border-muji-linen text-xs font-bold transition-all">托運行李</button>
             </div>
@@ -870,7 +870,7 @@
                 </button>
             </div>
 
-            <!-- 1. 🛍️ 購物清單 (改為預設第一順位，支援照片拍攝/燈箱高清縮放) -->
+            <!-- 1. 🛍️ 購物清單 (支援動態自訂增刪物品 + 商品拍照功能 - 💡 預設無 hidden 以確保載入即現！) -->
             <div id="lcontent-shopping" class="list-panel bg-white p-4 rounded-3xl border border-muji-linen shadow-sm space-y-3">
                 <div class="bg-chiikawa-blue p-3 rounded-2xl text-xs text-muji-charcoal border border-blue-200">
                     <p class="font-bold">🛒 戰利品 & 採買圖鑑：</p>
@@ -901,7 +901,7 @@
                 </div>
             </div>
 
-            <!-- 2. 手提行李檢查清單 (改為預設隱藏) -->
+            <!-- 2. 手提行李檢查清單 (預設隱藏) -->
             <div id="lcontent-handbag" class="list-panel hidden bg-white p-4 rounded-3xl border border-muji-linen shadow-sm space-y-3">
                 <div class="bg-chiikawa-yellow p-3 rounded-2xl text-xs text-muji-charcoal border border-yellow-200">
                     <p class="font-bold">⚠️ 手提隨身限制：</p>
@@ -913,7 +913,7 @@
                 </div>
             </div>
 
-            <!-- 3. 托運行李檢查清單 (改為預設隱藏) -->
+            <!-- 3. 托運行李檢查清單 (預設隱藏) -->
             <div id="lcontent-luggage" class="list-panel hidden bg-white p-4 rounded-3xl border border-muji-linen shadow-sm space-y-3">
                 <div class="bg-chiikawa-pink p-3 rounded-2xl text-xs text-muji-charcoal border border-chiikawa-pinkdeep/30">
                     <p class="font-bold">✈️ 托運限制與行李箱分配：</p>
@@ -1623,7 +1623,7 @@
                         { coords: [35.168738320508055, 136.88190789977807], title: "💊 松本清 名古屋站太閤通店", desc: "有許多獨家限定美妝保養商品。" },
                         { coords: [35.16961749585411, 136.88397856224313], title: "💊 SUGI 藥局 名鉄名古屋店", desc: "位置好找，買日本彩妝方便。" },
                         { coords: [35.170263206017324, 136.87958644507808], title: "🛒 Bic Camera 名古屋站西店", desc: "電器、美容儀與玩具大本營。" },
-                        { coords: [35.16592399099131, 136.88122103357122], title: "🛒 MaxValu 太閤店", desc: "24 小時營業生鮮超市！採購水果（水蜜桃）與鮮奶首選。" }
+                        { coords: [35.16592399099131, 136.88122103357122], title: "🛒 MaxValu 太閣店", desc: "24 小時營業生鮮超市！採購水果（水蜜桃）與鮮奶首選。" }
                     ];
 
                     locations.forEach(loc => {
@@ -1807,7 +1807,7 @@
         // 8. 記帳邏輯與優化
         let uploadedImageBase64 = "";
 
-        // 💡 修正：大幅提升收據拍照壓縮上限至 1200px 超清晰寬度，畫質設為 90% (防止局部模糊)
+        // 💡 提升收據照片壓縮限制：由 120px 大幅提高至超清晰 1200px 寬度，提升畫質至 90%
         function handleImageUpload() {
             const fileInput = document.getElementById('expense-img');
             const statusText = document.getElementById('photo-status');
@@ -2218,7 +2218,7 @@
                     <div class="text-center py-8 text-muji-earth">
                         <p class="text-3xl mb-2">🛍️</p>
                         <p class="text-[11px] font-bold">目前採買清單空空的喔！</p>
-                        <p class="text-[9px] opacity-75 mt-0.5">趕快在上方拍照或輸入「蝦仙貝」來建立圖鑑購物單吧！</p>
+                        <p class="text-[9px] opacity-75 mt-0.5">趕快在上方輸入像是「合利他命」、「蠟筆小新周邊」來建立購物清單吧！</p>
                     </div>
                 `;
                 return;
@@ -2232,11 +2232,11 @@
                 let imgHtml = "";
                 if (item.img) {
                     imgHtml = `
-                        <img src="${item.img}" onclick="openLightbox('${item.img}')" class="w-10 h-10 object-cover rounded-lg border border-muji-linen cursor-zoom-in hover:scale-[1.03] active:scale-[0.98] transition-transform flex-shrink-0">
+                        <img src="${item.img}" onclick="openLightbox('${item.img}')" class="w-10 h-10 object-cover rounded-lg border border-muji-linen cursor-zoom-in hover:opacity-90 transition-opacity">
                     `;
                 } else {
                     imgHtml = `
-                        <div class="w-10 h-10 bg-muji-linen rounded-lg flex items-center justify-center text-sm flex-shrink-0 text-muji-earth">🛍️</div>
+                        <div class="w-10 h-10 bg-muji-linen rounded-lg flex items-center justify-center text-lg flex-shrink-0 text-muji-earth">🛍️</div>
                     `;
                 }
 
@@ -2378,7 +2378,8 @@
             renderTimeline();
             renderExpenses();
             renderChecklists();
-            renderMemos();
+            renderShoppingList(); // 💡 確保載入時立刻渲染購物清單 (修復預設看不到的問題)
+            renderMemos();        // 💡 確保載入時立刻渲染備忘錄重要連結
         };
     </script>
 </body>
