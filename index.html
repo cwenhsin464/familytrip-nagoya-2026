@@ -90,6 +90,25 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.08);
             border: 1px solid #EFEAE2;
         }
+
+        /* 🌟 智慧縮放保護：鎖定特定 UI 元件尺寸，避免因字體放大而破圖、疊字或排版錯亂 🌟 */
+        .lock-font-size, 
+        .lock-font-size button, 
+        .lock-font-size input, 
+        .lock-font-size select, 
+        .lock-font-size span, 
+        .lock-font-size div,
+        .lock-font-size p {
+            font-size: 13px !important;
+        }
+        .lock-font-size-sm, 
+        .lock-font-size-sm * {
+            font-size: 11px !important;
+        }
+        .lock-font-size-nav, 
+        .lock-font-size-nav * {
+            font-size: 10px !important;
+        }
     </style>
 </head>
 <body class="min-h-screen pb-24 selection:bg-chiikawa-pinkdeep selection:text-muji-charcoal">
@@ -110,19 +129,19 @@
             </h1>
         </div>
         
-        <!-- 🌟 旅遊日期與字級控制同一行（靠左為日期、靠右為日系膠囊按鈕，完美省空間！） -->
-        <div class="mt-3 max-w-md mx-auto flex items-center justify-between bg-white/80 px-3 py-1.5 rounded-full text-xs text-muji-earth shadow-sm border border-muji-linen mb-4 z-30 relative">
+        <!-- 🌟 旅遊日期與字級控制同一行（靠左為日期、靠右為日系膠囊按鈕，完美省空間與鎖定尺寸！） -->
+        <div class="mt-3 max-w-md mx-auto flex items-center justify-between bg-white/80 px-3 py-1.5 rounded-full text-xs text-muji-earth shadow-sm border border-muji-linen mb-4 z-30 relative lock-font-size">
             <!-- 旅遊日期 (靠左) -->
             <div class="flex items-center gap-1.5 font-bold">
                 <i class="fa-solid fa-calendar-days text-chiikawa-pinkdeep"></i>
                 <span>2026.07.27 ~ 08.02 (7天6夜)</span>
             </div>
             
-            <!-- 字級切換控制組 (靠右) -->
+            <!-- 字級切換控制組 (靠右，使用膠囊按鈕 A / A+ / A++) -->
             <div class="flex items-center gap-0.5 bg-muji-sand/80 p-0.5 rounded-lg border border-muji-linen/50">
-                <button onclick="changeFontSize('normal')" id="hdr-font-normal" class="px-2 py-0.5 rounded-md text-[9px] font-bold transition-all text-muji-charcoal hover:bg-white">標準</button>
-                <button onclick="changeFontSize('medium')" id="hdr-font-medium" class="px-2 py-0.5 rounded-md text-[9px] font-bold transition-all text-muji-charcoal hover:bg-white">放大</button>
-                <button onclick="changeFontSize('large')" id="hdr-font-large" class="px-2 py-0.5 rounded-md text-[9px] font-bold transition-all text-muji-charcoal hover:bg-white">特大</button>
+                <button onclick="changeFontSize('normal')" id="hdr-font-normal" class="px-2 py-0.5 rounded-md text-[9px] font-bold transition-all text-muji-charcoal hover:bg-white" title="標準字體 (A)">A</button>
+                <button onclick="changeFontSize('medium')" id="hdr-font-medium" class="px-2 py-0.5 rounded-md text-[9px] font-bold transition-all text-muji-charcoal hover:bg-white" title="放大字體 (A+)">A+</button>
+                <button onclick="changeFontSize('large')" id="hdr-font-large" class="px-2 py-0.5 rounded-md text-[9px] font-bold transition-all text-muji-charcoal hover:bg-white" title="特大字體 (A++)">A++</button>
             </div>
         </div>
 
@@ -226,7 +245,7 @@
             </div>
 
             <!-- 每日主要行程看板 -->
-            <div id="day-header" class="bg-gradient-to-r from-chiikawa-pink to-white p-4 rounded-3xl border border-muji-linen mb-6 shadow-sm">
+            <div id="day-header" class="bg-gradient-to-r from-chiikawa-pink to-white p-4 rounded-3xl border border-muji-linen mb-6 shadow-sm animate-pulse-soft" style="animation-duration: 6s;">
                 <div class="flex justify-between items-center">
                     <div>
                         <span class="text-xs bg-chiikawa-pinkdeep/30 px-2.5 py-1 rounded-full text-muji-charcoal font-bold" id="day-num-tag">Day 1</span>
@@ -539,7 +558,7 @@
                                     <span class="text-lg">🐟</span>
                                     <div>
                                         <strong class="text-muji-charcoal font-bold">2. 鯛福茶庵 八代目澤屋</strong>
-                                        <p class="text-muji-earth text-[10px] mt-0.5 leading-relaxed">位於萬松寺入口處。招牌現烤鯛魚燒外皮金黃酥脆，紅豆與卡士達內餡滿溢，香氣四意。店家還提供免費焙茶可供長輩歇腳享用！</p>
+                                        <p class="text-muji-earth text-[10px] mt-0.5 leading-relaxed">位於萬松寺入口處。招牌現烤鯛魚燒外皮金長酥脆，紅豆與卡士達內餡滿溢，香氣四意。店家還提供免費焙茶可供長輩歇腳享用！</p>
                                     </div>
                                 </div>
                                 <div class="pt-2 flex items-start gap-2">
@@ -702,8 +721,9 @@
         </section>
 
         <!-- ==================== TAB 3: WALLET (記帳與匯率) ==================== -->
-        <section id="tab-wallet" class="tab-content hidden fade-in">
-            <h2 class="text-xl font-bold mb-4 flex items-center gap-2"><span class="text-lg">🪙</span> 日幣記帳與匯率換算</h2>
+        <!-- 🌟 已鎖定字級尺寸：保護匯率計算機與輸入表單，不受字體放大影響而疊字或跑版 🌟 -->
+        <section id="tab-wallet" class="tab-content hidden fade-in lock-font-size">
+            <h2 class="text-xl font-bold mb-4 flex items-center gap-2" style="font-size: 1.15rem !important;"><span class="text-lg">🪙</span> 日幣記帳與匯率換算</h2>
 
             <!-- 匯率與即時計算機 -->
             <div class="bg-white p-4 rounded-3xl border border-muji-linen shadow-sm space-y-3 mb-6">
@@ -711,7 +731,7 @@
                     <span class="text-xs font-bold text-muji-earth"><i class="fa-solid fa-money-bill-transfer text-chiikawa-pinkdeep mr-1"></i> 即時匯率換算</span>
                     <div class="flex items-center gap-1.5 text-xs text-muji-charcoal">
                         <span>自訂匯率 1 JPY =</span>
-                        <input type="number" id="exchange-rate" step="0.0001" value="0.2105" oninput="updateRatePersist()" class="w-16 px-1.5 py-0.5 rounded border border-muji-linen text-center font-bold">
+                        <input type="number" id="exchange-rate" step="0.0001" value="0.2105" oninput="updateRatePersist()" class="w-16 px-1.5 py-0.5 rounded border border-muji-linen text-center font-bold bg-white text-muji-charcoal">
                         <span>TWD</span>
                     </div>
                 </div>
@@ -730,32 +750,32 @@
                     <button onclick="pressCalc('*')" class="bg-muji-linen font-bold py-3.5 rounded-xl text-muji-charcoal active:scale-95 transition-all text-sm" >*</button>
                     <button onclick="pressCalc('-')" class="bg-muji-linen font-bold py-3.5 rounded-xl text-muji-charcoal active:scale-95 transition-all text-sm">-</button>
                     
-                    <button onclick="pressCalc('7')" class="bg-white border border-muji-linen font-semibold py-3 rounded-xl active:scale-95 transition-all text-sm">7</button>
-                    <button onclick="pressCalc('8')" class="bg-white border border-muji-linen font-semibold py-3 rounded-xl active:scale-95 transition-all text-sm">8</button>
-                    <button onclick="pressCalc('9')" class="bg-white border border-muji-linen font-semibold py-3 rounded-xl active:scale-95 transition-all text-sm">9</button>
+                    <button onclick="pressCalc('7')" class="bg-white border border-muji-linen font-semibold py-3 rounded-xl active:scale-95 transition-all text-sm text-muji-charcoal">7</button>
+                    <button onclick="pressCalc('8')" class="bg-white border border-muji-linen font-semibold py-3 rounded-xl active:scale-95 transition-all text-sm text-muji-charcoal">8</button>
+                    <button onclick="pressCalc('9')" class="bg-white border border-muji-linen font-semibold py-3 rounded-xl active:scale-95 transition-all text-sm text-muji-charcoal">9</button>
                     <button onclick="pressCalc('+')" class="bg-muji-linen font-bold py-3.5 rounded-xl text-muji-charcoal active:scale-95 transition-all text-sm" rowspan="2">+</button>
 
-                    <button onclick="pressCalc('4')" class="bg-white border border-muji-linen font-semibold py-3 rounded-xl active:scale-95 transition-all text-sm">4</button>
-                    <button onclick="pressCalc('5')" class="bg-white border border-muji-linen font-semibold py-3 rounded-xl active:scale-95 transition-all text-sm">5</button>
-                    <button onclick="pressCalc('6')" class="bg-white border border-muji-linen font-semibold py-3 rounded-xl active:scale-95 transition-all text-sm">6</button>
+                    <button onclick="pressCalc('4')" class="bg-white border border-muji-linen font-semibold py-3 rounded-xl active:scale-95 transition-all text-sm text-muji-charcoal">4</button>
+                    <button onclick="pressCalc('5')" class="bg-white border border-muji-linen font-semibold py-3 rounded-xl active:scale-95 transition-all text-sm text-muji-charcoal">5</button>
+                    <button onclick="pressCalc('6')" class="bg-white border border-muji-linen font-semibold py-3 rounded-xl active:scale-95 transition-all text-sm text-muji-charcoal">6</button>
                     <button onclick="pressCalc('=')" class="bg-chiikawa-pinkdeep text-white font-bold py-3 rounded-xl active:scale-95 transition-all text-sm" rowspan="2">=</button>
 
-                    <button onclick="pressCalc('1')" class="bg-white border border-muji-linen font-semibold py-3 rounded-xl active:scale-95 transition-all text-sm">1</button>
-                    <button onclick="pressCalc('2')" class="bg-white border border-muji-linen font-semibold py-3 rounded-xl active:scale-95 transition-all text-sm">2</button>
-                    <button onclick="pressCalc('3')" class="bg-white border border-muji-linen font-semibold py-3 rounded-xl active:scale-95 transition-all text-sm">3</button>
-                    <button onclick="pressCalc('0')" class="bg-white border border-muji-linen font-semibold py-3 rounded-xl active:scale-95 transition-all text-sm col-span-2">0</button>
+                    <button onclick="pressCalc('1')" class="bg-white border border-muji-linen font-semibold py-3 rounded-xl active:scale-95 transition-all text-sm text-muji-charcoal">1</button>
+                    <button onclick="pressCalc('2')" class="bg-white border border-muji-linen font-semibold py-3 rounded-xl active:scale-95 transition-all text-sm text-muji-charcoal">2</button>
+                    <button onclick="pressCalc('3')" class="bg-white border border-muji-linen font-semibold py-3 rounded-xl active:scale-95 transition-all text-sm text-muji-charcoal">3</button>
+                    <button onclick="pressCalc('0')" class="bg-white border border-muji-linen font-semibold py-3 rounded-xl active:scale-95 transition-all text-sm col-span-2 text-muji-charcoal">0</button>
                     
-                    <button onclick="pressCalc('.')" class="bg-white border border-muji-linen font-semibold py-3 rounded-xl active:scale-95 transition-all text-sm">.</button>
+                    <button onclick="pressCalc('.')" class="bg-white border border-muji-linen font-semibold py-3 rounded-xl active:scale-95 transition-all text-sm text-muji-charcoal">.</button>
                 </div>
             </div>
 
-            <!-- 新增記帳 (已移除拍照按鈕，聚焦更單純的數字輸入) -->
+            <!-- 新增記帳 (已徹底移除拍照與傳圖功能，介面乾淨俐落) -->
             <div class="bg-white p-4 rounded-3xl border border-muji-linen shadow-sm space-y-3 mb-6">
                 <h3 class="font-bold text-sm text-muji-charcoal flex items-center gap-1"><i class="fa-solid fa-file-invoice-dollar text-emerald-500"></i> 新增旅途消費</h3>
                 
                 <div class="grid grid-cols-2 gap-2">
-                    <input type="text" id="expense-name" placeholder="品項 (如: 鰻魚飯)" class="px-3 py-2 rounded-xl border border-muji-linen text-xs">
-                    <input type="number" id="expense-jpy" placeholder="日幣金額" class="px-3 py-2 rounded-xl border border-muji-linen text-xs">
+                    <input type="text" id="expense-name" placeholder="品項 (如: 鰻魚飯)" class="px-3 py-2 rounded-xl border border-muji-linen text-xs text-muji-charcoal bg-white">
+                    <input type="number" id="expense-jpy" placeholder="日幣金額" class="px-3 py-2 rounded-xl border border-muji-linen text-xs text-muji-charcoal bg-white">
                 </div>
 
                 <!-- 付款方式選擇器 -->
@@ -828,10 +848,10 @@
 
         <!-- ==================== TAB 4: LISTS (清單) ==================== -->
         <section id="tab-lists" class="tab-content hidden fade-in">
-            <h2 class="text-xl font-bold mb-4 flex items-center gap-2"><span class="text-lg">🎒</span> 行前行李大檢查與購物清單</h2>
+            <h2 class="text-xl font-bold mb-4 flex items-center gap-2 text-muji-charcoal"><span class="text-lg">🎒</span> 行前行李大檢查與購物清單</h2>
 
             <!-- 💡 航班與行李託運限制摺疊頁卡片 (完美收納至摺疊卡中) -->
-            <div class="bg-white p-3 rounded-2xl border border-muji-linen mb-4 shadow-sm space-y-2.5 fade-in">
+            <div class="bg-white p-3 rounded-2xl border border-muji-linen mb-4 shadow-sm space-y-2.5 fade-in lock-font-size">
                 <button onclick="toggleFlightListsDetails()" class="w-full text-left flex justify-between items-center font-bold text-xs text-muji-charcoal focus:outline-none">
                     <span class="flex items-center gap-1.5"><i class="fa-solid fa-plane-departure text-blue-500"></i> 航班搭乘與免費行李託運配額</span>
                     <i id="flight-lists-arrow" class="fa-solid fa-chevron-down text-muji-earth text-[10px] transition-transform duration-300"></i>
@@ -863,28 +883,28 @@
             </div>
 
             <!-- 清單子分頁切換 (購物清單調整至第一順位) -->
-            <div class="grid grid-cols-3 gap-2 mb-4">
+            <div class="grid grid-cols-3 gap-2 mb-4 lock-font-size">
                 <button onclick="switchListTab('shopping')" id="lbtn-shopping" class="list-sub-btn py-2 rounded-2xl bg-white text-muji-charcoal border border-muji-linen text-xs font-bold transition-all">購物清單</button>
                 <button onclick="switchListTab('handbag')" id="lbtn-handbag" class="list-sub-btn py-2 rounded-2xl bg-white text-muji-charcoal border border-muji-linen text-xs font-bold transition-all">手提隨身</button>
                 <button onclick="switchListTab('luggage')" id="lbtn-luggage" class="list-sub-btn py-2 rounded-2xl bg-white text-muji-charcoal border border-muji-linen text-xs font-bold transition-all">托運行李</button>
             </div>
 
             <!-- 一鍵重設行李打包勾選狀態 -->
-            <div id="reset-checklist-bar" class="mb-3 text-right hidden">
+            <div id="reset-checklist-bar" class="mb-3 text-right hidden lock-font-size">
                 <button onclick="resetChecklist()" class="inline-flex items-center gap-1 text-[10px] bg-muji-sand hover:bg-muji-linen text-muji-earth border border-muji-linen px-2.5 py-1.5 rounded-xl transition-all active:scale-95">
                     <i class="fa-solid fa-rotate-right"></i> 一鍵重設行李勾選狀態
                 </button>
             </div>
 
-            <!-- 1. 🛍️ 購物清單 (已移除拍照功能，介面大幅簡化，輸入更流暢！) -->
+            <!-- 1. 🛍️ 購物清單 (已完全移除了拍照按鈕與拍照邏輯，介面專注好用、加載無極致負擔！) -->
             <div id="lcontent-shopping" class="list-panel bg-white p-4 rounded-3xl border border-muji-linen shadow-sm space-y-3">
-                <div class="bg-chiikawa-blue p-3 rounded-2xl text-xs text-muji-charcoal border border-blue-200">
+                <div class="bg-chiikawa-blue p-3 rounded-2xl text-xs text-muji-charcoal border border-blue-200 lock-font-size">
                     <p class="font-bold">🛒 戰利品採買清單：</p>
                     <p class="text-muji-earth mt-1">建立想採買的伴手禮或藥妝項目，在名古屋藥妝店或免稅店對照，採購更輕鬆！</p>
                 </div>
                 
-                <div class="flex gap-2">
-                    <input type="text" id="shopping-item-input" placeholder="例如：合利他命、蝦仙貝、吉伊卡哇..." class="flex-1 px-3 py-2 rounded-xl border border-muji-linen text-xs focus:outline-none focus:ring-1 focus:ring-chiikawa-pinkdeep bg-white shadow-sm">
+                <div class="flex gap-2 lock-font-size">
+                    <input type="text" id="shopping-item-input" placeholder="例如：合利他命、蝦仙貝、吉伊卡哇..." class="flex-1 px-3 py-2 rounded-xl border border-muji-linen text-xs focus:outline-none focus:ring-1 focus:ring-chiikawa-pinkdeep bg-white text-muji-charcoal shadow-sm">
                     <button onclick="addShoppingItem()" class="bg-muji-charcoal text-white px-4 py-2 rounded-xl text-xs font-bold hover:bg-opacity-95 active:scale-95 transition-all shadow-sm">新增</button>
                 </div>
 
@@ -895,7 +915,7 @@
 
             <!-- 2. 手提行李檢查清單 (預設隱藏) -->
             <div id="lcontent-handbag" class="list-panel hidden bg-white p-4 rounded-3xl border border-muji-linen shadow-sm space-y-3">
-                <div class="bg-chiikawa-yellow p-3 rounded-2xl text-xs text-muji-charcoal border border-yellow-200">
+                <div class="bg-chiikawa-yellow p-3 rounded-2xl text-xs text-muji-charcoal border border-yellow-200 lock-font-size">
                     <p class="font-bold">⚠️ 手提隨身限制：</p>
                     <p class="text-muji-earth mt-1">限重 <strong>7 kg</strong>/每人1件，尺寸限制：56cm x 36cm x 23 cm。空水壺必須過安檢後才可裝水！</p>
                 </div>
@@ -907,7 +927,7 @@
 
             <!-- 3. 托運行李檢查清單 (預設隱藏) -->
             <div id="lcontent-luggage" class="list-panel hidden bg-white p-4 rounded-3xl border border-muji-linen shadow-sm space-y-3">
-                <div class="bg-chiikawa-pink p-3 rounded-2xl text-xs text-muji-charcoal border border-chiikawa-pinkdeep/30">
+                <div class="bg-chiikawa-pink p-3 rounded-2xl text-xs text-muji-charcoal border border-chiikawa-pinkdeep/30 lock-font-size">
                     <p class="font-bold">✈️ 托運限制與行李箱分配：</p>
                     <p class="text-muji-earth mt-1">限重 <strong>23 kg</strong>/件，嬰兒去回限1件。分配：2個28吋、1個27吋、1個24吋、1個摺疊推車（機邊托運）。</p>
                 </div>
@@ -920,10 +940,10 @@
 
         <!-- ==================== TAB 5: INFO (實用資訊) ==================== -->
         <section id="tab-info" class="tab-content hidden fade-in">
-            <h2 class="text-xl font-bold mb-4 flex items-center gap-2"><span class="text-lg">📢</span> 出國必備實用資訊</h2>
+            <h2 class="text-xl font-bold mb-4 flex items-center gap-2 text-muji-charcoal"><span class="text-lg">📢</span> 出國必備實用資訊</h2>
 
-            <!-- ☀️ 氣象與航班實用連結 (移至分頁最上方隨時查閱，符合不被蓋台的設計) -->
-            <div class="grid grid-cols-2 gap-2 mb-4">
+            <!-- ☀️ 氣象與航班實用連結 (置頂鎖定大小，防溢出) -->
+            <div class="grid grid-cols-2 gap-2 mb-4 lock-font-size">
                 <a href="https://www.jma.go.jp/jma/index.html" target="_blank" class="bg-chiikawa-blue p-3 rounded-2xl border border-blue-200 text-center hover:scale-[1.02] transition-all flex flex-col items-center justify-center">
                     <p class="text-2xl">☀️</p>
                     <p class="text-xs font-bold text-muji-charcoal mt-1">日本氣象廳預報</p>
@@ -935,7 +955,7 @@
             </div>
 
             <!-- 💡 子分頁切換按鈕：備忘連結、入境手續、緊急防護 -->
-            <div class="grid grid-cols-3 gap-2 mb-4">
+            <div class="grid grid-cols-3 gap-2 mb-4 lock-font-size">
                 <button onclick="switchInfoTab('links')" id="ibtn-links" class="info-sub-btn py-2 rounded-2xl bg-muji-charcoal text-white text-xs font-bold transition-all">備忘連結</button>
                 <button onclick="switchInfoTab('entry')" id="ibtn-entry" class="info-sub-btn py-2 rounded-2xl bg-white text-muji-charcoal border border-muji-linen text-xs font-bold transition-all">入境手續</button>
                 <button onclick="switchInfoTab('emergency')" id="ibtn-emergency" class="info-sub-btn py-2 rounded-2xl bg-white text-muji-charcoal border border-muji-linen text-xs font-bold transition-all">緊急防護</button>
@@ -948,8 +968,8 @@
                     <h3 class="font-bold text-sm text-muji-charcoal flex items-center gap-1.5 border-b border-muji-linen pb-2">
                         <i class="fa-solid fa-link text-blue-500"></i> 📌 實用連結與官方登入入口
                     </h3>
-                    <div class="flex gap-2">
-                        <input type="text" id="memo-input" placeholder="輸入常用乘車指南、登機網址等..." class="flex-1 px-3 py-2 rounded-xl border border-muji-linen text-xs focus:outline-none focus:ring-1 focus:ring-chiikawa-pinkdeep bg-gray-50">
+                    <div class="flex gap-2 lock-font-size">
+                        <input type="text" id="memo-input" placeholder="輸入常用乘車指南、登機網址等..." class="flex-1 px-3 py-2 rounded-xl border border-muji-linen text-xs focus:outline-none focus:ring-1 focus:ring-chiikawa-pinkdeep bg-gray-50 text-muji-charcoal">
                         <button onclick="addMemo()" class="bg-muji-charcoal text-white px-3 py-2 rounded-xl text-xs font-bold hover:bg-opacity-95 transition-all">新增</button>
                     </div>
                     <div class="space-y-2 mt-4" id="memo-list-container">
@@ -965,7 +985,7 @@
                     <p class="text-xs text-muji-earth leading-relaxed">
                         入境前請在網路上填寫資料並申請 **Visit Japan Web**，入境時向海關出示二維碼即可快速通關。免稅退稅只要在同一間店、同一天內，未稅總金額達 <strong>5,000日圓</strong> 以上，即可憑護照辦理免稅！
                     </p>
-                    <div class="pt-2">
+                    <div class="pt-2 lock-font-size">
                         <a href="https://vjw-lp.digital.go.jp/" target="_blank" class="block w-full text-center bg-chiikawa-blue text-blue-700 border border-blue-300 font-bold py-2.5 rounded-xl text-xs transition-all hover:bg-blue-100">
                             <i class="fa-solid fa-arrow-up-right-from-square mr-1"></i> 前往 Visit Japan Web 官方填寫入口
                         </a>
@@ -1002,7 +1022,7 @@
     </main>
 
     <!-- 底部圓潤導航列 -->
-    <nav class="fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-muji-linen py-2.5 z-40 shadow-[0_-2px_10px_rgba(0,0,0,0.03)]">
+    <nav class="fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-muji-linen py-2.5 z-40 shadow-[0_-2px_10px_rgba(0,0,0,0.03)] lock-font-size-nav">
         <div class="max-w-md mx-auto px-6 flex justify-between items-center">
             <div class="flex items-center gap-1.5">
                 <span class="text-xs font-bold text-gray-500">倒數狀態:</span>
@@ -1017,7 +1037,7 @@
 
     <!-- 自定義對話框 Modal 元件 -->
     <div id="custom-confirm-modal" class="fixed inset-0 bg-black/60 hidden items-center justify-center z-[100] px-4">
-        <div class="bg-white border-2 border-muji-charcoal rounded-3xl p-5 max-w-sm w-full space-y-4 shadow-xl fade-in text-center">
+        <div class="bg-white border-2 border-muji-charcoal rounded-3xl p-5 max-w-sm w-full space-y-4 shadow-xl fade-in text-center lock-font-size">
             <div class="text-4xl" id="custom-confirm-icon">❓</div>
             <h3 class="font-bold text-base text-muji-charcoal" id="custom-confirm-title">確認動作</h3>
             <p class="text-xs text-muji-earth leading-relaxed px-2" id="custom-confirm-message">你確定要執行這個動作嗎？</p>
@@ -1033,7 +1053,7 @@
     </div>
 
     <div id="custom-alert-modal" class="fixed inset-0 bg-black/60 hidden items-center justify-center z-[100] px-4">
-        <div class="bg-white border-2 border-muji-charcoal rounded-3xl p-5 max-w-sm w-full space-y-4 shadow-xl fade-in text-center">
+        <div class="bg-white border-2 border-muji-charcoal rounded-3xl p-5 max-w-sm w-full space-y-4 shadow-xl fade-in text-center lock-font-size">
             <div class="text-4xl" id="custom-alert-icon">✨</div>
             <h3 class="font-bold text-base text-muji-charcoal" id="custom-alert-title">溫馨提示</h3>
             <p class="text-xs text-muji-earth leading-relaxed px-2" id="custom-alert-message">提示訊息</p>
@@ -1043,18 +1063,8 @@
         </div>
     </div>
 
-    <!-- 收據照片與商品圖放大燈箱 (Lightbox Modal) - 僅保留以相容舊有匯入 -->
-    <div id="lightbox-modal" class="fixed inset-0 bg-black/95 hidden items-center justify-center z-[110] cursor-zoom-out animate-fade-in" onclick="closeLightbox()">
-        <div class="relative w-full h-full flex items-center justify-center p-2" onclick="event.stopPropagation()">
-            <button onclick="closeLightbox()" class="absolute top-4 right-4 text-white text-3xl hover:text-gray-300 focus:outline-none transition-colors z-50 bg-black/40 w-11 h-10 rounded-full flex items-center justify-center">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
-            <img id="lightbox-img" src="" class="max-h-full max-w-full object-contain shadow-2xl transition-transform duration-300 select-none cursor-zoom-in" onclick="toggleZoom(event)">
-        </div>
-    </div>
-
-    <!-- 底部導航欄 -->
-    <nav class="fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-muji-linen px-4 py-2 flex justify-around items-center shadow-lg z-50 max-w-md mx-auto rounded-t-3xl">
+    <!-- 底部導航欄 (🌟 鎖定尺寸保護：不隨字級設定而跑版 🌟) -->
+    <nav class="fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-muji-linen px-4 py-2 flex justify-around items-center shadow-lg z-50 max-w-md mx-auto rounded-t-3xl lock-font-size-nav">
         <button onclick="switchTab('plan')" id="nav-plan" class="nav-btn flex flex-col items-center gap-0.5 text-chiikawa-pinkdeep transition-all py-1.5 px-3 rounded-xl bg-chiikawa-pink/50">
             <i class="fa-solid fa-map-location-dot text-lg"></i>
             <span class="text-[10px] font-bold">PLAN</span>
@@ -1084,26 +1094,26 @@
         let osuMap = null;
         let currentDay = 1; // 宣告全域變數 currentDay
 
-        // --- 🌟 新增：字級調整控制邏輯 (老花與長輩友善設計) 🌟 ---
+        // --- 🌟 新增：字級調整控制邏輯 (老花與長輩友善設計，智慧精準縮放) 🌟 ---
         function changeFontSize(level) {
             // 重置所有選取按鈕的樣式 (Header 字級控制組)
             const btnNormal = document.getElementById('hdr-font-normal');
             const btnMedium = document.getElementById('hdr-font-medium');
             const btnLarge = document.getElementById('hdr-font-large');
 
-            btnNormal.className = "px-2.5 py-1 rounded-lg text-[10px] font-bold transition-all text-muji-charcoal hover:bg-muji-sand";
-            btnMedium.className = "px-2.5 py-1 rounded-lg text-[10px] font-bold transition-all text-muji-charcoal hover:bg-muji-sand";
-            btnLarge.className = "px-2.5 py-1 rounded-lg text-[10px] font-bold transition-all text-muji-charcoal hover:bg-muji-sand";
+            btnNormal.className = "px-2 py-0.5 rounded-md text-[9px] font-bold transition-all text-muji-charcoal hover:bg-white";
+            btnMedium.className = "px-2 py-0.5 rounded-md text-[9px] font-bold transition-all text-muji-charcoal hover:bg-white";
+            btnLarge.className = "px-2 py-0.5 rounded-md text-[9px] font-bold transition-all text-muji-charcoal hover:bg-white";
 
             if (level === 'normal') {
-                document.documentElement.style.fontSize = '100%'; // 預設 16px
-                btnNormal.className = "px-2.5 py-1 rounded-lg text-[10px] font-bold transition-all bg-muji-charcoal text-white shadow-sm";
+                document.documentElement.style.fontSize = '100%'; // 標準
+                btnNormal.className = "px-2 py-0.5 rounded-md text-[9px] font-bold transition-all bg-muji-charcoal text-white shadow-sm";
             } else if (level === 'medium') {
-                document.documentElement.style.fontSize = '115%'; // 放大到 18.4px
-                btnMedium.className = "px-2.5 py-1 rounded-lg text-[10px] font-bold transition-all bg-chiikawa-pinkdeep text-muji-charcoal shadow-sm";
+                document.documentElement.style.fontSize = '118%'; // 放大 (A+)
+                btnMedium.className = "px-2 py-0.5 rounded-md text-[9px] font-bold transition-all bg-chiikawa-pinkdeep text-muji-charcoal shadow-sm";
             } else if (level === 'large') {
-                document.documentElement.style.fontSize = '130%'; // 放大到 20.8px (老花、長輩最推薦)
-                btnLarge.className = "px-2.5 py-1 rounded-lg text-[10px] font-bold transition-all bg-chiikawa-accent text-white shadow-sm";
+                document.documentElement.style.fontSize = '135%'; // 特大 (A++)
+                btnLarge.className = "px-2 py-0.5 rounded-md text-[9px] font-bold transition-all bg-chiikawa-accent text-white shadow-sm";
             }
 
             // 本地儲存使用者選擇
@@ -1254,6 +1264,7 @@
                     { time: '10:00', title: '豐田產業技術紀念館 🛠️', desc: '10:00購票入館(大人1000日圓、65歲以上600日圓、暑假期間學童免費)，從中央入口進入拍張全家福。第一時間衝至右手邊「科技樂園 (Technoland)」預約10:30~11:00 the 裝機時間。' },
                     { time: '11:00', title: '蒸汽機與織布機演示 ⚙️', desc: '11:00看科技樂園對面的蒸汽機運轉；11:25回到大廳欣賞環狀織布機演示。' },
                     { time: '11:35', title: '自由展區與午餐 🍛', desc: '參觀汽車組裝。午餐可於館內 Brick Age 紅磚餐廳享用，或慢步至 AEON Mall 美食廣場享用。' },
+                    { time: '13:20', title: '夥伴機器人拉小提琴表演 🎻', desc: '走到南入口欣賞高科技機器人美妙的現場小提琴演奏。' },
                     { time: '14:00', title: 'AEON Mall 則武新町 🛍️', desc: '南入口步行 500 公尺進 AEON。避暑購物時光！蔦屋書店打卡牆、Uniqlo、Seria百元店、無印良品、3coins+Plus買齊！', mapUrl: 'https://maps.app.goo.gl/ybcTw2yMqHenjhqHA' }
                 ],
                 plans: {
@@ -1295,7 +1306,7 @@
                     { time: '09:10', title: '地鐵一日券省錢秘訣 🚇', desc: '買「地鐵一日券」（760日圓），水族館門票每張現折 200 日圓！(大人2030日圓、國小1010日圓)' },
                     { time: '10:15', title: '名古屋港水族館北館 🐬', desc: '10:30 海豚表演 BLUE ECHO；11:30 逆戟鯨（虎鯨）公開訓練。看完海豚留在原地看虎鯨，最省力！' },
                     { time: '11:45', title: '看台海景野餐 🍱', desc: '訓練結束後在北館 3 樓看台（可飲食區）野餐享用炸蝦飯糰，賞無敵海景。' },
-                    { time: '12:20', title: '推車前往南館 🐧', desc: '沿連通道前往南館（下午不再回北館）。12:30 企鵝餵食、13:45 海龜餵食、14:45 沙丁魚龍捲風。南館2F還有取珍珠體驗(1顆貝1000日圓)，離園前在南館出口買紀念品。' },
+                    { time: '12:20', title: '推車前往南館 🐧', desc: '沿連通道前往南館（下午不再回北館）。12:30 企鵝餵食、13:45 海龜餵食、14:45 沙丁魚龙捲風。南館2F還有取珍珠體驗(1顆貝1000日圓)，離園前在南館出口買紀念品。' },
                     { time: '15:30', title: 'LaLaport 名古屋港AQULS購物 🛒', desc: '搭名港線 2 站到「港區役所站」直通 LaLaport。狂攻阿卡將、Loft、玩具反斗城、 Montbell、Workman。', mapUrl: 'https://maps.app.goo.gl/KVmUnX2JJsvwti577' }
                 ],
                 plans: {
@@ -1574,7 +1585,7 @@
                 let dotColor = "bg-chiikawa-pinkdeep";
 
                 let mapBtnHtml = item.mapUrl ? `
-                    <div class="mt-1.5">
+                    <div class="mt-1.5 lock-font-size">
                         <a href="${item.mapUrl}" target="_blank" class="inline-flex items-center gap-1.5 bg-chiikawa-blue hover:bg-blue-200 text-muji-charcoal text-[10px] px-2.5 py-1.5 rounded-xl font-bold transition-all active:scale-[0.98] shadow-sm border border-blue-200">
                             <i class="fa-solid fa-map-location-dot text-blue-500"></i>
                             <span>Google Maps 導航</span>
@@ -1639,7 +1650,7 @@
                         { coords: [35.16764850967813, 136.8805665745858], title: "🏨 大和ROYNET飯店 名古屋太閣通口", desc: "三代同堂家庭 7 人 6 晚連住超便利基地！" },
                         { coords: [35.16833370240405, 136.88122908020821], title: "🏪 Ministop 名古屋站西店", desc: "主打現點現做的熱食與聖代冰品" },
                         { coords: [35.16848279958023, 136.88022056964354], title: "🏪 Lawson 椿町店", desc: "以高品質 Uchi Café 甜點與炸雞君聞名" },
-                        { coords: [35.168379747150084, 136.8785200491615], title: "🏪 FamilyMart 中村竹橋町店", desc: "兼具爆款聯名甜點與超商服飾" },
+                        { coords: [35.16839747150084, 136.8785200491615], title: "🏪 FamilyMart 中村竹橋町店", desc: "兼具爆款聯名甜點與超商服飾" },
                         { coords: [35.168929, 136.880985], title: "💊 千里馬藥局", desc: "超划算免稅老字號藥妝店（限用現金）。" },
                         { coords: [35.167386461493216, 136.88448393793936], title: "💊 大國藥妝", desc: "門檻折扣力度大，採購藥物好地方。" },
                         { coords: [35.168738320508055, 136.88190789977807], title: "💊 松本清 名古屋站太閤通店", desc: "有許多獨家限定美妝保養商品。" },
@@ -1753,7 +1764,7 @@
                     }).addTo(osuMap);
 
                     routeLine.bindPopup(`
-                        <div class="font-sans text-xs p-1">
+                        <div class="font-sans text-xs p-1 lock-font-size">
                             <b class="text-pink-500 block mb-1">🌸 親子推薦散策路線 🌸</b>
                             <span class="text-muji-earth text-[10px] leading-relaxed">
                                 全段平坦且設有高挑遮雨棚拱頂，推推車與長輩步行極度舒適防曬！<br>
@@ -1822,7 +1833,7 @@
             document.getElementById('calc-twd-estimate').innerText = `約 NT$ ${res}`;
         }
 
-        // 8. 記帳邏輯與優化
+        // 8. 記帳邏輯與優化 (無拍照，清爽儲存)
         function saveExpense() {
             const nameInput = document.getElementById('expense-name');
             const jpyInput = document.getElementById('expense-jpy');
@@ -2122,12 +2133,14 @@
             renderShoppingList();
         }
 
+        // 勾選購物清單
         function toggleShoppingItem(idx) {
             shoppingList[idx].checked = !shoppingList[idx].checked;
             localStorage.setItem('nagoya_shopping_list', JSON.stringify(shoppingList));
             renderShoppingList();
         }
 
+        // 刪除購物清單項目
         function deleteShoppingItem(idx) {
             shoppingList.splice(idx, 1);
             localStorage.setItem('nagoya_shopping_list', JSON.stringify(shoppingList));
@@ -2140,7 +2153,7 @@
 
             if (shoppingList.length === 0) {
                 container.innerHTML = `
-                    <div class="text-center py-8 text-muji-earth">
+                    <div class="text-center py-8 text-muji-earth animate-fade-in">
                         <p class="text-3xl mb-2">🛍️</p>
                         <p class="text-[11px] font-bold">目前採買清單空空的喔！</p>
                         <p class="text-[9px] opacity-75 mt-0.5">趕快在上方輸入採購品項建立清單吧！</p>
@@ -2169,6 +2182,7 @@
             });
         }
 
+        // 渲染常用重要連結與備忘
         function renderMemos() {
             const container = document.getElementById('memo-list-container');
             container.innerHTML = '';
@@ -2230,7 +2244,7 @@
             renderMemos();
         }
 
-        // 點擊放大燈箱
+        // 點擊放大燈箱 (備用相容舊架構)
         let isZoomed = false;
         function openLightbox(imgSrc) {
             if (!imgSrc) return;
