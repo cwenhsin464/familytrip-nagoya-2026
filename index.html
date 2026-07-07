@@ -72,14 +72,16 @@
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        /* 煙火櫻花灑落微動效 */
+        
+        /* 🌸 修正：調整為呼吸燈半透明漸變，完全避免因 transform scale 縮放造成的網頁版面與文字跳動問題 */
         @keyframes pulse-soft {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.03); }
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.85; }
         }
         .animate-pulse-soft {
-            animation: pulse-soft 3s infinite ease-in-out;
+            animation: pulse-soft 3.5s infinite ease-in-out;
         }
+        
         /* 確保 Leaflet popup 在日系風格下呈現優雅外觀 */
         .leaflet-popup-content-wrapper {
             border-radius: 12px;
@@ -116,46 +118,53 @@
             font-size: 26px !important;
         }
 
-        /* A++ 特大模式下的文字尺寸微調（長輩老花最愛） */
+        /* 🌟 A++ 特大模式下的文字尺寸大幅增強（長輩老花看得超級清楚！） */
         body.font-size-large .text-xs,
         body.font-size-large .text-\[10px\],
         body.font-size-large .text-\[11px\],
         body.font-size-large .text-\[9px\] {
-            font-size: 13.5px !important;
+            font-size: 15px !important;
         }
         body.font-size-large .text-sm {
-            font-size: 17.5px !important;
+            font-size: 19px !important;
         }
         body.font-size-large .text-base {
-            font-size: 20.5px !important;
+            font-size: 22px !important;
         }
         body.font-size-large .text-lg {
-            font-size: 23px !important;
+            font-size: 25px !important;
         }
         body.font-size-large .text-xl {
-            font-size: 26px !important;
-        }
-        body.font-size-large .text-2xl {
             font-size: 29px !important;
         }
+        body.font-size-large .text-2xl {
+            font-size: 34px !important;
+        }
 
-        /* 🌟 智慧結構鎖定保護：確保特定重要互動 UI 尺寸不受字體放大影響 🌟 */
-        .lock-font-size, 
-        .lock-font-size button, 
-        .lock-font-size input, 
-        .lock-font-size select, 
-        .lock-font-size span, 
-        .lock-font-size div,
-        .lock-font-size p {
+        /* 🌟 智慧結構鎖定保護：確保特定重要互動 UI 尺寸不受字體放大影響（使用更高 specificity 進行強制覆蓋） 🌟 */
+        body .lock-font-size, 
+        body .lock-font-size button, 
+        body .lock-font-size input, 
+        body .lock-font-size select, 
+        body .lock-font-size span, 
+        body .lock-font-size div,
+        body .lock-font-size p {
             font-size: 13px !important;
         }
-        .lock-font-size-sm, 
-        .lock-font-size-sm * {
+        body .lock-font-size-sm, 
+        body .lock-font-size-sm * {
             font-size: 11px !important;
         }
-        .lock-font-size-nav, 
-        .lock-font-size-nav * {
+        
+        /* 徹底防止底部導航列圖示與文字因為字體放大而溢出跑版 */
+        body .lock-font-size-nav, 
+        body .lock-font-size-nav * {
             font-size: 10px !important;
+        }
+        body .lock-font-size-nav i,
+        body.font-size-medium .lock-font-size-nav i,
+        body.font-size-large .lock-font-size-nav i {
+            font-size: 18px !important; /* 🌟 強制將 FontAwesome 圖示鎖定在原本漂亮的 18 像素，不隨字級縮放 */
         }
     </style>
 </head>
@@ -163,7 +172,7 @@
 
     <!-- 頂部可愛橫幅 -->
     <header class="bg-gradient-to-b from-chiikawa-pink to-muji-sand px-4 pt-6 pb-4 border-b border-muji-linen text-center relative overflow-hidden">
-        <!-- 背景裝飾小物件 -->
+        <!-- Background floating petals (simulated with emojis) -->
         <div class="absolute top-2 left-4 text-xs opacity-40 text-chiikawa-pinkdeep"><i class="fa-solid fa-heart"></i></div>
         <div class="absolute top-8 right-6 text-sm opacity-40 text-chiikawa-blue"><i class="fa-solid fa-star"></i></div>
         <div class="absolute bottom-2 left-8 text-xs opacity-30 text-chiikawa-yellow"><i class="fa-solid fa-face-smile"></i></div>
@@ -747,7 +756,7 @@
                                 <div class="pt-2 flex items-start gap-2 text-[11px]">
                                     <span class="text-lg">🐱</span>
                                     <div>
-                                        <strong class="text-muji-charcoal font-bold">21. 大須東仁王門通 巨大招財貓地標</strong>
+                                        <strong class="text-muji-charcoal font-bold">21. 大須東仁王門通 巨大招招財貓地標</strong>
                                         <p class="text-muji-earth text-[10px] mt-0.5 leading-relaxed">大須商店街最核心的地標！2.2公尺高的巨大招財貓矗立在廣場中央，也是阿波舞等祭典的起終點。這裡非常平坦，也是最適合三代同堂拍攝「到此一遊」全家福的熱門打卡點 📷！</p>
                                     </div>
                                 </div>
@@ -1269,7 +1278,7 @@
             }
         }
 
-        // 行李分頁摺疊邏輯
+        // 行泥分頁摺疊邏輯
         function toggleFlightListsDetails() {
             const block = document.getElementById('flight-lists-block');
             const arrow = document.getElementById('flight-lists-arrow');
@@ -1315,7 +1324,6 @@
                     { time: '10:00', title: '豐田產業技術紀念館 🛠️', desc: '10:00購票入館(大人1000日圓、65歲以上600日圓、暑假期間學童免費)，從中央入口進入拍張全家福。第一時間衝至右手邊「科技樂園 (Technoland)」預約10:30~11:00 the 裝機時間。' },
                     { time: '11:00', title: '蒸汽機與織布機演示 ⚙️', desc: '11:00看科技樂園對面的蒸汽機運轉；11:25回到大廳欣賞環狀織布機演示。' },
                     { time: '11:35', title: '自由展區與午餐 🍛', desc: '參觀汽車組裝。午餐可於館內 Brick Age 紅磚餐廳享用，或慢步至 AEON Mall 美食廣場享用。' },
-                    { time: '13:20', title: '夥伴機器人拉小提琴表演 🎻', desc: '走到南入口欣賞高科技機器人美妙的現場小提琴演奏。' },
                     { time: '14:00', title: 'AEON Mall 則武新町 🛍️', desc: '南入口步行 500 公尺進 AEON。避暑購物時光！蔦屋書店打卡牆、Uniqlo、Seria百元店、無印良品、3coins+Plus買齊！', mapUrl: 'https://maps.app.goo.gl/ybcTw2yMqHenjhqHA' }
                 ],
                 plans: {
@@ -1330,7 +1338,7 @@
             },
             3: [
                 { time: '09:00', title: '搭乘樂高火車出發 🚇', desc: '從飯店步行 300 公尺到名古屋車站太閣通口，搭乘「青波線 (Aonami Line)」往終點站「金城埠頭」，車程約24分鐘。再步行500公尺到達樂高樂園。', mapUrl: 'https://maps.app.goo.gl/KEV6Fq8osjDHo1xb9' },
-                { time: '10:00', title: '歡樂開場：積木與地標 🏰', desc: '入口拍全家福笑容最美。搶先體驗編號1樂高工廠之旅領限定款積木。搭乘編號6旋轉木馬與編號5瞭望塔。姊姊玩咖啡杯，小弟在廣場玩水。' },
+                { time: '10:00', title: '歡樂開場 : 積木與地標 🏰', desc: '入口拍全家福笑容最美。搶先體驗編號1樂高工廠之旅領限定款積木。搭乘編號6旋轉木馬與編號5瞭望塔。姊姊玩咖啡杯，小弟在廣場玩水。' },
                 { time: '11:00', title: '忍者集結：必看 4D 大秀 🎬', desc: '編號 2 忍者影廳【必看 11:00 場次】！', type: 'play' },
                 { time: '11:40', title: '探險區分隊 潛水艇與冒險 🦈', desc: '編號11潛水艇探險（全家合集），坐真的潛水艇看真魚和鯊魚！編號9失落王國雷射射射擊。分隊：【爸爸/姊姊組】飛行勇士(8)、烏賊衝浪(12)；【爺奶/小弟組】30號秘密之室（冷氣房玩積木）。29號法老球池會師。' },
                 { time: '13:00', title: '彩 (Irodori) 日式餐廳午餐 🍱', desc: '享用美味能量日式定食套餐（建議提前一天預約）。' },
@@ -1362,7 +1370,7 @@
                 ],
                 plans: {
                     'A': [
-                        { time: '18:00', title: '【方案 A】LaLaport 晚餐 ➔ 綠洲 21 夜景 🌌', desc: '直接在 LaLaport 3F 美食廣場吃飽。19:30 搭地鐵到榮站，登頂綠洲 21「水之宇宙船」拍電視塔夜景大合照！隨後搭東山線回飯店。' , mapUrl: 'https://maps.app.goo.gl/dRoKeSaPftvEVkGF7'}
+                        { time: '18:00', title: '【方案 A】LaLaport 晚餐 ➔ 綠洲 21 夜景 🌌', desc: '直接在 LaLaport 3F 美食廣場吃飽. 19:30 搭地鐵到榮站，登頂綠洲 21「水之宇宙船」拍電視塔夜景大合照！隨後搭東山線回飯店。' , mapUrl: 'https://maps.app.goo.gl/dRoKeSaPftvEVkGF7'}
                     ],
                     'B': [
                         { time: '18:00', title: '【方案 B】榮商圈晚餐 ➔ 綠洲 21 頂層 🍣', desc: '離開 LaLaport 前往榮站。挑戰德兵衛迴轉壽司，20:15 前登頂綠洲 21 拍夜景，隨後回飯店。',mapUrl: 'https://maps.app.goo.gl/3ovZzdo4EuyTdBEF6' }
@@ -1846,7 +1854,7 @@
                     formula.innerText = calcVal + " =";
                     let sanitized = calcVal.replace(/[^0-9+\-*/.]/g, '');
                     if (['+', '-', '*', '/'].includes(sanitized.slice(-1))) {
-                        sanitized = sanitized.slice(0, -1);
+                        snitized = sanitized.slice(0, -1);
                     }
                     if (sanitized) {
                         calcVal = String(Function(`"use strict"; return (${sanitized})`)());
@@ -2091,6 +2099,7 @@
             document.getElementById(`ibtn-${tabId}`).classList.remove('bg-white', 'text-muji-charcoal', 'border-muji-linen');
         }
 
+        // 重置行李清單
         function resetChecklist() {
             showConfirm(
                 "重新打包", 
@@ -2233,7 +2242,6 @@
             });
         }
 
-        // 渲染常用重要連結與備忘
         function renderMemos() {
             const container = document.getElementById('memo-list-container');
             container.innerHTML = '';
@@ -2302,7 +2310,7 @@
                 document.getElementById('exchange-rate').value = savedRate;
             }
             
-            initFontSize();       // 🌟 載入時自動初始化使用者儲存的字級（智慧局部文字放大，框架不縮放）
+            initFontSize();       
             startCountdown();
             renderTimeline();
             renderExpenses();
