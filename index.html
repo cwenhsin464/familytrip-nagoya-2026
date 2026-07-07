@@ -44,15 +44,12 @@
         }
     </script>
     <style>
-        html {
-            /* 讓全網頁依 rem 基準平滑放大縮小 */
-            transition: font-size 0.15s ease-in-out;
-        }
         body {
             font-family: 'Zen Maru Gothic', 'Quicksand', sans-serif;
             background-color: #FBF9F6;
             color: #4A3E3D;
             -webkit-tap-highlight-color: transparent;
+            transition: background-color 0.3s ease;
         }
         /* 隱藏捲軸但保有功能 */
         .no-scrollbar::-webkit-scrollbar {
@@ -91,7 +88,58 @@
             border: 1px solid #EFEAE2;
         }
 
-        /* 🌟 智慧縮放保護：鎖定特定 UI 元件尺寸，避免因字體放大而破圖、疊字或排版錯亂 🌟 */
+        /* 🌟 智慧字級無損縮放：只針對文字尺寸類別進行放大，整體排版框架（如 padding, margin, width）保持 100% 鎖定，絕對不跑版！ */
+        body {
+            transition: font-size 0.15s ease-in-out;
+        }
+
+        /* A+ 放大模式下的文字尺寸微調 */
+        body.font-size-medium .text-xs,
+        body.font-size-medium .text-\[10px\],
+        body.font-size-medium .text-\[11px\],
+        body.font-size-medium .text-\[9px\] {
+            font-size: 12px !important;
+        }
+        body.font-size-medium .text-sm {
+            font-size: 15.5px !important;
+        }
+        body.font-size-medium .text-base {
+            font-size: 18px !important;
+        }
+        body.font-size-medium .text-lg {
+            font-size: 20px !important;
+        }
+        body.font-size-medium .text-xl {
+            font-size: 23px !important;
+        }
+        body.font-size-medium .text-2xl {
+            font-size: 26px !important;
+        }
+
+        /* A++ 特大模式下的文字尺寸微調（長輩老花最愛） */
+        body.font-size-large .text-xs,
+        body.font-size-large .text-\[10px\],
+        body.font-size-large .text-\[11px\],
+        body.font-size-large .text-\[9px\] {
+            font-size: 13.5px !important;
+        }
+        body.font-size-large .text-sm {
+            font-size: 17.5px !important;
+        }
+        body.font-size-large .text-base {
+            font-size: 20.5px !important;
+        }
+        body.font-size-large .text-lg {
+            font-size: 23px !important;
+        }
+        body.font-size-large .text-xl {
+            font-size: 26px !important;
+        }
+        body.font-size-large .text-2xl {
+            font-size: 29px !important;
+        }
+
+        /* 🌟 智慧結構鎖定保護：確保特定重要互動 UI 尺寸不受字體放大影響 🌟 */
         .lock-font-size, 
         .lock-font-size button, 
         .lock-font-size input, 
@@ -234,7 +282,7 @@
         <!-- ==================== TAB 1: PLAN (行程表) ==================== -->
         <section id="tab-plan" class="tab-content fade-in">
             <!-- 天數切換滑動列 -->
-            <div class="flex gap-2 overflow-x-auto pb-3 mb-4 no-scrollbar -mx-4 px-4">
+            <div class="flex gap-2 overflow-x-auto pb-3 mb-4 no-scrollbar -mx-4 px-4 lock-font-size">
                 <button onclick="switchDay(1)" id="btn-day1" class="day-tab-btn flex-shrink-0 px-4 py-2 rounded-2xl bg-muji-charcoal text-white text-xs font-semibold shadow-sm transition-all">Day 1<br><span class="text-[10px] opacity-80">7/27(一)</span></button>
                 <button onclick="switchDay(2)" id="btn-day2" class="day-tab-btn flex-shrink-0 px-4 py-2 rounded-2xl bg-white text-muji-charcoal border border-muji-linen text-xs font-semibold shadow-sm transition-all">Day 2<br><span class="text-[10px] opacity-80">7/28(二)</span></button>
                 <button onclick="switchDay(3)" id="btn-day3" class="day-tab-btn flex-shrink-0 px-4 py-2 rounded-2xl bg-white text-muji-charcoal border border-muji-linen text-xs font-semibold shadow-sm transition-all">Day 3<br><span class="text-[10px] opacity-80">7/29(三)</span></button>
@@ -267,7 +315,7 @@
             <h2 class="text-xl font-bold mb-4 flex items-center gap-2 text-muji-charcoal"><span class="text-lg">🧭</span> 行程景點與分隊秘笈</h2>
 
             <!-- 導覽分頁按鈕群 -->
-            <div class="flex gap-2 overflow-x-auto pb-2 mb-4 no-scrollbar">
+            <div class="flex gap-2 overflow-x-auto pb-2 mb-4 no-scrollbar lock-font-size">
                 <button onclick="switchGuide('tpe')" id="gbtn-tpe" class="g-tab-btn flex-shrink-0 px-3 py-1.5 rounded-full bg-muji-charcoal text-white text-xs font-semibold">✈️ 候機時刻</button>
                 <button onclick="switchGuide('hotel')" id="gbtn-hotel" class="g-tab-btn flex-shrink-0 px-3 py-1.5 rounded-full bg-white text-muji-charcoal border border-muji-linen text-xs font-semibold">🏨 飯店周邊</button>
                 <button onclick="switchGuide('toyota')" id="gbtn-toyota" class="g-tab-btn flex-shrink-0 px-3 py-1.5 rounded-full bg-white text-muji-charcoal border border-muji-linen text-xs font-semibold">🚗 豐田紀念館</button>
@@ -1105,14 +1153,17 @@
             btnMedium.className = "px-2 py-0.5 rounded-md text-[9px] font-bold transition-all text-muji-charcoal hover:bg-white";
             btnLarge.className = "px-2 py-0.5 rounded-md text-[9px] font-bold transition-all text-muji-charcoal hover:bg-white";
 
+            // 🌟 移除 body 上所有的字級 class
+            document.body.classList.remove('font-size-normal', 'font-size-medium', 'font-size-large');
+
             if (level === 'normal') {
-                document.documentElement.style.fontSize = '100%'; // 標準
+                document.body.classList.add('font-size-normal');
                 btnNormal.className = "px-2 py-0.5 rounded-md text-[9px] font-bold transition-all bg-muji-charcoal text-white shadow-sm";
             } else if (level === 'medium') {
-                document.documentElement.style.fontSize = '118%'; // 放大 (A+)
+                document.body.classList.add('font-size-medium');
                 btnMedium.className = "px-2 py-0.5 rounded-md text-[9px] font-bold transition-all bg-chiikawa-pinkdeep text-muji-charcoal shadow-sm";
             } else if (level === 'large') {
-                document.documentElement.style.fontSize = '135%'; // 特大 (A++)
+                document.body.classList.add('font-size-large');
                 btnLarge.className = "px-2 py-0.5 rounded-md text-[9px] font-bold transition-all bg-chiikawa-accent text-white shadow-sm";
             }
 
@@ -1297,7 +1348,7 @@
                 { time: '15:00', title: 'Alpen NAGOYA 運動鞋狂買 👟', desc: '開拓名古屋超好逛大型運動用品專專賣店，5層樓商品齊全，2樓有為兒童設計的遊戲區。', mapUrl: 'https://maps.app.goo.gl/ggFja385DEckGwik7' },
                 { time: '16:30', title: '松坂屋蓬萊軒卡位登記 🍱', desc: '全團移動到松坂屋南館 10F 蓬萊軒現場櫃台登記（等候約60~90分鐘），可到本館 4F 買 Harbs 千層蛋糕。', mapUrl: 'https://maps.app.goo.gl/BDwdv3SWEK6coB2d9' },
                 { time: '17:00', title: '等候空檔：女孩吉伊卡哇圓夢 🌸', desc: 'B1有magical chiikawa, mofusand和蠟筆小新、2F是可免稅的寶可夢中心、3F是許多卡通的KIDDY LAND、4F有扭蛋店。', mapUrl: 'https://maps.app.goo.gl/jrZNXGZgKyq36xAS6' },
-                { time: '18:00', title: 'あつた蓬萊軒鰻魚飯 🌟', desc: '享用名古屋必吃、百年傳承「鰻魚飯三吃 (Hitsumabushi)」，極致美味。' },
+                { time: '18:00', title: 'あつt蓬萊軒鰻魚飯 🌟', desc: '享用名古屋必吃、百年傳承「鰻魚飯三吃 (Hitsumabushi)」，極致美味。' },
                 { time: '19:45', title: '驚安殿堂榮三丁目店 🛒', desc: '唐吉訶德買零食與藥妝。21:00 在「松坂屋前」站搭名鐵巴士 36 號直達名鐵巴士中心，輕鬆回飯店，路過大國藥妝可最後補貨。', mapUrl: 'https://maps.app.goo.gl/9KLpKBCMsty4iDYS6' }
             ],
             5: {
@@ -1325,7 +1376,7 @@
                 plans: {
                     'A': [
                         { time: '09:00', title: '【方案 A】千里馬藥局掃貨 💊', desc: '9點開始營業，一邊逛一邊等Bic Camera 10點營業。',mapUrl: 'https://maps.app.goo.gl/rLCBqL4GLz9cNtsTA' },
-                        { time: '10:00', title: 'Bic Camera 西店買電器 🔌', desc: '挑選心儀電子鍋與小孩玩具。12:00 直接放回房（步行 5 分鐘），下午兩手空空去擠大須商店街，體力負擔減半！',mapUrl: 'https://maps.app.goo.gl/zoywuGNDrsp1HV2N8' },
+                        { time: '10:00', title: 'Bic Camera 西店買電器 🔌', desc: '挑選心儀電子鍋與小孩玩具。12:00 直接放回房（步行 5 鐘），下午兩手空空去擠大須商店街，體力負擔減半！',mapUrl: 'https://maps.app.goo.gl/zoywuGNDrsp1HV2N8' },
                         { time: '13:00', title: 'Sun Road 涼爽午餐 🥪', desc: '外帶 Konparu 炸蝦三明治與 Onimaru 飯糰。',mapUrl: 'https://maps.app.goo.gl/We59R5tJsBAdfDCy7' },
                         { time: '14:30', title: '交通移動 🚇', desc: '搭東山線 1 站到伏見，轉鶴舞線 1 站至「大須觀音站」。',mapUrl: 'https://maps.app.goo.gl/CBgCdzMDzk1Vhoqu9' },
                         { time: '15:00', title: '大須觀音快閃合照 📷', desc: '在大紅燈籠下拍全家福！接著在東仁王門通街口觀賞阿波舞，逛萬松寺通商店街避暑。' },
@@ -1650,7 +1701,7 @@
                         { coords: [35.16764850967813, 136.8805665745858], title: "🏨 大和ROYNET飯店 名古屋太閣通口", desc: "三代同堂家庭 7 人 6 晚連住超便利基地！" },
                         { coords: [35.16833370240405, 136.88122908020821], title: "🏪 Ministop 名古屋站西店", desc: "主打現點現做的熱食與聖代冰品" },
                         { coords: [35.16848279958023, 136.88022056964354], title: "🏪 Lawson 椿町店", desc: "以高品質 Uchi Café 甜點與炸雞君聞名" },
-                        { coords: [35.16839747150084, 136.8785200491615], title: "🏪 FamilyMart 中村竹橋町店", desc: "兼具爆款聯名甜點與超商服飾" },
+                        { coords: [35.168379747150084, 136.8785200491615], title: "🏪 FamilyMart 中村竹橋町店", desc: "兼具爆款聯名甜點與超商服飾" },
                         { coords: [35.168929, 136.880985], title: "💊 千里馬藥局", desc: "超划算免稅老字號藥妝店（限用現金）。" },
                         { coords: [35.167386461493216, 136.88448393793936], title: "💊 大國藥妝", desc: "門檻折扣力度大，採購藥物好地方。" },
                         { coords: [35.168738320508055, 136.88190789977807], title: "💊 松本清 名古屋站太閤通店", desc: "有許多獨家限定美妝保養商品。" },
@@ -1663,7 +1714,7 @@
                         L.marker(loc.coords)
                          .addTo(hotelMap)
                          .bindPopup(`
-                            <div class="font-sans text-xs">
+                            <div class="font-sans text-xs lock-font-size">
                                 <b class="text-muji-charcoal text-xs block mb-1">${loc.title}</b>
                                 <span class="text-muji-earth text-[10px] block leading-relaxed">${loc.desc}</span>
                             </div>
@@ -1703,11 +1754,11 @@
                         { coords: [35.159107784093294, 136.89993606233327], title: "🐸 青柳總本家 大須本店", desc: "必買青蛙造型饅頭，超療癒。" },
                         { coords: [35.1587770034996, 136.9014262690888], title: "🐟 銀之餡", desc: "香酥可頌鯛魚燒，口感層次豐富。" },
                         { coords: [35.158667908379314, 136.9013860359634], title: "🍡 御手洗糰子 新雀本店", desc: "老鋪醬香糰子，鹹甜傳統好資意。" },
-                        { coords: [35.15856758459851, 136.90255212632064], title: "🍕 Solo Pizza", desc: "世界冠軍柴燒窯烤披薩，美味又划算。" },
+                        { coords: [35.15856758459851, 136.90255212632064], title: "🍕 Solo Pizza", desc: "世界冠軍柴燒窯烤披薩，美味又劃算。" },
                         { coords: [35.15904246957323, 136.90341045664485], title: "🎰 #C-pla 扭蛋店", desc: "大型扭蛋店，冷氣強，孩子超愛。" },
                         { coords: [35.158896096165584, 136.90448803411041], title: "🏷️ B-SIDE LABEL", desc: "原創設計防水貼紙專賣。" },
                         { coords: [35.158851675155894, 136.90465649464284], title: "🍗 李さんの台湾名物屋台", desc: "招牌台式香酥炸雞，逛街補給站。" },
-                        { coords: [35.15877931063873, 136.90460083880717], title: "🛒 Sanoya 超市", desc: "超划算當地平價超市，水果多汁便宜。" },
+                        { coords: [35.15877931063873, 136.90460083880717], title: "🛒 Sanoya 超市", desc: "超劃算當地平價超市，水果多汁便宜。" },
                         { coords: [35.1594196247495, 136.90492739775308], title: "🥟 包包亭生煎包", desc: "金黃酥脆爆汁生煎包，小心湯口。" },
                         { coords: [35.15937796062927, 136.90471818545507], title: "🍤 Konparu 大須本店", desc: "名古屋老店炸蝦三明治首選。" },
                         { coords: [35.159006416164296, 136.90498368958188], title: "🛒 唐吉訶德 大須店", desc: "一站式免稅百貨採購零食藥妝。" },
@@ -1717,14 +1768,14 @@
                         { coords: [35.15819904880394, 136.9046478119856], title: "🐱 巨大招財貓地標", desc: "大須必拍巨大招財貓，全家合影首選。" },
                         { coords: [35.15926990892567, 136.90126587219078], title: "🍓 弁才天 水果大福", desc: "頂級大福！附帶棉線切開即享頗面美感。" },
                         { coords: [35.16005384971265, 136.90518525009912], title: "🧀 大王起司 10元麵包", desc: "牽絲超長超療癒的爆餡雞蛋糕。" },
-                        { coords: [35.15950661618421, 136.90029682924472], title: "🔑 水曜日的愛麗絲", desc: "超夢幻矮門與奇幻裝潢！專專賣飾品與精美糖果。" }
+                        { coords: [35.15950661618421, 136.90029682924472], title: "🔑 水曜日的愛麗絲", desc: "超夢幻矮門與奇幻裝潢！專賣飾品與精美糖果。" }
                     ];
 
                     locations.forEach(loc => {
                         L.marker(loc.coords)
                          .addTo(osuMap)
                          .bindPopup(`
-                            <div class="font-sans text-xs">
+                            <div class="font-sans text-xs lock-font-size">
                                 <b class="text-muji-charcoal text-xs block mb-1">${loc.title}</b>
                                 <span class="text-muji-earth text-[10px] block leading-relaxed">${loc.desc}</span>
                             </div>
@@ -2244,57 +2295,14 @@
             renderMemos();
         }
 
-        // 點擊放大燈箱 (備用相容舊架構)
-        let isZoomed = false;
-        function openLightbox(imgSrc) {
-            if (!imgSrc) return;
-            document.getElementById('lightbox-img').src = imgSrc;
-            const modal = document.getElementById('lightbox-modal');
-            modal.classList.remove('hidden');
-            modal.classList.add('flex');
-        }
-
-        function closeLightbox() {
-            const modal = document.getElementById('lightbox-modal');
-            modal.classList.add('hidden');
-            modal.classList.remove('flex');
-            document.getElementById('lightbox-img').src = '';
-            
-            const img = document.getElementById('lightbox-img');
-            img.classList.remove('scale-[2.5]', 'cursor-zoom-out');
-            img.classList.add('cursor-zoom-in');
-            img.parentElement.style.overflow = 'hidden';
-            img.parentElement.scrollLeft = 0;
-            img.parentElement.scrollTop = 0;
-            isZoomed = false;
-        }
-
-        function toggleZoom(event) {
-            event.stopPropagation(); 
-            const img = document.getElementById('lightbox-img');
-            if (!isZoomed) {
-                img.classList.remove('cursor-zoom-in');
-                img.classList.add('cursor-zoom-out', 'scale-[2.5]');
-                img.parentElement.style.overflow = 'auto'; 
-                isZoomed = true;
-            } else {
-                img.classList.remove('cursor-zoom-out', 'scale-[2.5]');
-                img.classList.add('cursor-zoom-in');
-                img.parentElement.style.overflow = 'hidden';
-                img.parentElement.scrollLeft = 0;
-                img.parentElement.scrollTop = 0;
-                isZoomed = false;
-            }
-        }
-
-        // 11. 首次載入
+        // 首次載入與初始化
         window.onload = function() {
             const savedRate = localStorage.getItem('nagoya_custom_rate');
             if (savedRate) {
                 document.getElementById('exchange-rate').value = savedRate;
             }
             
-            initFontSize();       
+            initFontSize();       // 🌟 載入時自動初始化使用者儲存的字級（智慧局部文字放大，框架不縮放）
             startCountdown();
             renderTimeline();
             renderExpenses();
