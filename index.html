@@ -44,6 +44,10 @@
         }
     </script>
     <style>
+        html {
+            /* 讓全網頁依 rem 基準平滑放大縮小 */
+            transition: font-size 0.15s ease-in-out;
+        }
         body {
             font-family: 'Zen Maru Gothic', 'Quicksand', sans-serif;
             background-color: #FBF9F6;
@@ -99,15 +103,27 @@
         
         <p class="text-xs uppercase tracking-widest text-muji-earth font-bold">Family Trip JAPAN 2026</p>
         
-        <div class="flex items-center justify-center gap-3 mt-1">
+        <!-- 標題與字級切換控制組 (直覺型整合設計) -->
+        <div class="flex flex-col items-center justify-center mt-1">
             <h1 class="text-2xl font-bold text-muji-charcoal tracking-wide">
                 <span>🌸 名古屋親子遊 🌸</span>
             </h1>
         </div>
         
-        <div class="mt-3 inline-flex items-center gap-2 bg-white/80 px-3 py-1 rounded-full text-xs text-muji-earth shadow-sm border border-muji-linen mb-4">
-            <i class="fa-solid fa-calendar-days text-chiikawa-pinkdeep"></i>
-            <span>2026.07.27 ~ 08.02 (7天6夜)</span>
+        <!-- 🌟 旅遊日期與字級控制同一行（靠左為日期、靠右為日系膠囊按鈕，完美省空間！） -->
+        <div class="mt-3 max-w-md mx-auto flex items-center justify-between bg-white/80 px-3 py-1.5 rounded-full text-xs text-muji-earth shadow-sm border border-muji-linen mb-4 z-30 relative">
+            <!-- 旅遊日期 (靠左) -->
+            <div class="flex items-center gap-1.5 font-bold">
+                <i class="fa-solid fa-calendar-days text-chiikawa-pinkdeep"></i>
+                <span>2026.07.27 ~ 08.02 (7天6夜)</span>
+            </div>
+            
+            <!-- 字級切換控制組 (靠右) -->
+            <div class="flex items-center gap-0.5 bg-muji-sand/80 p-0.5 rounded-lg border border-muji-linen/50">
+                <button onclick="changeFontSize('normal')" id="hdr-font-normal" class="px-2 py-0.5 rounded-md text-[9px] font-bold transition-all text-muji-charcoal hover:bg-white">標準</button>
+                <button onclick="changeFontSize('medium')" id="hdr-font-medium" class="px-2 py-0.5 rounded-md text-[9px] font-bold transition-all text-muji-charcoal hover:bg-white">放大</button>
+                <button onclick="changeFontSize('large')" id="hdr-font-large" class="px-2 py-0.5 rounded-md text-[9px] font-bold transition-all text-muji-charcoal hover:bg-white">特大</button>
+            </div>
         </div>
 
         <!-- 🏨 旅途骨幹資訊速查卡片 (一鍵導航按鈕在折疊卡片外面，位居頂部，隨時可用) -->
@@ -404,7 +420,7 @@
                 
                  <div class="border-l-4 border-chiikawa-blue bg-chiikawa-blue/50 p-2.5 rounded-r-xl text-xs space-y-2 mb-2">
                     <p class="font-bold text-muji-charcoal"><i class="fa-solid fa-users text-blue-500"></i> 10:00~11:00 全員團體行動：</p>
-                    <p class="text-muji-charcoal pl-2"> 樂高工廠之旅 (1), 積木派對(旋轉木馬) (6), 瞭望台 (5)<br><strong class="text-red-600">11點 忍者影廳 (2)</strong>, 潛水艇探險 (11), 失落王國探險 (9)</p>
+                    <p class="text-muji-charcoal pl-2"> 樂高工廠之旅 (1), 積木派對(旋轉木馬) (6), 瞭望台 (5)<br><strong class="text-red-600">11點 忍者影廳 (2)</strong>, 潛水艇探險 (11), 各式積木過山車、海盜冒險區</p>
                 </div>
 
                 <div class="border-l-4 border-chiikawa-pinkdeep bg-chiikawa-pink/50 p-2.5 rounded-r-xl text-xs space-y-2 mb-2">
@@ -438,11 +454,11 @@
                 <!-- 5. 港區水族館專屬爸媽貼心話 -->
                 <div class="p-3 rounded-2xl bg-chiikawa-blue border border-chiikawa-pinkdeep/30 text-[10px] text-muji-charcoal leading-relaxed shadow-sm">
                     <span class="font-bold flex items-center gap-1 mb-1 text-blue-800"><i class="fa-solid fa-shrimp"></i> 🐬 港區水族 · 爸媽貼心話：</span>
-                    一定要先在名古屋車站購買<strong>「地鐵一日券」（760日圓），每張門票現場可以直接現折 200 日圓</strong>！中午 11:30 北館看完精彩的虎鯨公開訓練後，不要去美食街擠，<strong>直接就地在北館 3 樓巨大露天看台野餐開飯</strong>，享用早上出發前在 ESCA 地下街買好的炸蝦飯糰與麥當勞，吹著海風吃午餐最省長輩 and 幼童的腳力。南館 2 樓觀賞沙丁魚龍捲風時現場幾乎全黑，請確保大家的安全避免走散！
+                    一定要先在名古屋車站購買<strong>「地鐵一日券」（760日圓），每張門票現場可以直接現折 200 日圓</strong>！中午 11:30 北館看完精彩的虎鯨公開訓練後，不要去美食街擠，<strong>直接就地在北館 3 樓巨大露天看台野餐開飯</strong>，享用早上出發前在 ESCA 地下街買好的炸蝦飯糰與麥當勞，吹著海風吃午餐最省長輩 and 幼童的腳力。南館 2 樓觀賞沙丁魚龙捲風時現場幾乎全黑，請確保大家的安全避免走散！
                 </div>
 
                 <p class="text-xs text-muji-earth leading-relaxed">
-                    採用「只換一次館」省力動線。入館直衝北館 3F，觀賞海豚表演與虎鯨公開訓練，中午在看台野餐享用 ESCA 的炸蝦飯糰。午後再前往南館看企鵝餵食與沙丁魚龍捲風。
+                    採用「只換一次館」省力動線。入館直衝北館 3F，觀賞海豚表演與虎鯨公開訓練，中午在看台野餐享用 ESCA 的炸蝦飯糰。午後再前往南館看企鵝餵食與沙丁魚龙捲風。
                 </p>
                 <div class="bg-muji-sand p-2.5 rounded-xl text-xs">
                     <p class="font-bold text-muji-charcoal">🕒 必看時刻表：</p>
@@ -450,7 +466,7 @@
                         <li>10:30 海豚表演 BLUE ECHO (北館 3F)</li>
                         <li>11:30 逆戟鯨公開訓練 (北館 3F)</li>
                         <li>12:30 企鵝餵食時間 (南館 3F)</li>
-                        <li>14:45 沙丁魚龍捲風 (南館 2F)</li>
+                        <li>14:45 沙丁魚龙捲風 (南館 2F)</li>
                     </ul>
                 </div>
             </div>
@@ -465,7 +481,7 @@
                 <!-- 6. 東山專屬爸媽貼心話 -->
                 <div class="p-3 rounded-2xl bg-emerald-50 border border-emerald-200 text-[10px] text-emerald-900 leading-relaxed shadow-sm">
                     <span class="font-bold flex items-center gap-1 mb-1 text-emerald-800"><i class="fa-solid fa-compass"></i> 🐾 機動選路 · 爸媽貼心話：</span>
-                    到了第六天，全體成員體力均接近臨界點。<strong>如果投票通過方案 A（大須商店街）</strong>，請點選最後一格專屬的「大須商店街」導覽看詳細全彩店鋪誌！萬松寺商店街雖有頂棚防曬，但下午 15:20 阿波舞遊行時人潮將會寸步難行，請務必做好分工。<strong>如果投票方案 B（東山動物園）</strong>，園區為起伏較大的丘陵地、有著長緩坡，推推車與長輩步行體力消耗極快。入園第一件事請爸爸去租借輪椅/嬰兒車，中午 11:30 氣溫正高時，迅速帶爺奶和小弟進入「自然科學館」或「東山天空塔」的室內冷氣房茶座享用餐點、歇腳，絕對避免在烈日下硬撐！
+                    到了第六天，全體成員體力均接近臨界點。<strong>如果投票通過方案 A（大須商店街）</strong>，請點選最後一格專屬的「大須商店街」導覽看詳細全彩店鋪誌！萬松寺商店街雖有頂棚防曬，下午 15:20 阿波舞遊行時人潮將會寸步難行，請務必做好分工。<strong>如果投票方案 B（東山動物園）</strong>，園區為起伏較大的丘陵地、有著長緩坡，推推車與長輩步行體力消耗極快。入園第一件事請爸爸去租借輪椅/嬰兒車，中午 11:30 氣溫正高時，迅速帶爺奶和小弟進入「自然科學館」或「東山天空塔」的室內冷氣房茶座享用餐點、歇腳，絕對避免在烈日下硬撐！
                 </div>
 
                 <p class="text-xs text-muji-earth leading-relaxed">
@@ -483,7 +499,7 @@
                 </div>
             </div>
 
-            <!-- 7. 🛍️ 大須商店街 導覽 (置頂爸媽貼心話、OSM 地圖與全彩繽誌感店鋪誌) -->
+            <!-- 7. 🛍️ 大須商店街 導覽 -->
             <div id="gcontent-osustreet" class="guide-panel hidden bg-white p-4 rounded-3xl border border-muji-linen shadow-sm space-y-4">
                 <div class="flex justify-between items-center border-b border-muji-linen pb-2">
                     <h3 class="font-bold text-base text-muji-charcoal flex items-center gap-1.5"><i class="fa-solid fa-bag-shopping text-pink-500"></i> 大須商店街親子全攻略</h3>
@@ -537,7 +553,7 @@
                                     <span class="text-lg">🐸</span>
                                     <div>
                                         <strong class="text-muji-charcoal font-bold">4. 青柳總本家 大須本店</strong>
-                                        <p class="text-muji-earth text-[10px] mt-0.5 leading-relaxed">名古屋極具代表性的點心店。除了傳統外郎糕，最吸睛的是可愛無比的「青蛙饅頭」與大須本店限定 of 「青蛙牛奶淋聖代」，女孩們絕對會愛上！</p>
+                                        <p class="text-muji-earth text-[10px] mt-0.5 leading-relaxed">名古屋極具代表性的點心店。除了傳統外郎糕，最吸煙的是可愛無比的「青蛙饅頭」與大須本店限定 of 「青蛙牛奶淋聖代」，女孩們絕對會愛上！</p>
                                     </div>
                                 </div>
                                 <div class="pt-2 flex items-start gap-2">
@@ -573,7 +589,7 @@
                                     <span class="text-lg">🍗</span>
                                     <div>
                                         <strong class="text-muji-charcoal font-bold">8. 李さんの台湾名物屋台</strong>
-                                        <p class="text-muji-earth text-[10px] mt-0.5 leading-relaxed">大須地標級排隊名店！香酥多汁 the 台式鹹酥雞，能選擇辣度（推薦親子點無辣或微辣）。如果兩位姊慢步逛街逛到肚子餓，買一份瞬間補滿戰鬥力！</p>
+                                        <p class="text-muji-earth text-[10px] mt-0.5 leading-relaxed">大須地標級排隊名店！香酥多汁 the台式鹹酥雞，能選擇辣度（推薦親子點無辣或微辣）。如果兩位姊慢步逛街逛到肚子餓，買一份瞬間補滿戰鬥力！</p>
                                     </div>
                                 </div>
                                 <div class="pt-2 flex items-start gap-2">
@@ -733,7 +749,7 @@
                 </div>
             </div>
 
-            <!-- 新增記帳與照片壓縮 -->
+            <!-- 新增記帳 (已移除拍照按鈕，聚焦更單純的數字輸入) -->
             <div class="bg-white p-4 rounded-3xl border border-muji-linen shadow-sm space-y-3 mb-6">
                 <h3 class="font-bold text-sm text-muji-charcoal flex items-center gap-1"><i class="fa-solid fa-file-invoice-dollar text-emerald-500"></i> 新增旅途消費</h3>
                 
@@ -755,20 +771,10 @@
                     </label>
                 </div>
 
-                <div class="flex items-center justify-between gap-2 pt-2 border-t border-dashed border-muji-linen">
-                    <!-- 上傳照片按鈕 -->
-                    <label class="flex items-center gap-1.5 cursor-pointer bg-chiikawa-blue hover:bg-blue-200 text-muji-charcoal text-xs font-semibold px-3 py-2 rounded-xl transition-all">
-                        <i class="fa-solid fa-camera text-blue-500"></i>
-                        <span id="photo-status">拍收據 / 傳照</span>
-                        <input type="file" id="expense-img" accept="image/*" class="hidden" onchange="handleImageUpload()">
-                    </label>
-
+                <div class="flex items-center justify-end gap-2 pt-2 border-t border-dashed border-muji-linen">
                     <button onclick="saveExpense()" class="bg-muji-charcoal text-white hover:bg-opacity-90 px-4 py-2 rounded-xl text-xs font-semibold flex items-center gap-1 shadow-sm transition-all">
                         <i class="fa-solid fa-check"></i> 記錄這筆
                     </button>
-                </div>
-                <div id="image-preview-container" class="hidden text-center mt-2">
-                    <img id="image-preview" src="" onclick="openLightbox(this.src)" class="h-20 mx-auto rounded-lg border border-muji-linen shadow-sm cursor-zoom-in hover:opacity-90 transition-opacity">
                 </div>
             </div>
 
@@ -848,7 +854,7 @@
                     </div>
 
                     <div class="bg-chiikawa-pink/40 border border-chiikawa-pinkdeep/20 p-2.5 rounded-xl text-[9px] text-muji-earth leading-relaxed space-y-1 shadow-sm">
-                        <p class="font-bold text-muji-charcoal"><i class="fa-solid fa-suitcase-rolling text-pink-500 mr-1"></i> 行李託運 & 手提規則備忘：</p>
+                        <p class="font-bold text-muji-charcoal"><i class="fa-solid fa-suitcase-rolling text-pink-500 mr-1"></i> 行季託運 & 手提規則備忘：</p>
                         <p>• <strong>成人與學童託運：</strong> 免費額度 <strong>23 kg / 每人1件</strong> (三邊總和 &lt; 158cm)。</p>
                         <p>• <strong>幼童 (將近2歲寶寶)：</strong> 免費額度 <strong>23 kg / 1件</strong> + 1台折疊推車（推車可在登機口辦理「機邊託運」，抵達名古屋後直接於機艙口提領，極省力）。</p>
                         <p>• <strong>手提行李：</strong> 限重 <strong>7 kg / 每人1件</strong>，尺寸限制：56cm x 36cm x 23 cm。</p>
@@ -870,30 +876,16 @@
                 </button>
             </div>
 
-            <!-- 1. 🛍️ 購物清單 (支援動態自訂增刪物品 + 商品拍照功能 - 💡 預設無 hidden 以確保載入即現！) -->
+            <!-- 1. 🛍️ 購物清單 (已移除拍照功能，介面大幅簡化，輸入更流暢！) -->
             <div id="lcontent-shopping" class="list-panel bg-white p-4 rounded-3xl border border-muji-linen shadow-sm space-y-3">
                 <div class="bg-chiikawa-blue p-3 rounded-2xl text-xs text-muji-charcoal border border-blue-200">
-                    <p class="font-bold">🛒 戰利品 & 採買圖鑑：</p>
-                    <p class="text-muji-earth mt-1">在下面手動拍商品或從網路截圖上傳。買貨時直接點縮圖「超高清滿版放大」，亮給日本店員看秒找貨！</p>
+                    <p class="font-bold">🛒 戰利品採買清單：</p>
+                    <p class="text-muji-earth mt-1">建立想採買的伴手禮或藥妝項目，在名古屋藥妝店或免稅店對照，採購更輕鬆！</p>
                 </div>
                 
                 <div class="flex gap-2">
-                    <!-- 📸 拍照/傳圖按鈕 -->
-                    <label class="flex items-center justify-center w-10 h-10 rounded-xl bg-chiikawa-blue border border-blue-200 text-blue-600 cursor-pointer hover:bg-blue-100 transition-colors flex-shrink-0 shadow-sm">
-                        <i id="shopping-photo-icon" class="fa-solid fa-camera text-blue-500 text-sm"></i>
-                        <input type="file" id="shopping-img-input" accept="image/*" class="hidden" onchange="handleShoppingImageUpload()">
-                    </label>
                     <input type="text" id="shopping-item-input" placeholder="例如：合利他命、蝦仙貝、吉伊卡哇..." class="flex-1 px-3 py-2 rounded-xl border border-muji-linen text-xs focus:outline-none focus:ring-1 focus:ring-chiikawa-pinkdeep bg-white shadow-sm">
                     <button onclick="addShoppingItem()" class="bg-muji-charcoal text-white px-4 py-2 rounded-xl text-xs font-bold hover:bg-opacity-95 active:scale-95 transition-all shadow-sm">新增</button>
-                </div>
-
-                <!-- 📸 拍照上傳預覽區域 -->
-                <div id="shopping-preview-container" class="hidden text-center bg-muji-sand p-2 rounded-xl border border-muji-linen flex items-center justify-between gap-2">
-                    <div class="flex items-center gap-2">
-                        <img id="shopping-preview-img" src="" class="h-10 w-10 object-cover rounded-lg border border-muji-linen shadow-sm">
-                        <span class="text-[10px] text-muji-earth font-semibold">📷 商品圖已就位！</span>
-                    </div>
-                    <button onclick="clearShoppingImagePreview()" class="text-red-400 hover:text-red-500 text-xs px-2 py-1"><i class="fa-solid fa-circle-xmark"></i> 清除</button>
                 </div>
 
                 <div class="space-y-2 mt-4" id="shopping-list-container">
@@ -1051,7 +1043,7 @@
         </div>
     </div>
 
-    <!-- 收據照片與商品圖放大燈箱 (Lightbox Modal) - 已升級為真•滿版全螢幕高畫質雙擊/點擊再次 2.5x 無損縮放 -->
+    <!-- 收據照片與商品圖放大燈箱 (Lightbox Modal) - 僅保留以相容舊有匯入 -->
     <div id="lightbox-modal" class="fixed inset-0 bg-black/95 hidden items-center justify-center z-[110] cursor-zoom-out animate-fade-in" onclick="closeLightbox()">
         <div class="relative w-full h-full flex items-center justify-center p-2" onclick="event.stopPropagation()">
             <button onclick="closeLightbox()" class="absolute top-4 right-4 text-white text-3xl hover:text-gray-300 focus:outline-none transition-colors z-50 bg-black/40 w-11 h-10 rounded-full flex items-center justify-center">
@@ -1092,6 +1084,37 @@
         let osuMap = null;
         let currentDay = 1; // 宣告全域變數 currentDay
 
+        // --- 🌟 新增：字級調整控制邏輯 (老花與長輩友善設計) 🌟 ---
+        function changeFontSize(level) {
+            // 重置所有選取按鈕的樣式 (Header 字級控制組)
+            const btnNormal = document.getElementById('hdr-font-normal');
+            const btnMedium = document.getElementById('hdr-font-medium');
+            const btnLarge = document.getElementById('hdr-font-large');
+
+            btnNormal.className = "px-2.5 py-1 rounded-lg text-[10px] font-bold transition-all text-muji-charcoal hover:bg-muji-sand";
+            btnMedium.className = "px-2.5 py-1 rounded-lg text-[10px] font-bold transition-all text-muji-charcoal hover:bg-muji-sand";
+            btnLarge.className = "px-2.5 py-1 rounded-lg text-[10px] font-bold transition-all text-muji-charcoal hover:bg-muji-sand";
+
+            if (level === 'normal') {
+                document.documentElement.style.fontSize = '100%'; // 預設 16px
+                btnNormal.className = "px-2.5 py-1 rounded-lg text-[10px] font-bold transition-all bg-muji-charcoal text-white shadow-sm";
+            } else if (level === 'medium') {
+                document.documentElement.style.fontSize = '115%'; // 放大到 18.4px
+                btnMedium.className = "px-2.5 py-1 rounded-lg text-[10px] font-bold transition-all bg-chiikawa-pinkdeep text-muji-charcoal shadow-sm";
+            } else if (level === 'large') {
+                document.documentElement.style.fontSize = '130%'; // 放大到 20.8px (老花、長輩最推薦)
+                btnLarge.className = "px-2.5 py-1 rounded-lg text-[10px] font-bold transition-all bg-chiikawa-accent text-white shadow-sm";
+            }
+
+            // 本地儲存使用者選擇
+            localStorage.setItem('nagoya_font_size', level);
+        }
+
+        function initFontSize() {
+            const savedSize = localStorage.getItem('nagoya_font_size') || 'normal';
+            changeFontSize(savedSize);
+        }
+
         // 0. 自定義對話框引擎邏輯
         function showConfirm(title, message, icon, onConfirm) {
             document.getElementById('custom-confirm-title').innerText = title;
@@ -1117,6 +1140,7 @@
             };
         }
 
+        // 提示對話框
         function showAlert(title, message, icon) {
             document.getElementById('custom-alert-title').innerText = title;
             document.getElementById('custom-alert-message').innerText = message;
@@ -1132,9 +1156,8 @@
             };
         }
 
-        // 0.5 櫻花倒數計時器邏輯 (優化相容性與狀態呈現)
+        // 0.5 櫻花倒數計時器邏輯
         function startCountdown() {
-            // 使用更具跨瀏覽器（如 Safari iOS）相容性的 Date 參數初始化
             const targetDate = new Date(2026, 6, 27, 14, 55, 0).getTime(); 
             
             function updateTimer() {
@@ -1185,7 +1208,7 @@
             }
         }
 
-        // 💡 補上 Lists 頁面「航班與行李託運限制摺疊卡片」的切換邏輯
+        // 行李分頁摺疊邏輯
         function toggleFlightListsDetails() {
             const block = document.getElementById('flight-lists-block');
             const arrow = document.getElementById('flight-lists-arrow');
@@ -1198,7 +1221,7 @@
             }
         }
 
-        // 0.65 飯店詳情摺疊控制
+        // 飯店詳情摺疊控制
         function toggleHotelDetails() {
             const block = document.getElementById('hotel-details-block');
             const arrow = document.getElementById('hotel-details-arrow');
@@ -1231,7 +1254,6 @@
                     { time: '10:00', title: '豐田產業技術紀念館 🛠️', desc: '10:00購票入館(大人1000日圓、65歲以上600日圓、暑假期間學童免費)，從中央入口進入拍張全家福。第一時間衝至右手邊「科技樂園 (Technoland)」預約10:30~11:00 the 裝機時間。' },
                     { time: '11:00', title: '蒸汽機與織布機演示 ⚙️', desc: '11:00看科技樂園對面的蒸汽機運轉；11:25回到大廳欣賞環狀織布機演示。' },
                     { time: '11:35', title: '自由展區與午餐 🍛', desc: '參觀汽車組裝。午餐可於館內 Brick Age 紅磚餐廳享用，或慢步至 AEON Mall 美食廣場享用。' },
-                    { time: '13:20', title: '夥伴機器人拉小提琴表演 🎻', desc: '走到南入口欣賞高科技機器人美妙的現場小提琴演奏。' },
                     { time: '14:00', title: 'AEON Mall 則武新町 🛍️', desc: '南入口步行 500 公尺進 AEON。避暑購物時光！蔦屋書店打卡牆、Uniqlo、Seria百元店、無印良品、3coins+Plus買齊！', mapUrl: 'https://maps.app.goo.gl/ybcTw2yMqHenjhqHA' }
                 ],
                 plans: {
@@ -1261,7 +1283,7 @@
                 { time: '09:00', title: '前往巴士大本營 🚌', desc: '從飯店步行 250 公尺到「笹島町」公車站，搭乘幹栄2、栄24或名鐵巴士 40 號，坐 5 站（10分鐘）在「広小路本町」下車。', mapUrl: 'https://maps.app.goo.gl/R211gg7MiDC7c6ry9' },
                 { time: '09:30', title: '名古屋市科學館 🪐', desc: '下車走長島町通，只買展示室單獨票（大人 400，國中以下免費）。5F 實物元素週期表、極寒實驗室整理券；4F 百萬伏特放電；3F 9米高龍捲風；2F 水之廣場。', mapUrl: 'https://maps.app.goo.gl/Stwq7jRsb1qs51HD9' },
                 { time: '13:30', title: '一蘭拉麵榮店午餐 🍜', desc: '離開科學館，步行 400 公尺至一蘭拉麵榮店享用美味拉麵。順路在對面買好吃銅鑼燒（10:30開門）。', mapUrl: 'https://maps.app.goo.gl/tC4SZdXKWf4iyWyv6' },
-                { time: '15:00', title: 'Alpen NAGOYA 運動鞋狂買 👟', desc: '開拓名古屋超好逛大型運動用品專賣店，5層樓商品齊全，2樓有為兒童設計的遊戲區。', mapUrl: 'https://maps.app.goo.gl/ggFja385DEckGwik7' },
+                { time: '15:00', title: 'Alpen NAGOYA 運動鞋狂買 👟', desc: '開拓名古屋超好逛大型運動用品專專賣店，5層樓商品齊全，2樓有為兒童設計的遊戲區。', mapUrl: 'https://maps.app.goo.gl/ggFja385DEckGwik7' },
                 { time: '16:30', title: '松坂屋蓬萊軒卡位登記 🍱', desc: '全團移動到松坂屋南館 10F 蓬萊軒現場櫃台登記（等候約60~90分鐘），可到本館 4F 買 Harbs 千層蛋糕。', mapUrl: 'https://maps.app.goo.gl/BDwdv3SWEK6coB2d9' },
                 { time: '17:00', title: '等候空檔：女孩吉伊卡哇圓夢 🌸', desc: 'B1有magical chiikawa, mofusand和蠟筆小新、2F是可免稅的寶可夢中心、3F是許多卡通的KIDDY LAND、4F有扭蛋店。', mapUrl: 'https://maps.app.goo.gl/jrZNXGZgKyq36xAS6' },
                 { time: '18:00', title: 'あつた蓬萊軒鰻魚飯 🌟', desc: '享用名古屋必吃、百年傳承「鰻魚飯三吃 (Hitsumabushi)」，極致美味。' },
@@ -1299,7 +1321,7 @@
                         { time: '17:30', title: '綠洲 21 與榮區晚餐 🌆', desc: '上前津站搭地鐵至榮站，拍電視塔夜景，晚餐吃德兵衛迴轉壽司。隨後搭東山線回名古屋站準備行李箱封箱。', mapUrl: 'https://maps.app.goo.gl/dRoKeSaPftvEVkGF7' }
                     ],
                     'B': [
-                        { time: '08:00', title: '【方案 B】Sun Road 買野餐 🍙', desc: '在名站地下街先買好美味的可頌、炸蝦三明治與飯糰，作爲東山動植物園的草坪野餐乾糧。', mapUrl: 'https://maps.app.goo.gl/We59R5tJsBAdfDCy7' },
+                        { time: '08:00', title: '【方案 B】Sun Road 買野餐 🍙', desc: '在名站地下街先買好美味的可頌、炸蝦三明治與飯糰，作畫東山動植物園的草坪野餐乾糧。', mapUrl: 'https://maps.app.goo.gl/We59R5tJsBAdfDCy7' },
                         { time: '08:30', title: '東山線直達東山公園 🚇', desc: '搭地鐵東山線往藤之丘方向，坐 8 站（大約 15 分鐘）在「東山公園站」下車，步行 3 分鐘即抵。' },
                         { time: '09:00', title: '東山動植物園慢行 🦍', desc: '進入園區，先去看全日本最帥的黑猩猩「夏班尼 (Shabani)」、可愛無尾熊，園內非常寬敞。中午帶長輩與孩子在陰涼草地享用美味野餐。2 歲小寶貝累了可在推車上小憩，下午坐園區單軌列車。' },
                         { time: '14:30', title: '回到市區特攻 Bic 🔌', desc: '坐東山線回到名古屋站，直攻飯店隔邊的 Bic Camera 電器行，挑選美容儀與電器。買好後先提回房間，不累贅。', mapUrl: 'https://maps.app.goo.gl/zoywuGNDrsp1HV2N8' },
@@ -1390,15 +1412,15 @@
             ]}
         ];
 
-        // 🛍️ 自訂購物採買清單數據
+        // 🛍️ 自訂購物採買清單數據 (移除圖片屬性)
         let shoppingList = JSON.parse(localStorage.getItem('nagoya_shopping_list')) || [
-            { text: '合利他命 EX Plus 💊', checked: false, img: "" },
-            { text: '吉伊卡哇玩偶/周邊商品 🌸', checked: false, img: "" },
-            { text: '蝦仙貝之里 綜合大包裝仙貝 🦐', checked: false, img: "" },
-            { text: 'Sugar Butter Tree 夾心餅乾 🧈', checked: false, img: "" },
-            { text: '若元錠 Wakamoto', checked: false, img: "" },
-            { text: '日本限定彩妝/口紅 💄', checked: false, img: "" },
-            { text: 'Dyson 吹風機/日本電器 🔌', checked: false, img: "" }
+            { text: '合利他命 EX Plus 💊', checked: false },
+            { text: '吉伊卡哇玩偶/周邊商品 🌸', checked: false },
+            { text: '蝦仙貝之里 綜合大包裝仙貝 🦐', checked: false },
+            { text: 'Sugar Butter Tree 夾心餅乾 🧈', checked: false },
+            { text: '若元錠 Wakamoto', checked: false },
+            { text: '日本限定彩妝/口紅 💄', checked: false },
+            { text: 'Dyson 吹風機/日本電器 🔌', checked: false }
         ];
 
         let memos = JSON.parse(localStorage.getItem('memos')) || [
@@ -1418,7 +1440,7 @@
             { text: '中部國際機場樓層導覽', url: 'https://platinumaps.jp/d/centrair/?culture=zh-tw' },
         ];
 
-        // 2. 主分頁切換 (優化視覺回饋與地圖更新)
+        // 2. 主分頁切換
         function switchTab(tabId) {
             document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
             document.getElementById(`tab-${tabId}`).classList.remove('hidden');
@@ -1642,7 +1664,7 @@
             }, 100);
         }
 
-        // 初始化與渲染 Leaflet 大須地圖（包含推薦的藍色散步路線）
+        // 初始化與渲染 Leaflet 大須地圖
         function initOsuMap() {
             if (typeof L === 'undefined') return;
 
@@ -1663,7 +1685,7 @@
                     }).addTo(osuMap);
 
                     const locations = [
-                        { coords: [35.15944138140627, 136.8999671086299], title: "🐟 鯛福茶庵 八代目澤屋", desc: "萬松寺門口必吃現烤鯛魚燒與Q彈日式糰子！" },
+                        { coords: [35.15944138140627, 136.8999671086299], title: "🐟 鯛福茶庵 八代目澤屋", desc: "萬松寺門口必吃現烤鯛魚與Q彈日式糰子！" },
                         { coords: [35.15940984948601, 136.90047317467636], title: "🛍️ 百元商店 Seria", desc: "超好買日系生活雜貨與卡通聯名周邊。" },
                         { coords: [35.15902445551203, 136.90030955993075], title: "🍡 大須外郎", desc: "名古屋名物米製和菓子，Q彈香甜。" },
                         { coords: [35.15906666802768, 136.90013186358792], title: "🍘 朝日軒觀音店", desc: "大須人氣古法仙貝店，現烤美味。" },
@@ -1684,9 +1706,9 @@
                         { coords: [35.15819904880394, 136.9046478119856], title: "🐱 巨大招財貓地標", desc: "大須必拍巨大招財貓，全家合影首選。" },
                         { coords: [35.15926990892567, 136.90126587219078], title: "🍓 弁才天 水果大福", desc: "頂級大福！附帶棉線切開即享頗面美感。" },
                         { coords: [35.16005384971265, 136.90518525009912], title: "🧀 大王起司 10元麵包", desc: "牽絲超長超療癒的爆餡雞蛋糕。" },
-                        { coords: [35.15950661618421, 136.90029682924472], title: "🔑 水曜日的愛麗絲", desc: "超夢幻矮門與奇幻裝潢！專賣飾品與精美糖果。" }
+                        { coords: [35.15950661618421, 136.90029682924472], title: "🔑 水曜日的愛麗絲", desc: "超夢幻矮門與奇幻裝潢！專專賣飾品與精美糖果。" }
                     ];
-                    // 繪製標記與氣泡提示框
+
                     locations.forEach(loc => {
                         L.marker(loc.coords)
                          .addTo(osuMap)
@@ -1698,7 +1720,6 @@
                          `);
                     });
 
-                    // 💡 建立推薦散步路線軌跡 (清晰深藍色，高辨識度！)
                     const routeCoords = [
                         [35.16016580527812, 136.898498075464], // 大須觀音站 (2號口)
                         [35.15956935394174, 136.8986295037025], // 7-11
@@ -1724,9 +1745,9 @@
                     ];
 
                     const routeLine = L.polyline(routeCoords, {
-                        color: '#1A73E8',       // 藍色虛線散步推薦虛線
-                        weight: 6,              // 線條粗細
-                        dashArray: '5, 10',     // 虛線間距
+                        color: '#1A73E8',       // 藍色虛線散步推薦
+                        weight: 6,              
+                        dashArray: '5, 10',     
                         opacity: 0.9,
                         lineJoin: 'round'
                     }).addTo(osuMap);
@@ -1741,11 +1762,9 @@
                         </div>
                     `);
 
-                    // 自動縮放地圖以完整呈現整條散步虛線
                     osuMap.fitBounds(routeLine.getBounds(), { padding: [30, 30] });
 
                 } else {
-                    // 重新計算尺寸，修復分頁切換所產生的灰格
                     osuMap.invalidateSize();
                 }
             }, 100);
@@ -1799,46 +1818,11 @@
             const rate = parseFloat(document.getElementById('exchange-rate').value) || 0.2105;
             const val = parseFloat(screenText) || 0;
             
-            // 修正：增加 isFinite 驗證，防止用戶運算到除零 (Infinity) 時呼叫 toFixed 造成網頁卡死崩潰
             const res = isFinite(val) ? (val * rate).toFixed(0) : "0";
             document.getElementById('calc-twd-estimate').innerText = `約 NT$ ${res}`;
         }
 
         // 8. 記帳邏輯與優化
-        let uploadedImageBase64 = "";
-
-        // 💡 提升收據照片壓縮限制：由 120px 大幅提高至超清晰 1200px 寬度，提升畫質至 90%
-        function handleImageUpload() {
-            const fileInput = document.getElementById('expense-img');
-            const statusText = document.getElementById('photo-status');
-            const previewContainer = document.getElementById('image-preview-container');
-            const previewImg = document.getElementById('image-preview');
-
-            if (fileInput.files && fileInput.files[0]) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    const img = new Image();
-                    img.onload = function() {
-                        const canvas = document.createElement('canvas');
-                        const ctx = canvas.getContext('2d');
-                        const maxW = 1200; // 💡 修正：提升至 1200px 高解析度
-                        const scale = maxW / img.width;
-                        canvas.width = maxW;
-                        canvas.height = img.height * scale;
-
-                        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-                        uploadedImageBase64 = canvas.toDataURL('image/jpeg', 0.90); // 💡 修正：畫質提到 90% (與商品清單看齊)
-
-                        previewImg.src = uploadedImageBase64;
-                        previewContainer.classList.remove('hidden');
-                        statusText.innerText = "📸 已成功上傳！";
-                    };
-                    img.src = e.target.result;
-                };
-                reader.readAsDataURL(fileInput.files[0]);
-            }
-        }
-
         function saveExpense() {
             const nameInput = document.getElementById('expense-name');
             const jpyInput = document.getElementById('expense-jpy');
@@ -1853,20 +1837,15 @@
                 id: 'exp_' + Date.now(),
                 name: nameInput.value,
                 jpy: parseFloat(jpyInput.value),
-                type: typeInput ? typeInput.value : 'cash', // 'cash' 現金 或 'card' 信用卡
-                img: uploadedImageBase64 || ""
+                type: typeInput ? typeInput.value : 'cash',
+                img: "" // 移除了拍照功能，預設為空
             };
 
             expenses.push(item);
             localStorage.setItem('expenses', JSON.stringify(expenses));
 
-            // 清除輸入
             nameInput.value = "";
             jpyInput.value = "";
-            uploadedImageBase64 = "";
-            document.getElementById('image-preview-container').classList.add('hidden');
-            document.getElementById('photo-status').innerText = "拍收據 / 傳照";
-            document.getElementById('expense-img').value = "";
 
             renderExpenses();
         }
@@ -1878,7 +1857,7 @@
             renderExpenses();
         }
 
-        // 清除全部記帳
+        // 清空帳本
         function clearAllExpenses() {
             if (expenses.length === 0) {
                 showAlert("提示", "目前沒有任何記帳資料唷！", "💡");
@@ -1897,11 +1876,10 @@
             );
         }
 
-        // 新增記帳付款篩選功能
+        // 付款篩選
         function filterExpenses(filterType) {
             expenseFilter = filterType;
             
-            // 變更按鈕樣式
             document.querySelectorAll('[id^="exp-filter-"]').forEach(btn => {
                 btn.className = "text-[10px] font-bold px-3 py-1 rounded-full bg-white text-muji-earth border border-muji-linen transition-all";
             });
@@ -1959,7 +1937,6 @@
             let cashJpy = 0;
             let cardJpy = 0;
 
-            // 計算全域總和
             expenses.forEach(x => {
                 const payType = x.type || 'cash';
                 totalJpy += x.jpy;
@@ -1967,13 +1944,11 @@
                 else cardJpy += x.jpy;
             });
 
-            // 過濾並進行顯示
             const filteredExpenses = expenses.filter(x => {
                 if (expenseFilter === 'all') return true;
                 return x.type === expenseFilter;
             });
 
-            // 溫馨「空狀態 Empty State」插畫視覺
             if (filteredExpenses.length === 0) {
                 list.innerHTML = `
                     <div class="text-center py-8 text-muji-earth">
@@ -1995,7 +1970,7 @@
 
                     itemDiv.innerHTML = `
                         <div class="flex items-center gap-2">
-                            ${x.img ? `<img src="${x.img}" onclick="openLightbox('${x.img}')" class="w-10 h-10 object-cover rounded border border-muji-linen cursor-zoom-in hover:opacity-90 transition-opacity">` : `<div class="w-10 h-10 bg-muji-linen rounded flex items-center justify-center text-lg">🛍️</div>`}
+                            <div class="w-10 h-10 bg-muji-linen rounded flex items-center justify-center text-lg">🛍️</div>
                             <div>
                                 <p class="font-bold text-muji-charcoal flex items-center gap-1.5">
                                     ${badgeHtml}
@@ -2013,7 +1988,6 @@
                 });
             }
 
-            // 更新 UI 總統計與分流統計
             document.getElementById('expense-total-jpy').innerText = `¥ ${totalJpy.toLocaleString()}`;
             document.getElementById('expense-total-twd').innerText = `約 NT$ ${(totalJpy * rate).toFixed(0)}`;
             
@@ -2034,7 +2008,6 @@
             });
             document.getElementById(`lbtn-${tabId}`).className = "list-sub-btn py-2 rounded-2xl bg-muji-charcoal text-white text-xs font-bold transition-all";
 
-            // 購物清單與備忘錄分頁不需要顯示行李箱專用一鍵重設按鈕
             const resetBtn = document.getElementById('reset-checklist-bar');
             if (tabId === 'shopping') {
                 resetBtn.classList.add('hidden');
@@ -2043,7 +2016,7 @@
             }
         }
 
-        // 💡 實用資訊子分頁切換（備忘連結、入境手續、緊急防護）
+        // 實用資訊子分頁切換
         function switchInfoTab(tabId) {
             document.querySelectorAll('.info-panel').forEach(el => el.classList.add('hidden'));
             document.getElementById(`icontent-${tabId}`).classList.remove('hidden');
@@ -2074,7 +2047,6 @@
             );
         }
 
-        // 行李列表事件綁定
         function toggleItem(type, catIdx, itemIdx) {
             if (type === 'handbag') {
                 handbagList[catIdx].items[itemIdx].checked = !handbagList[catIdx].items[itemIdx].checked;
@@ -2090,7 +2062,6 @@
             const handbagGroup = document.getElementById('handbag-check-group');
             const luggageGroup = document.getElementById('luggage-check-group');
 
-            // 渲染手提行李
             handbagGroup.innerHTML = '';
             handbagList.forEach((cat, catIdx) => {
                 const catDiv = document.createElement('div');
@@ -2112,7 +2083,6 @@
                 handbagGroup.appendChild(catDiv);
             });
 
-            // 渲染托運行李
             luggageGroup.innerHTML = '';
             luggageList.forEach((cat, catIdx) => {
                 const catDiv = document.createElement('div');
@@ -2135,49 +2105,6 @@
             });
         }
 
-        // 🛍️ 購物清單變數
-        let shoppingUploadedImageBase64 = "";
-
-        // 💡 購物清單照片上傳與無障礙 Canvas 縮小壓縮 (大幅提升至超清晰 1200px 寬度，畫質 90%)
-        function handleShoppingImageUpload() {
-            const fileInput = document.getElementById('shopping-img-input');
-            const previewContainer = document.getElementById('shopping-preview-container');
-            const previewImg = document.getElementById('shopping-preview-img');
-            const photoIcon = document.getElementById('shopping-photo-icon');
-
-            if (fileInput.files && fileInput.files[0]) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    const img = new Image();
-                    img.onload = function() {
-                        const canvas = document.createElement('canvas');
-                        const ctx = canvas.getContext('2d');
-                        const maxW = 1200; // 💡 修正：提昇至 1200px 寬度，確保極致清晰度
-                        const scale = maxW / img.width;
-                        canvas.width = maxW;
-                        canvas.height = img.height * scale;
-
-                        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-                        shoppingUploadedImageBase64 = canvas.toDataURL('image/jpeg', 0.90); // 💡 修正：調高畫質至 90%，防止縮放模糊
-
-                        previewImg.src = shoppingUploadedImageBase64;
-                        previewContainer.classList.remove('hidden');
-                        photoIcon.className = "fa-solid fa-camera text-rose-500 text-sm animate-pulse-soft";
-                    };
-                    img.src = e.target.result;
-                };
-                reader.readAsDataURL(fileInput.files[0]);
-            }
-        }
-
-        function clearShoppingImagePreview() {
-            shoppingUploadedImageBase64 = "";
-            document.getElementById('shopping-img-input').value = "";
-            document.getElementById('shopping-preview-container').classList.add('hidden');
-            document.getElementById('shopping-preview-img').src = "";
-            document.getElementById('shopping-photo-icon').className = "fa-solid fa-camera text-blue-500 text-sm";
-        }
-
         // 🛍️ 購物清單相關函數 (新增 / 勾選 / 刪除 / 渲染)
         function addShoppingItem() {
             const input = document.getElementById('shopping-item-input');
@@ -2188,12 +2115,10 @@
             }
             shoppingList.push({ 
                 text: text, 
-                checked: false, 
-                img: shoppingUploadedImageBase64 || "" 
+                checked: false
             });
             localStorage.setItem('nagoya_shopping_list', JSON.stringify(shoppingList));
             input.value = "";
-            clearShoppingImagePreview();
             renderShoppingList();
         }
 
@@ -2218,7 +2143,7 @@
                     <div class="text-center py-8 text-muji-earth">
                         <p class="text-3xl mb-2">🛍️</p>
                         <p class="text-[11px] font-bold">目前採買清單空空的喔！</p>
-                        <p class="text-[9px] opacity-75 mt-0.5">趕快在上方輸入像是「合利他命」、「蠟筆小新周邊」來建立購物清單吧！</p>
+                        <p class="text-[9px] opacity-75 mt-0.5">趕快在上方輸入採購品項建立清單吧！</p>
                     </div>
                 `;
                 return;
@@ -2228,21 +2153,9 @@
                 const card = document.createElement('div');
                 card.className = `p-3 rounded-2xl border flex items-center justify-between gap-2 text-xs fade-in transition-all ${item.checked ? 'bg-chiikawa-pink/70 border-chiikawa-pinkdeep text-muji-charcoal' : 'bg-muji-sand border-muji-linen text-muji-earth shadow-sm'}`;
                 
-                // 💡 圖片渲染邏輯與燈箱開啟 (Lightbox Zooming)
-                let imgHtml = "";
-                if (item.img) {
-                    imgHtml = `
-                        <img src="${item.img}" onclick="openLightbox('${item.img}')" class="w-10 h-10 object-cover rounded-lg border border-muji-linen cursor-zoom-in hover:opacity-90 transition-opacity">
-                    `;
-                } else {
-                    imgHtml = `
-                        <div class="w-10 h-10 bg-muji-linen rounded-lg flex items-center justify-center text-lg flex-shrink-0 text-muji-earth">🛍️</div>
-                    `;
-                }
-
                 card.innerHTML = `
                     <div class="flex items-center gap-2.5 flex-1 min-w-0">
-                        ${imgHtml}
+                        <div class="w-10 h-10 bg-muji-linen rounded-lg flex items-center justify-center text-lg flex-shrink-0 text-muji-earth">🛍️</div>
                         <button onclick="toggleShoppingItem(${idx})" class="flex items-center gap-2 text-left text-[11px] font-semibold flex-1 active:scale-[0.98] transition-transform min-w-0">
                             <i class="fa-regular ${item.checked ? 'fa-square-check text-chiikawa-pinkdeep text-sm flex-shrink-0' : 'fa-square text-muji-earth flex-shrink-0'}"></i>
                             <span class="${item.checked ? 'line-through text-muji-earth' : 'text-muji-charcoal'} break-words">${item.text}</span>
@@ -2256,7 +2169,6 @@
             });
         }
 
-        // 💡 補回備忘重要連結的渲染函數 (解決 ReferenceError)
         function renderMemos() {
             const container = document.getElementById('memo-list-container');
             container.innerHTML = '';
@@ -2266,7 +2178,6 @@
                     <div class="text-center py-8 text-muji-earth">
                         <p class="text-3xl mb-2">📌</p>
                         <p class="text-[11px] font-bold">常用重要連結與備忘空空如也喔！</p>
-                        <p class="text-[9px] opacity-75 mt-0.5">可以在這裡新增飯店交通指引 or VJW 入境官網連結！</p>
                     </div>
                 `;
                 return;
@@ -2294,7 +2205,6 @@
             });
         }
 
-        // 10. 備忘錄 (改移到 INFO 常用資訊頁面中)
         function addMemo() {
             const input = document.getElementById('memo-input');
             if (!input.value) return;
@@ -2320,7 +2230,8 @@
             renderMemos();
         }
 
-        // 💡 點擊相片放大燈箱功能
+        // 點擊放大燈箱
+        let isZoomed = false;
         function openLightbox(imgSrc) {
             if (!imgSrc) return;
             document.getElementById('lightbox-img').src = imgSrc;
@@ -2329,14 +2240,12 @@
             modal.classList.add('flex');
         }
 
-        // 關閉燈箱
         function closeLightbox() {
             const modal = document.getElementById('lightbox-modal');
             modal.classList.add('hidden');
             modal.classList.remove('flex');
             document.getElementById('lightbox-img').src = '';
             
-            // 💡 重置滾動狀態與縮放
             const img = document.getElementById('lightbox-img');
             img.classList.remove('scale-[2.5]', 'cursor-zoom-out');
             img.classList.add('cursor-zoom-in');
@@ -2346,15 +2255,13 @@
             isZoomed = false;
         }
 
-        // 💡 點擊再次 2.5 倍放大與拖曳滾動邏輯
-        let isZoomed = false;
         function toggleZoom(event) {
-            event.stopPropagation(); // 阻止事件冒泡防止關閉燈箱
+            event.stopPropagation(); 
             const img = document.getElementById('lightbox-img');
             if (!isZoomed) {
                 img.classList.remove('cursor-zoom-in');
                 img.classList.add('cursor-zoom-out', 'scale-[2.5]');
-                img.parentElement.style.overflow = 'auto'; // 允許雙向滾動查看超高清細節
+                img.parentElement.style.overflow = 'auto'; 
                 isZoomed = true;
             } else {
                 img.classList.remove('cursor-zoom-out', 'scale-[2.5]');
@@ -2368,18 +2275,18 @@
 
         // 11. 首次載入
         window.onload = function() {
-            // 讀取持久化的自訂匯率
             const savedRate = localStorage.getItem('nagoya_custom_rate');
             if (savedRate) {
                 document.getElementById('exchange-rate').value = savedRate;
             }
             
+            initFontSize();       
             startCountdown();
             renderTimeline();
             renderExpenses();
             renderChecklists();
-            renderShoppingList(); // 💡 確保載入時立刻渲染購物清單 (修復預設看不到的問題)
-            renderMemos();        // 💡 確保載入時立刻渲染備忘錄重要連結
+            renderShoppingList(); 
+            renderMemos();        
         };
     </script>
 </body>
